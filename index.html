@@ -23,37 +23,22 @@ a{text-decoration:none;color:inherit}
   --grad:linear-gradient(135deg,#0f172a 0%,#0d3a3a 50%,#0d9488 100%);
 }
 
-/* ── Navbar (Yükseklik esnek, logo için optimize) ────── */
+/* ── Navbar (Logo sadece tipografik, ikon kaldırıldı) ─ */
 .nav{
   position:fixed;top:0;left:0;right:0;z-index:100;
   background:rgba(15,23,42,.95);backdrop-filter:blur(12px);
   border-bottom:1px solid rgba(255,255,255,.06);
-  padding:8px 5%; /* Üst-alt padding eklendi, height auto olacak */
-  min-height:70px;
-  display:flex;align-items:center;justify-content:space-between;
+  padding:0 5%;height:64px;display:flex;align-items:center;justify-content:space-between;
   transition:.3s;
 }
-/* Logo kapsayıcı */
-.nav-logo{display:flex;align-items:center;gap:8px;}
-/* Logo kutusu (ikon) */
-.nav-logo-box{
-  width:38px;height:38px;
-  background:linear-gradient(145deg, #14b8a6, #0d9488);
-  border-radius:10px;
-  display:flex;align-items:center;justify-content:center;
-  color:#fff;font-weight:800;font-size:14px;
-  box-shadow:0 4px 6px rgba(13,148,136,.15);
-  transition:transform .2s ease;
-  flex-shrink:0;
-}
-.nav-logo-box:hover{transform:scale(1.05);}
-/* Logo metin stilleri */
+/* Logo metin grubu */
+.nav-logo{display:flex;align-items:center;}
 .nav-logo-text-group{display:flex;flex-direction:column;line-height:1.2;}
 .nav-logo-main{display:flex;align-items:baseline;gap:6px;}
-.nav-logo-trevonti{font-weight:800;font-size:16px;color:#fff;letter-spacing:0.5px;}
-.nav-logo-hbys{font-weight:700;font-size:16px;color:var(--teal);letter-spacing:1px;}
-.nav-logo-subtitle{font-size:8.5px;font-weight:600;color:#fff;opacity:0.9;letter-spacing:0.3px;white-space:nowrap;}
-.nav-logo-tech{font-size:7px;font-weight:400;color:rgba(255,255,255,.6);white-space:nowrap;letter-spacing:0.2px;margin-top:2px;}
+.nav-logo-trevonti{font-weight:800;font-size:17px;color:#fff;letter-spacing:0.5px;}
+.nav-logo-hbys{font-weight:700;font-size:17px;color:var(--teal);letter-spacing:1px;}
+.nav-logo-subtitle{font-size:9px;font-weight:600;color:#fff;opacity:0.9;letter-spacing:0.3px;white-space:nowrap;}
+.nav-logo-tech{font-size:7.5px;font-weight:400;color:rgba(255,255,255,.6);white-space:nowrap;letter-spacing:0.2px;margin-top:2px;}
 
 .nav-links{display:flex;align-items:center;gap:28px}
 .nav-links a{color:rgba(255,255,255,.7);font-size:14px;font-weight:500;transition:.2s}
@@ -236,7 +221,7 @@ section{padding:80px 5%}
 .fb-badges{display:flex;gap:10px;flex-wrap:wrap}
 .fb-badge{font-size:11px;font-weight:600;padding:4px 10px;border-radius:8px;background:rgba(13,148,136,.2);color:var(--teal)}
 
-/* ── Responsive (Mobil uyumluluk güncellemeleri) ─────── */
+/* ── Responsive ───────────────────────────────────────── */
 @media(max-width:1024px){
   .hero-right{display:none}
   .modules-grid{grid-template-columns:repeat(3,1fr)}
@@ -254,18 +239,16 @@ section{padding:80px 5%}
   .footer-grid{grid-template-columns:1fr}
   .cta-inner{flex-direction:column}
   .hero-stats{gap:20px}
-  /* Mobilde logo boyutları */
-  .nav-logo-box{width:34px;height:34px;}
-  .nav-logo-trevonti{font-size:14px !important;}
-  .nav-logo-hbys{font-size:14px !important;}
+  /* Mobil logo düzenlemesi */
+  .nav-logo-trevonti{font-size:15px !important;}
+  .nav-logo-hbys{font-size:15px !important;}
+  .nav-logo-subtitle{white-space:normal !important; font-size:8px;}
+  .nav-logo-tech{white-space:normal !important;}
 }
 @media(max-width:480px){
   .integ-grid{grid-template-columns:1fr 1fr}
   .stack-grid{grid-template-columns:repeat(2,1fr)}
   .modules-grid{grid-template-columns:1fr 1fr}
-  /* Çok küçük ekranlarda alt başlık kaydırma */
-  .nav-logo-subtitle{white-space:normal !important; font-size:7.5px;}
-  .nav-logo-tech{white-space:normal !important;}
 }
 
 /* ── Animasyon ────────────────────────────────────────── */
@@ -275,17 +258,10 @@ section{padding:80px 5%}
 </head>
 <body>
 
-<!-- ── NAVBAR (Logo Güncellendi) ──────────────────────── -->
+<!-- ── NAVBAR (Yalnızca Tipografik Logo) ──────────────── -->
 <nav class="nav">
   <div class="nav-logo">
-    <!-- Yapay Zeka Destekli İkon -->
-    <div class="nav-logo-box">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="#fff"/>
-        <path d="M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z" fill="#fff"/>
-      </svg>
-    </div>
-    <!-- Logo Metinleri -->
+    <!-- Logo Metinleri (Yeşil ikon kaldırıldı) -->
     <div class="nav-logo-text-group">
       <div class="nav-logo-main">
         <span class="nav-logo-trevonti">TREVONTI</span>
@@ -307,7 +283,7 @@ section{padding:80px 5%}
   <button class="nav-menu-btn" onclick="toggleMenu()">☰</button>
 </nav>
 
-<!-- ── HERO (Aynen korundu) ───────────────────────────── -->
+<!-- ── HERO ────────────────────────────────────────────── -->
 <section class="hero" id="hero">
   <div class="hero-bg-dots"></div>
   <div class="hero-glow"></div>
@@ -359,7 +335,7 @@ section{padding:80px 5%}
   </div>
 </section>
 
-<!-- ── PROBLEM (Aynen korundu) ─────────────────────────── -->
+<!-- ── PROBLEM ──────────────────────────────────────────── -->
 <section id="problem" style="background:var(--lgray)">
   <div class="center fade-in">
     <div class="section-badge">Sorun</div>
@@ -388,7 +364,7 @@ section{padding:80px 5%}
   </div>
 </section>
 
-<!-- ── ÖZELLİKLER (Aynen korundu) ──────────────────────── -->
+<!-- ── ÖZELLİKLER (Metin güncellendi) ──────────────────── -->
 <section id="features" class="features-bg">
   <div class="center fade-in">
     <div class="section-badge">Çözüm</div>
@@ -401,10 +377,13 @@ section{padding:80px 5%}
       <div class="feat-title">Bulut-Yerel Mimari</div>
       <div class="feat-desc">Kubernetes, Docker, Patroni HA PostgreSQL. Sunucu satın alma yok. Güncelleme için IT ekibi yok. Siz açın, kullanın.</div>
     </div>
+    <!-- Bu kartın içeriği güncellendi -->
     <div class="feat-card">
       <div class="feat-icon fi-blue">📱</div>
       <div class="feat-title">Web + iOS + Android</div>
-      <div class="feat-desc">Mevcut Windows 11 bilgisayarlarınız değişmez. Tarayıcıyı açıp çalışırsınız. Hemşireler telefondan BCMA yapar.</div>
+      <div class="feat-desc">
+        Windows, macOS, iOS, Android fark etmez. Tüm bilgisayar, telefon ve tabletlerden tarayıcı ile tam erişim. Klinik personeli tüm taşınabilir cihazlarıyla BCMA yapabilir.
+      </div>
     </div>
     <div class="feat-card">
       <div class="feat-icon fi-purple">🤖</div>
@@ -429,7 +408,7 @@ section{padding:80px 5%}
   </div>
 </section>
 
-<!-- ── MODÜLLER (Aynen korundu) ────────────────────────── -->
+<!-- ── MODÜLLER ─────────────────────────────────────────── -->
 <section id="modules">
   <div class="center fade-in">
     <div class="section-badge">Kapsam</div>
@@ -461,7 +440,7 @@ section{padding:80px 5%}
   </div>
 </section>
 
-<!-- ── ENTEGRASYONLAR (Aynen korundu) ──────────────────── -->
+<!-- ── ENTEGRASYONLAR ───────────────────────────────────── -->
 <section id="integrations" class="integ-bg">
   <div class="center fade-in">
     <div class="section-badge" style="background:rgba(13,148,136,.2);color:#5eead4">Entegrasyonlar</div>
@@ -520,7 +499,7 @@ section{padding:80px 5%}
   </div>
 </section>
 
-<!-- ── YAPAY ZEKA (Aynen korundu) ──────────────────────── -->
+<!-- ── YAPAY ZEKA ───────────────────────────────────────── -->
 <section id="ai">
   <div class="center fade-in">
     <div class="section-badge">Yapay Zeka</div>
@@ -580,7 +559,7 @@ section{padding:80px 5%}
   <p style="text-align:center;font-size:12px;color:var(--gray);margin-top:20px">* Tüm değerler sentetik veri doğrulama testinden elde edilmiştir. Pilot hastane verisiyle kalibrasyon Q3 2026 hedeflenmektedir.</p>
 </section>
 
-<!-- ── KONUMLANMA (Aynen korundu) ──────────────────────── -->
+<!-- ── KONUMLANMA ─────────────────────────────────────── -->
 <section style="background:var(--lgray)">
   <div class="center fade-in">
     <div class="section-badge">Konumlanma</div>
@@ -652,7 +631,7 @@ section{padding:80px 5%}
   </div>
 </section>
 
-<!-- ── STARTUP MANIFESTO (Aynen korundu) ──────────────── -->
+<!-- ── STARTUP MANIFESTO ──────────────────────────────── -->
 <section style="background:var(--navy);padding:60px 5%">
   <div style="max-width:760px;margin:0 auto;text-align:center" class="fade-in">
     <div style="display:inline-block;background:rgba(245,158,11,.15);border:1px solid rgba(245,158,11,.3);border-radius:20px;padding:6px 16px;font-size:12px;font-weight:700;color:#fcd34d;margin-bottom:20px">
@@ -685,7 +664,7 @@ section{padding:80px 5%}
   </div>
 </section>
 
-<!-- ── TEKNOLOJİ (Aynen korundu) ───────────────────────── -->
+<!-- ── TEKNOLOJİ ────────────────────────────────────────── -->
 <section id="tech" class="tech-bg">
   <div class="center fade-in">
     <div class="section-badge">Altyapı</div>
@@ -708,7 +687,7 @@ section{padding:80px 5%}
   </div>
 </section>
 
-<!-- ── YOL HARİTASI (Aynen korundu) ────────────────────── -->
+<!-- ── YOL HARİTASI ─────────────────────────────────────── -->
 <section id="roadmap" class="roadmap-bg">
   <div class="center fade-in">
     <div class="section-badge" style="background:rgba(13,148,136,.2);color:#5eead4">Yol Haritası</div>
@@ -718,32 +697,32 @@ section{padding:80px 5%}
   <div class="roadmap-line fade-in">
     <div class="rm-item">
       <div class="rm-dot rm-done">✓</div>
-      <div class="rm-quarter">2025 Q4 – 2026 Q1</div>
+      <div class="rm-quarter">2024 Q4 – 2025 Q1</div>
       <div class="rm-title">Geliştirme Tamamlandı</div>
       <div class="rm-desc">21 modül, 12 sprint, 200+ test. Web + iOS + Android. Tüm entegrasyonlar yazıldı.</div>
     </div>
     <div class="rm-item">
       <div class="rm-dot rm-done">✓</div>
-      <div class="rm-quarter">2026 Q2</div>
+      <div class="rm-quarter">2025 Q2</div>
       <div class="rm-title">Marka & Altyapı</div>
       <div class="rm-desc">Trevonti markası, GitHub, LinkedIn, web sitesi, marka tescil başvurusu.</div>
     </div>
     <div class="rm-item">
       <div class="rm-dot rm-active">→</div>
-      <div class="rm-quarter">2026 Q3 (Şu An)</div>
+      <div class="rm-quarter">2025 Q3 (Şu An)</div>
       <div class="rm-title">Pilot & Yatırım</div>
       <div class="rm-desc">Staging ortamı, ilk pilot hastane, Founders Hub Azure kredisi, şirket kuruluşu hazırlığı.</div>
     </div>
     <div class="rm-item">
       <div class="rm-dot rm-wait">4</div>
-      <div class="rm-quarter">2026 Q4 – 2027</div>
+      <div class="rm-quarter">2025 Q4 – 2026</div>
       <div class="rm-title">SİSE & Büyüme</div>
       <div class="rm-desc">SİSE sertifikasyon başvurusu, şirket kuruluşu, ilk 3 hastane sözleşmesi.</div>
     </div>
   </div>
 </section>
 
-<!-- ── CTA (Aynen korundu) ─────────────────────────────── -->
+<!-- ── CTA ─────────────────────────────────────────────── -->
 <section class="cta-bg">
   <div class="cta-inner fade-in">
     <div>
@@ -757,7 +736,7 @@ section{padding:80px 5%}
   </div>
 </section>
 
-<!-- ── FOOTER (Aynen korundu) ──────────────────────────── -->
+<!-- ── FOOTER ───────────────────────────────────────────── -->
 <footer class="footer">
   <div class="footer-grid">
     <div>
@@ -826,7 +805,7 @@ function toggleMenu() {
   links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
   links.style.flexDirection = 'column';
   links.style.position = 'absolute';
-  links.style.top = '70px'; // Navbar min-height ile uyumlu
+  links.style.top = '64px';
   links.style.left = '0';
   links.style.right = '0';
   links.style.background = '#0f172a';
