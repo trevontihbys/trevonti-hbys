@@ -278,6 +278,26 @@ section{padding:80px 5%}
 /* ── Animasyon ────────────────────────────────────────── */
 .fade-in{opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s}
 .fade-in.visible{opacity:1;transform:none}
+
+/* 🆕 RTL Desteği (Arapça için) ────────────────────────── */
+html[dir="rtl"] .nav-links { flex-direction: row-reverse; }
+html[dir="rtl"] .lang-dropdown { margin-left: 0; margin-right: 12px; }
+html[dir="rtl"] .lang-dropdown-menu { right: auto; left: 0; }
+html[dir="rtl"] .hero-content { text-align: right; }
+html[dir="rtl"] .hero-stats { justify-content: flex-end; }
+html[dir="rtl"] .hero-right { right: auto; left: 5%; }
+html[dir="rtl"] .hr-card { flex-direction: row-reverse; }
+html[dir="rtl"] .hr-badge { margin-left: 0; margin-right: auto; }
+html[dir="rtl"] .hero-badge { flex-direction: row-reverse; }
+html[dir="rtl"] .btn-pri, html[dir="rtl"] .btn-sec { flex-direction: row-reverse; }
+html[dir="rtl"] .section-title, html[dir="rtl"] .section-sub { text-align: right; }
+html[dir="rtl"] .center .section-sub { margin-left: 0; margin-right: auto; }
+html[dir="rtl"] .feat-card { text-align: right; }
+html[dir="rtl"] .mod-item { flex-direction: row-reverse; }
+html[dir="rtl"] .footer-links a { text-align: right; }
+html[dir="rtl"] .footer-bottom { flex-direction: row-reverse; }
+html[dir="rtl"] .cta-inner { flex-direction: row-reverse; }
+
 </style>
 </head>
 <body>
