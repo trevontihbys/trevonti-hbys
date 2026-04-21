@@ -869,6 +869,33 @@ function switchLanguage(lang) {
   
   // Dropdown menüyü kapat
   document.getElementById('langDropdownMenu').classList.remove('show');
+  
+  // 🆕 Arapça için rakamları dönüştür
+  if (lang === 'ar') convertDigitsToArabic();
+}
+  });
+  
+  // Aktif seçeneği dropdown'da işaretle
+  document.querySelectorAll('.lang-option').forEach(opt => {
+    opt.classList.toggle('active', opt.dataset.lang === lang);
+  });
+  
+  // Dropdown butonundaki metni güncelle
+  const displayNames = { tr: 'TR', en: 'EN', de: 'DE', fr: 'FR', es: 'ES', pt: 'PT', it: 'IT', ar: 'AR', zh: '中文', ja: '日本語', ko: '한국어' };
+  document.getElementById('currentLangDisplay').textContent = displayNames[lang] || lang.toUpperCase();
+  
+  // Arapça için RTL desteği
+  if (lang === 'ar') {
+    document.documentElement.dir = 'rtl';
+  } else {
+    document.documentElement.dir = 'ltr';
+  }
+  document.documentElement.lang = lang;
+  
+  localStorage.setItem('pref-lang', lang);
+  
+  // Dropdown menüyü kapat
+  document.getElementById('langDropdownMenu').classList.remove('show');
 }
 
 // ─── Dropdown Kontrolleri ─────────────────────────────────────────
