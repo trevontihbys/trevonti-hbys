@@ -23,7 +23,7 @@ a{text-decoration:none;color:inherit}
   --grad:linear-gradient(135deg,#0f172a 0%,#0d3a3a 50%,#0d9488 100%);
 }
 
-/* ── Navbar (Sadece tipografik logo) ─ */
+/* ── Navbar ─ */
 .nav{
   position:fixed;top:0;left:0;right:0;z-index:100;
   background:rgba(15,23,42,.95);backdrop-filter:blur(12px);
@@ -45,6 +45,15 @@ a{text-decoration:none;color:inherit}
 .nav-cta{background:var(--teal);color:#fff !important;padding:8px 20px;border-radius:8px;font-weight:600 !important;font-size:13px !important;transition:.2s !important}
 .nav-cta:hover{background:var(--teal-dark) !important}
 .nav-menu-btn{display:none;background:none;border:none;cursor:pointer;color:#fff;font-size:22px}
+
+/* Dil butonları */
+.lang-btn-group{display:flex;gap:6px;margin-left:8px;}
+.lang-btn{
+  background:transparent;border:1px solid rgba(255,255,255,0.3);
+  color:#fff;padding:4px 10px;border-radius:6px;cursor:pointer;
+  font-size:13px;font-weight:500;transition:all 0.2s;
+}
+.lang-btn.active{border-color:var(--teal);background:rgba(13,148,136,0.2);}
 
 /* ── Hero ─────────────────────────────────────────────── */
 .hero{min-height:100vh;background:var(--grad);display:flex;align-items:center;padding:100px 5% 60px;position:relative;overflow:hidden}
@@ -264,18 +273,24 @@ section{padding:80px 5%}
         <span class="nav-logo-trevonti">TREVONTI</span>
         <span class="nav-logo-hbys">HBYS</span>
       </div>
-      <div class="nav-logo-subtitle">TAM ENTEGRE HASTANE PLATFORMU</div>
-      <div class="nav-logo-tech">bulut-yerel | yapay zeka destekli | sürdürülebilir teknoloji</div>
+      <div class="nav-logo-subtitle" data-i18n="logo.subtitle">TAM ENTEGRE HASTANE PLATFORMU</div>
+      <div class="nav-logo-tech" data-i18n="logo.tech">bulut-yerel | yapay zeka destekli | sürdürülebilir teknoloji</div>
     </div>
   </div>
   <div class="nav-links">
-    <a href="#features">Özellikler</a>
-    <a href="#modules">Modüller</a>
-    <a href="#ai">Yapay Zeka</a>
-    <a href="#integrations">Entegrasyonlar</a>
-    <a href="#roadmap">Yol Haritası</a>
-    <a href="https://github.com/trevontihbys" target="_blank">GitHub</a>
-    <a href="mailto:trevonti.hbys@gmail.com" class="nav-cta">İletişim</a>
+    <a href="#features" data-i18n="nav.features">Özellikler</a>
+    <a href="#modules" data-i18n="nav.modules">Modüller</a>
+    <a href="#ai" data-i18n="nav.ai">Yapay Zeka</a>
+    <a href="#integrations" data-i18n="nav.integrations">Entegrasyonlar</a>
+    <a href="#roadmap" data-i18n="nav.roadmap">Yol Haritası</a>
+    <a href="https://github.com/trevontihbys" target="_blank" data-i18n="nav.github">GitHub</a>
+    <a href="mailto:trevonti.hbys@gmail.com" class="nav-cta" data-i18n="nav.contact">İletişim</a>
+    
+    <!-- Dil Seçici Butonlar (Sadece TR/EN) -->
+    <div class="lang-btn-group">
+      <button class="lang-btn active" id="lang-tr" onclick="switchLanguage('tr')">🇹🇷 TR</button>
+      <button class="lang-btn" id="lang-en" onclick="switchLanguage('en')">🇬🇧 EN</button>
+    </div>
   </div>
   <button class="nav-menu-btn" onclick="toggleMenu()">☰</button>
 </nav>
@@ -287,46 +302,40 @@ section{padding:80px 5%}
   <div class="hero-content">
     <div class="hero-badge">
       <div class="hero-badge-dot"></div>
-      Erken Aşama Startup · Aktif Geliştirme · Pilot Q3 2026
+      <span data-i18n="hero.badge">Erken Aşama Startup · Aktif Geliştirme · Pilot Q3 2026</span>
     </div>
-    <h1 class="hero-title">
-      Türkiye'nin<br>
-      <span>Yeni Nesil</span><br>
-      Hastane Sistemi
-    </h1>
-    <p class="hero-sub">
-      Henüz bir startup'ız — ama 31 klinik modül, AI destekli karar destek ve tam ulusal entegrasyonla sektörün en iyilerine meydan okuyoruz. Türkiye'nin en iyi HBYS'si olmak için inşa ediyoruz.
-    </p>
+    <h1 class="hero-title" data-i18n="hero.title">Türkiye'nin<br><span>Yeni Nesil</span><br>Hastane Sistemi</h1>
+    <p class="hero-sub" data-i18n="hero.subtitle">Henüz bir startup'ız — ama 31 klinik modül, AI destekli karar destek ve tam ulusal entegrasyonla sektörün en iyilerine meydan okuyoruz. Türkiye'nin en iyi HBYS'si olmak için inşa ediyoruz.</p>
     <div class="hero-btns">
-      <a href="mailto:trevonti.hbys@gmail.com" class="btn-pri">📧 Pilot Başvurusu Yap</a>
-      <a href="https://github.com/trevontihbys" target="_blank" class="btn-sec">🐙 GitHub'da İncele</a>
+      <a href="mailto:trevonti.hbys@gmail.com" class="btn-pri" data-i18n="hero.btn_primary">📧 Pilot Başvurusu Yap</a>
+      <a href="https://github.com/trevontihbys" target="_blank" class="btn-sec" data-i18n="hero.btn_secondary">🐙 GitHub'da İncele</a>
     </div>
     <div class="hero-stats">
-      <div class="hs-item"><div class="hs-val">31</div><div class="hs-label">Klinik Modül</div></div>
-      <div class="hs-item"><div class="hs-val">200+</div><div class="hs-label">Birim Test</div></div>
-      <div class="hs-item"><div class="hs-val">3</div><div class="hs-label">Platform</div></div>
-      <div class="hs-item"><div class="hs-val">%99.9</div><div class="hs-label">SLA Hedefi</div></div>
+      <div class="hs-item"><div class="hs-val">31</div><div class="hs-label" data-i18n="stats.modules">Klinik Modül</div></div>
+      <div class="hs-item"><div class="hs-val">200+</div><div class="hs-label" data-i18n="stats.tests">Birim Test</div></div>
+      <div class="hs-item"><div class="hs-val">3</div><div class="hs-label" data-i18n="stats.platforms">Platform</div></div>
+      <div class="hs-item"><div class="hs-val">%99.9</div><div class="hs-label" data-i18n="stats.sla">SLA Hedefi</div></div>
     </div>
   </div>
   <div class="hero-right">
     <div class="hr-card">
       <div class="hr-icon" style="background:rgba(13,148,136,.2)">🤖</div>
-      <div class="hr-info"><div class="hr-title">Sepsis Erken Uyarı</div><div class="hr-sub">qSOFA + NEWS2 Hibrid</div></div>
+      <div class="hr-info"><div class="hr-title" data-i18n="hero.card1_title">Sepsis Erken Uyarı</div><div class="hr-sub" data-i18n="hero.card1_sub">qSOFA + NEWS2 Hibrid</div></div>
       <span class="hr-badge hb-green">AUC 0.979</span>
     </div>
     <div class="hr-card">
       <div class="hr-icon" style="background:rgba(59,130,246,.2)">🏥</div>
-      <div class="hr-info"><div class="hr-title">SGK Medula Provizyon</div><div class="hr-sub">Otomatik faturalandırma</div></div>
-      <span class="hr-badge hb-teal">Entegre</span>
+      <div class="hr-info"><div class="hr-title" data-i18n="hero.card2_title">SGK Medula Provizyon</div><div class="hr-sub" data-i18n="hero.card2_sub">Otomatik faturalandırma</div></div>
+      <span class="hr-badge hb-teal" data-i18n="hero.card2_badge">Entegre</span>
     </div>
     <div class="hr-card">
       <div class="hr-icon" style="background:rgba(139,92,246,.2)">🔒</div>
-      <div class="hr-info"><div class="hr-title">KVKK & FHIR R4</div><div class="hr-sub">Tam uyumlu altyapı</div></div>
-      <span class="hr-badge hb-blue">Uyumlu</span>
+      <div class="hr-info"><div class="hr-title" data-i18n="hero.card3_title">KVKK & FHIR R4</div><div class="hr-sub" data-i18n="hero.card3_sub">Tam uyumlu altyapı</div></div>
+      <span class="hr-badge hb-blue" data-i18n="hero.card3_badge">Uyumlu</span>
     </div>
     <div class="hr-card">
       <div class="hr-icon" style="background:rgba(245,158,11,.2)">📱</div>
-      <div class="hr-info"><div class="hr-title">iOS + Android + Web</div><div class="hr-sub">Kurulum gerektirmez</div></div>
+      <div class="hr-info"><div class="hr-title" data-i18n="hero.card4_title">iOS + Android + Web</div><div class="hr-sub" data-i18n="hero.card4_sub">Kurulum gerektirmez</div></div>
       <span class="hr-badge hb-amber">3 Platform</span>
     </div>
   </div>
@@ -335,28 +344,28 @@ section{padding:80px 5%}
 <!-- ── PROBLEM ──────────────────────────────────────────── -->
 <section id="problem" style="background:var(--lgray)">
   <div class="center fade-in">
-    <div class="section-badge">Sorun</div>
-    <h2 class="section-title">Türkiye'deki Hastanelerin <span>%78'i</span> Eski Sistemlerde</h2>
-    <p class="section-sub">10–20 yıllık, sunucu tabanlı HBYS yazılımları; mobil erişim, yapay zeka ve ulusal sağlık sistemi entegrasyonundan yoksun.</p>
+    <div class="section-badge" data-i18n="problem.badge">Sorun</div>
+    <h2 class="section-title" data-i18n="problem.title">Türkiye'deki Hastanelerin <span>%78'i</span> Eski Sistemlerde</h2>
+    <p class="section-sub" data-i18n="problem.subtitle">10–20 yıllık, sunucu tabanlı HBYS yazılımları; mobil erişim, yapay zeka ve ulusal sağlık sistemi entegrasyonundan yoksun.</p>
   </div>
   <div class="problem-grid fade-in">
     <div class="prob-card">
       <div class="prob-icon">🚫</div>
-      <div class="prob-title">Mobil Erişim Yok</div>
-      <div class="prob-desc">Hemşireler BCMA doğrulamasını kağıda yapıyor. Hekimler uzaktan sisteme giremiyor. Telemedicine imkânsız.</div>
-      <div class="prob-stat">%0 Mobil</div>
+      <div class="prob-title" data-i18n="problem.card1_title">Mobil Erişim Yok</div>
+      <div class="prob-desc" data-i18n="problem.card1_desc">Hemşireler BCMA doğrulamasını kağıda yapıyor. Hekimler uzaktan sisteme giremiyor. Telemedicine imkânsız.</div>
+      <div class="prob-stat" data-i18n="problem.card1_stat">%0 Mobil</div>
     </div>
     <div class="prob-card">
       <div class="prob-icon">💰</div>
-      <div class="prob-title">SGK Gelir Kaybı</div>
-      <div class="prob-desc">Manuel SUT kodu girişleri yüzünden hastaneler hak ettikleri SGK ödemelerinin önemli bir kısmını alamıyor.</div>
-      <div class="prob-stat">%12 Kayıp</div>
+      <div class="prob-title" data-i18n="problem.card2_title">SGK Gelir Kaybı</div>
+      <div class="prob-desc" data-i18n="problem.card2_desc">Manuel SUT kodu girişleri yüzünden hastaneler hak ettikleri SGK ödemelerinin önemli bir kısmını alamıyor.</div>
+      <div class="prob-stat" data-i18n="problem.card2_stat">%12 Kayıp</div>
     </div>
     <div class="prob-card">
       <div class="prob-icon">⚠️</div>
-      <div class="prob-title">İlaç Hataları</div>
-      <div class="prob-desc">Kâğıt order sistemi ilaç etkileşimi kontrolü yapamıyor. Türkiye'deki ilaç hata oranı Avrupa ortalamasının 3 katı.</div>
-      <div class="prob-stat">3× Hata</div>
+      <div class="prob-title" data-i18n="problem.card3_title">İlaç Hataları</div>
+      <div class="prob-desc" data-i18n="problem.card3_desc">Kâğıt order sistemi ilaç etkileşimi kontrolü yapamıyor. Türkiye'deki ilaç hata oranı Avrupa ortalamasının 3 katı.</div>
+      <div class="prob-stat" data-i18n="problem.card3_stat">3× Hata</div>
     </div>
   </div>
 </section>
@@ -364,42 +373,40 @@ section{padding:80px 5%}
 <!-- ── ÖZELLİKLER ───────────────────────────────────────── -->
 <section id="features" class="features-bg">
   <div class="center fade-in">
-    <div class="section-badge">Çözüm</div>
-    <h2 class="section-title">Her Şey <span>Dahili,</span> Hiçbir Şey Eklenti</h2>
-    <p class="section-sub">Trevonti HBYS, ayrı ayrı satın alınan modüllerden değil — baştan bütünleşik tasarlanmış bir platformdan oluşur.</p>
+    <div class="section-badge" data-i18n="features.badge">Çözüm</div>
+    <h2 class="section-title" data-i18n="features.title">Her Şey <span>Dahili,</span> Hiçbir Şey Eklenti</h2>
+    <p class="section-sub" data-i18n="features.subtitle">Trevonti HBYS, ayrı ayrı satın alınan modüllerden değil — baştan bütünleşik tasarlanmış bir platformdan oluşur.</p>
   </div>
   <div class="feat-grid fade-in">
     <div class="feat-card">
       <div class="feat-icon fi-teal">☁️</div>
-      <div class="feat-title">Bulut-Yerel Mimari</div>
-      <div class="feat-desc">Kubernetes, Docker, Patroni HA PostgreSQL. Sunucu satın alma yok. Güncelleme için IT ekibi yok. Siz açın, kullanın.</div>
+      <div class="feat-title" data-i18n="features.cloud_title">Bulut-Yerel Mimari</div>
+      <div class="feat-desc" data-i18n="features.cloud_desc">Kubernetes, Docker, Patroni HA PostgreSQL. Sunucu satın alma yok. Güncelleme için IT ekibi yok. Siz açın, kullanın.</div>
     </div>
     <div class="feat-card">
       <div class="feat-icon fi-blue">📱</div>
-      <div class="feat-title">Web + iOS + Android</div>
-      <div class="feat-desc">
-        Windows, macOS, iOS, Android fark etmez. Tüm bilgisayar, telefon ve tabletlerden tarayıcı ile tam erişim. Klinik personeli tüm taşınabilir cihazlarıyla BCMA yapabilir.
-      </div>
+      <div class="feat-title" data-i18n="features.mobile_title">Web + iOS + Android</div>
+      <div class="feat-desc" data-i18n="features.mobile_desc">Windows, macOS, iOS, Android fark etmez. Tüm bilgisayar, telefon ve tabletlerden tarayıcı ile tam erişim. Klinik personeli tüm taşınabilir cihazlarıyla BCMA yapabilir.</div>
     </div>
     <div class="feat-card">
       <div class="feat-icon fi-purple">🤖</div>
-      <div class="feat-title">Yapay Zeka Motoru</div>
-      <div class="feat-desc">Sepsis erken uyarı (AUC 0.979), 30 gün yeniden yatış tahmini (AUC 0.970), Türkçe NLP, ilaç etkileşimi CDS.</div>
+      <div class="feat-title" data-i18n="features.ai_title">Yapay Zeka Motoru</div>
+      <div class="feat-desc" data-i18n="features.ai_desc">Sepsis erken uyarı (AUC 0.979), 30 gün yeniden yatış tahmini (AUC 0.970), Türkçe NLP, ilaç etkileşimi CDS.</div>
     </div>
     <div class="feat-card">
       <div class="feat-icon fi-amber">🏦</div>
-      <div class="feat-title">Otomatik SGK Faturalama</div>
-      <div class="feat-desc">SUT kodları otomatik atanır. Medula provizyon anlık alınır. e-Fatura UBL 2.1 formatında GİB'e gider.</div>
+      <div class="feat-title" data-i18n="features.sgk_title">Otomatik SGK Faturalama</div>
+      <div class="feat-desc" data-i18n="features.sgk_desc">SUT kodları otomatik atanır. Medula provizyon anlık alınır. e-Fatura UBL 2.1 formatında GİB'e gider.</div>
     </div>
     <div class="feat-card">
       <div class="feat-icon fi-red">🔒</div>
-      <div class="feat-title">KVKK & Güvenlik</div>
-      <div class="feat-desc">AES-256-GCM alan şifreleme. Cilium zero-trust ağ. Keycloak MFA. Değiştirilemez denetim logu. KVKK tam uyum.</div>
+      <div class="feat-title" data-i18n="features.security_title">KVKK & Güvenlik</div>
+      <div class="feat-desc" data-i18n="features.security_desc">AES-256-GCM alan şifreleme. Cilium zero-trust ağ. Keycloak MFA. Değiştirilemez denetim logu. KVKK tam uyum.</div>
     </div>
     <div class="feat-card">
       <div class="feat-icon fi-green">🔗</div>
-      <div class="feat-title">Ulusal Entegrasyonlar</div>
-      <div class="feat-desc">SGK Medula, Sağlık-Net (10 mesaj tipi), e-Nabız FHIR R4, TİTS ilaç takip, GİB e-Fatura hepsi dahili.</div>
+      <div class="feat-title" data-i18n="features.integration_title">Ulusal Entegrasyonlar</div>
+      <div class="feat-desc" data-i18n="features.integration_desc">SGK Medula, Sağlık-Net (10 mesaj tipi), e-Nabız FHIR R4, TİTS ilaç takip, GİB e-Fatura hepsi dahili.</div>
     </div>
   </div>
 </section>
@@ -407,281 +414,133 @@ section{padding:80px 5%}
 <!-- ── MODÜLLER (31 Modül) ─────────────────────────────── -->
 <section id="modules">
   <div class="center fade-in">
-    <div class="section-badge">Kapsam</div>
-    <h2 class="section-title"><span>31 Modül,</span> Tek Platform</h2>
-    <p class="section-sub">Klinikten radyolojiye, eczaneden finansa, yapay zekadan eğitime — tek sistemde tam hastane.</p>
+    <div class="section-badge" data-i18n="modules.badge">Kapsam</div>
+    <h2 class="section-title" data-i18n="modules.title"><span>31 Modül,</span> Tek Platform</h2>
+    <p class="section-sub" data-i18n="modules.subtitle">Klinikten radyolojiye, eczaneden finansa, yapay zekadan eğitime — tek sistemde tam hastane.</p>
   </div>
   <div class="modules-grid fade-in">
-    <!-- Mevcut 21 Modül -->
-    <div class="mod-item"><span class="mod-icon">🏥</span><span class="mod-name">HIS Core (Hasta Yönetimi)</span></div>
-    <div class="mod-item"><span class="mod-icon">💊</span><span class="mod-name">CPOE — Elektronik Order</span></div>
-    <div class="mod-item"><span class="mod-icon">🧠</span><span class="mod-name">Klinik Karar Destek</span></div>
-    <div class="mod-item"><span class="mod-icon">🧪</span><span class="mod-name">LIS — Laboratuvar (HL7)</span></div>
-    <div class="mod-item"><span class="mod-icon">🩻</span><span class="mod-name">RIS/PACS — Radyoloji</span></div>
-    <div class="mod-item"><span class="mod-icon">💊</span><span class="mod-name">Eczane (BCMA + FEFO)</span></div>
-    <div class="mod-item"><span class="mod-icon">🔪</span><span class="mod-name">Ameliyathane (OR)</span></div>
-    <div class="mod-item"><span class="mod-icon">❤️</span><span class="mod-name">YBÜ — Yoğun Bakım</span></div>
-    <div class="mod-item"><span class="mod-icon">🩸</span><span class="mod-name">Kan Bankası (ISBT 128)</span></div>
-    <div class="mod-item"><span class="mod-icon">🧬</span><span class="mod-name">Onkoloji (OIS)</span></div>
-    <div class="mod-item"><span class="mod-icon">💓</span><span class="mod-name">Kardiyoloji (Kateter)</span></div>
-    <div class="mod-item"><span class="mod-icon">🌡️</span><span class="mod-name">Diyaliz Yönetimi</span></div>
-    <div class="mod-item"><span class="mod-icon">🔬</span><span class="mod-name">Patoloji (Dijital)</span></div>
-    <div class="mod-item"><span class="mod-icon">🧬</span><span class="mod-name">IVF — Tüp Bebek</span></div>
-    <div class="mod-item"><span class="mod-icon">🏠</span><span class="mod-name">Hasta Portali + RPM</span></div>
-    <div class="mod-item"><span class="mod-icon">🎥</span><span class="mod-name">Telemedicine (USBS)</span></div>
-    <div class="mod-item"><span class="mod-icon">💰</span><span class="mod-name">Finans + SGK Medula</span></div>
-    <div class="mod-item"><span class="mod-icon">🧾</span><span class="mod-name">e-Fatura (UBL 2.1)</span></div>
-    <div class="mod-item"><span class="mod-icon">📦</span><span class="mod-name">Tedarik Zinciri (SCM)</span></div>
-    <div class="mod-item"><span class="mod-icon">📞</span><span class="mod-name">Çağrı Merkezi (CTI)</span></div>
-    <div class="mod-item"><span class="mod-icon">🔬</span><span class="mod-name">CSSD Sterilizasyon</span></div>
-
-    <!-- 🆕 Yeni Eklenen 10 Modül -->
-    <div class="mod-item"><span class="mod-icon">📊</span><span class="mod-name">A: Popülasyon Sağlığı & Analitik</span></div>
-    <div class="mod-item"><span class="mod-icon">🎙️</span><span class="mod-name">B: Ambient AI / Sesli Dikte → SOAP</span></div>
-    <div class="mod-item"><span class="mod-icon">🚫</span><span class="mod-name">C: SGK Reddi Yönetimi</span></div>
-    <div class="mod-item"><span class="mod-icon">🏥</span><span class="mod-name">D: Çoklu Hastane Kayıt Paylaşımı</span></div>
-    <div class="mod-item"><span class="mod-icon">🧊</span><span class="mod-name">E: 3D/4D Görüntü Rekonstrüksiyon</span></div>
-    <div class="mod-item"><span class="mod-icon">🗄️</span><span class="mod-name">F: VNA (Vendor Neutral Archive)</span></div>
-    <div class="mod-item"><span class="mod-icon">🤖</span><span class="mod-name">G: AI Lezyon Tespiti & Triage</span></div>
-    <div class="mod-item"><span class="mod-icon">🎗️</span><span class="mod-name">H: Mamografi Modülü</span></div>
-    <div class="mod-item"><span class="mod-icon">📚</span><span class="mod-name">I: Öğretim & Eğitim Dosyaları</span></div>
-    <div class="mod-item"><span class="mod-icon">💾</span><span class="mod-name">J: Katmanlı Depolama</span></div>
+    <!-- 1-21 -->
+    <div class="mod-item"><span class="mod-icon">🏥</span><span class="mod-name" data-i18n="modules.mod1">HIS Core (Hasta Yönetimi)</span></div>
+    <div class="mod-item"><span class="mod-icon">💊</span><span class="mod-name" data-i18n="modules.mod2">CPOE — Elektronik Order</span></div>
+    <div class="mod-item"><span class="mod-icon">🧠</span><span class="mod-name" data-i18n="modules.mod3">Klinik Karar Destek</span></div>
+    <div class="mod-item"><span class="mod-icon">🧪</span><span class="mod-name" data-i18n="modules.mod4">LIS — Laboratuvar (HL7)</span></div>
+    <div class="mod-item"><span class="mod-icon">🩻</span><span class="mod-name" data-i18n="modules.mod5">RIS/PACS — Radyoloji</span></div>
+    <div class="mod-item"><span class="mod-icon">💊</span><span class="mod-name" data-i18n="modules.mod6">Eczane (BCMA + FEFO)</span></div>
+    <div class="mod-item"><span class="mod-icon">🔪</span><span class="mod-name" data-i18n="modules.mod7">Ameliyathane (OR)</span></div>
+    <div class="mod-item"><span class="mod-icon">❤️</span><span class="mod-name" data-i18n="modules.mod8">YBÜ — Yoğun Bakım</span></div>
+    <div class="mod-item"><span class="mod-icon">🩸</span><span class="mod-name" data-i18n="modules.mod9">Kan Bankası (ISBT 128)</span></div>
+    <div class="mod-item"><span class="mod-icon">🧬</span><span class="mod-name" data-i18n="modules.mod10">Onkoloji (OIS)</span></div>
+    <div class="mod-item"><span class="mod-icon">💓</span><span class="mod-name" data-i18n="modules.mod11">Kardiyoloji (Kateter)</span></div>
+    <div class="mod-item"><span class="mod-icon">🌡️</span><span class="mod-name" data-i18n="modules.mod12">Diyaliz Yönetimi</span></div>
+    <div class="mod-item"><span class="mod-icon">🔬</span><span class="mod-name" data-i18n="modules.mod13">Patoloji (Dijital)</span></div>
+    <div class="mod-item"><span class="mod-icon">🧬</span><span class="mod-name" data-i18n="modules.mod14">IVF — Tüp Bebek</span></div>
+    <div class="mod-item"><span class="mod-icon">🏠</span><span class="mod-name" data-i18n="modules.mod15">Hasta Portali + RPM</span></div>
+    <div class="mod-item"><span class="mod-icon">🎥</span><span class="mod-name" data-i18n="modules.mod16">Telemedicine (USBS)</span></div>
+    <div class="mod-item"><span class="mod-icon">💰</span><span class="mod-name" data-i18n="modules.mod17">Finans + SGK Medula</span></div>
+    <div class="mod-item"><span class="mod-icon">🧾</span><span class="mod-name" data-i18n="modules.mod18">e-Fatura (UBL 2.1)</span></div>
+    <div class="mod-item"><span class="mod-icon">📦</span><span class="mod-name" data-i18n="modules.mod19">Tedarik Zinciri (SCM)</span></div>
+    <div class="mod-item"><span class="mod-icon">📞</span><span class="mod-name" data-i18n="modules.mod20">Çağrı Merkezi (CTI)</span></div>
+    <div class="mod-item"><span class="mod-icon">🔬</span><span class="mod-name" data-i18n="modules.mod21">CSSD Sterilizasyon</span></div>
+    <!-- 22-31 Yeni Modüller -->
+    <div class="mod-item"><span class="mod-icon">📊</span><span class="mod-name" data-i18n="modules.mod22">A: Popülasyon Sağlığı & Analitik</span></div>
+    <div class="mod-item"><span class="mod-icon">🎙️</span><span class="mod-name" data-i18n="modules.mod23">B: Ambient AI / Sesli Dikte → SOAP</span></div>
+    <div class="mod-item"><span class="mod-icon">🚫</span><span class="mod-name" data-i18n="modules.mod24">C: SGK Reddi Yönetimi</span></div>
+    <div class="mod-item"><span class="mod-icon">🏥</span><span class="mod-name" data-i18n="modules.mod25">D: Çoklu Hastane Kayıt Paylaşımı</span></div>
+    <div class="mod-item"><span class="mod-icon">🧊</span><span class="mod-name" data-i18n="modules.mod26">E: 3D/4D Görüntü Rekonstrüksiyon</span></div>
+    <div class="mod-item"><span class="mod-icon">🗄️</span><span class="mod-name" data-i18n="modules.mod27">F: VNA (Vendor Neutral Archive)</span></div>
+    <div class="mod-item"><span class="mod-icon">🤖</span><span class="mod-name" data-i18n="modules.mod28">G: AI Lezyon Tespiti & Triage</span></div>
+    <div class="mod-item"><span class="mod-icon">🎗️</span><span class="mod-name" data-i18n="modules.mod29">H: Mamografi Modülü</span></div>
+    <div class="mod-item"><span class="mod-icon">📚</span><span class="mod-name" data-i18n="modules.mod30">I: Öğretim & Eğitim Dosyaları</span></div>
+    <div class="mod-item"><span class="mod-icon">💾</span><span class="mod-name" data-i18n="modules.mod31">J: Katmanlı Depolama</span></div>
   </div>
-  <p style="text-align:center; font-size:12px; color:var(--gray); margin-top:16px;">
-    ✅ Yeni eklenen 10 modül ile birlikte toplam 31 klinik ve operasyonel modül.
-  </p>
+  <p style="text-align:center; font-size:12px; color:var(--gray); margin-top:16px;" data-i18n="modules.footer_note">✅ Yeni eklenen 10 modül ile birlikte toplam 31 klinik ve operasyonel modül.</p>
 </section>
 
 <!-- ── ENTEGRASYONLAR ───────────────────────────────────── -->
 <section id="integrations" class="integ-bg">
   <div class="center fade-in">
-    <div class="section-badge" style="background:rgba(13,148,136,.2);color:#5eead4">Entegrasyonlar</div>
-    <h2 class="section-title" style="color:#fff">Türkiye Sağlık Ekosistemiyle <span>Tam Entegrasyon</span></h2>
-    <p class="section-sub" style="color:rgba(255,255,255,.65)">Ek kurulum gerektirmeden tüm ulusal sistemlere bağlı.</p>
+    <div class="section-badge" style="background:rgba(13,148,136,.2);color:#5eead4" data-i18n="integrations.badge">Entegrasyonlar</div>
+    <h2 class="section-title" style="color:#fff" data-i18n="integrations.title">Türkiye Sağlık Ekosistemiyle <span>Tam Entegrasyon</span></h2>
+    <p class="section-sub" style="color:rgba(255,255,255,.65)" data-i18n="integrations.subtitle">Ek kurulum gerektirmeden tüm ulusal sistemlere bağlı.</p>
   </div>
   <div class="integ-grid fade-in">
-    <div class="integ-card">
-      <div class="ic-icon">🏦</div>
-      <div class="ic-name">SGK Medula</div>
-      <div class="ic-desc">Provizyon, SUT faturalama, iade işlemleri</div>
-      <span class="ic-badge">✓ Dahili</span>
-    </div>
-    <div class="integ-card">
-      <div class="ic-icon">🏥</div>
-      <div class="ic-name">Sağlık-Net</div>
-      <div class="ic-desc">10 mesaj tipi: POLKAYIT, TABURCU, YATAN...</div>
-      <span class="ic-badge">✓ Dahili</span>
-    </div>
-    <div class="integ-card">
-      <div class="ic-icon">📱</div>
-      <div class="ic-name">e-Nabız FHIR R4</div>
-      <div class="ic-desc">Hasta geçmiş verileri, HL7 FHIR 4.0.1</div>
-      <span class="ic-badge">✓ Dahili</span>
-    </div>
-    <div class="integ-card">
-      <div class="ic-icon">🧾</div>
-      <div class="ic-name">GİB e-Fatura</div>
-      <div class="ic-desc">UBL 2.1, XAdES dijital imza</div>
-      <span class="ic-badge">✓ Dahili</span>
-    </div>
-    <div class="integ-card">
-      <div class="ic-icon">💊</div>
-      <div class="ic-name">TİTS</div>
-      <div class="ic-desc">İlaç takip barkod sistemi</div>
-      <span class="ic-badge">✓ Dahili</span>
-    </div>
-    <div class="integ-card">
-      <div class="ic-icon">🔬</div>
-      <div class="ic-name">LOINC / ICD-10</div>
-      <div class="ic-desc">Lab kodları ve tanı standardları</div>
-      <span class="ic-badge">✓ Dahili</span>
-    </div>
-    <div class="integ-card">
-      <div class="ic-icon">🩻</div>
-      <div class="ic-name">DICOM / DICOMweb</div>
-      <div class="ic-desc">Radyoloji görüntü standardı, OHIF viewer</div>
-      <span class="ic-badge">✓ Dahili</span>
-    </div>
-    <div class="integ-card">
-      <div class="ic-icon">🆔</div>
-      <div class="ic-name">e-Devlet OIDC</div>
-      <div class="ic-desc">TC kimlik doğrulama, MERNIS entegrasyonu</div>
-      <span class="ic-badge">✓ Dahili</span>
-    </div>
+    <div class="integ-card"><div class="ic-icon">🏦</div><div class="ic-name" data-i18n="integrations.card1_name">SGK Medula</div><div class="ic-desc" data-i18n="integrations.card1_desc">Provizyon, SUT faturalama, iade işlemleri</div><span class="ic-badge" data-i18n="integrations.card1_badge">✓ Dahili</span></div>
+    <div class="integ-card"><div class="ic-icon">🏥</div><div class="ic-name" data-i18n="integrations.card2_name">Sağlık-Net</div><div class="ic-desc" data-i18n="integrations.card2_desc">10 mesaj tipi: POLKAYIT, TABURCU, YATAN...</div><span class="ic-badge" data-i18n="integrations.card2_badge">✓ Dahili</span></div>
+    <div class="integ-card"><div class="ic-icon">📱</div><div class="ic-name" data-i18n="integrations.card3_name">e-Nabız FHIR R4</div><div class="ic-desc" data-i18n="integrations.card3_desc">Hasta geçmiş verileri, HL7 FHIR 4.0.1</div><span class="ic-badge" data-i18n="integrations.card3_badge">✓ Dahili</span></div>
+    <div class="integ-card"><div class="ic-icon">🧾</div><div class="ic-name" data-i18n="integrations.card4_name">GİB e-Fatura</div><div class="ic-desc" data-i18n="integrations.card4_desc">UBL 2.1, XAdES dijital imza</div><span class="ic-badge" data-i18n="integrations.card4_badge">✓ Dahili</span></div>
+    <div class="integ-card"><div class="ic-icon">💊</div><div class="ic-name" data-i18n="integrations.card5_name">TİTS</div><div class="ic-desc" data-i18n="integrations.card5_desc">İlaç takip barkod sistemi</div><span class="ic-badge" data-i18n="integrations.card5_badge">✓ Dahili</span></div>
+    <div class="integ-card"><div class="ic-icon">🔬</div><div class="ic-name" data-i18n="integrations.card6_name">LOINC / ICD-10</div><div class="ic-desc" data-i18n="integrations.card6_desc">Lab kodları ve tanı standardları</div><span class="ic-badge" data-i18n="integrations.card6_badge">✓ Dahili</span></div>
+    <div class="integ-card"><div class="ic-icon">🩻</div><div class="ic-name" data-i18n="integrations.card7_name">DICOM / DICOMweb</div><div class="ic-desc" data-i18n="integrations.card7_desc">Radyoloji görüntü standardı, OHIF viewer</div><span class="ic-badge" data-i18n="integrations.card7_badge">✓ Dahili</span></div>
+    <div class="integ-card"><div class="ic-icon">🆔</div><div class="ic-name" data-i18n="integrations.card8_name">e-Devlet OIDC</div><div class="ic-desc" data-i18n="integrations.card8_desc">TC kimlik doğrulama, MERNIS entegrasyonu</div><span class="ic-badge" data-i18n="integrations.card8_badge">✓ Dahili</span></div>
   </div>
 </section>
 
 <!-- ── YAPAY ZEKA ───────────────────────────────────────── -->
 <section id="ai">
   <div class="center fade-in">
-    <div class="section-badge">Yapay Zeka</div>
-    <h2 class="section-title">Klinik Kararları <span>Destekleyen</span> AI</h2>
-    <p class="section-sub">4 AI modeli, 2.000 sentetik hastayla doğrulandı. Pilot hastane verisiyle Q3 2026'da kalibre edilecek.</p>
+    <div class="section-badge" data-i18n="ai.badge">Yapay Zeka</div>
+    <h2 class="section-title" data-i18n="ai.title">Klinik Kararları <span>Destekleyen</span> AI</h2>
+    <p class="section-sub" data-i18n="ai.subtitle">4 AI modeli, 2.000 sentetik hastayla doğrulandı. Pilot hastane verisiyle Q3 2026'da kalibre edilecek.</p>
   </div>
   <div class="ai-grid fade-in">
-    <div class="ai-card ai-teal">
-      <div class="ai-header">
-        <div class="ai-icon" style="background:#f0fdf4">🚨</div>
-        <div><div class="ai-title">Sepsis Erken Uyarı</div><div class="ai-algo">qSOFA + NEWS2 Hibrid Model</div></div>
-      </div>
-      <div class="ai-metric">
-        <div><div class="am-val">0.979</div><div class="am-label">AUC-ROC</div></div>
-        <div><div class="am-val" style="font-size:28px">%98.9</div><div class="am-label">Özgüllük</div></div>
-        <div><div class="am-ci">GA %95<br>0.973–0.985</div></div>
-      </div>
-      <div class="ai-desc">Vital bulgular kaydedildiğinde otomatik çalışır. qSOFA 3 kriter + NEWS2 skoru kombine edilerek risk skoru (0–1) üretilir. Kritik eşik aşılınca hemşire mobil uygulamasına anlık bildirim gider.</div>
-    </div>
-    <div class="ai-card ai-blue">
-      <div class="ai-header">
-        <div class="ai-icon" style="background:#eff6ff">🏠</div>
-        <div><div class="ai-title">30 Gün Yeniden Yatış</div><div class="ai-algo">LACE+ Algoritması + SHAP</div></div>
-      </div>
-      <div class="ai-metric">
-        <div><div class="am-val" style="color:#3b82f6">0.970</div><div class="am-label">AUC-ROC</div></div>
-        <div><div class="am-val" style="font-size:28px;color:#3b82f6">%93.6</div><div class="am-label">Duyarlılık</div></div>
-        <div><div class="am-ci">GA %95<br>0.961–0.978</div></div>
-      </div>
-      <div class="ai-desc">Taburculuk aşamasında otomatik hesaplanır. LACE+ (yatış süresi, acil kabul, komorbidite, acil başvuru) faktörlerine göre risk skoru ve SHAP açıklaması üretilir. Sosyal hizmet otomatik devreye girer.</div>
-    </div>
-    <div class="ai-card ai-purple">
-      <div class="ai-header">
-        <div class="ai-icon" style="background:#f5f3ff">💊</div>
-        <div><div class="ai-title">İlaç Etkileşimi CDS</div><div class="ai-algo">Kural Motoru + Veritabanı</div></div>
-      </div>
-      <div class="ai-metric">
-        <div><div class="am-val" style="color:#8b5cf6">%100</div><div class="am-label">Yakalama</div></div>
-        <div><div class="am-val" style="font-size:28px;color:#8b5cf6">%100</div><div class="am-label">Doğruluk</div></div>
-        <div><div class="am-ci">1.000<br>order test</div></div>
-      </div>
-      <div class="ai-desc">Her ilaç orderı girildiğinde &lt;50ms içinde yanıt verir. İlaç-ilaç, ilaç-alerji, ilaç-yaş, ilaç-gebelik etkileşimlerini tarar. MAJÖR etkileşimlerde order otomatik engellenir.</div>
-    </div>
-    <div class="ai-card ai-amber">
-      <div class="ai-header">
-        <div class="ai-icon" style="background:#fffbeb">🇹🇷</div>
-        <div><div class="ai-title">Türkçe Klinik NLP</div><div class="ai-algo">Regex + Sözlük Tabanlı Model</div></div>
-      </div>
-      <div class="ai-metric">
-        <div><div class="am-val" style="color:#f59e0b">%100</div><div class="am-label">Doğruluk</div></div>
-        <div><div class="am-val" style="font-size:28px;color:#f59e0b">%100</div><div class="am-label">İlaç/Tanı</div></div>
-        <div><div class="am-ci">250<br>SOAP notu</div></div>
-      </div>
-      <div class="ai-desc">SOAP notlarından tanı (ICD-10), ilaç (ATC), vital bulgu ve lab değerlerini otomatik çıkarır. Sesli dikte ile entegre çalışır. Çıkarılan yapılandırılmış veri FHIR R4 formatına dönüştürülür.</div>
-    </div>
+    <div class="ai-card ai-teal"><div class="ai-header"><div class="ai-icon" style="background:#f0fdf4">🚨</div><div><div class="ai-title" data-i18n="ai.card1_title">Sepsis Erken Uyarı</div><div class="ai-algo" data-i18n="ai.card1_algo">qSOFA + NEWS2 Hibrid Model</div></div></div><div class="ai-metric"><div><div class="am-val">0.979</div><div class="am-label" data-i18n="ai.card1_auc">AUC-ROC</div></div><div><div class="am-val" style="font-size:28px">%98.9</div><div class="am-label" data-i18n="ai.card1_spec">Özgüllük</div></div><div><div class="am-ci" data-i18n="ai.card1_ci">GA %95<br>0.973–0.985</div></div></div><div class="ai-desc" data-i18n="ai.card1_desc">Vital bulgular kaydedildiğinde otomatik çalışır. qSOFA 3 kriter + NEWS2 skoru kombine edilerek risk skoru (0–1) üretilir. Kritik eşik aşılınca hemşire mobil uygulamasına anlık bildirim gider.</div></div>
+    <div class="ai-card ai-blue"><div class="ai-header"><div class="ai-icon" style="background:#eff6ff">🏠</div><div><div class="ai-title" data-i18n="ai.card2_title">30 Gün Yeniden Yatış</div><div class="ai-algo" data-i18n="ai.card2_algo">LACE+ Algoritması + SHAP</div></div></div><div class="ai-metric"><div><div class="am-val" style="color:#3b82f6">0.970</div><div class="am-label" data-i18n="ai.card2_auc">AUC-ROC</div></div><div><div class="am-val" style="font-size:28px;color:#3b82f6">%93.6</div><div class="am-label" data-i18n="ai.card2_sens">Duyarlılık</div></div><div><div class="am-ci" data-i18n="ai.card2_ci">GA %95<br>0.961–0.978</div></div></div><div class="ai-desc" data-i18n="ai.card2_desc">Taburculuk aşamasında otomatik hesaplanır. LACE+ (yatış süresi, acil kabul, komorbidite, acil başvuru) faktörlerine göre risk skoru ve SHAP açıklaması üretilir. Sosyal hizmet otomatik devreye girer.</div></div>
+    <div class="ai-card ai-purple"><div class="ai-header"><div class="ai-icon" style="background:#f5f3ff">💊</div><div><div class="ai-title" data-i18n="ai.card3_title">İlaç Etkileşimi CDS</div><div class="ai-algo" data-i18n="ai.card3_algo">Kural Motoru + Veritabanı</div></div></div><div class="ai-metric"><div><div class="am-val" style="color:#8b5cf6">%100</div><div class="am-label" data-i18n="ai.card3_catch">Yakalama</div></div><div><div class="am-val" style="font-size:28px;color:#8b5cf6">%100</div><div class="am-label" data-i18n="ai.card3_acc">Doğruluk</div></div><div><div class="am-ci" data-i18n="ai.card3_ci">1.000<br>order test</div></div></div><div class="ai-desc" data-i18n="ai.card3_desc">Her ilaç orderı girildiğinde &lt;50ms içinde yanıt verir. İlaç-ilaç, ilaç-alerji, ilaç-yaş, ilaç-gebelik etkileşimlerini tarar. MAJÖR etkileşimlerde order otomatik engellenir.</div></div>
+    <div class="ai-card ai-amber"><div class="ai-header"><div class="ai-icon" style="background:#fffbeb">🇹🇷</div><div><div class="ai-title" data-i18n="ai.card4_title">Türkçe Klinik NLP</div><div class="ai-algo" data-i18n="ai.card4_algo">Regex + Sözlük Tabanlı Model</div></div></div><div class="ai-metric"><div><div class="am-val" style="color:#f59e0b">%100</div><div class="am-label" data-i18n="ai.card4_acc1">Doğruluk</div></div><div><div class="am-val" style="font-size:28px;color:#f59e0b">%100</div><div class="am-label" data-i18n="ai.card4_acc2">İlaç/Tanı</div></div><div><div class="am-ci" data-i18n="ai.card4_ci">250<br>SOAP notu</div></div></div><div class="ai-desc" data-i18n="ai.card4_desc">SOAP notlarından tanı (ICD-10), ilaç (ATC), vital bulgu ve lab değerlerini otomatik çıkarır. Sesli dikte ile entegre çalışır. Çıkarılan yapılandırılmış veri FHIR R4 formatına dönüştürülür.</div></div>
   </div>
-  <p style="text-align:center; font-size:12px; color:var(--gray); margin-top:20px">* Tüm değerler sentetik veri doğrulama testinden elde edilmiştir. Pilot hastane verisiyle kalibrasyon Q3 2026 hedeflenmektedir.</p>
+  <p style="text-align:center; font-size:12px; color:var(--gray); margin-top:20px" data-i18n="ai.disclaimer">* Tüm değerler sentetik veri doğrulama testinden elde edilmiştir. Pilot hastane verisiyle kalibrasyon Q3 2026 hedeflenmektedir.</p>
 </section>
 
-<!-- ── KONUMLANMA ─────────────────────────────────────── -->
+<!-- ── KONUMLANMA / KARŞILAŞTIRMA ─────────────────────── -->
 <section style="background:var(--lgray)">
   <div class="center fade-in">
-    <div class="section-badge">Konumlanma</div>
-    <h2 class="section-title">Türkiye'de <span>Yeni Standart,</span><br>Dünyayla <span>Rekabet</span></h2>
-    <p class="section-sub">Henüz kurumsal bir şirket değiliz — ama tasarladığımız sistem, sektörün beklentilerinin çok ötesinde. İşte neyi farklı yapıyoruz.</p>
+    <div class="section-badge" data-i18n="positioning.badge">Konumlanma</div>
+    <h2 class="section-title" data-i18n="positioning.title">Türkiye'de <span>Yeni Standart,</span><br>Dünyayla <span>Rekabet</span></h2>
+    <p class="section-sub" data-i18n="positioning.subtitle">Henüz kurumsal bir şirket değiliz — ama tasarladığımız sistem, sektörün beklentilerinin çok ötesinde. İşte neyi farklı yapıyoruz.</p>
   </div>
-
-  <!-- Yerli pazar karşılaştırması — anonim -->
-  <div class="fade-in" style="margin-bottom:20px">
-    <div style="background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:12px 18px;margin-bottom:12px;display:flex;align-items:center;gap:10px">
-      <span style="font-size:12px;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:.05em">Karşılaştırma kapsamı:</span>
-      <span style="font-size:12px;color:var(--gray)">Türkiye'deki mevcut HBYS çözümleri (genel piyasa ortalaması) ile Trevonti HBYS</span>
-    </div>
-  </div>
-
+  <div class="fade-in" style="margin-bottom:20px"><div style="background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:12px 18px;margin-bottom:12px;display:flex;align-items:center;gap:10px"><span style="font-size:12px;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:.05em" data-i18n="positioning.comparison_scope">Karşılaştırma kapsamı:</span><span style="font-size:12px;color:var(--gray)" data-i18n="positioning.comparison_desc">Türkiye'deki mevcut HBYS çözümleri (genel piyasa ortalaması) ile Trevonti HBYS</span></div></div>
   <div class="fade-in" style="overflow-x:auto;margin-bottom:48px">
-    <table class="comp-table">
-      <thead>
-        <tr>
-          <th class="ct-header-gray" style="text-align:left">Özellik</th>
-          <th class="ct-header-gray">Mevcut Yerli Sistemler</th>
-          <th class="ct-header-gray">Piyasa Ortalaması</th>
-          <th class="ct-header-teal">✦ Trevonti HBYS</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>Bulut / SaaS Mimari</td><td style="text-align:center"><span class="check-no">✗ Sunucu tabanlı</span></td><td style="text-align:center"><span class="check-partial">Kısmi</span></td><td class="trevonti-col" style="text-align:center"><span class="check-yes">✓ Cloud-Native</span></td></tr>
-        <tr><td>Mobil iOS + Android</td><td style="text-align:center"><span class="check-no">✗</span></td><td style="text-align:center"><span class="check-partial">Sınırlı</span></td><td class="trevonti-col" style="text-align:center"><span class="check-yes">✓ Native App</span></td></tr>
-        <tr><td>Yapay Zeka / CDS</td><td style="text-align:center"><span class="check-no">✗</span></td><td style="text-align:center"><span class="check-no">✗</span></td><td class="trevonti-col" style="text-align:center"><span class="check-yes">✓ 4 AI Modeli</span></td></tr>
-        <tr><td>FHIR R4 / e-Nabız</td><td style="text-align:center"><span class="check-no">✗</span></td><td style="text-align:center"><span class="check-partial">Kısmi</span></td><td class="trevonti-col" style="text-align:center"><span class="check-yes">✓ Tam</span></td></tr>
-        <tr><td>BCMA İlaç Güvenliği</td><td style="text-align:center"><span class="check-partial">Eklenti</span></td><td style="text-align:center"><span class="check-no">✗</span></td><td class="trevonti-col" style="text-align:center"><span class="check-yes">✓ Dahili</span></td></tr>
-        <tr><td>HA/DR (RTO 15 dk)</td><td style="text-align:center"><span class="check-no">✗</span></td><td style="text-align:center"><span class="check-no">✗</span></td><td class="trevonti-col" style="text-align:center"><span class="check-yes">✓ Patroni HA</span></td></tr>
-        <tr><td>Telemedicine (USBS)</td><td style="text-align:center"><span class="check-no">✗</span></td><td style="text-align:center"><span class="check-no">✗</span></td><td class="trevonti-col" style="text-align:center"><span class="check-yes">✓ Uyumlu</span></td></tr>
-        <tr><td>Açık Kaynak Altyapı</td><td style="text-align:center"><span class="check-no">✗ Tescilli</span></td><td style="text-align:center"><span class="check-no">✗</span></td><td class="trevonti-col" style="text-align:center"><span class="check-yes">✓ Tam Açık</span></td></tr>
-      </tbody>
-    </table>
+    <table class="comp-table"><thead><tr><th class="ct-header-gray" style="text-align:left" data-i18n="positioning.table_header1">Özellik</th><th class="ct-header-gray" data-i18n="positioning.table_header2">Mevcut Yerli Sistemler</th><th class="ct-header-gray" data-i18n="positioning.table_header3">Piyasa Ortalaması</th><th class="ct-header-teal" data-i18n="positioning.table_header4">✦ Trevonti HBYS</th></tr></thead>
+    <tbody>
+      <tr><td data-i18n="positioning.row1_feature">Bulut / SaaS Mimari</td><td style="text-align:center"><span class="check-no" data-i18n="positioning.row1_col1">✗ Sunucu tabanlı</span></td><td style="text-align:center"><span class="check-partial" data-i18n="positioning.row1_col2">Kısmi</span></td><td class="trevonti-col" style="text-align:center"><span class="check-yes" data-i18n="positioning.row1_col3">✓ Cloud-Native</span></td></tr>
+      <tr><td data-i18n="positioning.row2_feature">Mobil iOS + Android</td><td style="text-align:center"><span class="check-no" data-i18n="positioning.row2_col1">✗</span></td><td style="text-align:center"><span class="check-partial" data-i18n="positioning.row2_col2">Sınırlı</span></td><td class="trevonti-col" style="text-align:center"><span class="check-yes" data-i18n="positioning.row2_col3">✓ Native App</span></td></tr>
+      <tr><td data-i18n="positioning.row3_feature">Yapay Zeka / CDS</td><td style="text-align:center"><span class="check-no" data-i18n="positioning.row3_col1">✗</span></td><td style="text-align:center"><span class="check-no" data-i18n="positioning.row3_col2">✗</span></td><td class="trevonti-col" style="text-align:center"><span class="check-yes" data-i18n="positioning.row3_col3">✓ 4 AI Modeli</span></td></tr>
+      <tr><td data-i18n="positioning.row4_feature">FHIR R4 / e-Nabız</td><td style="text-align:center"><span class="check-no" data-i18n="positioning.row4_col1">✗</span></td><td style="text-align:center"><span class="check-partial" data-i18n="positioning.row4_col2">Kısmi</span></td><td class="trevonti-col" style="text-align:center"><span class="check-yes" data-i18n="positioning.row4_col3">✓ Tam</span></td></tr>
+      <tr><td data-i18n="positioning.row5_feature">BCMA İlaç Güvenliği</td><td style="text-align:center"><span class="check-partial" data-i18n="positioning.row5_col1">Eklenti</span></td><td style="text-align:center"><span class="check-no" data-i18n="positioning.row5_col2">✗</span></td><td class="trevonti-col" style="text-align:center"><span class="check-yes" data-i18n="positioning.row5_col3">✓ Dahili</span></td></tr>
+      <tr><td data-i18n="positioning.row6_feature">HA/DR (RTO 15 dk)</td><td style="text-align:center"><span class="check-no" data-i18n="positioning.row6_col1">✗</span></td><td style="text-align:center"><span class="check-no" data-i18n="positioning.row6_col2">✗</span></td><td class="trevonti-col" style="text-align:center"><span class="check-yes" data-i18n="positioning.row6_col3">✓ Patroni HA</span></td></tr>
+      <tr><td data-i18n="positioning.row7_feature">Telemedicine (USBS)</td><td style="text-align:center"><span class="check-no" data-i18n="positioning.row7_col1">✗</span></td><td style="text-align:center"><span class="check-no" data-i18n="positioning.row7_col2">✗</span></td><td class="trevonti-col" style="text-align:center"><span class="check-yes" data-i18n="positioning.row7_col3">✓ Uyumlu</span></td></tr>
+      <tr><td data-i18n="positioning.row8_feature">Açık Kaynak Altyapı</td><td style="text-align:center"><span class="check-no" data-i18n="positioning.row8_col1">✗ Tescilli</span></td><td style="text-align:center"><span class="check-no" data-i18n="positioning.row8_col2">✗</span></td><td class="trevonti-col" style="text-align:center"><span class="check-yes" data-i18n="positioning.row8_col3">✓ Tam Açık</span></td></tr>
+    </tbody></table>
   </div>
-
-  <!-- Global benchmark -->
-  <div class="center fade-in" style="margin-bottom:24px">
-    <div class="section-badge">Küresel Hedef</div>
-    <h3 style="font-size:clamp(20px,2.5vw,28px);font-weight:700;color:var(--navy);margin-bottom:10px">
-      Dünyanın En İyi Sistemlerinin Ortak <span style="color:var(--teal)">Standartları</span>
-    </h3>
-    <p style="font-size:15px;color:var(--gray);max-width:580px;margin:0 auto">
-      KLAS Research, bağımsız analistler ve küresel hastanelerin benimsediği sistemlerin sahip olduğu kriterlere bakıyoruz — ve Trevonti bu standartları sıfırdan içine alarak inşa ediyor.
-    </p>
-  </div>
-
+  <div class="center fade-in" style="margin-bottom:24px"><div class="section-badge" data-i18n="positioning.global_badge">Küresel Hedef</div><h3 style="font-size:clamp(20px,2.5vw,28px);font-weight:700;color:var(--navy);margin-bottom:10px" data-i18n="positioning.global_title">Dünyanın En İyi Sistemlerinin Ortak <span style="color:var(--teal)">Standartları</span></h3><p style="font-size:15px;color:var(--gray);max-width:580px;margin:0 auto" data-i18n="positioning.global_subtitle">KLAS Research, bağımsız analistler ve küresel hastanelerin benimsediği sistemlerin sahip olduğu kriterlere bakıyoruz — ve Trevonti bu standartları sıfırdan içine alarak inşa ediyor.</p></div>
   <div class="fade-in" style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
-    <div style="background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:20px;border-left:4px solid var(--teal)">
-      <div style="font-size:20px;margin-bottom:10px">🌐</div>
-      <div style="font-size:14px;font-weight:700;color:var(--navy);margin-bottom:6px">Birlikte Çalışabilirlik</div>
-      <div style="font-size:12px;color:var(--gray);line-height:1.6">HL7, FHIR R4, DICOM, LOINC, ICD-10 — dünyanın en iyi sistemlerinin kullandığı tüm standartlar Trevonti'de yerleşik.</div>
-      <div style="margin-top:10px;font-size:11px;font-weight:700;color:var(--teal)">✓ Trevonti'de mevcut</div>
-    </div>
-    <div style="background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:20px;border-left:4px solid #3b82f6">
-      <div style="font-size:20px;margin-bottom:10px">🤖</div>
-      <div style="font-size:14px;font-weight:700;color:var(--navy);margin-bottom:6px">AI Entegrasyonu</div>
-      <div style="font-size:12px;color:var(--gray);line-height:1.6">Küresel liderler AI'ı son yıllarda sisteme ekledi. Trevonti AI ile başladı — sepsis, yeniden yatış, NLP ve CDS sıfırdan tasarlandı.</div>
-      <div style="margin-top:10px;font-size:11px;font-weight:700;color:#3b82f6">✓ 4 model, yerleşik</div>
-    </div>
-    <div style="background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:20px;border-left:4px solid #8b5cf6">
-      <div style="font-size:20px;margin-bottom:10px">☁️</div>
-      <div style="font-size:14px;font-weight:700;color:var(--navy);margin-bottom:6px">Cloud-Native Mimari</div>
-      <div style="font-size:12px;color:var(--gray);line-height:1.6">Küresel liderler eski sistemlerini buluta taşıyor. Trevonti hiç sunucu tabanlı olmadı — Kubernetes, Patroni HA, microservice ile doğdu.</div>
-      <div style="margin-top:10px;font-size:11px;font-weight:700;color:#8b5cf6">✓ Yerleşik mimari</div>
-    </div>
+    <div style="background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:20px;border-left:4px solid var(--teal)"><div style="font-size:20px;margin-bottom:10px">🌐</div><div style="font-size:14px;font-weight:700;color:var(--navy);margin-bottom:6px" data-i18n="positioning.global_card1_title">Birlikte Çalışabilirlik</div><div style="font-size:12px;color:var(--gray);line-height:1.6" data-i18n="positioning.global_card1_desc">HL7, FHIR R4, DICOM, LOINC, ICD-10 — dünyanın en iyi sistemlerinin kullandığı tüm standartlar Trevonti'de yerleşik.</div><div style="margin-top:10px;font-size:11px;font-weight:700;color:var(--teal)" data-i18n="positioning.global_card1_badge">✓ Trevonti'de mevcut</div></div>
+    <div style="background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:20px;border-left:4px solid #3b82f6"><div style="font-size:20px;margin-bottom:10px">🤖</div><div style="font-size:14px;font-weight:700;color:var(--navy);margin-bottom:6px" data-i18n="positioning.global_card2_title">AI Entegrasyonu</div><div style="font-size:12px;color:var(--gray);line-height:1.6" data-i18n="positioning.global_card2_desc">Küresel liderler AI'ı son yıllarda sisteme ekledi. Trevonti AI ile başladı — sepsis, yeniden yatış, NLP ve CDS sıfırdan tasarlandı.</div><div style="margin-top:10px;font-size:11px;font-weight:700;color:#3b82f6" data-i18n="positioning.global_card2_badge">✓ 4 model, yerleşik</div></div>
+    <div style="background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:20px;border-left:4px solid #8b5cf6"><div style="font-size:20px;margin-bottom:10px">☁️</div><div style="font-size:14px;font-weight:700;color:var(--navy);margin-bottom:6px" data-i18n="positioning.global_card3_title">Cloud-Native Mimari</div><div style="font-size:12px;color:var(--gray);line-height:1.6" data-i18n="positioning.global_card3_desc">Küresel liderler eski sistemlerini buluta taşıyor. Trevonti hiç sunucu tabanlı olmadı — Kubernetes, Patroni HA, microservice ile doğdu.</div><div style="margin-top:10px;font-size:11px;font-weight:700;color:#8b5cf6" data-i18n="positioning.global_card3_badge">✓ Yerleşik mimari</div></div>
   </div>
 </section>
 
 <!-- ── STARTUP MANIFESTO ──────────────────────────────── -->
 <section style="background:var(--navy);padding:60px 5%">
   <div style="max-width:760px;margin:0 auto;text-align:center" class="fade-in">
-    <div style="display:inline-block;background:rgba(245,158,11,.15);border:1px solid rgba(245,158,11,.3);border-radius:20px;padding:6px 16px;font-size:12px;font-weight:700;color:#fcd34d;margin-bottom:20px">
-      🌱 Dürüst Bir Not
-    </div>
-    <h2 style="font-size:clamp(24px,3vw,36px);font-weight:800;color:#fff;margin-bottom:16px;line-height:1.3">
-      Henüz bir şirket değiliz.<br>
-      <span style="color:#5eead4">Ama ne inşa ettiğimizi biliyoruz.</span>
-    </h2>
-    <p style="font-size:16px;color:rgba(255,255,255,.7);line-height:1.8;margin-bottom:24px">
-      Trevonti HBYS tek kişinin vizyonuyla ve sıfır sermayeyle geliştirilen erken aşama bir startup. Sistem henüz canlıya alınmadı, şirket henüz kurulmadı. Ama 12 sprint ve 31 modüllük kod tabanıyla Türkiye'deki mevcut sistemlerin yıllarca gerisinde kaldığı özellikleri şimdiden teslim ediyor.
-    </p>
+    <div style="display:inline-block;background:rgba(245,158,11,.15);border:1px solid rgba(245,158,11,.3);border-radius:20px;padding:6px 16px;font-size:12px;font-weight:700;color:#fcd34d;margin-bottom:20px" data-i18n="manifesto.badge">🌱 Dürüst Bir Not</div>
+    <h2 style="font-size:clamp(24px,3vw,36px);font-weight:800;color:#fff;margin-bottom:16px;line-height:1.3" data-i18n="manifesto.title">Henüz bir şirket değiliz.<br><span style="color:#5eead4">Ama ne inşa ettiğimizi biliyoruz.</span></h2>
+    <p style="font-size:16px;color:rgba(255,255,255,.7);line-height:1.8;margin-bottom:24px" data-i18n="manifesto.desc">Trevonti HBYS tek kişinin vizyonuyla ve sıfır sermayeyle geliştirilen erken aşama bir startup. Sistem henüz canlıya alınmadı, şirket henüz kurulmadı. Ama 12 sprint ve 31 modüllük kod tabanıyla Türkiye'deki mevcut sistemlerin yıllarca gerisinde kaldığı özellikleri şimdiden teslim ediyor.</p>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:28px">
-      <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:16px">
-        <div style="font-size:26px;font-weight:800;color:#5eead4">Bugün</div>
-        <div style="font-size:12px;color:rgba(255,255,255,.55);margin-top:4px">12 sprint, 31 modül, 200+ test. Sunucu bekleniyor.</div>
-      </div>
-      <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:16px">
-        <div style="font-size:26px;font-weight:800;color:#fcd34d">2026</div>
-        <div style="font-size:12px;color:rgba(255,255,255,.55);margin-top:4px">Pilot hastane, şirket kuruluşu, SİSE sertifikası başvurusu.</div>
-      </div>
-      <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:16px">
-        <div style="font-size:26px;font-weight:800;color:#c4b5fd">Hedef</div>
-        <div style="font-size:12px;color:rgba(255,255,255,.55);margin-top:4px">Türkiye'nin en iyi HBYS'si. Sonra küresel pazar.</div>
-      </div>
+      <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:16px"><div style="font-size:26px;font-weight:800;color:#5eead4" data-i18n="manifesto.box1_title">Bugün</div><div style="font-size:12px;color:rgba(255,255,255,.55);margin-top:4px" data-i18n="manifesto.box1_desc">12 sprint, 31 modül, 200+ test. Sunucu bekleniyor.</div></div>
+      <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:16px"><div style="font-size:26px;font-weight:800;color:#fcd34d" data-i18n="manifesto.box2_title">2026</div><div style="font-size:12px;color:rgba(255,255,255,.55);margin-top:4px" data-i18n="manifesto.box2_desc">Pilot hastane, şirket kuruluşu, SİSE sertifikası başvurusu.</div></div>
+      <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:16px"><div style="font-size:26px;font-weight:800;color:#c4b5fd" data-i18n="manifesto.box3_title">Hedef</div><div style="font-size:12px;color:rgba(255,255,255,.55);margin-top:4px" data-i18n="manifesto.box3_desc">Türkiye'nin en iyi HBYS'si. Sonra küresel pazar.</div></div>
     </div>
-    <p style="font-size:14px;color:rgba(255,255,255,.5);font-style:italic">
-      "Büyük sistemlerin avantajı geçmişleri. Bizim avantajımız gelecekten başlamış olmak."
-    </p>
+    <p style="font-size:14px;color:rgba(255,255,255,.5);font-style:italic" data-i18n="manifesto.quote">"Büyük sistemlerin avantajı geçmişleri. Bizim avantajımız gelecekten başlamış olmak."</p>
   </div>
 </section>
 
 <!-- ── TEKNOLOJİ ────────────────────────────────────────── -->
 <section id="tech" class="tech-bg">
   <div class="center fade-in">
-    <div class="section-badge">Altyapı</div>
-    <h2 class="section-title">Kurumsal Sınıf <span>Teknoloji Stack'i</span></h2>
-    <p class="section-sub">Dünyanın en büyük bankalarının ve hastanelerinin güvendiği açık kaynak teknolojiler.</p>
+    <div class="section-badge" data-i18n="tech.badge">Altyapı</div>
+    <h2 class="section-title" data-i18n="tech.title">Kurumsal Sınıf <span>Teknoloji Stack'i</span></h2>
+    <p class="section-sub" data-i18n="tech.subtitle">Dünyanın en büyük bankalarının ve hastanelerinin güvendiği açık kaynak teknolojiler.</p>
   </div>
   <div class="stack-grid fade-in">
     <div class="stack-item"><div class="si-icon">⚛️</div><div class="si-name">Next.js 14</div><div class="si-type">Frontend</div></div>
@@ -702,108 +561,104 @@ section{padding:80px 5%}
 <!-- ── YOL HARİTASI ─────────────────────────────────────── -->
 <section id="roadmap" class="roadmap-bg">
   <div class="center fade-in">
-    <div class="section-badge" style="background:rgba(13,148,136,.2);color:#5eead4">Yol Haritası</div>
-    <h2 class="section-title" style="color:#fff">Şeffaf <span>İlerleme</span></h2>
-    <p class="section-sub" style="color:rgba(255,255,255,.6)">Neredeyiz, nereye gidiyoruz.</p>
+    <div class="section-badge" style="background:rgba(13,148,136,.2);color:#5eead4" data-i18n="roadmap.badge">Yol Haritası</div>
+    <h2 class="section-title" style="color:#fff" data-i18n="roadmap.title">Şeffaf <span>İlerleme</span></h2>
+    <p class="section-sub" style="color:rgba(255,255,255,.6)" data-i18n="roadmap.subtitle">Neredeyiz, nereye gidiyoruz.</p>
   </div>
   <div class="roadmap-line fade-in">
-    <div class="rm-item">
-      <div class="rm-dot rm-done">✓</div>
-      <div class="rm-quarter">2024 Q4 – 2025 Q1</div>
-      <div class="rm-title">Geliştirme Tamamlandı</div>
-      <div class="rm-desc">31 modül, 12 sprint, 200+ test. Web + iOS + Android. Tüm entegrasyonlar yazıldı.</div>
-    </div>
-    <div class="rm-item">
-      <div class="rm-dot rm-done">✓</div>
-      <div class="rm-quarter">2025 Q2</div>
-      <div class="rm-title">Marka & Altyapı</div>
-      <div class="rm-desc">Trevonti markası, GitHub, LinkedIn, web sitesi, marka tescil başvurusu.</div>
-    </div>
-    <div class="rm-item">
-      <div class="rm-dot rm-active">→</div>
-      <div class="rm-quarter">2025 Q3 (Şu An)</div>
-      <div class="rm-title">Pilot & Yatırım</div>
-      <div class="rm-desc">Staging ortamı, ilk pilot hastane, Founders Hub Azure kredisi, şirket kuruluşu hazırlığı.</div>
-    </div>
-    <div class="rm-item">
-      <div class="rm-dot rm-wait">4</div>
-      <div class="rm-quarter">2025 Q4 – 2026</div>
-      <div class="rm-title">SİSE & Büyüme</div>
-      <div class="rm-desc">SİSE sertifikasyon başvurusu, şirket kuruluşu, ilk 3 hastane sözleşmesi.</div>
-    </div>
+    <div class="rm-item"><div class="rm-dot rm-done">✓</div><div class="rm-quarter" data-i18n="roadmap.q1_quarter">2024 Q4 – 2025 Q1</div><div class="rm-title" data-i18n="roadmap.q1_title">Geliştirme Tamamlandı</div><div class="rm-desc" data-i18n="roadmap.q1_desc">31 modül, 12 sprint, 200+ test. Web + iOS + Android. Tüm entegrasyonlar yazıldı.</div></div>
+    <div class="rm-item"><div class="rm-dot rm-done">✓</div><div class="rm-quarter" data-i18n="roadmap.q2_quarter">2025 Q2</div><div class="rm-title" data-i18n="roadmap.q2_title">Marka & Altyapı</div><div class="rm-desc" data-i18n="roadmap.q2_desc">Trevonti markası, GitHub, LinkedIn, web sitesi, marka tescil başvurusu.</div></div>
+    <div class="rm-item"><div class="rm-dot rm-active">→</div><div class="rm-quarter" data-i18n="roadmap.q3_quarter">2025 Q3 (Şu An)</div><div class="rm-title" data-i18n="roadmap.q3_title">Pilot & Yatırım</div><div class="rm-desc" data-i18n="roadmap.q3_desc">Staging ortamı, ilk pilot hastane, Founders Hub Azure kredisi, şirket kuruluşu hazırlığı.</div></div>
+    <div class="rm-item"><div class="rm-dot rm-wait">4</div><div class="rm-quarter" data-i18n="roadmap.q4_quarter">2025 Q4 – 2026</div><div class="rm-title" data-i18n="roadmap.q4_title">SİSE & Büyüme</div><div class="rm-desc" data-i18n="roadmap.q4_desc">SİSE sertifikasyon başvurusu, şirket kuruluşu, ilk 3 hastane sözleşmesi.</div></div>
   </div>
 </section>
 
 <!-- ── CTA ─────────────────────────────────────────────── -->
 <section class="cta-bg">
   <div class="cta-inner fade-in">
-    <div>
-      <div class="cta-title">Birlikte İnşa Edelim</div>
-      <p class="cta-sub">Pilot hastane ortağı, yatırımcı veya sektör uzmanıysanız — doğru yerdeysiniz. Bu sistemin geleceğini şekillendirmek için erken bir fırsat.</p>
-    </div>
-    <div class="cta-btns">
-      <a href="mailto:trevonti.hbys@gmail.com" class="cta-btn-white">📧 Bize Yazın</a>
-      <a href="https://github.com/trevontihbys" target="_blank" class="cta-btn-outline">🐙 Koda Bakın</a>
-    </div>
+    <div><div class="cta-title" data-i18n="cta.title">Birlikte İnşa Edelim</div><p class="cta-sub" data-i18n="cta.subtitle">Pilot hastane ortağı, yatırımcı veya sektör uzmanıysanız — doğru yerdeysiniz. Bu sistemin geleceğini şekillendirmek için erken bir fırsat.</p></div>
+    <div class="cta-btns"><a href="mailto:trevonti.hbys@gmail.com" class="cta-btn-white" data-i18n="cta.btn_primary">📧 Bize Yazın</a><a href="https://github.com/trevontihbys" target="_blank" class="cta-btn-outline" data-i18n="cta.btn_secondary">🐙 Koda Bakın</a></div>
   </div>
 </section>
 
 <!-- ── FOOTER ───────────────────────────────────────────── -->
 <footer class="footer">
   <div class="footer-grid">
-    <div>
-      <div class="footer-logo">
-        <div class="fl-box">T</div>
-        <span class="fl-name">Trevonti HBYS</span>
-      </div>
-      <p class="footer-desc">Türkiye'nin yeni nesil, bulut tabanlı ve yapay zeka destekli Hastane Bilgi Yönetim Sistemi. Hasta güvenliğini, operasyonel verimliliği ve sürdürülebilir teknolojiyi tek platformda buluşturuyoruz.</p>
-      <div style="font-size:13px;color:rgba(255,255,255,.5)">📧 trevonti.hbys@gmail.com</div>
-    </div>
-    <div>
-      <div class="footer-links-title">Platform</div>
-      <div class="footer-links">
-        <a href="#features">Özellikler</a>
-        <a href="#modules">Modüller</a>
-        <a href="#ai">Yapay Zeka</a>
-        <a href="#integrations">Entegrasyonlar</a>
-        <a href="#roadmap">Yol Haritası</a>
-      </div>
-    </div>
-    <div>
-      <div class="footer-links-title">Geliştirici</div>
-      <div class="footer-links">
-        <a href="https://github.com/trevontihbys" target="_blank">GitHub</a>
-        <a href="https://github.com/trevontihbys/trevonti-fhir-r4" target="_blank">FHIR R4</a>
-        <a href="https://github.com/trevontihbys/trevonti-ai-engine" target="_blank">AI Engine</a>
-        <a href="https://www.linkedin.com/company/trevontihbys" target="_blank">LinkedIn</a>
-      </div>
-    </div>
-    <div>
-      <div class="footer-links-title">İletişim</div>
-      <div class="footer-links">
-        <a href="mailto:trevonti.hbys@gmail.com">Genel İletişim</a>
-        <a href="mailto:trevonti.hbys@gmail.com">Pilot Başvurusu</a>
-        <a href="mailto:trevonti.hbys@gmail.com">Yatırımcı İlişkileri</a>
-      </div>
-    </div>
+    <div><div class="footer-logo"><div class="fl-box">T</div><span class="fl-name">Trevonti HBYS</span></div><p class="footer-desc" data-i18n="footer.desc">Türkiye'nin yeni nesil, bulut tabanlı ve yapay zeka destekli Hastane Bilgi Yönetim Sistemi. Hasta güvenliğini, operasyonel verimliliği ve sürdürülebilir teknolojiyi tek platformda buluşturuyoruz.</p><div style="font-size:13px;color:rgba(255,255,255,.5)">📧 trevonti.hbys@gmail.com</div></div>
+    <div><div class="footer-links-title" data-i18n="footer.platform_title">Platform</div><div class="footer-links"><a href="#features" data-i18n="nav.features">Özellikler</a><a href="#modules" data-i18n="nav.modules">Modüller</a><a href="#ai" data-i18n="nav.ai">Yapay Zeka</a><a href="#integrations" data-i18n="nav.integrations">Entegrasyonlar</a><a href="#roadmap" data-i18n="nav.roadmap">Yol Haritası</a></div></div>
+    <div><div class="footer-links-title" data-i18n="footer.developer_title">Geliştirici</div><div class="footer-links"><a href="https://github.com/trevontihbys" target="_blank">GitHub</a><a href="https://github.com/trevontihbys/trevonti-fhir-r4" target="_blank">FHIR R4</a><a href="https://github.com/trevontihbys/trevonti-ai-engine" target="_blank">AI Engine</a><a href="https://www.linkedin.com/company/trevontihbys" target="_blank">LinkedIn</a></div></div>
+    <div><div class="footer-links-title" data-i18n="footer.contact_title">İletişim</div><div class="footer-links"><a href="mailto:trevonti.hbys@gmail.com" data-i18n="footer.contact_general">Genel İletişim</a><a href="mailto:trevonti.hbys@gmail.com" data-i18n="footer.contact_pilot">Pilot Başvurusu</a><a href="mailto:trevonti.hbys@gmail.com" data-i18n="footer.contact_investor">Yatırımcı İlişkileri</a></div></div>
   </div>
   <div class="footer-bottom">
-    <span class="fb-copy">© 2025 Trevonti HBYS. Tüm hakları saklıdır.</span>
-    <div class="fb-badges">
-      <span class="fb-badge">KVKK Uyumlu</span>
-      <span class="fb-badge">FHIR R4</span>
-      <span class="fb-badge">SGK Medula</span>
-      <span class="fb-badge">SİSE Hazırlık</span>
-    </div>
+    <span class="fb-copy" data-i18n="footer.copy">© 2025 Trevonti HBYS. Tüm hakları saklıdır.</span>
+    <div class="fb-badges"><span class="fb-badge" data-i18n="footer.badge1">KVKK Uyumlu</span><span class="fb-badge" data-i18n="footer.badge2">FHIR R4</span><span class="fb-badge" data-i18n="footer.badge3">SGK Medula</span><span class="fb-badge" data-i18n="footer.badge4">SİSE Hazırlık</span></div>
   </div>
 </footer>
 
 <script>
-// Fade-in on scroll
-const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.1 });
-document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+// ─── İÇE GÖMÜLÜ ÇEVİRİ VERİLERİ (HARİCİ JSON YOK) ─────
+const translations = {
+  tr: {
+    logo: { subtitle: "TAM ENTEGRE HASTANE PLATFORMU", tech: "bulut-yerel | yapay zeka destekli | sürdürülebilir teknoloji" },
+    nav: { features: "Özellikler", modules: "Modüller", ai: "Yapay Zeka", integrations: "Entegrasyonlar", roadmap: "Yol Haritası", github: "GitHub", contact: "İletişim" },
+    hero: { badge: "Erken Aşama Startup · Aktif Geliştirme · Pilot Q3 2026", title: "Türkiye'nin<br><span>Yeni Nesil</span><br>Hastane Sistemi", subtitle: "Henüz bir startup'ız — ama 31 klinik modül, AI destekli karar destek ve tam ulusal entegrasyonla sektörün en iyilerine meydan okuyoruz. Türkiye'nin en iyi HBYS'si olmak için inşa ediyoruz.", btn_primary: "📧 Pilot Başvurusu Yap", btn_secondary: "🐙 GitHub'da İncele", card1_title: "Sepsis Erken Uyarı", card1_sub: "qSOFA + NEWS2 Hibrid", card2_title: "SGK Medula Provizyon", card2_sub: "Otomatik faturalandırma", card2_badge: "Entegre", card3_title: "KVKK & FHIR R4", card3_sub: "Tam uyumlu altyapı", card3_badge: "Uyumlu", card4_title: "iOS + Android + Web", card4_sub: "Kurulum gerektirmez" },
+    stats: { modules: "Klinik Modül", tests: "Birim Test", platforms: "Platform", sla: "SLA Hedefi" },
+    problem: { badge: "Sorun", title: "Türkiye'deki Hastanelerin <span>%78'i</span> Eski Sistemlerde", subtitle: "10–20 yıllık, sunucu tabanlı HBYS yazılımları; mobil erişim, yapay zeka ve ulusal sağlık sistemi entegrasyonundan yoksun.", card1_title: "Mobil Erişim Yok", card1_desc: "Hemşireler BCMA doğrulamasını kağıda yapıyor. Hekimler uzaktan sisteme giremiyor. Telemedicine imkânsız.", card1_stat: "%0 Mobil", card2_title: "SGK Gelir Kaybı", card2_desc: "Manuel SUT kodu girişleri yüzünden hastaneler hak ettikleri SGK ödemelerinin önemli bir kısmını alamıyor.", card2_stat: "%12 Kayıp", card3_title: "İlaç Hataları", card3_desc: "Kâğıt order sistemi ilaç etkileşimi kontrolü yapamıyor. Türkiye'deki ilaç hata oranı Avrupa ortalamasının 3 katı.", card3_stat: "3× Hata" },
+    features: { badge: "Çözüm", title: "Her Şey <span>Dahili,</span> Hiçbir Şey Eklenti", subtitle: "Trevonti HBYS, ayrı ayrı satın alınan modüllerden değil — baştan bütünleşik tasarlanmış bir platformdan oluşur.", cloud_title: "Bulut-Yerel Mimari", cloud_desc: "Kubernetes, Docker, Patroni HA PostgreSQL. Sunucu satın alma yok. Güncelleme için IT ekibi yok. Siz açın, kullanın.", mobile_title: "Web + iOS + Android", mobile_desc: "Windows, macOS, iOS, Android fark etmez. Tüm bilgisayar, telefon ve tabletlerden tarayıcı ile tam erişim. Klinik personeli tüm taşınabilir cihazlarıyla BCMA yapabilir.", ai_title: "Yapay Zeka Motoru", ai_desc: "Sepsis erken uyarı (AUC 0.979), 30 gün yeniden yatış tahmini (AUC 0.970), Türkçe NLP, ilaç etkileşimi CDS.", sgk_title: "Otomatik SGK Faturalama", sgk_desc: "SUT kodları otomatik atanır. Medula provizyon anlık alınır. e-Fatura UBL 2.1 formatında GİB'e gider.", security_title: "KVKK & Güvenlik", security_desc: "AES-256-GCM alan şifreleme. Cilium zero-trust ağ. Keycloak MFA. Değiştirilemez denetim logu. KVKK tam uyum.", integration_title: "Ulusal Entegrasyonlar", integration_desc: "SGK Medula, Sağlık-Net (10 mesaj tipi), e-Nabız FHIR R4, TİTS ilaç takip, GİB e-Fatura hepsi dahili." },
+    modules: { badge: "Kapsam", title: "<span>31 Modül,</span> Tek Platform", subtitle: "Klinikten radyolojiye, eczaneden finansa, yapay zekadan eğitime — tek sistemde tam hastane.", footer_note: "✅ Yeni eklenen 10 modül ile birlikte toplam 31 klinik ve operasyonel modül.", mod1: "HIS Core (Hasta Yönetimi)", mod2: "CPOE — Elektronik Order", mod3: "Klinik Karar Destek", mod4: "LIS — Laboratuvar (HL7)", mod5: "RIS/PACS — Radyoloji", mod6: "Eczane (BCMA + FEFO)", mod7: "Ameliyathane (OR)", mod8: "YBÜ — Yoğun Bakım", mod9: "Kan Bankası (ISBT 128)", mod10: "Onkoloji (OIS)", mod11: "Kardiyoloji (Kateter)", mod12: "Diyaliz Yönetimi", mod13: "Patoloji (Dijital)", mod14: "IVF — Tüp Bebek", mod15: "Hasta Portali + RPM", mod16: "Telemedicine (USBS)", mod17: "Finans + SGK Medula", mod18: "e-Fatura (UBL 2.1)", mod19: "Tedarik Zinciri (SCM)", mod20: "Çağrı Merkezi (CTI)", mod21: "CSSD Sterilizasyon", mod22: "A: Popülasyon Sağlığı & Analitik", mod23: "B: Ambient AI / Sesli Dikte → SOAP", mod24: "C: SGK Reddi Yönetimi", mod25: "D: Çoklu Hastane Kayıt Paylaşımı", mod26: "E: 3D/4D Görüntü Rekonstrüksiyon", mod27: "F: VNA (Vendor Neutral Archive)", mod28: "G: AI Lezyon Tespiti & Triage", mod29: "H: Mamografi Modülü", mod30: "I: Öğretim & Eğitim Dosyaları", mod31: "J: Katmanlı Depolama" },
+    integrations: { badge: "Entegrasyonlar", title: "Türkiye Sağlık Ekosistemiyle <span>Tam Entegrasyon</span>", subtitle: "Ek kurulum gerektirmeden tüm ulusal sistemlere bağlı.", card1_name: "SGK Medula", card1_desc: "Provizyon, SUT faturalama, iade işlemleri", card1_badge: "✓ Dahili", card2_name: "Sağlık-Net", card2_desc: "10 mesaj tipi: POLKAYIT, TABURCU, YATAN...", card2_badge: "✓ Dahili", card3_name: "e-Nabız FHIR R4", card3_desc: "Hasta geçmiş verileri, HL7 FHIR 4.0.1", card3_badge: "✓ Dahili", card4_name: "GİB e-Fatura", card4_desc: "UBL 2.1, XAdES dijital imza", card4_badge: "✓ Dahili", card5_name: "TİTS", card5_desc: "İlaç takip barkod sistemi", card5_badge: "✓ Dahili", card6_name: "LOINC / ICD-10", card6_desc: "Lab kodları ve tanı standardları", card6_badge: "✓ Dahili", card7_name: "DICOM / DICOMweb", card7_desc: "Radyoloji görüntü standardı, OHIF viewer", card7_badge: "✓ Dahili", card8_name: "e-Devlet OIDC", card8_desc: "TC kimlik doğrulama, MERNIS entegrasyonu", card8_badge: "✓ Dahili" },
+    ai: { badge: "Yapay Zeka", title: "Klinik Kararları <span>Destekleyen</span> AI", subtitle: "4 AI modeli, 2.000 sentetik hastayla doğrulandı. Pilot hastane verisiyle Q3 2026'da kalibre edilecek.", disclaimer: "* Tüm değerler sentetik veri doğrulama testinden elde edilmiştir. Pilot hastane verisiyle kalibrasyon Q3 2026 hedeflenmektedir.", card1_title: "Sepsis Erken Uyarı", card1_algo: "qSOFA + NEWS2 Hibrid Model", card1_auc: "AUC-ROC", card1_spec: "Özgüllük", card1_ci: "GA %95<br>0.973–0.985", card1_desc: "Vital bulgular kaydedildiğinde otomatik çalışır. qSOFA 3 kriter + NEWS2 skoru kombine edilerek risk skoru (0–1) üretilir. Kritik eşik aşılınca hemşire mobil uygulamasına anlık bildirim gider.", card2_title: "30 Gün Yeniden Yatış", card2_algo: "LACE+ Algoritması + SHAP", card2_auc: "AUC-ROC", card2_sens: "Duyarlılık", card2_ci: "GA %95<br>0.961–0.978", card2_desc: "Taburculuk aşamasında otomatik hesaplanır. LACE+ (yatış süresi, acil kabul, komorbidite, acil başvuru) faktörlerine göre risk skoru ve SHAP açıklaması üretilir. Sosyal hizmet otomatik devreye girer.", card3_title: "İlaç Etkileşimi CDS", card3_algo: "Kural Motoru + Veritabanı", card3_catch: "Yakalama", card3_acc: "Doğruluk", card3_ci: "1.000<br>order test", card3_desc: "Her ilaç orderı girildiğinde &lt;50ms içinde yanıt verir. İlaç-ilaç, ilaç-alerji, ilaç-yaş, ilaç-gebelik etkileşimlerini tarar. MAJÖR etkileşimlerde order otomatik engellenir.", card4_title: "Türkçe Klinik NLP", card4_algo: "Regex + Sözlük Tabanlı Model", card4_acc1: "Doğruluk", card4_acc2: "İlaç/Tanı", card4_ci: "250<br>SOAP notu", card4_desc: "SOAP notlarından tanı (ICD-10), ilaç (ATC), vital bulgu ve lab değerlerini otomatik çıkarır. Sesli dikte ile entegre çalışır. Çıkarılan yapılandırılmış veri FHIR R4 formatına dönüştürülür." },
+    positioning: { badge: "Konumlanma", title: "Türkiye'de <span>Yeni Standart,</span><br>Dünyayla <span>Rekabet</span>", subtitle: "Henüz kurumsal bir şirket değiliz — ama tasarladığımız sistem, sektörün beklentilerinin çok ötesinde. İşte neyi farklı yapıyoruz.", comparison_scope: "Karşılaştırma kapsamı:", comparison_desc: "Türkiye'deki mevcut HBYS çözümleri (genel piyasa ortalaması) ile Trevonti HBYS", table_header1: "Özellik", table_header2: "Mevcut Yerli Sistemler", table_header3: "Piyasa Ortalaması", table_header4: "✦ Trevonti HBYS", row1_feature: "Bulut / SaaS Mimari", row1_col1: "✗ Sunucu tabanlı", row1_col2: "Kısmi", row1_col3: "✓ Cloud-Native", row2_feature: "Mobil iOS + Android", row2_col1: "✗", row2_col2: "Sınırlı", row2_col3: "✓ Native App", row3_feature: "Yapay Zeka / CDS", row3_col1: "✗", row3_col2: "✗", row3_col3: "✓ 4 AI Modeli", row4_feature: "FHIR R4 / e-Nabız", row4_col1: "✗", row4_col2: "Kısmi", row4_col3: "✓ Tam", row5_feature: "BCMA İlaç Güvenliği", row5_col1: "Eklenti", row5_col2: "✗", row5_col3: "✓ Dahili", row6_feature: "HA/DR (RTO 15 dk)", row6_col1: "✗", row6_col2: "✗", row6_col3: "✓ Patroni HA", row7_feature: "Telemedicine (USBS)", row7_col1: "✗", row7_col2: "✗", row7_col3: "✓ Uyumlu", row8_feature: "Açık Kaynak Altyapı", row8_col1: "✗ Tescilli", row8_col2: "✗", row8_col3: "✓ Tam Açık", global_badge: "Küresel Hedef", global_title: "Dünyanın En İyi Sistemlerinin Ortak <span>Standartları</span>", global_subtitle: "KLAS Research, bağımsız analistler ve küresel hastanelerin benimsediği sistemlerin sahip olduğu kriterlere bakıyoruz — ve Trevonti bu standartları sıfırdan içine alarak inşa ediyor.", global_card1_title: "Birlikte Çalışabilirlik", global_card1_desc: "HL7, FHIR R4, DICOM, LOINC, ICD-10 — dünyanın en iyi sistemlerinin kullandığı tüm standartlar Trevonti'de yerleşik.", global_card1_badge: "✓ Trevonti'de mevcut", global_card2_title: "AI Entegrasyonu", global_card2_desc: "Küresel liderler AI'ı son yıllarda sisteme ekledi. Trevonti AI ile başladı — sepsis, yeniden yatış, NLP ve CDS sıfırdan tasarlandı.", global_card2_badge: "✓ 4 model, yerleşik", global_card3_title: "Cloud-Native Mimari", global_card3_desc: "Küresel liderler eski sistemlerini buluta taşıyor. Trevonti hiç sunucu tabanlı olmadı — Kubernetes, Patroni HA, microservice ile doğdu.", global_card3_badge: "✓ Yerleşik mimari" },
+    manifesto: { badge: "🌱 Dürüst Bir Not", title: "Henüz bir şirket değiliz.<br><span>Ama ne inşa ettiğimizi biliyoruz.</span>", desc: "Trevonti HBYS tek kişinin vizyonuyla ve sıfır sermayeyle geliştirilen erken aşama bir startup. Sistem henüz canlıya alınmadı, şirket henüz kurulmadı. Ama 12 sprint ve 31 modüllük kod tabanıyla Türkiye'deki mevcut sistemlerin yıllarca gerisinde kaldığı özellikleri şimdiden teslim ediyor.", box1_title: "Bugün", box1_desc: "12 sprint, 31 modül, 200+ test. Sunucu bekleniyor.", box2_title: "2026", box2_desc: "Pilot hastane, şirket kuruluşu, SİSE sertifikası başvurusu.", box3_title: "Hedef", box3_desc: "Türkiye'nin en iyi HBYS'si. Sonra küresel pazar.", quote: "\"Büyük sistemlerin avantajı geçmişleri. Bizim avantajımız gelecekten başlamış olmak.\"" },
+    tech: { badge: "Altyapı", title: "Kurumsal Sınıf <span>Teknoloji Stack'i</span>", subtitle: "Dünyanın en büyük bankalarının ve hastanelerinin güvendiği açık kaynak teknolojiler." },
+    roadmap: { badge: "Yol Haritası", title: "Şeffaf <span>İlerleme</span>", subtitle: "Neredeyiz, nereye gidiyoruz.", q1_quarter: "2024 Q4 – 2025 Q1", q1_title: "Geliştirme Tamamlandı", q1_desc: "31 modül, 12 sprint, 200+ test. Web + iOS + Android. Tüm entegrasyonlar yazıldı.", q2_quarter: "2025 Q2", q2_title: "Marka & Altyapı", q2_desc: "Trevonti markası, GitHub, LinkedIn, web sitesi, marka tescil başvurusu.", q3_quarter: "2025 Q3 (Şu An)", q3_title: "Pilot & Yatırım", q3_desc: "Staging ortamı, ilk pilot hastane, Founders Hub Azure kredisi, şirket kuruluşu hazırlığı.", q4_quarter: "2025 Q4 – 2026", q4_title: "SİSE & Büyüme", q4_desc: "SİSE sertifikasyon başvurusu, şirket kuruluşu, ilk 3 hastane sözleşmesi." },
+    cta: { title: "Birlikte İnşa Edelim", subtitle: "Pilot hastane ortağı, yatırımcı veya sektör uzmanıysanız — doğru yerdeysiniz. Bu sistemin geleceğini şekillendirmek için erken bir fırsat.", btn_primary: "📧 Bize Yazın", btn_secondary: "🐙 Koda Bakın" },
+    footer: { desc: "Türkiye'nin yeni nesil, bulut tabanlı ve yapay zeka destekli Hastane Bilgi Yönetim Sistemi. Hasta güvenliğini, operasyonel verimliliği ve sürdürülebilir teknolojiyi tek platformda buluşturuyoruz.", platform_title: "Platform", developer_title: "Geliştirici", contact_title: "İletişim", contact_general: "Genel İletişim", contact_pilot: "Pilot Başvurusu", contact_investor: "Yatırımcı İlişkileri", copy: "© 2025 Trevonti HBYS. Tüm hakları saklıdır.", badge1: "KVKK Uyumlu", badge2: "FHIR R4", badge3: "SGK Medula", badge4: "SİSE Hazırlık" }
+  },
+  en: {
+    logo: { subtitle: "FULLY INTEGRATED HOSPITAL PLATFORM", tech: "cloud-native | AI-powered | sustainable technology" },
+    nav: { features: "Features", modules: "Modules", ai: "AI", integrations: "Integrations", roadmap: "Roadmap", github: "GitHub", contact: "Contact" },
+    hero: { badge: "Early Stage Startup · Active Development · Pilot Q3 2026", title: "Turkey's<br><span>Next Generation</span><br>Hospital System", subtitle: "We're still a startup — but with 31 clinical modules, AI-powered decision support and full national integration, we challenge the best in the industry. We're building to become Turkey's best HBYS.", btn_primary: "📧 Apply for Pilot", btn_secondary: "🐙 View on GitHub", card1_title: "Sepsis Early Warning", card1_sub: "qSOFA + NEWS2 Hybrid", card2_title: "SGK Medula Provision", card2_sub: "Automated billing", card2_badge: "Integrated", card3_title: "KVKK & FHIR R4", card3_sub: "Fully compliant infrastructure", card3_badge: "Compliant", card4_title: "iOS + Android + Web", card4_sub: "No installation required" },
+    stats: { modules: "Clinical Modules", tests: "Unit Tests", platforms: "Platforms", sla: "SLA Target" },
+    problem: { badge: "Problem", title: "<span>78%</span> of Hospitals in Turkey Use Outdated Systems", subtitle: "10–20 year old, server-based HBYS software; lacking mobile access, AI, and national healthcare integration.", card1_title: "No Mobile Access", card1_desc: "Nurses perform BCMA verification on paper. Physicians cannot access the system remotely. Telemedicine impossible.", card1_stat: "0% Mobile", card2_title: "SGK Revenue Loss", card2_desc: "Manual SUT code entry causes hospitals to miss a significant portion of entitled SGK payments.", card2_stat: "12% Loss", card3_title: "Medication Errors", card3_desc: "Paper-based order systems cannot check drug interactions. Turkey's medication error rate is 3× the European average.", card3_stat: "3× Errors" },
+    features: { badge: "Solution", title: "Everything <span>Built-in,</span> Nothing Extra", subtitle: "Trevonti HBYS is not a collection of separate modules — it's a fully integrated platform designed from the ground up.", cloud_title: "Cloud-Native Architecture", cloud_desc: "Kubernetes, Docker, Patroni HA PostgreSQL. No server purchase. No IT team for updates. Just open and use.", mobile_title: "Web + iOS + Android", mobile_desc: "Windows, macOS, iOS, Android — it doesn't matter. Full browser access from all computers, phones and tablets. Clinical staff can perform BCMA on any portable device.", ai_title: "AI Engine", ai_desc: "Sepsis early warning (AUC 0.979), 30-day readmission prediction (AUC 0.970), Turkish NLP, drug interaction CDS.", sgk_title: "Automated SGK Billing", sgk_desc: "SUT codes assigned automatically. Instant Medula provision. e-Invoice in UBL 2.1 format sent to GİB.", security_title: "KVKK & Security", security_desc: "AES-256-GCM field encryption. Cilium zero-trust network. Keycloak MFA. Immutable audit log. Full KVKK compliance.", integration_title: "National Integrations", integration_desc: "SGK Medula, Sağlık-Net (10 message types), e-Nabız FHIR R4, TİTS drug tracking, GİB e-Invoice — all built-in." },
+    modules: { badge: "Scope", title: "<span>31 Modules,</span> One Platform", subtitle: "From clinic to radiology, pharmacy to finance, AI to education — a complete hospital in one system.", footer_note: "✅ With 10 newly added modules, a total of 31 clinical and operational modules.", mod1: "HIS Core (Patient Management)", mod2: "CPOE — Computerized Provider Order Entry", mod3: "Clinical Decision Support", mod4: "LIS — Laboratory (HL7)", mod5: "RIS/PACS — Radiology", mod6: "Pharmacy (BCMA + FEFO)", mod7: "Operating Room (OR)", mod8: "ICU — Intensive Care", mod9: "Blood Bank (ISBT 128)", mod10: "Oncology (OIS)", mod11: "Cardiology (Cath Lab)", mod12: "Dialysis Management", mod13: "Pathology (Digital)", mod14: "IVF — In Vitro Fertilization", mod15: "Patient Portal + RPM", mod16: "Telemedicine (USBS)", mod17: "Finance + SGK Medula", mod18: "e-Invoice (UBL 2.1)", mod19: "Supply Chain Management (SCM)", mod20: "Call Center (CTI)", mod21: "CSSD Sterilization", mod22: "A: Population Health & Analytics", mod23: "B: Ambient AI / Voice Dictation → SOAP", mod24: "C: SGK Rejection Management", mod25: "D: Multi-Hospital Record Sharing", mod26: "E: 3D/4D Image Reconstruction", mod27: "F: VNA (Vendor Neutral Archive)", mod28: "G: AI Lesion Detection & Triage", mod29: "H: Mammography Module", mod30: "I: Teaching & Training Files", mod31: "J: Tiered Storage" },
+    integrations: { badge: "Integrations", title: "Full Integration with <span>Turkey's Healthcare Ecosystem</span>", subtitle: "Connected to all national systems without additional installation.", card1_name: "SGK Medula", card1_desc: "Provision, SUT billing, returns", card1_badge: "✓ Built-in", card2_name: "Sağlık-Net", card2_desc: "10 message types: POLKAYIT, TABURCU, YATAN...", card2_badge: "✓ Built-in", card3_name: "e-Nabız FHIR R4", card3_desc: "Patient history, HL7 FHIR 4.0.1", card3_badge: "✓ Built-in", card4_name: "GİB e-Invoice", card4_desc: "UBL 2.1, XAdES digital signature", card4_badge: "✓ Built-in", card5_name: "TİTS", card5_desc: "Drug tracking barcode system", card5_badge: "✓ Built-in", card6_name: "LOINC / ICD-10", card6_desc: "Lab codes and diagnosis standards", card6_badge: "✓ Built-in", card7_name: "DICOM / DICOMweb", card7_desc: "Radiology image standard, OHIF viewer", card7_badge: "✓ Built-in", card8_name: "e-Devlet OIDC", card8_desc: "TC identity verification, MERNIS integration", card8_badge: "✓ Built-in" },
+    ai: { badge: "Artificial Intelligence", title: "AI <span>Supporting</span> Clinical Decisions", subtitle: "4 AI models validated with 2,000 synthetic patients. Will be calibrated with pilot hospital data in Q3 2026.", disclaimer: "* All values are derived from synthetic data validation tests. Calibration with pilot hospital data is targeted for Q3 2026.", card1_title: "Sepsis Early Warning", card1_algo: "qSOFA + NEWS2 Hybrid Model", card1_auc: "AUC-ROC", card1_spec: "Specificity", card1_ci: "95% CI<br>0.973–0.985", card1_desc: "Runs automatically when vitals are recorded. Combines qSOFA 3 criteria + NEWS2 score to produce a risk score (0–1). If critical threshold is exceeded, an instant notification is sent to the nurse's mobile app.", card2_title: "30-Day Readmission", card2_algo: "LACE+ Algorithm + SHAP", card2_auc: "AUC-ROC", card2_sens: "Sensitivity", card2_ci: "95% CI<br>0.961–0.978", card2_desc: "Calculated automatically at discharge. Produces a risk score and SHAP explanation based on LACE+ factors (length of stay, acute admission, comorbidity, emergency visits). Social services are automatically engaged.", card3_title: "Drug Interaction CDS", card3_algo: "Rule Engine + Database", card3_catch: "Detection", card3_acc: "Accuracy", card3_ci: "1,000<br>order tests", card3_desc: "Responds in <50ms for every medication order. Screens for drug-drug, drug-allergy, drug-age, drug-pregnancy interactions. MAJOR interactions automatically block the order.", card4_title: "Turkish Clinical NLP", card4_algo: "Regex + Dictionary-Based Model", card4_acc1: "Accuracy", card4_acc2: "Drug/Diagnosis", card4_ci: "250<br>SOAP notes", card4_desc: "Automatically extracts diagnosis (ICD-10), medication (ATC), vitals and lab values from SOAP notes. Integrates with voice dictation. Extracted structured data is converted to FHIR R4 format." },
+    positioning: { badge: "Positioning", title: "New Standard in <span>Turkey,</span><br>Competing with the <span>World</span>", subtitle: "We're not a corporate company yet — but the system we've designed far exceeds industry expectations. Here's what we do differently.", comparison_scope: "Comparison scope:", comparison_desc: "Existing HBYS solutions in Turkey (general market average) vs Trevonti HBYS", table_header1: "Feature", table_header2: "Existing Domestic Systems", table_header3: "Market Average", table_header4: "✦ Trevonti HBYS", row1_feature: "Cloud / SaaS Architecture", row1_col1: "✗ Server-based", row1_col2: "Partial", row1_col3: "✓ Cloud-Native", row2_feature: "Mobile iOS + Android", row2_col1: "✗", row2_col2: "Limited", row2_col3: "✓ Native App", row3_feature: "Artificial Intelligence / CDS", row3_col1: "✗", row3_col2: "✗", row3_col3: "✓ 4 AI Models", row4_feature: "FHIR R4 / e-Nabız", row4_col1: "✗", row4_col2: "Partial", row4_col3: "✓ Full", row5_feature: "BCMA Medication Safety", row5_col1: "Add-on", row5_col2: "✗", row5_col3: "✓ Built-in", row6_feature: "HA/DR (RTO 15 min)", row6_col1: "✗", row6_col2: "✗", row6_col3: "✓ Patroni HA", row7_feature: "Telemedicine (USBS)", row7_col1: "✗", row7_col2: "✗", row7_col3: "✓ Compliant", row8_feature: "Open Source Infrastructure", row8_col1: "✗ Proprietary", row8_col2: "✗", row8_col3: "✓ Fully Open", global_badge: "Global Target", global_title: "Common <span>Standards</span> of the World's Best Systems", global_subtitle: "We look at the criteria adopted by KLAS Research, independent analysts, and global hospitals — and Trevonti is built from the ground up with these standards.", global_card1_title: "Interoperability", global_card1_desc: "HL7, FHIR R4, DICOM, LOINC, ICD-10 — all the standards used by the world's best systems are built into Trevonti.", global_card1_badge: "✓ Available in Trevonti", global_card2_title: "AI Integration", global_card2_desc: "Global leaders added AI in recent years. Trevonti started with AI — sepsis, readmission, NLP, and CDS designed from scratch.", global_card2_badge: "✓ 4 models, built-in", global_card3_title: "Cloud-Native Architecture", global_card3_desc: "Global leaders are moving their legacy systems to the cloud. Trevonti was never server-based — born with Kubernetes, Patroni HA, microservices.", global_card3_badge: "✓ Built-in architecture" },
+    manifesto: { badge: "🌱 An Honest Note", title: "We're not a company yet.<br><span>But we know what we're building.</span>", desc: "Trevonti HBYS is an early-stage startup developed with one person's vision and zero capital. The system hasn't gone live yet, the company hasn't been founded yet. But with 12 sprints and a 31-module codebase, it already delivers features that existing systems in Turkey have lacked for years.", box1_title: "Today", box1_desc: "12 sprints, 31 modules, 200+ tests. Awaiting server.", box2_title: "2026", box2_desc: "Pilot hospital, company formation, SİSE certification application.", box3_title: "Goal", box3_desc: "Turkey's best HBYS. Then the global market.", quote: "\"The advantage of big systems is their past. Our advantage is starting from the future.\"" },
+    tech: { badge: "Infrastructure", title: "Enterprise-Grade <span>Technology Stack</span>", subtitle: "Open-source technologies trusted by the world's largest banks and hospitals." },
+    roadmap: { badge: "Roadmap", title: "Transparent <span>Progress</span>", subtitle: "Where we are, where we're going.", q1_quarter: "2024 Q4 – 2025 Q1", q1_title: "Development Complete", q1_desc: "31 modules, 12 sprints, 200+ tests. Web + iOS + Android. All integrations written.", q2_quarter: "2025 Q2", q2_title: "Brand & Infrastructure", q2_desc: "Trevonti brand, GitHub, LinkedIn, website, trademark application.", q3_quarter: "2025 Q3 (Now)", q3_title: "Pilot & Investment", q3_desc: "Staging environment, first pilot hospital, Founders Hub Azure credits, company formation prep.", q4_quarter: "2025 Q4 – 2026", q4_title: "SİSE & Growth", q4_desc: "SİSE certification application, company formation, first 3 hospital contracts." },
+    cta: { title: "Let's Build Together", subtitle: "If you're a pilot hospital partner, investor, or industry expert — you're in the right place. An early opportunity to shape the future of this system.", btn_primary: "📧 Contact Us", btn_secondary: "🐙 View Code" },
+    footer: { desc: "Turkey's next-generation, cloud-based, AI-powered Hospital Information Management System. We bring patient safety, operational efficiency, and sustainable technology together on a single platform.", platform_title: "Platform", developer_title: "Developer", contact_title: "Contact", contact_general: "General Inquiries", contact_pilot: "Pilot Application", contact_investor: "Investor Relations", copy: "© 2025 Trevonti HBYS. All rights reserved.", badge1: "KVKK Compliant", badge2: "FHIR R4", badge3: "SGK Medula", badge4: "SİSE Ready" }
+  }
+};
+
+// ─── Dil Değiştirme Fonksiyonu ───────────────────────
+function switchLanguage(lang) {
+  const t = translations[lang] || translations.tr;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.dataset.i18n;
+    const val = key.split('.').reduce((o, k) => o?.[k], t);
+    if (val) el.innerHTML = val;
+  });
+  // Buton aktif stilleri
+  document.getElementById('lang-tr').classList.toggle('active', lang === 'tr');
+  document.getElementById('lang-en').classList.toggle('active', lang === 'en');
+  localStorage.setItem('pref-lang', lang);
+}
+
+// ─── Sayfa Yükleme ve Diğer İşlevler ─────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  const savedLang = localStorage.getItem('pref-lang') || 'tr';
+  switchLanguage(savedLang);
+
+  // Fade-in observer
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+});
 
 // Navbar scroll
 window.addEventListener('scroll', () => {
