@@ -2,7 +2,7 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Trevonti HBYS — Türkiye'nin yeni nesil, bulut tabanlı ve yapay zeka destekli Hastane Bilgi Yönetim Sistemi. 31 klinik modül, SGK entegrasyonu, FHIR R4 uyumlu.">
 <meta name="keywords" content="HBYS, Hastane Bilgi Sistemi, SGK, FHIR, sağlık teknolojisi, cloud, yapay zeka">
 <meta property="og:title" content="Trevonti HBYS — Yeni Nesil Hastane Sistemi">
@@ -273,6 +273,74 @@ section{padding:80px 5%}
   .integ-grid{grid-template-columns:1fr 1fr}
   .stack-grid{grid-template-columns:repeat(2,1fr)}
   .modules-grid{grid-template-columns:1fr 1fr}
+}
+
+/* 🆕 Mobil uyumluluk için ek düzeltmeler */
+@media(max-width:768px){
+  .nav-links {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .nav-links a {
+    width: 100%;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .nav-cta {
+    display: inline-block;
+    width: auto;
+    margin-top: 8px;
+  }
+  .lang-dropdown {
+    margin-left: 0;
+    margin-top: 8px;
+    width: 100%;
+  }
+  .lang-dropdown-btn {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .lang-dropdown-menu {
+    position: static;
+    width: 100%;
+    margin-top: 4px;
+    box-shadow: none;
+  }
+  .hero {
+    padding-top: 120px;
+    padding-bottom: 80px;
+  }
+  .hero-content {
+    max-width: 100%;
+  }
+  .hero-stats {
+    justify-content: space-between;
+  }
+  .hs-item {
+    flex: 1;
+    text-align: center;
+  }
+  section {
+    padding: 60px 5%;
+  }
+  .modules-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .stack-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  body {
+    overflow-x: hidden;
+  }
+  .comp-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
 }
 
 /* ── Animasyon ────────────────────────────────────────── */
@@ -746,6 +814,15 @@ document.addEventListener('DOMContentLoaded', () => {
     entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.1 });
   document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+
+  // Mobil menü linklerine tıklandığında menüyü kapat
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 768) {
+        document.querySelector('.nav-links').style.display = 'none';
+      }
+    });
+  });
 });
 
 window.addEventListener('scroll', () => {
@@ -755,16 +832,20 @@ window.addEventListener('scroll', () => {
 
 function toggleMenu() {
   const links = document.querySelector('.nav-links');
-  links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
-  links.style.flexDirection = 'column';
-  links.style.position = 'absolute';
-  links.style.top = '64px';
-  links.style.left = '0';
-  links.style.right = '0';
-  links.style.background = '#0f172a';
-  links.style.padding = '20px';
-  links.style.gap = '16px';
-  links.style.borderBottom = '1px solid rgba(255,255,255,.1)';
+  if (links.style.display === 'flex') {
+    links.style.display = 'none';
+  } else {
+    links.style.display = 'flex';
+    links.style.flexDirection = 'column';
+    links.style.position = 'absolute';
+    links.style.top = '64px';
+    links.style.left = '0';
+    links.style.right = '0';
+    links.style.background = '#0f172a';
+    links.style.padding = '20px';
+    links.style.gap = '16px';
+    links.style.borderBottom = '1px solid rgba(255,255,255,.1)';
+  }
 }
 </script>
 </body>
