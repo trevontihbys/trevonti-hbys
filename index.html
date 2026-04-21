@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Trevonti HBYS — Türkiye'nin yeni nesil, bulut tabanlı ve yapay zeka destekli Hastane Bilgi Yönetim Sistemi. 21 klinik modül, SGK entegrasyonu, FHIR R4 uyumlu.">
+<meta name="description" content="Trevonti HBYS — Türkiye'nin yeni nesil, bulut tabanlı ve yapay zeka destekli Hastane Bilgi Yönetim Sistemi. 31 klinik modül, SGK entegrasyonu, FHIR R4 uyumlu.">
 <meta name="keywords" content="HBYS, Hastane Bilgi Sistemi, SGK, FHIR, sağlık teknolojisi, cloud, yapay zeka">
 <meta property="og:title" content="Trevonti HBYS — Yeni Nesil Hastane Sistemi">
-<meta property="og:description" content="21 klinik modül, SGK Medula, Sağlık-Net, FHIR R4 ve AI destekli bulut tabanlı HBYS platformu.">
+<meta property="og:description" content="31 klinik modül, SGK Medula, Sağlık-Net, FHIR R4 ve AI destekli bulut tabanlı HBYS platformu.">
 <title>Trevonti HBYS — Yeni Nesil Hastane Bilgi Yönetim Sistemi</title>
 <style>
 /* ── Reset & Base ─────────────────────────────────────── */
@@ -23,7 +23,7 @@ a{text-decoration:none;color:inherit}
   --grad:linear-gradient(135deg,#0f172a 0%,#0d3a3a 50%,#0d9488 100%);
 }
 
-/* ── Navbar (Logo sadece tipografik, ikon kaldırıldı) ─ */
+/* ── Navbar (Sadece tipografik logo) ─ */
 .nav{
   position:fixed;top:0;left:0;right:0;z-index:100;
   background:rgba(15,23,42,.95);backdrop-filter:blur(12px);
@@ -31,7 +31,6 @@ a{text-decoration:none;color:inherit}
   padding:0 5%;height:64px;display:flex;align-items:center;justify-content:space-between;
   transition:.3s;
 }
-/* Logo metin grubu */
 .nav-logo{display:flex;align-items:center;}
 .nav-logo-text-group{display:flex;flex-direction:column;line-height:1.2;}
 .nav-logo-main{display:flex;align-items:baseline;gap:6px;}
@@ -117,7 +116,7 @@ section{padding:80px 5%}
 .feat-title{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:8px}
 .feat-desc{font-size:13px;color:var(--gray);line-height:1.6}
 
-/* ── Modüller ─────────────────────────────────────────── */
+/* ── Modüller (Grid 4 sütun) ─────────────────────────── */
 .modules-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
 .mod-item{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:14px;display:flex;align-items:center;gap:10px;transition:.15s}
 .mod-item:hover{border-color:var(--teal);background:var(--teal-light)}
@@ -239,7 +238,6 @@ section{padding:80px 5%}
   .footer-grid{grid-template-columns:1fr}
   .cta-inner{flex-direction:column}
   .hero-stats{gap:20px}
-  /* Mobil logo düzenlemesi */
   .nav-logo-trevonti{font-size:15px !important;}
   .nav-logo-hbys{font-size:15px !important;}
   .nav-logo-subtitle{white-space:normal !important; font-size:8px;}
@@ -258,10 +256,9 @@ section{padding:80px 5%}
 </head>
 <body>
 
-<!-- ── NAVBAR (Yalnızca Tipografik Logo) ──────────────── -->
+<!-- ── NAVBAR ──────────────────────────────────────────── -->
 <nav class="nav">
   <div class="nav-logo">
-    <!-- Logo Metinleri (Yeşil ikon kaldırıldı) -->
     <div class="nav-logo-text-group">
       <div class="nav-logo-main">
         <span class="nav-logo-trevonti">TREVONTI</span>
@@ -298,14 +295,14 @@ section{padding:80px 5%}
       Hastane Sistemi
     </h1>
     <p class="hero-sub">
-      Henüz bir startup'ız — ama 21 klinik modül, AI destekli karar destek ve tam ulusal entegrasyonla sektörün en iyilerine meydan okuyoruz. Türkiye'nin en iyi HBYS'si olmak için inşa ediyoruz.
+      Henüz bir startup'ız — ama 31 klinik modül, AI destekli karar destek ve tam ulusal entegrasyonla sektörün en iyilerine meydan okuyoruz. Türkiye'nin en iyi HBYS'si olmak için inşa ediyoruz.
     </p>
     <div class="hero-btns">
       <a href="mailto:trevonti.hbys@gmail.com" class="btn-pri">📧 Pilot Başvurusu Yap</a>
       <a href="https://github.com/trevontihbys" target="_blank" class="btn-sec">🐙 GitHub'da İncele</a>
     </div>
     <div class="hero-stats">
-      <div class="hs-item"><div class="hs-val">21</div><div class="hs-label">Klinik Modül</div></div>
+      <div class="hs-item"><div class="hs-val">31</div><div class="hs-label">Klinik Modül</div></div>
       <div class="hs-item"><div class="hs-val">200+</div><div class="hs-label">Birim Test</div></div>
       <div class="hs-item"><div class="hs-val">3</div><div class="hs-label">Platform</div></div>
       <div class="hs-item"><div class="hs-val">%99.9</div><div class="hs-label">SLA Hedefi</div></div>
@@ -364,7 +361,7 @@ section{padding:80px 5%}
   </div>
 </section>
 
-<!-- ── ÖZELLİKLER (Metin güncellendi) ──────────────────── -->
+<!-- ── ÖZELLİKLER ───────────────────────────────────────── -->
 <section id="features" class="features-bg">
   <div class="center fade-in">
     <div class="section-badge">Çözüm</div>
@@ -377,7 +374,6 @@ section{padding:80px 5%}
       <div class="feat-title">Bulut-Yerel Mimari</div>
       <div class="feat-desc">Kubernetes, Docker, Patroni HA PostgreSQL. Sunucu satın alma yok. Güncelleme için IT ekibi yok. Siz açın, kullanın.</div>
     </div>
-    <!-- Bu kartın içeriği güncellendi -->
     <div class="feat-card">
       <div class="feat-icon fi-blue">📱</div>
       <div class="feat-title">Web + iOS + Android</div>
@@ -408,14 +404,15 @@ section{padding:80px 5%}
   </div>
 </section>
 
-<!-- ── MODÜLLER ─────────────────────────────────────────── -->
+<!-- ── MODÜLLER (31 Modül) ─────────────────────────────── -->
 <section id="modules">
   <div class="center fade-in">
     <div class="section-badge">Kapsam</div>
-    <h2 class="section-title"><span>21 Modül,</span> Tek Platform</h2>
-    <p class="section-sub">Klinikten radyolojiye, eczaneden finansa — tek sistemde tam hastane.</p>
+    <h2 class="section-title"><span>31 Modül,</span> Tek Platform</h2>
+    <p class="section-sub">Klinikten radyolojiye, eczaneden finansa, yapay zekadan eğitime — tek sistemde tam hastane.</p>
   </div>
   <div class="modules-grid fade-in">
+    <!-- Mevcut 21 Modül -->
     <div class="mod-item"><span class="mod-icon">🏥</span><span class="mod-name">HIS Core (Hasta Yönetimi)</span></div>
     <div class="mod-item"><span class="mod-icon">💊</span><span class="mod-name">CPOE — Elektronik Order</span></div>
     <div class="mod-item"><span class="mod-icon">🧠</span><span class="mod-name">Klinik Karar Destek</span></div>
@@ -425,7 +422,7 @@ section{padding:80px 5%}
     <div class="mod-item"><span class="mod-icon">🔪</span><span class="mod-name">Ameliyathane (OR)</span></div>
     <div class="mod-item"><span class="mod-icon">❤️</span><span class="mod-name">YBÜ — Yoğun Bakım</span></div>
     <div class="mod-item"><span class="mod-icon">🩸</span><span class="mod-name">Kan Bankası (ISBT 128)</span></div>
-    <div class="mod-item"><span class="mod-icon">🎗️</span><span class="mod-name">Onkoloji (OIS)</span></div>
+    <div class="mod-item"><span class="mod-icon">🧬</span><span class="mod-name">Onkoloji (OIS)</span></div>
     <div class="mod-item"><span class="mod-icon">💓</span><span class="mod-name">Kardiyoloji (Kateter)</span></div>
     <div class="mod-item"><span class="mod-icon">🌡️</span><span class="mod-name">Diyaliz Yönetimi</span></div>
     <div class="mod-item"><span class="mod-icon">🔬</span><span class="mod-name">Patoloji (Dijital)</span></div>
@@ -437,7 +434,22 @@ section{padding:80px 5%}
     <div class="mod-item"><span class="mod-icon">📦</span><span class="mod-name">Tedarik Zinciri (SCM)</span></div>
     <div class="mod-item"><span class="mod-icon">📞</span><span class="mod-name">Çağrı Merkezi (CTI)</span></div>
     <div class="mod-item"><span class="mod-icon">🔬</span><span class="mod-name">CSSD Sterilizasyon</span></div>
+
+    <!-- 🆕 Yeni Eklenen 10 Modül -->
+    <div class="mod-item"><span class="mod-icon">📊</span><span class="mod-name">A: Popülasyon Sağlığı & Analitik</span></div>
+    <div class="mod-item"><span class="mod-icon">🎙️</span><span class="mod-name">B: Ambient AI / Sesli Dikte → SOAP</span></div>
+    <div class="mod-item"><span class="mod-icon">🚫</span><span class="mod-name">C: SGK Reddi Yönetimi</span></div>
+    <div class="mod-item"><span class="mod-icon">🏥</span><span class="mod-name">D: Çoklu Hastane Kayıt Paylaşımı</span></div>
+    <div class="mod-item"><span class="mod-icon">🧊</span><span class="mod-name">E: 3D/4D Görüntü Rekonstrüksiyon</span></div>
+    <div class="mod-item"><span class="mod-icon">🗄️</span><span class="mod-name">F: VNA (Vendor Neutral Archive)</span></div>
+    <div class="mod-item"><span class="mod-icon">🤖</span><span class="mod-name">G: AI Lezyon Tespiti & Triage</span></div>
+    <div class="mod-item"><span class="mod-icon">🎗️</span><span class="mod-name">H: Mamografi Modülü</span></div>
+    <div class="mod-item"><span class="mod-icon">📚</span><span class="mod-name">I: Öğretim & Eğitim Dosyaları</span></div>
+    <div class="mod-item"><span class="mod-icon">💾</span><span class="mod-name">J: Katmanlı Depolama</span></div>
   </div>
+  <p style="text-align:center; font-size:12px; color:var(--gray); margin-top:16px;">
+    ✅ Yeni eklenen 10 modül ile birlikte toplam 31 klinik ve operasyonel modül.
+  </p>
 </section>
 
 <!-- ── ENTEGRASYONLAR ───────────────────────────────────── -->
@@ -556,7 +568,7 @@ section{padding:80px 5%}
       <div class="ai-desc">SOAP notlarından tanı (ICD-10), ilaç (ATC), vital bulgu ve lab değerlerini otomatik çıkarır. Sesli dikte ile entegre çalışır. Çıkarılan yapılandırılmış veri FHIR R4 formatına dönüştürülür.</div>
     </div>
   </div>
-  <p style="text-align:center;font-size:12px;color:var(--gray);margin-top:20px">* Tüm değerler sentetik veri doğrulama testinden elde edilmiştir. Pilot hastane verisiyle kalibrasyon Q3 2026 hedeflenmektedir.</p>
+  <p style="text-align:center; font-size:12px; color:var(--gray); margin-top:20px">* Tüm değerler sentetik veri doğrulama testinden elde edilmiştir. Pilot hastane verisiyle kalibrasyon Q3 2026 hedeflenmektedir.</p>
 </section>
 
 <!-- ── KONUMLANMA ─────────────────────────────────────── -->
@@ -642,12 +654,12 @@ section{padding:80px 5%}
       <span style="color:#5eead4">Ama ne inşa ettiğimizi biliyoruz.</span>
     </h2>
     <p style="font-size:16px;color:rgba(255,255,255,.7);line-height:1.8;margin-bottom:24px">
-      Trevonti HBYS tek kişinin vizyonuyla ve sıfır sermayeyle geliştirilen erken aşama bir startup. Sistem henüz canlıya alınmadı, şirket henüz kurulmadı. Ama 12 sprint ve 21 modüllük kod tabanıyla Türkiye'deki mevcut sistemlerin yıllarca gerisinde kaldığı özellikleri şimdiden teslim ediyor.
+      Trevonti HBYS tek kişinin vizyonuyla ve sıfır sermayeyle geliştirilen erken aşama bir startup. Sistem henüz canlıya alınmadı, şirket henüz kurulmadı. Ama 12 sprint ve 31 modüllük kod tabanıyla Türkiye'deki mevcut sistemlerin yıllarca gerisinde kaldığı özellikleri şimdiden teslim ediyor.
     </p>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:28px">
       <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:16px">
         <div style="font-size:26px;font-weight:800;color:#5eead4">Bugün</div>
-        <div style="font-size:12px;color:rgba(255,255,255,.55);margin-top:4px">12 sprint, 21 modül, 200+ test. Sunucu bekleniyor.</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.55);margin-top:4px">12 sprint, 31 modül, 200+ test. Sunucu bekleniyor.</div>
       </div>
       <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:16px">
         <div style="font-size:26px;font-weight:800;color:#fcd34d">2026</div>
@@ -699,7 +711,7 @@ section{padding:80px 5%}
       <div class="rm-dot rm-done">✓</div>
       <div class="rm-quarter">2024 Q4 – 2025 Q1</div>
       <div class="rm-title">Geliştirme Tamamlandı</div>
-      <div class="rm-desc">21 modül, 12 sprint, 200+ test. Web + iOS + Android. Tüm entegrasyonlar yazıldı.</div>
+      <div class="rm-desc">31 modül, 12 sprint, 200+ test. Web + iOS + Android. Tüm entegrasyonlar yazıldı.</div>
     </div>
     <div class="rm-item">
       <div class="rm-dot rm-done">✓</div>
