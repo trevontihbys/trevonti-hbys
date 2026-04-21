@@ -265,7 +265,7 @@ section{padding:80px 5%}
 </head>
 <body>
 
-<!-- ── NAVBAR ──────────────────────────────────────────── -->
+<!-- ── NAVBAR (Dil butonları sadece TR/EN) ─────────────── -->
 <nav class="nav">
   <div class="nav-logo">
     <div class="nav-logo-text-group">
@@ -286,10 +286,10 @@ section{padding:80px 5%}
     <a href="https://github.com/trevontihbys" target="_blank" data-i18n="nav.github">GitHub</a>
     <a href="mailto:trevonti.hbys@gmail.com" class="nav-cta" data-i18n="nav.contact">İletişim</a>
     
-    <!-- Dil Seçici Butonlar (Sadece TR/EN) -->
+    <!-- Dil Seçici Butonlar (Sadece TR / EN) -->
     <div class="lang-btn-group">
-      <button class="lang-btn active" id="lang-tr" onclick="switchLanguage('tr')"> TR</button>
-      <button class="lang-btn" id="lang-en" onclick="switchLanguage('en')"> EN</button>
+      <button class="lang-btn active" id="lang-tr" onclick="switchLanguage('tr')">TR</button>
+      <button class="lang-btn" id="lang-en" onclick="switchLanguage('en')">EN</button>
     </div>
   </div>
   <button class="nav-menu-btn" onclick="toggleMenu()">☰</button>
@@ -535,7 +535,7 @@ section{padding:80px 5%}
   </div>
 </section>
 
-<!-- ── TEKNOLOJİ ────────────────────────────────────────── -->
+<!-- ── TEKNOLOJİ (Tüm etiketler i18n uyumlu) ───────────── -->
 <section id="tech" class="tech-bg">
   <div class="center fade-in">
     <div class="section-badge" data-i18n="tech.badge">Altyapı</div>
@@ -543,18 +543,18 @@ section{padding:80px 5%}
     <p class="section-sub" data-i18n="tech.subtitle">Dünyanın en büyük bankalarının ve hastanelerinin güvendiği açık kaynak teknolojiler.</p>
   </div>
   <div class="stack-grid fade-in">
-    <div class="stack-item"><div class="si-icon">⚛️</div><div class="si-name">Next.js 14</div><div class="si-type">Frontend</div></div>
-    <div class="stack-item"><div class="si-icon">📱</div><div class="si-name">React Native</div><div class="si-type">iOS + Android</div></div>
-    <div class="stack-item"><div class="si-icon">🟢</div><div class="si-name">NestJS 10</div><div class="si-type">Backend API</div></div>
-    <div class="stack-item"><div class="si-icon">🐘</div><div class="si-name">PostgreSQL 16</div><div class="si-type">Veritabanı</div></div>
-    <div class="stack-item"><div class="si-icon">⚡</div><div class="si-name">Redis 7</div><div class="si-type">Cache</div></div>
-    <div class="stack-item"><div class="si-icon">📨</div><div class="si-name">Kafka 3.7</div><div class="si-type">Mesajlaşma</div></div>
-    <div class="stack-item"><div class="si-icon">🐍</div><div class="si-name">FastAPI</div><div class="si-type">AI Engine</div></div>
-    <div class="stack-item"><div class="si-icon">🔑</div><div class="si-name">Keycloak 24</div><div class="si-type">Auth / MFA</div></div>
-    <div class="stack-item"><div class="si-icon">🐳</div><div class="si-name">Kubernetes</div><div class="si-type">Orchestration</div></div>
-    <div class="stack-item"><div class="si-icon">🔒</div><div class="si-name">Cilium</div><div class="si-type">Zero-Trust</div></div>
-    <div class="stack-item"><div class="si-icon">📊</div><div class="si-name">ClickHouse</div><div class="si-type">Analitik</div></div>
-    <div class="stack-item"><div class="si-icon">🏗️</div><div class="si-name">Nx 18 Monorepo</div><div class="si-type">Build</div></div>
+    <div class="stack-item"><div class="si-icon">⚛️</div><div class="si-name">Next.js 14</div><div class="si-type" data-i18n="tech.frontend">Frontend</div></div>
+    <div class="stack-item"><div class="si-icon">📱</div><div class="si-name">React Native</div><div class="si-type" data-i18n="tech.mobile">iOS + Android</div></div>
+    <div class="stack-item"><div class="si-icon">🟢</div><div class="si-name">NestJS 10</div><div class="si-type" data-i18n="tech.backend">Backend API</div></div>
+    <div class="stack-item"><div class="si-icon">🐘</div><div class="si-name">PostgreSQL 16</div><div class="si-type" data-i18n="tech.db">Veritabanı</div></div>
+    <div class="stack-item"><div class="si-icon">⚡</div><div class="si-name">Redis 7</div><div class="si-type" data-i18n="tech.cache">Cache</div></div>
+    <div class="stack-item"><div class="si-icon">📨</div><div class="si-name">Kafka 3.7</div><div class="si-type" data-i18n="tech.messaging">Mesajlaşma</div></div>
+    <div class="stack-item"><div class="si-icon">🐍</div><div class="si-name">FastAPI</div><div class="si-type" data-i18n="tech.ai_engine">AI Engine</div></div>
+    <div class="stack-item"><div class="si-icon">🔑</div><div class="si-name">Keycloak 24</div><div class="si-type" data-i18n="tech.auth">Auth / MFA</div></div>
+    <div class="stack-item"><div class="si-icon">🐳</div><div class="si-name">Kubernetes</div><div class="si-type" data-i18n="tech.orchestration">Orchestration</div></div>
+    <div class="stack-item"><div class="si-icon">🔒</div><div class="si-name">Cilium</div><div class="si-type" data-i18n="tech.zero_trust">Zero-Trust</div></div>
+    <div class="stack-item"><div class="si-icon">📊</div><div class="si-name">ClickHouse</div><div class="si-type" data-i18n="tech.analytics">Analitik</div></div>
+    <div class="stack-item"><div class="si-icon">🏗️</div><div class="si-name">Nx 18 Monorepo</div><div class="si-type" data-i18n="tech.build">Build</div></div>
   </div>
 </section>
 
@@ -596,7 +596,7 @@ section{padding:80px 5%}
 </footer>
 
 <script>
-// ─── İÇE GÖMÜLÜ ÇEVİRİ VERİLERİ (HARİCİ JSON YOK) ─────
+// ─── İÇE GÖMÜLÜ ÇEVİRİ VERİLERİ (Tech Stack dahil tam) ─────
 const translations = {
   tr: {
     logo: { subtitle: "TAM ENTEGRE HASTANE PLATFORMU", tech: "bulut-yerel | yapay zeka destekli | sürdürülebilir teknoloji" },
@@ -610,7 +610,7 @@ const translations = {
     ai: { badge: "Yapay Zeka", title: "Klinik Kararları <span>Destekleyen</span> AI", subtitle: "4 AI modeli, 2.000 sentetik hastayla doğrulandı. Pilot hastane verisiyle Q3 2026'da kalibre edilecek.", disclaimer: "* Tüm değerler sentetik veri doğrulama testinden elde edilmiştir. Pilot hastane verisiyle kalibrasyon Q3 2026 hedeflenmektedir.", card1_title: "Sepsis Erken Uyarı", card1_algo: "qSOFA + NEWS2 Hibrid Model", card1_auc: "AUC-ROC", card1_spec: "Özgüllük", card1_ci: "GA %95<br>0.973–0.985", card1_desc: "Vital bulgular kaydedildiğinde otomatik çalışır. qSOFA 3 kriter + NEWS2 skoru kombine edilerek risk skoru (0–1) üretilir. Kritik eşik aşılınca hemşire mobil uygulamasına anlık bildirim gider.", card2_title: "30 Gün Yeniden Yatış", card2_algo: "LACE+ Algoritması + SHAP", card2_auc: "AUC-ROC", card2_sens: "Duyarlılık", card2_ci: "GA %95<br>0.961–0.978", card2_desc: "Taburculuk aşamasında otomatik hesaplanır. LACE+ (yatış süresi, acil kabul, komorbidite, acil başvuru) faktörlerine göre risk skoru ve SHAP açıklaması üretilir. Sosyal hizmet otomatik devreye girer.", card3_title: "İlaç Etkileşimi CDS", card3_algo: "Kural Motoru + Veritabanı", card3_catch: "Yakalama", card3_acc: "Doğruluk", card3_ci: "1.000<br>order test", card3_desc: "Her ilaç orderı girildiğinde &lt;50ms içinde yanıt verir. İlaç-ilaç, ilaç-alerji, ilaç-yaş, ilaç-gebelik etkileşimlerini tarar. MAJÖR etkileşimlerde order otomatik engellenir.", card4_title: "Türkçe Klinik NLP", card4_algo: "Regex + Sözlük Tabanlı Model", card4_acc1: "Doğruluk", card4_acc2: "İlaç/Tanı", card4_ci: "250<br>SOAP notu", card4_desc: "SOAP notlarından tanı (ICD-10), ilaç (ATC), vital bulgu ve lab değerlerini otomatik çıkarır. Sesli dikte ile entegre çalışır. Çıkarılan yapılandırılmış veri FHIR R4 formatına dönüştürülür." },
     positioning: { badge: "Konumlanma", title: "Türkiye'de <span>Yeni Standart,</span><br>Dünyayla <span>Rekabet</span>", subtitle: "Henüz kurumsal bir şirket değiliz — ama tasarladığımız sistem, sektörün beklentilerinin çok ötesinde. İşte neyi farklı yapıyoruz.", comparison_scope: "Karşılaştırma kapsamı:", comparison_desc: "Türkiye'deki mevcut HBYS çözümleri (genel piyasa ortalaması) ile Trevonti HBYS", table_header1: "Özellik", table_header2: "Mevcut Yerli Sistemler", table_header3: "Piyasa Ortalaması", table_header4: "✦ Trevonti HBYS", row1_feature: "Bulut / SaaS Mimari", row1_col1: "✗ Sunucu tabanlı", row1_col2: "Kısmi", row1_col3: "✓ Cloud-Native", row2_feature: "Mobil iOS + Android", row2_col1: "✗", row2_col2: "Sınırlı", row2_col3: "✓ Native App", row3_feature: "Yapay Zeka / CDS", row3_col1: "✗", row3_col2: "✗", row3_col3: "✓ 4 AI Modeli", row4_feature: "FHIR R4 / e-Nabız", row4_col1: "✗", row4_col2: "Kısmi", row4_col3: "✓ Tam", row5_feature: "BCMA İlaç Güvenliği", row5_col1: "Eklenti", row5_col2: "✗", row5_col3: "✓ Dahili", row6_feature: "HA/DR (RTO 15 dk)", row6_col1: "✗", row6_col2: "✗", row6_col3: "✓ Patroni HA", row7_feature: "Telemedicine (USBS)", row7_col1: "✗", row7_col2: "✗", row7_col3: "✓ Uyumlu", row8_feature: "Açık Kaynak Altyapı", row8_col1: "✗ Tescilli", row8_col2: "✗", row8_col3: "✓ Tam Açık", global_badge: "Küresel Hedef", global_title: "Dünyanın En İyi Sistemlerinin Ortak <span>Standartları</span>", global_subtitle: "KLAS Research, bağımsız analistler ve küresel hastanelerin benimsediği sistemlerin sahip olduğu kriterlere bakıyoruz — ve Trevonti bu standartları sıfırdan içine alarak inşa ediyor.", global_card1_title: "Birlikte Çalışabilirlik", global_card1_desc: "HL7, FHIR R4, DICOM, LOINC, ICD-10 — dünyanın en iyi sistemlerinin kullandığı tüm standartlar Trevonti'de yerleşik.", global_card1_badge: "✓ Trevonti'de mevcut", global_card2_title: "AI Entegrasyonu", global_card2_desc: "Küresel liderler AI'ı son yıllarda sisteme ekledi. Trevonti AI ile başladı — sepsis, yeniden yatış, NLP ve CDS sıfırdan tasarlandı.", global_card2_badge: "✓ 4 model, yerleşik", global_card3_title: "Cloud-Native Mimari", global_card3_desc: "Küresel liderler eski sistemlerini buluta taşıyor. Trevonti hiç sunucu tabanlı olmadı — Kubernetes, Patroni HA, microservice ile doğdu.", global_card3_badge: "✓ Yerleşik mimari" },
     manifesto: { badge: "🌱 Dürüst Bir Not", title: "Henüz bir şirket değiliz.<br><span>Ama ne inşa ettiğimizi biliyoruz.</span>", desc: "Trevonti HBYS tek kişinin vizyonuyla ve sıfır sermayeyle geliştirilen erken aşama bir startup. Sistem henüz canlıya alınmadı, şirket henüz kurulmadı. Ama 12 sprint ve 31 modüllük kod tabanıyla Türkiye'deki mevcut sistemlerin yıllarca gerisinde kaldığı özellikleri şimdiden teslim ediyor.", box1_title: "Bugün", box1_desc: "12 sprint, 31 modül, 200+ test. Sunucu bekleniyor.", box2_title: "2026", box2_desc: "Pilot hastane, şirket kuruluşu, SİSE sertifikası başvurusu.", box3_title: "Hedef", box3_desc: "Türkiye'nin en iyi HBYS'si. Sonra küresel pazar.", quote: "\"Büyük sistemlerin avantajı geçmişleri. Bizim avantajımız gelecekten başlamış olmak.\"" },
-    tech: { badge: "Altyapı", title: "Kurumsal Sınıf <span>Teknoloji Stack'i</span>", subtitle: "Dünyanın en büyük bankalarının ve hastanelerinin güvendiği açık kaynak teknolojiler." },
+    tech: { badge: "Altyapı", title: "Kurumsal Sınıf <span>Teknoloji Stack'i</span>", subtitle: "Dünyanın en büyük bankalarının ve hastanelerinin güvendiği açık kaynak teknolojiler.", frontend: "Frontend", mobile: "iOS + Android", backend: "Backend API", db: "Veritabanı", cache: "Cache", messaging: "Mesajlaşma", ai_engine: "AI Engine", auth: "Auth / MFA", orchestration: "Orchestration", zero_trust: "Zero-Trust", analytics: "Analitik", build: "Build" },
     roadmap: { badge: "Yol Haritası", title: "Şeffaf <span>İlerleme</span>", subtitle: "Neredeyiz, nereye gidiyoruz.", q1_quarter: "2024 Q4 – 2025 Q1", q1_title: "Geliştirme Tamamlandı", q1_desc: "31 modül, 12 sprint, 200+ test. Web + iOS + Android. Tüm entegrasyonlar yazıldı.", q2_quarter: "2025 Q2", q2_title: "Marka & Altyapı", q2_desc: "Trevonti markası, GitHub, LinkedIn, web sitesi, marka tescil başvurusu.", q3_quarter: "2025 Q3 (Şu An)", q3_title: "Pilot & Yatırım", q3_desc: "Staging ortamı, ilk pilot hastane, Founders Hub Azure kredisi, şirket kuruluşu hazırlığı.", q4_quarter: "2025 Q4 – 2026", q4_title: "SİSE & Büyüme", q4_desc: "SİSE sertifikasyon başvurusu, şirket kuruluşu, ilk 3 hastane sözleşmesi." },
     cta: { title: "Birlikte İnşa Edelim", subtitle: "Pilot hastane ortağı, yatırımcı veya sektör uzmanıysanız — doğru yerdeysiniz. Bu sistemin geleceğini şekillendirmek için erken bir fırsat.", btn_primary: "📧 Bize Yazın", btn_secondary: "🐙 Koda Bakın" },
     footer: { desc: "Türkiye'nin yeni nesil, bulut tabanlı ve yapay zeka destekli Hastane Bilgi Yönetim Sistemi. Hasta güvenliğini, operasyonel verimliliği ve sürdürülebilir teknolojiyi tek platformda buluşturuyoruz.", platform_title: "Platform", developer_title: "Geliştirici", contact_title: "İletişim", contact_general: "Genel İletişim", contact_pilot: "Pilot Başvurusu", contact_investor: "Yatırımcı İlişkileri", copy: "© 2025 Trevonti HBYS. Tüm hakları saklıdır.", badge1: "KVKK Uyumlu", badge2: "FHIR R4", badge3: "SGK Medula", badge4: "SİSE Hazırlık" }
@@ -627,7 +627,7 @@ const translations = {
     ai: { badge: "Artificial Intelligence", title: "AI <span>Supporting</span> Clinical Decisions", subtitle: "4 AI models validated with 2,000 synthetic patients. Will be calibrated with pilot hospital data in Q3 2026.", disclaimer: "* All values are derived from synthetic data validation tests. Calibration with pilot hospital data is targeted for Q3 2026.", card1_title: "Sepsis Early Warning", card1_algo: "qSOFA + NEWS2 Hybrid Model", card1_auc: "AUC-ROC", card1_spec: "Specificity", card1_ci: "95% CI<br>0.973–0.985", card1_desc: "Runs automatically when vitals are recorded. Combines qSOFA 3 criteria + NEWS2 score to produce a risk score (0–1). If critical threshold is exceeded, an instant notification is sent to the nurse's mobile app.", card2_title: "30-Day Readmission", card2_algo: "LACE+ Algorithm + SHAP", card2_auc: "AUC-ROC", card2_sens: "Sensitivity", card2_ci: "95% CI<br>0.961–0.978", card2_desc: "Calculated automatically at discharge. Produces a risk score and SHAP explanation based on LACE+ factors (length of stay, acute admission, comorbidity, emergency visits). Social services are automatically engaged.", card3_title: "Drug Interaction CDS", card3_algo: "Rule Engine + Database", card3_catch: "Detection", card3_acc: "Accuracy", card3_ci: "1,000<br>order tests", card3_desc: "Responds in <50ms for every medication order. Screens for drug-drug, drug-allergy, drug-age, drug-pregnancy interactions. MAJOR interactions automatically block the order.", card4_title: "Turkish Clinical NLP", card4_algo: "Regex + Dictionary-Based Model", card4_acc1: "Accuracy", card4_acc2: "Drug/Diagnosis", card4_ci: "250<br>SOAP notes", card4_desc: "Automatically extracts diagnosis (ICD-10), medication (ATC), vitals and lab values from SOAP notes. Integrates with voice dictation. Extracted structured data is converted to FHIR R4 format." },
     positioning: { badge: "Positioning", title: "New Standard in <span>Turkey,</span><br>Competing with the <span>World</span>", subtitle: "We're not a corporate company yet — but the system we've designed far exceeds industry expectations. Here's what we do differently.", comparison_scope: "Comparison scope:", comparison_desc: "Existing HBYS solutions in Turkey (general market average) vs Trevonti HBYS", table_header1: "Feature", table_header2: "Existing Domestic Systems", table_header3: "Market Average", table_header4: "✦ Trevonti HBYS", row1_feature: "Cloud / SaaS Architecture", row1_col1: "✗ Server-based", row1_col2: "Partial", row1_col3: "✓ Cloud-Native", row2_feature: "Mobile iOS + Android", row2_col1: "✗", row2_col2: "Limited", row2_col3: "✓ Native App", row3_feature: "Artificial Intelligence / CDS", row3_col1: "✗", row3_col2: "✗", row3_col3: "✓ 4 AI Models", row4_feature: "FHIR R4 / e-Nabız", row4_col1: "✗", row4_col2: "Partial", row4_col3: "✓ Full", row5_feature: "BCMA Medication Safety", row5_col1: "Add-on", row5_col2: "✗", row5_col3: "✓ Built-in", row6_feature: "HA/DR (RTO 15 min)", row6_col1: "✗", row6_col2: "✗", row6_col3: "✓ Patroni HA", row7_feature: "Telemedicine (USBS)", row7_col1: "✗", row7_col2: "✗", row7_col3: "✓ Compliant", row8_feature: "Open Source Infrastructure", row8_col1: "✗ Proprietary", row8_col2: "✗", row8_col3: "✓ Fully Open", global_badge: "Global Target", global_title: "Common <span>Standards</span> of the World's Best Systems", global_subtitle: "We look at the criteria adopted by KLAS Research, independent analysts, and global hospitals — and Trevonti is built from the ground up with these standards.", global_card1_title: "Interoperability", global_card1_desc: "HL7, FHIR R4, DICOM, LOINC, ICD-10 — all the standards used by the world's best systems are built into Trevonti.", global_card1_badge: "✓ Available in Trevonti", global_card2_title: "AI Integration", global_card2_desc: "Global leaders added AI in recent years. Trevonti started with AI — sepsis, readmission, NLP, and CDS designed from scratch.", global_card2_badge: "✓ 4 models, built-in", global_card3_title: "Cloud-Native Architecture", global_card3_desc: "Global leaders are moving their legacy systems to the cloud. Trevonti was never server-based — born with Kubernetes, Patroni HA, microservices.", global_card3_badge: "✓ Built-in architecture" },
     manifesto: { badge: "🌱 An Honest Note", title: "We're not a company yet.<br><span>But we know what we're building.</span>", desc: "Trevonti HBYS is an early-stage startup developed with one person's vision and zero capital. The system hasn't gone live yet, the company hasn't been founded yet. But with 12 sprints and a 31-module codebase, it already delivers features that existing systems in Turkey have lacked for years.", box1_title: "Today", box1_desc: "12 sprints, 31 modules, 200+ tests. Awaiting server.", box2_title: "2026", box2_desc: "Pilot hospital, company formation, SİSE certification application.", box3_title: "Goal", box3_desc: "Turkey's best HBYS. Then the global market.", quote: "\"The advantage of big systems is their past. Our advantage is starting from the future.\"" },
-    tech: { badge: "Infrastructure", title: "Enterprise-Grade <span>Technology Stack</span>", subtitle: "Open-source technologies trusted by the world's largest banks and hospitals." },
+    tech: { badge: "Infrastructure", title: "Enterprise-Grade <span>Technology Stack</span>", subtitle: "Open-source technologies trusted by the world's largest banks and hospitals.", frontend: "Frontend", mobile: "iOS + Android", backend: "Backend API", db: "Database", cache: "Cache", messaging: "Messaging", ai_engine: "AI Engine", auth: "Auth / MFA", orchestration: "Orchestration", zero_trust: "Zero-Trust", analytics: "Analytics", build: "Build" },
     roadmap: { badge: "Roadmap", title: "Transparent <span>Progress</span>", subtitle: "Where we are, where we're going.", q1_quarter: "2024 Q4 – 2025 Q1", q1_title: "Development Complete", q1_desc: "31 modules, 12 sprints, 200+ tests. Web + iOS + Android. All integrations written.", q2_quarter: "2025 Q2", q2_title: "Brand & Infrastructure", q2_desc: "Trevonti brand, GitHub, LinkedIn, website, trademark application.", q3_quarter: "2025 Q3 (Now)", q3_title: "Pilot & Investment", q3_desc: "Staging environment, first pilot hospital, Founders Hub Azure credits, company formation prep.", q4_quarter: "2025 Q4 – 2026", q4_title: "SİSE & Growth", q4_desc: "SİSE certification application, company formation, first 3 hospital contracts." },
     cta: { title: "Let's Build Together", subtitle: "If you're a pilot hospital partner, investor, or industry expert — you're in the right place. An early opportunity to shape the future of this system.", btn_primary: "📧 Contact Us", btn_secondary: "🐙 View Code" },
     footer: { desc: "Turkey's next-generation, cloud-based, AI-powered Hospital Information Management System. We bring patient safety, operational efficiency, and sustainable technology together on a single platform.", platform_title: "Platform", developer_title: "Developer", contact_title: "Contact", contact_general: "General Inquiries", contact_pilot: "Pilot Application", contact_investor: "Investor Relations", copy: "© 2025 Trevonti HBYS. All rights reserved.", badge1: "KVKK Compliant", badge2: "FHIR R4", badge3: "SGK Medula", badge4: "SİSE Ready" }
@@ -642,18 +642,15 @@ function switchLanguage(lang) {
     const val = key.split('.').reduce((o, k) => o?.[k], t);
     if (val) el.innerHTML = val;
   });
-  // Buton aktif stilleri
   document.getElementById('lang-tr').classList.toggle('active', lang === 'tr');
   document.getElementById('lang-en').classList.toggle('active', lang === 'en');
   localStorage.setItem('pref-lang', lang);
 }
 
-// ─── Sayfa Yükleme ve Diğer İşlevler ─────────────────
+// ─── Sayfa Yükleme ─────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   const savedLang = localStorage.getItem('pref-lang') || 'tr';
   switchLanguage(savedLang);
-
-  // Fade-in observer
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.1 });
