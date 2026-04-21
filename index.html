@@ -343,6 +343,42 @@ section{padding:80px 5%}
   }
 }
 
+/* Mobil taşma, kayma ve ortalanma düzeltmeleri */
+@media(max-width:768px){
+  section {
+    overflow-x: hidden;
+    width: 100%;
+  }
+  .comp-table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .fade-in[style*="display:grid"] {
+    grid-template-columns: 1fr !important;
+  }
+  .problem-grid, .feat-grid, .ai-grid, .integ-grid, .modules-grid, .stack-grid {
+    width: 100%;
+  }
+  .hero-stats {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .hs-item {
+    flex: 0 0 auto;
+    min-width: 120px;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .lang-dropdown-menu {
+    right: auto;
+    left: 0;
+  }
+}
+
 /* ── Animasyon ────────────────────────────────────────── */
 .fade-in{opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s}
 .fade-in.visible{opacity:1;transform:none}
@@ -785,6 +821,12 @@ function switchLanguage(lang) {
   document.documentElement.lang = lang;
   localStorage.setItem('pref-lang', lang);
   document.getElementById('langDropdownMenu').classList.remove('show');
+
+  // Mobil menüyü kapat
+  if (window.innerWidth <= 768) {
+    const navLinks = document.querySelector('.nav-links');
+    if (navLinks.style.display === 'flex') navLinks.style.display = 'none';
+  }
 }
 
 function setupDropdown() {
