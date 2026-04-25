@@ -1,441 +1,539 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Trevonti HBYS — Türkiye'nin yeni nesil, bulut tabanlı ve yapay zeka destekli Hastane Bilgi Yönetim Sistemi. 46+ klinik modül, SGK entegrasyonu, FHIR R4 uyumlu.">
-<meta name="keywords" content="HBYS, Hastane Bilgi Sistemi, SGK, FHIR, sağlık teknolojisi, cloud, yapay zeka">
-<meta property="og:title" content="Trevonti HBYS — Yeni Nesil Hastane Sistemi">
-<meta property="og:description" content="46+ klinik modül, SGK Medula, Sağlık-Net, FHIR R4 ve 6+ AI destekli bulut tabanlı HBYS platformu.">
-<title>Trevonti HBYS — Yeni Nesil Hastane Bilgi Yönetim Sistemi</title>
-<style>
-/* ── Reset & Base ─────────────────────────────────────── */
-*{box-sizing:border-box;margin:0;padding:0;-webkit-font-smoothing:antialiased}
-html{scroll-behavior:smooth}
-body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:#fff;color:#1e293b;overflow-x:hidden}
-a{text-decoration:none;color:inherit}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Trevonti HBYS — Türkiye'nin yeni nesil, bulut tabanlı ve yapay zeka destekli Hastane Bilgi Yönetim Sistemi. 46+ klinik modül, SGK entegrasyonu, FHIR R4 uyumlu.">
+  <meta name="keywords" content="HBYS, Hastane Bilgi Sistemi, SGK, FHIR, sağlık teknolojisi, cloud, yapay zeka">
+  <meta property="og:title" content="Trevonti HBYS — Yeni Nesil Hastane Sistemi">
+  <meta property="og:description" content="46+ klinik modül, SGK Medula, Sağlık-Net, FHIR R4 ve 6+ AI destekli bulut tabanlı HBYS platformu.">
+  <title>Trevonti HBYS — Yeni Nesil Hastane Bilgi Yönetim Sistemi</title>
+  <style>
+    /* ── Reset & Base ── */
+    *{box-sizing:border-box;margin:0;padding:0;-webkit-font-smoothing:antialiased}
+    html{scroll-behavior:smooth}
+    body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:#fff;color:#1e293b;overflow-x:hidden}
+    a{text-decoration:none;color:inherit}
 
-/* ── CSS Variables ────────────────────────────────────── */
-:root{
-  --teal:#0d9488;--teal-dark:#0b7a71;--teal-light:#f0fdf4;
-  --navy:#0f172a;--slate:#1e293b;--gray:#64748b;--lgray:#f1f5f9;
-  --white:#fff;
-  --grad:linear-gradient(135deg,#0f172a 0%,#0d3a3a 50%,#0d9488 100%);
-}
+    :root{
+      --teal:#0d9488;--teal-dark:#0b7a71;--teal-light:#f0fdf4;
+      --navy:#0f172a;--slate:#1e293b;--gray:#64748b;--lgray:#f1f5f9;
+      --white:#fff;
+      --grad:linear-gradient(135deg,#0f172a 0%,#0d3a3a 50%,#0d9488 100%);
+    }
 
-/* ── Navbar ─ */
-.nav{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  background:rgba(15,23,42,.95);backdrop-filter:blur(12px);
-  border-bottom:1px solid rgba(255,255,255,.06);
-  padding:0 5%;height:64px;display:flex;align-items:center;justify-content:space-between;
-  transition:.3s;
-}
-.nav-logo{display:flex;align-items:center;}
-.nav-logo-text-group{display:flex;flex-direction:column;line-height:1.2;}
-.nav-logo-main{display:flex;align-items:baseline;gap:6px;}
-.nav-logo-trevonti{font-weight:800;font-size:17px;color:#fff;letter-spacing:0.5px;}
-.nav-logo-hbys{font-weight:700;font-size:17px;color:var(--teal);letter-spacing:1px;}
-.nav-logo-subtitle{font-size:9px;font-weight:600;color:#fff;opacity:0.9;letter-spacing:0.3px;white-space:nowrap;}
-.nav-logo-tech{font-size:7.5px;font-weight:400;color:rgba(255,255,255,.6);white-space:nowrap;letter-spacing:0.2px;margin-top:2px;}
+    /* ── Navbar ─ */
+    .nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(15,23,42,.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.06);padding:0 5%;height:64px;display:flex;align-items:center;justify-content:space-between;transition:.3s}
+    .nav-logo{display:flex;align-items:center}
+    .nav-logo-text-group{display:flex;flex-direction:column;line-height:1.2}
+    .nav-logo-main{display:flex;align-items:baseline;gap:6px}
+    .nav-logo-trevonti{font-weight:800;font-size:17px;color:#fff;letter-spacing:0.5px}
+    .nav-logo-hbys{font-weight:700;font-size:17px;color:var(--teal);letter-spacing:1px}
+    .nav-logo-subtitle{font-size:9px;font-weight:600;color:#fff;opacity:0.9;letter-spacing:0.3px;white-space:nowrap}
+    .nav-logo-tech{font-size:7.5px;font-weight:400;color:rgba(255,255,255,.6);white-space:nowrap;letter-spacing:0.2px;margin-top:2px}
+    .nav-links{display:flex;align-items:center;gap:28px}
+    .nav-links a{color:rgba(255,255,255,.7);font-size:14px;font-weight:500;transition:.2s}
+    .nav-links a:hover{color:#fff}
+    .nav-cta{background:var(--teal);color:#fff!important;padding:8px 20px;border-radius:8px;font-weight:600!important;font-size:13px!important;transition:.2s!important}
+    .nav-cta:hover{background:var(--teal-dark)!important}
+    .nav-menu-btn{display:none;background:none;border:none;cursor:pointer;color:#fff;font-size:22px}
 
-.nav-links{display:flex;align-items:center;gap:28px}
-.nav-links a{color:rgba(255,255,255,.7);font-size:14px;font-weight:500;transition:.2s}
-.nav-links a:hover{color:#fff}
-.nav-cta{background:var(--teal);color:#fff !important;padding:8px 20px;border-radius:8px;font-weight:600 !important;font-size:13px !important;transition:.2s !important}
-.nav-cta:hover{background:var(--teal-dark) !important}
-.nav-menu-btn{display:none;background:none;border:none;cursor:pointer;color:#fff;font-size:22px}
+    /* Dil Dropdown */
+    .lang-dropdown{position:relative;margin-left:12px}
+    .lang-dropdown-btn{background:transparent;border:1px solid rgba(255,255,255,0.3);color:#fff;padding:6px 12px;border-radius:6px;cursor:pointer;font-size:13px;font-weight:500;display:flex;align-items:center;gap:6px;transition:all 0.2s}
+    .lang-dropdown-btn:hover{background:rgba(255,255,255,0.1);border-color:var(--teal)}
+    .lang-dropdown-btn i{font-size:10px;opacity:0.7}
+    .lang-dropdown-menu{position:absolute;top:100%;right:0;margin-top:8px;background:#1e293b;border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:6px 0;min-width:150px;max-height:300px;overflow-y:auto;box-shadow:0 8px 20px rgba(0,0,0,0.3);display:none;z-index:200}
+    .lang-dropdown-menu.show{display:block}
+    .lang-option{padding:8px 16px;color:rgba(255,255,255,0.8);font-size:13px;cursor:pointer;transition:background 0.2s;white-space:nowrap}
+    .lang-option:hover{background:rgba(13,148,136,0.2);color:#fff}
+    .lang-option.active{background:var(--teal);color:#fff}
 
-/* Dil Dropdown */
-.lang-dropdown{position:relative;margin-left:12px;}
-.lang-dropdown-btn{
-  background:transparent;border:1px solid rgba(255,255,255,0.3);
-  color:#fff;padding:6px 12px;border-radius:6px;cursor:pointer;
-  font-size:13px;font-weight:500;display:flex;align-items:center;gap:6px;
-  transition:all 0.2s;
-}
-.lang-dropdown-btn:hover{background:rgba(255,255,255,0.1);border-color:var(--teal);}
-.lang-dropdown-btn i{font-size:10px;opacity:0.7;}
-.lang-dropdown-menu{
-  position:absolute;top:100%;right:0;margin-top:8px;
-  background:#1e293b;border:1px solid rgba(255,255,255,0.1);
-  border-radius:8px;padding:6px 0;min-width:150px;max-height:300px;
-  overflow-y:auto;box-shadow:0 8px 20px rgba(0,0,0,0.3);
-  display:none;z-index:200;
-}
-.lang-dropdown-menu.show{display:block;}
-.lang-option{
-  padding:8px 16px;color:rgba(255,255,255,0.8);font-size:13px;
-  cursor:pointer;transition:background 0.2s;
-}
-.lang-option:hover{background:rgba(13,148,136,0.2);color:#fff;}
-.lang-option.active{background:var(--teal);color:#fff;}
+    /* ── Hero ─ */
+    .hero{min-height:100vh;background:var(--grad);display:flex;align-items:center;padding:100px 5% 60px;position:relative;overflow:hidden}
+    .hero-bg-dots{position:absolute;inset:0;background-image:radial-gradient(rgba(13,148,136,.15) 1px,transparent 1px);background-size:32px 32px;pointer-events:none}
+    .hero-glow{position:absolute;width:600px;height:600px;background:radial-gradient(circle,rgba(13,148,136,.2) 0%,transparent 70%);top:-100px;right:-100px;pointer-events:none}
+    .hero-content{position:relative;max-width:640px}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(13,148,136,.2);border:1px solid rgba(13,148,136,.4);border-radius:20px;padding:6px 14px;font-size:12px;font-weight:600;color:#5eead4;margin-bottom:24px}
+    .hero-badge-dot{width:6px;height:6px;border-radius:50%;background:#5eead4;animation:pulse 2s infinite}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+    .hero-title{font-size:clamp(32px,5vw,56px);font-weight:800;color:#fff;line-height:1.15;margin-bottom:20px}
+    .hero-title span{color:#5eead4}
+    .hero-sub{font-size:18px;color:rgba(255,255,255,.7);line-height:1.7;margin-bottom:32px;max-width:520px}
+    .hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+    .btn-pri{padding:14px 28px;background:var(--teal);color:#fff;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;transition:.2s;border:none;display:inline-flex;align-items:center;gap:8px}
+    .btn-pri:hover{background:var(--teal-dark);transform:translateY(-1px)}
+    .btn-sec{padding:14px 28px;background:rgba(255,255,255,.08);color:#fff;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;transition:.2s;border:1px solid rgba(255,255,255,.15);display:inline-flex;align-items:center;gap:8px}
+    .btn-sec:hover{background:rgba(255,255,255,.14)}
+    .hero-stats{display:flex;gap:32px;margin-top:48px;flex-wrap:wrap}
+    .hs-item{text-align:left}
+    .hs-val{font-size:32px;font-weight:800;color:#fff}
+    .hs-label{font-size:13px;color:rgba(255,255,255,.55);margin-top:2px}
+    .hero-right{position:absolute;right:5%;top:50%;transform:translateY(-50%);width:min(42%,480px);display:flex;flex-direction:column;gap:10px;pointer-events:none}
+    .hr-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:14px 16px;display:flex;align-items:center;gap:12px;animation:floatIn .6s ease both}
+    @keyframes floatIn{from{opacity:0;transform:translateX(20px)}to{opacity:1;transform:none}}
+    .hr-card:nth-child(1){animation-delay:.1s}
+    .hr-card:nth-child(2){animation-delay:.2s}
+    .hr-card:nth-child(3){animation-delay:.3s}
+    .hr-card:nth-child(4){animation-delay:.4s}
+    .hr-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+    .hr-info{flex:1}
+    .hr-title{font-size:13px;font-weight:600;color:#fff}
+    .hr-sub{font-size:11px;color:rgba(255,255,255,.5);margin-top:1px}
+    .hr-badge{font-size:10px;font-weight:700;padding:3px 8px;border-radius:8px;white-space:nowrap}
+    .hb-green{background:rgba(34,197,94,.2);color:#4ade80}
+    .hb-teal{background:rgba(13,148,136,.25);color:#5eead4}
+    .hb-blue{background:rgba(59,130,246,.2);color:#60a5fa}
+    .hb-amber{background:rgba(245,158,11,.2);color:#fcd34d}
 
-/* ── Hero ─ */
-.hero{min-height:100vh;background:var(--grad);display:flex;align-items:center;padding:100px 5% 60px;position:relative;overflow:hidden}
-.hero-bg-dots{position:absolute;inset:0;background-image:radial-gradient(rgba(13,148,136,.15) 1px,transparent 1px);background-size:32px 32px;pointer-events:none}
-.hero-glow{position:absolute;width:600px;height:600px;background:radial-gradient(circle,rgba(13,148,136,.2) 0%,transparent 70%);top:-100px;right:-100px;pointer-events:none}
-.hero-content{position:relative;max-width:640px}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(13,148,136,.2);border:1px solid rgba(13,148,136,.4);border-radius:20px;padding:6px 14px;font-size:12px;font-weight:600;color:#5eead4;margin-bottom:24px}
-.hero-badge-dot{width:6px;height:6px;border-radius:50%;background:#5eead4;animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
-.hero-title{font-size:clamp(32px,5vw,56px);font-weight:800;color:#fff;line-height:1.15;margin-bottom:20px}
-.hero-title span{color:#5eead4}
-.hero-sub{font-size:18px;color:rgba(255,255,255,.7);line-height:1.7;margin-bottom:32px;max-width:520px}
-.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
-.btn-pri{padding:14px 28px;background:var(--teal);color:#fff;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;transition:.2s;border:none;display:inline-flex;align-items:center;gap:8px}
-.btn-pri:hover{background:var(--teal-dark);transform:translateY(-1px)}
-.btn-sec{padding:14px 28px;background:rgba(255,255,255,.08);color:#fff;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;transition:.2s;border:1px solid rgba(255,255,255,.15);display:inline-flex;align-items:center;gap:8px}
-.btn-sec:hover{background:rgba(255,255,255,.14)}
-.hero-stats{display:flex;gap:32px;margin-top:48px;flex-wrap:wrap}
-.hs-item{text-align:left}
-.hs-val{font-size:32px;font-weight:800;color:#fff}
-.hs-label{font-size:13px;color:rgba(255,255,255,.55);margin-top:2px}
-.hero-right{position:absolute;right:5%;top:50%;transform:translateY(-50%);width:min(42%,480px);display:flex;flex-direction:column;gap:10px;pointer-events:none}
-.hr-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:14px 16px;display:flex;align-items:center;gap:12px;animation:floatIn .6s ease both}
-@keyframes floatIn{from{opacity:0;transform:translateX(20px)}to{opacity:1;transform:none}}
-.hr-card:nth-child(1){animation-delay:.1s}
-.hr-card:nth-child(2){animation-delay:.2s}
-.hr-card:nth-child(3){animation-delay:.3s}
-.hr-card:nth-child(4){animation-delay:.4s}
-.hr-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
-.hr-info{flex:1}
-.hr-title{font-size:13px;font-weight:600;color:#fff}
-.hr-sub{font-size:11px;color:rgba(255,255,255,.5);margin-top:1px}
-.hr-badge{font-size:10px;font-weight:700;padding:3px 8px;border-radius:8px;white-space:nowrap}
-.hb-green{background:rgba(34,197,94,.2);color:#4ade80}
-.hb-teal{background:rgba(13,148,136,.25);color:#5eead4}
-.hb-blue{background:rgba(59,130,246,.2);color:#60a5fa}
-.hb-amber{background:rgba(245,158,11,.2);color:#fcd34d}
+    /* ── Section Base ─ */
+    section{padding:80px 5%}
+    .section-badge{display:inline-block;background:var(--teal-light);color:var(--teal);font-size:12px;font-weight:700;padding:5px 14px;border-radius:20px;margin-bottom:14px}
+    .section-title{font-size:clamp(26px,3.5vw,40px);font-weight:800;color:var(--navy);line-height:1.25;margin-bottom:14px}
+    .section-title span{color:var(--teal)}
+    .section-sub{font-size:17px;color:var(--gray);line-height:1.7;max-width:580px;margin-bottom:40px}
+    .center{text-align:center}
+    .center .section-sub{margin:0 auto 40px}
 
-/* ── Section Base ─ */
-section{padding:80px 5%}
-.section-badge{display:inline-block;background:var(--teal-light);color:var(--teal);font-size:12px;font-weight:700;padding:5px 14px;border-radius:20px;margin-bottom:14px}
-.section-title{font-size:clamp(26px,3.5vw,40px);font-weight:800;color:var(--navy);line-height:1.25;margin-bottom:14px}
-.section-title span{color:var(--teal)}
-.section-sub{font-size:17px;color:var(--gray);line-height:1.7;max-width:580px;margin-bottom:40px}
-.center{text-align:center}
-.center .section-sub{margin:0 auto 40px}
+    /* ── Problem ─ */
+    .problem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:60px}
+    .prob-card{background:#fff;border:1px solid #fee2e2;border-radius:14px;padding:24px;position:relative;overflow:hidden}
+    .prob-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:#ef4444}
+    .prob-icon{font-size:28px;margin-bottom:12px}
+    .prob-title{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:8px}
+    .prob-desc{font-size:13px;color:var(--gray);line-height:1.6}
+    .prob-stat{font-size:22px;font-weight:800;color:#dc2626;margin-top:10px}
 
-/* ── Modüller ─ */
-.modules-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-.mod-item{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:14px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;transition:.15s}
-.mod-item:hover{border-color:var(--teal);background:var(--teal-light)}
-.mod-icon{font-size:18px;flex-shrink:0}
-.mod-name{font-size:13px;font-weight:500;color:var(--slate);flex:1}
-.mod-kpi{font-size:10px;color:var(--gray);width:100%;margin-top:2px;font-style:italic}
-.new-badge,.planned-badge{font-size:8px;font-weight:700;padding:2px 6px;border-radius:4px;white-space:nowrap}
-.new-badge{background:var(--teal);color:#fff}
-.planned-badge{background:#f59e0b;color:#fff}
-.mod-item.new-highlight{background:#f0fdf4;border-color:rgba(13,148,136,.4)}
-.mod-item.planned-highlight{background:#fefce8;border-color:rgba(245,158,11,.4)}
+    /* ── Özellikler ─ */
+    .features-bg{background:var(--lgray)}
+    .feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .feat-card{background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:24px;transition:.2s}
+    .feat-card:hover{border-color:var(--teal);transform:translateY(-3px);box-shadow:0 8px 24px rgba(13,148,136,.1)}
+    .feat-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:14px}
+    .fi-teal{background:#f0fdf4}.fi-blue{background:#eff6ff}.fi-purple{background:#f5f3ff}.fi-amber{background:#fffbeb}.fi-red{background:#fef2f2}.fi-green{background:#f0fdf4}
+    .feat-title{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:8px}
+    .feat-desc{font-size:13px;color:var(--gray);line-height:1.6}
 
-/* ── Entegrasyonlar ─ */
-.integ-bg{background:var(--navy)}
-.integ-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.integ-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:20px;text-align:center;transition:.2s}
-.integ-card:hover{background:rgba(255,255,255,.1);border-color:rgba(13,148,136,.4)}
-.ic-icon{font-size:32px;margin-bottom:10px}
-.ic-name{font-size:14px;font-weight:600;color:#fff;margin-bottom:4px}
-.ic-desc{font-size:12px;color:rgba(255,255,255,.5)}
-.ic-badge{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:8px;margin-top:8px;background:rgba(34,197,94,.2);color:#4ade80}
+    /* ── Modüller ─ */
+    .modules-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+    .mod-item{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:14px;display:flex;align-items:center;gap:10px;transition:.15s;flex-wrap:wrap}
+    .mod-item:hover{border-color:var(--teal);background:var(--teal-light)}
+    .mod-icon{font-size:18px;flex-shrink:0}
+    .mod-name{font-size:13px;font-weight:500;color:var(--slate);flex:1}
+    .mod-kpi{font-size:10px;color:var(--gray);width:100%;font-style:italic}
+    .new-badge,.planned-badge{font-size:8px;font-weight:700;padding:2px 6px;border-radius:4px;white-space:nowrap}
+    .new-badge{background:var(--teal);color:#fff}
+    .planned-badge{background:#f59e0b;color:#fff}
+    .mod-item.new-highlight{background:#f0fdf4;border-color:rgba(13,148,136,.4)}
+    .mod-item.planned-highlight{background:#fefce8;border-color:rgba(245,158,11,.4)}
 
-/* AI */
-.ai-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-.ai-card{background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:28px;position:relative;overflow:hidden}
-.ai-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
-.ai-teal::before{background:var(--teal)}.ai-blue::before{background:#3b82f6}
-.ai-purple::before{background:#8b5cf6}.ai-amber::before{background:#f59e0b}
-.ai-header{display:flex;align-items:center;gap:12px;margin-bottom:16px}
-.ai-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px}
-.ai-title{font-size:16px;font-weight:700;color:var(--navy)}
-.ai-algo{font-size:12px;color:var(--gray);margin-top:2px}
-.ai-metric{display:flex;align-items:center;gap:16px;margin-bottom:12px}
-.am-val{font-size:40px;font-weight:800;color:var(--teal);line-height:1}
-.am-label{font-size:12px;color:var(--gray)}
-.am-ci{font-size:11px;color:var(--gray);font-family:'Consolas',monospace}
-.ai-desc{font-size:13px;color:var(--gray);line-height:1.6}
+    /* ── Entegrasyonlar ─ */
+    .integ-bg{background:var(--navy)}
+    .integ-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .integ-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:20px;text-align:center;transition:.2s}
+    .integ-card:hover{background:rgba(255,255,255,.1);border-color:rgba(13,148,136,.4)}
+    .ic-icon{font-size:32px;margin-bottom:10px}
+    .ic-name{font-size:14px;font-weight:600;color:#fff;margin-bottom:4px}
+    .ic-desc{font-size:12px;color:rgba(255,255,255,.5)}
+    .ic-badge{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:8px;margin-top:8px;background:rgba(34,197,94,.2);color:#4ade80}
 
-/* Teknoloji */
-.arch-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:20px}
-.arch-layer{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:16px;text-align:center}
-.arch-layer-icon{font-size:24px;margin-bottom:6px}
-.arch-layer-name{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:4px}
-.arch-layer-tech{font-size:10px;color:var(--gray);line-height:1.5}
+    /* ── AI ─ */
+    .ai-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+    .ai-card{background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:28px;position:relative;overflow:hidden}
+    .ai-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+    .ai-teal::before{background:var(--teal)}.ai-blue::before{background:#3b82f6}
+    .ai-purple::before{background:#8b5cf6}.ai-amber::before{background:#f59e0b}
+    .ai-header{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+    .ai-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px}
+    .ai-title{font-size:16px;font-weight:700;color:var(--navy)}
+    .ai-algo{font-size:12px;color:var(--gray);margin-top:2px}
+    .ai-metric{display:flex;align-items:center;gap:16px;margin-bottom:12px}
+    .am-val{font-size:40px;font-weight:800;color:var(--teal);line-height:1}
+    .am-label{font-size:12px;color:var(--gray)}
+    .am-ci{font-size:11px;color:var(--gray);font-family:'Consolas',monospace}
+    .ai-desc{font-size:13px;color:var(--gray);line-height:1.6}
 
-/* Yol Haritası */
-.roadmap-bg{background:var(--navy)}
-.roadmap-line{display:grid;grid-template-columns:repeat(6,1fr);gap:0;position:relative}
-.roadmap-line::before{content:'';position:absolute;top:22px;left:8%;right:8%;height:2px;background:rgba(255,255,255,.1);z-index:0}
-.rm-item{text-align:center;position:relative;z-index:1;padding:0 4px}
-.rm-dot{width:40px;height:40px;border-radius:50%;margin:0 auto 8px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;border:3px solid}
-.rm-done{background:var(--teal);border-color:var(--teal);color:#fff}
-.rm-active{background:#0f172a;border-color:var(--teal);color:var(--teal);animation:glowPulse 2s infinite}
-@keyframes glowPulse{0%,100%{box-shadow:0 0 0 0 rgba(13,148,136,.4)}50%{box-shadow:0 0 0 8px rgba(13,148,136,0)}}
-.rm-quarter{font-size:9px;font-weight:700;color:var(--teal);margin-bottom:2px}
-.rm-title{font-size:11px;font-weight:600;color:#fff;margin-bottom:3px}
-.rm-desc{font-size:9px;color:rgba(255,255,255,.5);line-height:1.3}
+    /* ── Teknoloji Stack ─ */
+    .tech-bg{background:var(--lgray)}
+    .stack-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+    .stack-item{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:16px;text-align:center;transition:.15s}
+    .stack-item:hover{border-color:var(--teal);transform:translateY(-2px)}
+    .si-icon{font-size:24px;margin-bottom:6px}
+    .si-name{font-size:12px;font-weight:600;color:var(--slate)}
+    .si-type{font-size:10px;color:var(--gray);margin-top:2px}
+    .arch-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:20px}
+    .arch-layer{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:16px;text-align:center}
+    .arch-layer-icon{font-size:24px;margin-bottom:6px}
+    .arch-layer-name{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:4px}
+    .arch-layer-tech{font-size:10px;color:var(--gray);line-height:1.5}
 
-/* CTA */
-.cta-bg{background:linear-gradient(135deg,var(--teal-dark),#0891b2)}
-.cta-inner{display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap}
-.cta-title{font-size:clamp(22px,3vw,36px);font-weight:800;color:#fff;margin-bottom:10px}
-.cta-sub{font-size:16px;color:rgba(255,255,255,.8);max-width:480px}
-.cta-btns{display:flex;gap:10px;flex-wrap:wrap;flex-shrink:0}
-.cta-btn-white{padding:13px 26px;background:#fff;color:var(--teal);border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;border:none;transition:.2s}
-.cta-btn-white:hover{background:#f0fdf4}
-.cta-btn-outline{padding:13px 26px;background:transparent;color:#fff;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;border:2px solid rgba(255,255,255,.4);transition:.2s}
-.cta-btn-outline:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+    /* ── Yol Haritası ─ */
+    .roadmap-bg{background:var(--navy)}
+    .roadmap-line{display:grid;grid-template-columns:repeat(6,1fr);gap:0;position:relative}
+    .roadmap-line::before{content:'';position:absolute;top:22px;left:8%;right:8%;height:2px;background:rgba(255,255,255,.1);z-index:0}
+    .rm-item{text-align:center;position:relative;z-index:1;padding:0 4px}
+    .rm-dot{width:40px;height:40px;border-radius:50%;margin:0 auto 8px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;border:3px solid}
+    .rm-done{background:var(--teal);border-color:var(--teal);color:#fff}
+    .rm-active{background:#0f172a;border-color:var(--teal);color:var(--teal);animation:glowPulse 2s infinite}
+    @keyframes glowPulse{0%,100%{box-shadow:0 0 0 0 rgba(13,148,136,.4)}50%{box-shadow:0 0 0 8px rgba(13,148,136,0)}}
+    .rm-quarter{font-size:9px;font-weight:700;color:var(--teal);margin-bottom:2px}
+    .rm-title{font-size:11px;font-weight:600;color:#fff;margin-bottom:3px}
+    .rm-desc{font-size:9px;color:rgba(255,255,255,.5);line-height:1.3}
 
-/* Footer */
-.footer{background:var(--navy);padding:60px 5% 30px}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
-.footer-logo{display:flex;align-items:center;gap:10px;margin-bottom:16px}
-.fl-box{width:34px;height:34px;background:var(--teal);border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:13px}
-.fl-name{color:#fff;font-size:16px;font-weight:700}
-.footer-desc{font-size:13px;color:rgba(255,255,255,.5);line-height:1.7;margin-bottom:20px}
-.footer-links-title{font-size:12px;font-weight:700;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.06em;margin-bottom:14px}
-.footer-links a{display:block;font-size:13px;color:rgba(255,255,255,.6);margin-bottom:8px;transition:.2s}
-.footer-links a:hover{color:#fff}
-.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
-.fb-copy{font-size:12px;color:rgba(255,255,255,.4)}
-.fb-badges{display:flex;gap:10px;flex-wrap:wrap}
-.fb-badge{font-size:11px;font-weight:600;padding:4px 10px;border-radius:8px;background:rgba(13,148,136,.2);color:var(--teal)}
+    /* ── CTA ─ */
+    .cta-bg{background:linear-gradient(135deg,var(--teal-dark),#0891b2)}
+    .cta-inner{display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap}
+    .cta-title{font-size:clamp(22px,3vw,36px);font-weight:800;color:#fff;margin-bottom:10px}
+    .cta-sub{font-size:16px;color:rgba(255,255,255,.8);max-width:480px}
+    .cta-btns{display:flex;gap:10px;flex-wrap:wrap;flex-shrink:0}
+    .cta-btn-white{padding:13px 26px;background:#fff;color:var(--teal);border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;border:none;transition:.2s}
+    .cta-btn-white:hover{background:#f0fdf4}
+    .cta-btn-outline{padding:13px 26px;background:transparent;color:#fff;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;border:2px solid rgba(255,255,255,.4);transition:.2s}
+    .cta-btn-outline:hover{border-color:#fff;background:rgba(255,255,255,.08)}
 
-.fade-in{opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s}
-.fade-in.visible{opacity:1;transform:none}
+    /* ── Footer ─ */
+    .footer{background:var(--navy);padding:60px 5% 30px}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+    .footer-logo{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+    .fl-box{width:34px;height:34px;background:var(--teal);border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:13px}
+    .fl-name{color:#fff;font-size:16px;font-weight:700}
+    .footer-desc{font-size:13px;color:rgba(255,255,255,.5);line-height:1.7;margin-bottom:20px}
+    .footer-links-title{font-size:12px;font-weight:700;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.06em;margin-bottom:14px}
+    .footer-links a{display:block;font-size:13px;color:rgba(255,255,255,.6);margin-bottom:8px;transition:.2s}
+    .footer-links a:hover{color:#fff}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+    .fb-copy{font-size:12px;color:rgba(255,255,255,.4)}
+    .fb-badges{display:flex;gap:10px;flex-wrap:wrap}
+    .fb-badge{font-size:11px;font-weight:600;padding:4px 10px;border-radius:8px;background:rgba(13,148,136,.2);color:var(--teal)}
 
-/* Responsive */
-@media(max-width:1024px){.hero-right{display:none}.modules-grid{grid-template-columns:repeat(3,1fr)}.footer-grid{grid-template-columns:1fr 1fr}.roadmap-line{grid-template-columns:repeat(3,1fr)}.roadmap-line::before{display:none}.arch-grid{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:768px){
-  .nav-links{display:none}.nav-menu-btn{display:block}
-  .problem-grid,.feat-grid,.ai-grid{grid-template-columns:1fr}
-  .integ-grid,.modules-grid{grid-template-columns:repeat(2,1fr)}
-  .roadmap-line{grid-template-columns:repeat(2,1fr);gap:12px}.roadmap-line::before{display:none}
-  .footer-grid{grid-template-columns:1fr}.cta-inner{flex-direction:column}
-  .hero-stats{gap:20px}.arch-grid{grid-template-columns:repeat(2,1fr)}
-  .nav-logo-trevonti{font-size:15px!important}.nav-logo-hbys{font-size:15px!important}
-  .nav-logo-subtitle{white-space:normal!important;font-size:8px}.nav-logo-tech{white-space:normal!important}
-  .lang-dropdown{margin-left:0}
-}
-@media(max-width:480px){.integ-grid{grid-template-columns:1fr 1fr}.modules-grid{grid-template-columns:1fr 1fr}.roadmap-line{grid-template-columns:repeat(2,1fr)}.arch-grid{grid-template-columns:1fr}}
-@media(max-width:768px){
-  .nav-links{width:100%;box-sizing:border-box}
-  .nav-links a{width:100%;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.1)}
-  .nav-cta{display:inline-block;width:auto;margin-top:8px}
-  .lang-dropdown{margin-left:0;margin-top:8px;width:100%}
-  .lang-dropdown-btn{width:100%;justify-content:space-between}
-  .lang-dropdown-menu{position:static;width:100%;margin-top:4px;box-shadow:none}
-  .hero{padding-top:120px;padding-bottom:80px}.hero-content{max-width:100%}
-  .hero-stats{justify-content:space-between}.hs-item{flex:1;text-align:center}
-  section{padding:60px 5%}.footer-bottom{flex-direction:column;align-items:flex-start}
-  body{overflow-x:hidden}
-}
+    /* ── Animasyon ─ */
+    .fade-in{opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s}
+    .fade-in.visible{opacity:1;transform:none}
 
-html[dir="rtl"] .nav-links{flex-direction:row-reverse}
-html[dir="rtl"] .lang-dropdown{margin-left:0;margin-right:12px}
-html[dir="rtl"] .lang-dropdown-menu{right:auto;left:0}
-html[dir="rtl"] .hero-content{text-align:right}
-html[dir="rtl"] .hero-stats{justify-content:flex-end}
-html[dir="rtl"] .hero-right{right:auto;left:5%}
-html[dir="rtl"] .hr-card{flex-direction:row-reverse}
-html[dir="rtl"] .hr-badge{margin-left:0;margin-right:auto}
-html[dir="rtl"] .hero-badge{flex-direction:row-reverse}
-html[dir="rtl"] .btn-pri,html[dir="rtl"] .btn-sec{flex-direction:row-reverse}
-html[dir="rtl"] .section-title,html[dir="rtl"] .section-sub{text-align:right}
-html[dir="rtl"] .center .section-sub{margin-left:0;margin-right:auto}
-html[dir="rtl"] .feat-card{text-align:right}
-html[dir="rtl"] .mod-item{flex-direction:row-reverse}
-html[dir="rtl"] .footer-links a{text-align:right}
-html[dir="rtl"] .footer-bottom{flex-direction:row-reverse}
-html[dir="rtl"] .cta-inner{flex-direction:row-reverse}
-</style>
+    /* ── Responsive ─ */
+    @media(max-width:1024px){.hero-right{display:none}.modules-grid{grid-template-columns:repeat(3,1fr)}.stack-grid{grid-template-columns:repeat(4,1fr)}.arch-grid{grid-template-columns:repeat(3,1fr)}.footer-grid{grid-template-columns:1fr 1fr}.roadmap-line{grid-template-columns:repeat(3,1fr)}.roadmap-line::before{display:none}}
+    @media(max-width:768px){
+      .nav-links{display:none}.nav-menu-btn{display:block}
+      .problem-grid,.feat-grid,.ai-grid{grid-template-columns:1fr}
+      .integ-grid,.modules-grid{grid-template-columns:repeat(2,1fr)}
+      .stack-grid{grid-template-columns:repeat(3,1fr)}.arch-grid{grid-template-columns:repeat(2,1fr)}
+      .roadmap-line{grid-template-columns:repeat(2,1fr);gap:12px}.roadmap-line::before{display:none}
+      .footer-grid{grid-template-columns:1fr}.cta-inner{flex-direction:column}.hero-stats{gap:20px}
+      .nav-logo-trevonti{font-size:15px!important}.nav-logo-hbys{font-size:15px!important}
+      .nav-logo-subtitle{white-space:normal!important;font-size:8px}.nav-logo-tech{white-space:normal!important}
+      .lang-dropdown{margin-left:0}
+      .hero{padding-top:120px;padding-bottom:80px}.hero-content{max-width:100%}
+      .hero-stats{justify-content:space-between}.hs-item{flex:1;text-align:center}
+      section{padding:60px 5%}.footer-bottom{flex-direction:column;align-items:flex-start}
+      body{overflow-x:hidden}
+      .comp-table{display:block;overflow-x:auto;white-space:nowrap}
+      section{overflow-x:hidden;width:100%}
+      .lang-dropdown-menu{right:auto;left:0}
+    }
+    @media(max-width:480px){.integ-grid{grid-template-columns:1fr 1fr}.stack-grid{grid-template-columns:repeat(2,1fr)}.modules-grid{grid-template-columns:1fr 1fr}.roadmap-line{grid-template-columns:repeat(2,1fr)}.arch-grid{grid-template-columns:1fr}}
+
+    /* RTL */
+    html[dir="rtl"] .nav-links{flex-direction:row-reverse}
+    html[dir="rtl"] .lang-dropdown{margin-left:0;margin-right:12px}
+    html[dir="rtl"] .lang-dropdown-menu{right:auto;left:0}
+    html[dir="rtl"] .hero-content{text-align:right}
+    html[dir="rtl"] .hero-stats{justify-content:flex-end}
+    html[dir="rtl"] .hero-right{right:auto;left:5%}
+    html[dir="rtl"] .hr-card{flex-direction:row-reverse}
+    html[dir="rtl"] .hr-badge{margin-left:0;margin-right:auto}
+    html[dir="rtl"] .hero-badge{flex-direction:row-reverse}
+    html[dir="rtl"] .btn-pri,html[dir="rtl"] .btn-sec{flex-direction:row-reverse}
+    html[dir="rtl"] .section-title,html[dir="rtl"] .section-sub{text-align:right}
+    html[dir="rtl"] .center .section-sub{margin-left:0;margin-right:auto}
+    html[dir="rtl"] .feat-card{text-align:right}
+    html[dir="rtl"] .mod-item{flex-direction:row-reverse}
+    html[dir="rtl"] .footer-links a{text-align:right}
+    html[dir="rtl"] .footer-bottom{flex-direction:row-reverse}
+    html[dir="rtl"] .cta-inner{flex-direction:row-reverse}
+  </style>
 </head>
 <body>
-<nav class="nav">
-  <div class="nav-logo"><div class="nav-logo-text-group"><div class="nav-logo-main"><span class="nav-logo-trevonti">TREVONTI</span><span class="nav-logo-hbys">HBYS</span></div><div class="nav-logo-subtitle" data-i18n="logo.subtitle"></div><div class="nav-logo-tech" data-i18n="logo.tech"></div></div></div>
-  <div class="nav-links">
-    <a href="#features" data-i18n="nav.features"></a><a href="#modules" data-i18n="nav.modules"></a>
-    <a href="#ai" data-i18n="nav.ai"></a><a href="#integrations" data-i18n="nav.integrations"></a>
-    <a href="#tech" data-i18n="nav.tech">Teknoloji</a><a href="#roadmap" data-i18n="nav.roadmap"></a>
-    <a href="https://github.com/trevontihbys" target="_blank" data-i18n="nav.github"></a>
-    <a href="mailto:trevonti.hbys@gmail.com" class="nav-cta" data-i18n="nav.contact"></a>
-    <div class="lang-dropdown"><div class="lang-dropdown-btn" id="langDropdownBtn"><span id="currentLangDisplay">TR</span><i>▼</i></div>
-    <div class="lang-dropdown-menu" id="langDropdownMenu">
-      <div class="lang-option" data-lang="tr">🇹🇷 Türkçe</div><div class="lang-option" data-lang="en">🇬🇧 English</div>
-      <div class="lang-option" data-lang="de">🇩🇪 Deutsch</div><div class="lang-option" data-lang="fr">🇫🇷 Français</div>
-      <div class="lang-option" data-lang="es">🇪🇸 Español</div><div class="lang-option" data-lang="pt">🇵🇹 Português</div>
-      <div class="lang-option" data-lang="it">🇮🇹 Italiano</div><div class="lang-option" data-lang="ar">🇸🇦 العربية</div>
-      <div class="lang-option" data-lang="zh">🇨🇳 中文</div><div class="lang-option" data-lang="ja">🇯🇵 日本語</div>
-      <div class="lang-option" data-lang="ko">🇰🇷 한국어</div></div></div></div>
-  <button class="nav-menu-btn" onclick="toggleMenu()">☰</button>
-</nav>
-<section class="hero" id="hero"><div class="hero-bg-dots"></div><div class="hero-glow"></div>
-  <div class="hero-content"><div class="hero-badge"><div class="hero-badge-dot"></div><span data-i18n="hero.badge"></span></div>
-    <h1 class="hero-title" data-i18n="hero.title"></h1>
-    <p class="hero-sub" data-i18n="hero.subtitle"></p>
-    <div class="hero-btns"><a href="mailto:trevonti.hbys@gmail.com" class="btn-pri" data-i18n="hero.btn_primary"></a><a href="https://github.com/trevontihbys" target="_blank" class="btn-sec" data-i18n="hero.btn_secondary"></a></div>
-    <div class="hero-stats">
-      <div class="hs-item"><div class="hs-val" id="count-modules">46+</div><div class="hs-label" data-i18n="stats.modules"></div></div>
-      <div class="hs-item"><div class="hs-val" id="count-demos">34</div><div class="hs-label" data-i18n="stats.demos"></div></div>
-      <div class="hs-item"><div class="hs-val" id="count-sprints">16</div><div class="hs-label" data-i18n="stats.sprints"></div></div>
-      <div class="hs-item"><div class="hs-val">%99.9</div><div class="hs-label" data-i18n="stats.sla"></div></div>
+  <nav class="nav">
+    <div class="nav-logo"><div class="nav-logo-text-group"><div class="nav-logo-main"><span class="nav-logo-trevonti">TREVONTI</span><span class="nav-logo-hbys">HBYS</span></div><div class="nav-logo-subtitle" data-i18n="logo.subtitle"></div><div class="nav-logo-tech" data-i18n="logo.tech"></div></div></div>
+    <div class="nav-links">
+      <a href="#features" data-i18n="nav.features"></a><a href="#modules" data-i18n="nav.modules"></a>
+      <a href="#ai" data-i18n="nav.ai"></a><a href="#integrations" data-i18n="nav.integrations"></a>
+      <a href="#tech" data-i18n="nav.tech">Teknoloji</a><a href="#roadmap" data-i18n="nav.roadmap"></a>
+      <a href="https://github.com/trevontihbys" target="_blank" data-i18n="nav.github"></a>
+      <a href="mailto:trevonti.hbys@gmail.com" class="nav-cta" data-i18n="nav.contact"></a>
+      <div class="lang-dropdown">
+        <div class="lang-dropdown-btn" id="langDropdownBtn"><span id="currentLangDisplay">TR</span><i>▼</i></div>
+        <div class="lang-dropdown-menu" id="langDropdownMenu">
+          <div class="lang-option" data-lang="tr">🇹🇷 Türkçe</div><div class="lang-option" data-lang="en">🇬🇧 English</div>
+          <div class="lang-option" data-lang="de">🇩🇪 Deutsch</div><div class="lang-option" data-lang="fr">🇫🇷 Français</div>
+          <div class="lang-option" data-lang="es">🇪🇸 Español</div><div class="lang-option" data-lang="pt">🇵🇹 Português</div>
+          <div class="lang-option" data-lang="it">🇮🇹 Italiano</div><div class="lang-option" data-lang="ar">🇸🇦 العربية</div>
+          <div class="lang-option" data-lang="zh">🇨🇳 中文</div><div class="lang-option" data-lang="ja">🇯🇵 日本語</div><div class="lang-option" data-lang="ko">🇰🇷 한국어</div>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="hero-right">
-    <div class="hr-card"><div class="hr-icon" style="background:rgba(13,148,136,.2)">🤖</div><div class="hr-info"><div class="hr-title" data-i18n="hero.card1_title"></div><div class="hr-sub" data-i18n="hero.card1_sub"></div></div><span class="hr-badge hb-green">AUC 0.979</span></div>
-    <div class="hr-card"><div class="hr-icon" style="background:rgba(59,130,246,.2)">🏥</div><div class="hr-info"><div class="hr-title" data-i18n="hero.card2_title"></div><div class="hr-sub" data-i18n="hero.card2_sub"></div></div><span class="hr-badge hb-teal" data-i18n="hero.card2_badge"></span></div>
-    <div class="hr-card"><div class="hr-icon" style="background:rgba(139,92,246,.2)">🔒</div><div class="hr-info"><div class="hr-title" data-i18n="hero.card3_title"></div><div class="hr-sub" data-i18n="hero.card3_sub"></div></div><span class="hr-badge hb-blue" data-i18n="hero.card3_badge"></span></div>
-    <div class="hr-card"><div class="hr-icon" style="background:rgba(245,158,11,.2)">📱</div><div class="hr-info"><div class="hr-title" data-i18n="hero.card4_title"></div><div class="hr-sub" data-i18n="hero.card4_sub"></div></div><span class="hr-badge hb-amber">3 Platform</span></div>
-  </div>
-</section>
+    <button class="nav-menu-btn" onclick="toggleMenu()">☰</button>
+  </nav>
 
-<section id="problem" style="background:var(--lgray)"><div class="center fade-in"><div class="section-badge" data-i18n="problem.badge"></div><h2 class="section-title" data-i18n="problem.title"></h2><p class="section-sub" data-i18n="problem.subtitle"></p></div><div class="problem-grid fade-in"><div class="prob-card"><div class="prob-icon">🚫</div><div class="prob-title" data-i18n="problem.card1_title"></div><div class="prob-desc" data-i18n="problem.card1_desc"></div><div class="prob-stat" data-i18n="problem.card1_stat"></div></div><div class="prob-card"><div class="prob-icon">💰</div><div class="prob-title" data-i18n="problem.card2_title"></div><div class="prob-desc" data-i18n="problem.card2_desc"></div><div class="prob-stat" data-i18n="problem.card2_stat"></div></div><div class="prob-card"><div class="prob-icon">⚠️</div><div class="prob-title" data-i18n="problem.card3_title"></div><div class="prob-desc" data-i18n="problem.card3_desc"></div><div class="prob-stat" data-i18n="problem.card3_stat"></div></div></div></section>
+  <section class="hero" id="hero">
+    <div class="hero-bg-dots"></div><div class="hero-glow"></div>
+    <div class="hero-content">
+      <div class="hero-badge"><div class="hero-badge-dot"></div><span data-i18n="hero.badge"></span></div>
+      <h1 class="hero-title" data-i18n="hero.title"></h1>
+      <p class="hero-sub" data-i18n="hero.subtitle"></p>
+      <div class="hero-btns"><a href="mailto:trevonti.hbys@gmail.com" class="btn-pri" data-i18n="hero.btn_primary"></a><a href="https://github.com/trevontihbys" target="_blank" class="btn-sec" data-i18n="hero.btn_secondary"></a></div>
+      <div class="hero-stats">
+        <div class="hs-item"><div class="hs-val" id="count-modules">46+</div><div class="hs-label" data-i18n="stats.modules"></div></div>
+        <div class="hs-item"><div class="hs-val" id="count-demos">34</div><div class="hs-label" data-i18n="stats.demos">Canlı Demo</div></div>
+        <div class="hs-item"><div class="hs-val" id="count-sprints">16</div><div class="hs-label" data-i18n="stats.sprints">Sprint</div></div>
+        <div class="hs-item"><div class="hs-val">%99.9</div><div class="hs-label" data-i18n="stats.sla"></div></div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hr-card"><div class="hr-icon" style="background:rgba(13,148,136,.2)">🤖</div><div class="hr-info"><div class="hr-title" data-i18n="hero.card1_title"></div><div class="hr-sub" data-i18n="hero.card1_sub"></div></div><span class="hr-badge hb-green">AUC 0.979</span></div>
+      <div class="hr-card"><div class="hr-icon" style="background:rgba(59,130,246,.2)">🏥</div><div class="hr-info"><div class="hr-title" data-i18n="hero.card2_title"></div><div class="hr-sub" data-i18n="hero.card2_sub"></div></div><span class="hr-badge hb-teal" data-i18n="hero.card2_badge"></span></div>
+      <div class="hr-card"><div class="hr-icon" style="background:rgba(139,92,246,.2)">🔒</div><div class="hr-info"><div class="hr-title" data-i18n="hero.card3_title"></div><div class="hr-sub" data-i18n="hero.card3_sub"></div></div><span class="hr-badge hb-blue" data-i18n="hero.card3_badge"></span></div>
+      <div class="hr-card"><div class="hr-icon" style="background:rgba(245,158,11,.2)">📱</div><div class="hr-info"><div class="hr-title" data-i18n="hero.card4_title"></div><div class="hr-sub" data-i18n="hero.card4_sub"></div></div><span class="hr-badge hb-amber">3 Platform</span></div>
+    </div>
+  </section>
 
-<section id="features" class="features-bg"><div class="center fade-in"><div class="section-badge" data-i18n="features.badge"></div><h2 class="section-title" data-i18n="features.title"></h2><p class="section-sub" data-i18n="features.subtitle"></p></div><div class="feat-grid fade-in"><div class="feat-card"><div class="feat-icon fi-teal">☁️</div><div class="feat-title" data-i18n="features.cloud_title"></div><div class="feat-desc" data-i18n="features.cloud_desc"></div></div><div class="feat-card"><div class="feat-icon fi-blue">📱</div><div class="feat-title" data-i18n="features.mobile_title"></div><div class="feat-desc" data-i18n="features.mobile_desc"></div></div><div class="feat-card"><div class="feat-icon fi-purple">🤖</div><div class="feat-title" data-i18n="features.ai_title"></div><div class="feat-desc" data-i18n="features.ai_desc"></div></div><div class="feat-card"><div class="feat-icon fi-amber">🏦</div><div class="feat-title" data-i18n="features.sgk_title"></div><div class="feat-desc" data-i18n="features.sgk_desc"></div></div><div class="feat-card"><div class="feat-icon fi-red">🔒</div><div class="feat-title" data-i18n="features.security_title"></div><div class="feat-desc" data-i18n="features.security_desc"></div></div><div class="feat-card"><div class="feat-icon fi-green">🔗</div><div class="feat-title" data-i18n="features.integration_title"></div><div class="feat-desc" data-i18n="features.integration_desc"></div></div></div></section>
+  <section id="problem" style="background:var(--lgray)">
+    <div class="center fade-in"><div class="section-badge" data-i18n="problem.badge"></div><h2 class="section-title" data-i18n="problem.title"></h2><p class="section-sub" data-i18n="problem.subtitle"></p></div>
+    <div class="problem-grid fade-in">
+      <div class="prob-card"><div class="prob-icon">🚫</div><div class="prob-title" data-i18n="problem.card1_title"></div><div class="prob-desc" data-i18n="problem.card1_desc"></div><div class="prob-stat" data-i18n="problem.card1_stat"></div></div>
+      <div class="prob-card"><div class="prob-icon">💰</div><div class="prob-title" data-i18n="problem.card2_title"></div><div class="prob-desc" data-i18n="problem.card2_desc"></div><div class="prob-stat" data-i18n="problem.card2_stat"></div></div>
+      <div class="prob-card"><div class="prob-icon">⚠️</div><div class="prob-title" data-i18n="problem.card3_title"></div><div class="prob-desc" data-i18n="problem.card3_desc"></div><div class="prob-stat" data-i18n="problem.card3_stat"></div></div>
+    </div>
+  </section>
 
-<section id="modules"><div class="center fade-in"><div class="section-badge" data-i18n="modules.badge"></div><h2 class="section-title" data-i18n="modules.title"></h2><p class="section-sub" data-i18n="modules.subtitle"></p></div>
-  <div class="modules-grid fade-in" id="mod-container"></div>
-  <p style="text-align:center;font-size:12px;color:var(--gray);margin-top:16px" data-i18n="modules.footer_note"></p>
-</section>
+  <section id="features" class="features-bg">
+    <div class="center fade-in"><div class="section-badge" data-i18n="features.badge"></div><h2 class="section-title" data-i18n="features.title"></h2><p class="section-sub" data-i18n="features.subtitle"></p></div>
+    <div class="feat-grid fade-in">
+      <div class="feat-card"><div class="feat-icon fi-teal">☁️</div><div class="feat-title" data-i18n="features.cloud_title"></div><div class="feat-desc" data-i18n="features.cloud_desc"></div></div>
+      <div class="feat-card"><div class="feat-icon fi-blue">📱</div><div class="feat-title" data-i18n="features.mobile_title"></div><div class="feat-desc" data-i18n="features.mobile_desc"></div></div>
+      <div class="feat-card"><div class="feat-icon fi-purple">🤖</div><div class="feat-title" data-i18n="features.ai_title"></div><div class="feat-desc" data-i18n="features.ai_desc"></div></div>
+      <div class="feat-card"><div class="feat-icon fi-amber">🏦</div><div class="feat-title" data-i18n="features.sgk_title"></div><div class="feat-desc" data-i18n="features.sgk_desc"></div></div>
+      <div class="feat-card"><div class="feat-icon fi-red">🔒</div><div class="feat-title" data-i18n="features.security_title"></div><div class="feat-desc" data-i18n="features.security_desc"></div></div>
+      <div class="feat-card"><div class="feat-icon fi-green">🔗</div><div class="feat-title" data-i18n="features.integration_title"></div><div class="feat-desc" data-i18n="features.integration_desc"></div></div>
+    </div>
+  </section>
 
-<section id="integrations" class="integ-bg"><div class="center fade-in"><div class="section-badge" style="background:rgba(13,148,136,.2);color:#5eead4" data-i18n="integrations.badge"></div><h2 class="section-title" style="color:#fff" data-i18n="integrations.title"></h2><p class="section-sub" style="color:rgba(255,255,255,.65)" data-i18n="integrations.subtitle"></p></div><div class="integ-grid fade-in" id="integ-container"></div></section>
+  <section id="modules">
+    <div class="center fade-in"><div class="section-badge" data-i18n="modules.badge"></div><h2 class="section-title" data-i18n="modules.title"></h2><p class="section-sub" data-i18n="modules.subtitle"></p></div>
+    <div class="modules-grid fade-in" id="mod-container"></div>
+    <p style="text-align:center;font-size:12px;color:var(--gray);margin-top:16px" data-i18n="modules.footer_note"></p>
+  </section>
 
-<section id="ai"><div class="center fade-in"><div class="section-badge" data-i18n="ai.badge"></div><h2 class="section-title" data-i18n="ai.title"></h2><p class="section-sub" data-i18n="ai.subtitle"></p></div><div class="ai-grid fade-in" id="ai-container"></div><p style="text-align:center;font-size:12px;color:var(--gray);margin-top:20px" data-i18n="ai.disclaimer"></p></section>
+  <section id="integrations" class="integ-bg">
+    <div class="center fade-in"><div class="section-badge" style="background:rgba(13,148,136,.2);color:#5eead4" data-i18n="integrations.badge"></div><h2 class="section-title" style="color:#fff" data-i18n="integrations.title"></h2><p class="section-sub" style="color:rgba(255,255,255,.65)" data-i18n="integrations.subtitle"></p></div>
+    <div class="integ-grid fade-in" id="integ-container"></div>
+  </section>
 
-<section id="tech" class="features-bg"><div class="center fade-in"><div class="section-badge" data-i18n="tech.badge"></div><h2 class="section-title" data-i18n="tech.title"></h2><p class="section-sub" data-i18n="tech.subtitle"></p></div>
-  <div class="stack-grid fade-in" id="stack-container"></div>
-  <div class="center fade-in" style="margin-top:40px"><div class="section-badge" data-i18n="tech.arch_badge"></div></div>
-  <div class="arch-grid fade-in" id="arch-container"></div>
-</section>
+  <section id="ai">
+    <div class="center fade-in"><div class="section-badge" data-i18n="ai.badge"></div><h2 class="section-title" data-i18n="ai.title"></h2><p class="section-sub" data-i18n="ai.subtitle"></p></div>
+    <div class="ai-grid fade-in" id="ai-container"></div>
+    <p style="text-align:center;font-size:12px;color:var(--gray);margin-top:20px" data-i18n="ai.disclaimer"></p>
+  </section>
 
-<section id="roadmap" class="roadmap-bg"><div class="center fade-in"><div class="section-badge" style="background:rgba(13,148,136,.2);color:#5eead4" data-i18n="roadmap.badge"></div><h2 class="section-title" style="color:#fff" data-i18n="roadmap.title"></h2><p class="section-sub" style="color:rgba(255,255,255,.6)" data-i18n="roadmap.subtitle"></p></div><div class="roadmap-line fade-in" id="roadmap-container"></div></section>
+  <section id="tech" class="tech-bg">
+    <div class="center fade-in"><div class="section-badge" data-i18n="tech.badge"></div><h2 class="section-title" data-i18n="tech.title"></h2><p class="section-sub" data-i18n="tech.subtitle"></p></div>
+    <div class="stack-grid fade-in" id="stack-container"></div>
+    <div class="center fade-in" style="margin-top:40px"><div class="section-badge" data-i18n="tech.arch_badge">5 Katmanlı Mimari</div></div>
+    <div class="arch-grid fade-in" id="arch-container"></div>
+  </section>
 
-<section class="cta-bg"><div class="cta-inner fade-in"><div><div class="cta-title" data-i18n="cta.title"></div><p class="cta-sub" data-i18n="cta.subtitle"></p></div><div class="cta-btns"><a href="mailto:trevonti.hbys@gmail.com" class="cta-btn-white" data-i18n="cta.btn_primary"></a><a href="https://github.com/trevontihbys" target="_blank" class="cta-btn-outline" data-i18n="cta.btn_secondary"></a></div></div></section>
+  <section id="roadmap" class="roadmap-bg">
+    <div class="center fade-in"><div class="section-badge" style="background:rgba(13,148,136,.2);color:#5eead4" data-i18n="roadmap.badge"></div><h2 class="section-title" style="color:#fff" data-i18n="roadmap.title"></h2><p class="section-sub" style="color:rgba(255,255,255,.6)" data-i18n="roadmap.subtitle"></p></div>
+    <div class="roadmap-line fade-in" id="roadmap-container"></div>
+  </section>
 
-<footer class="footer"><div class="footer-grid"><div><div class="footer-logo"><div class="fl-box">T</div><span class="fl-name">Trevonti HBYS</span></div><p class="footer-desc" data-i18n="footer.desc"></p><div style="font-size:13px;color:rgba(255,255,255,.5)">📧 trevonti.hbys@gmail.com</div></div><div><div class="footer-links-title" data-i18n="footer.platform_title"></div><div class="footer-links"><a href="#features" data-i18n="nav.features"></a><a href="#modules" data-i18n="nav.modules"></a><a href="#ai" data-i18n="nav.ai"></a><a href="#integrations" data-i18n="nav.integrations"></a><a href="#tech" data-i18n="nav.tech"></a><a href="#roadmap" data-i18n="nav.roadmap"></a></div></div><div><div class="footer-links-title" data-i18n="footer.developer_title"></div><div class="footer-links"><a href="https://github.com/trevontihbys" target="_blank">GitHub</a><a href="https://github.com/trevontihbys/trevonti-fhir-r4" target="_blank">FHIR R4</a><a href="https://github.com/trevontihbys/trevonti-ai-engine" target="_blank">AI Engine</a><a href="https://www.linkedin.com/company/trevontihbys" target="_blank">LinkedIn</a></div></div><div><div class="footer-links-title" data-i18n="footer.contact_title"></div><div class="footer-links"><a href="mailto:trevonti.hbys@gmail.com" data-i18n="footer.contact_general"></a><a href="mailto:trevonti.hbys@gmail.com" data-i18n="footer.contact_pilot"></a><a href="mailto:trevonti.hbys@gmail.com" data-i18n="footer.contact_investor"></a></div></div></div><div class="footer-bottom"><span class="fb-copy" data-i18n="footer.copy"></span><div class="fb-badges"><span class="fb-badge" data-i18n="footer.badge1"></span><span class="fb-badge" data-i18n="footer.badge2"></span><span class="fb-badge" data-i18n="footer.badge3"></span><span class="fb-badge" data-i18n="footer.badge4"></span></div></div></footer>
+  <section class="cta-bg">
+    <div class="cta-inner fade-in"><div><div class="cta-title" data-i18n="cta.title"></div><p class="cta-sub" data-i18n="cta.subtitle"></p></div><div class="cta-btns"><a href="mailto:trevonti.hbys@gmail.com" class="cta-btn-white" data-i18n="cta.btn_primary"></a><a href="https://github.com/trevontihbys" target="_blank" class="cta-btn-outline" data-i18n="cta.btn_secondary"></a></div></div>
+  </section>
 
-<script>
-// TÜM ÇEVİRİLER (11 dil)
-const translations = {
-  tr: { logo: { subtitle: "TAM ENTEGRE HASTANE PLATFORMU", tech: "bulut-yerel | yapay zeka destekli | sürdürülebilir teknoloji" }, nav: { features: "Özellikler", modules: "Modüller", ai: "Yapay Zeka", integrations: "Entegrasyonlar", tech: "Teknoloji", roadmap: "Yol Haritası", github: "GitHub", contact: "İletişim" }, hero: { badge: "Erken Aşama Startup · Aktif Geliştirme · Pilot Q3 2026", title: "Türkiye'nin<br><span>Yeni Nesil</span><br>Hastane Sistemi", subtitle: "Henüz bir startup'ız — ama 46+ klinik modül, 6+ AI özelliği ve 12+ ulusal entegrasyonla sektörün en iyilerine meydan okuyoruz. Türkiye'nin en iyi HBYS'si olmak için inşa ediyoruz.", btn_primary: "📧 Pilot Başvurusu Yap", btn_secondary: "🐙 GitHub'da İncele", card1_title: "Sepsis Erken Uyarı", card1_sub: "qSOFA + NEWS2 Hibrid", card2_title: "SGK Medula", card2_sub: "Otomatik faturalandırma", card2_badge: "Entegre", card3_title: "KVKK & FHIR R4", card3_sub: "Tam uyumlu altyapı", card3_badge: "Uyumlu", card4_title: "iOS + Android + Web", card4_sub: "Kurulum gerektirmez" }, stats: { modules: "Klinik Modül", demos: "Canlı Demo", sprints: "Sprint", sla: "SLA Hedefi" }, problem: { badge: "Sorun", title: "Türkiye'deki Hastanelerin <span>%78'i</span> Eski Sistemlerde", subtitle: "10–20 yıllık, sunucu tabanlı HBYS yazılımları; mobil erişim, yapay zeka ve ulusal sağlık sistemi entegrasyonundan yoksun.", card1_title: "Mobil Erişim Yok", card1_desc: "Hemşireler BCMA doğrulamasını kağıda yapıyor. Hekimler uzaktan sisteme giremiyor. Telemedicine imkânsız.", card1_stat: "%0 Mobil", card2_title: "SGK Gelir Kaybı", card2_desc: "Manuel SUT kodu girişleri yüzünden hastaneler hak ettikleri SGK ödemelerinin önemli bir kısmını alamıyor.", card2_stat: "%12 Kayıp", card3_title: "İlaç Hataları", card3_desc: "Kâğıt order sistemi ilaç etkileşimi kontrolü yapamıyor. Türkiye'deki ilaç hata oranı Avrupa ortalamasının 3 katı.", card3_stat: "3× Hata" }, features: { badge: "Çözüm", title: "Her Şey <span>Dahili,</span> Hiçbir Şey Eklenti", subtitle: "Trevonti HBYS, ayrı ayrı satın alınan modüllerden değil — baştan bütünleşik tasarlanmış bir platformdan oluşur.", cloud_title: "Bulut-Yerel Mimari", cloud_desc: "Kubernetes 1.29, Docker, Patroni HA PostgreSQL. Sunucu satın alma yok. Güncelleme için IT ekibi yok. Siz açın, kullanın.", mobile_title: "Mobil Uygulama (iOS + Android)", mobile_desc: "React Native 0.74 tabanlı, offline-first mimari. Biyometrik kimlik doğrulama, anlık push bildirimi. iOS 16+ ve Android 10+ destekler.", ai_title: "Yapay Zeka Motoru (6+)", ai_desc: "Sepsis erken uyarı (AUC 0.979), 30 gün yeniden yatış, Türkçe NLP, ilaç etkileşimi CDS, SGK reddi AI, Ambient AI, Diferansiyel Tanı.", sgk_title: "Otomatik SGK Faturalama", sgk_desc: "SUT kodları otomatik atanır (%99 uyum). Medula provizyon anlık alınır. e-Fatura UBL 2.1 formatında GİB'e gider.", security_title: "KVKK & Güvenlik (OWASP Top 10)", security_desc: "AES-256-GCM şifreleme. SAST/DAST otomatik tarama. Cilium zero-trust. Keycloak MFA. SHA-256 denetim logu.", integration_title: "12+ Ulusal Entegrasyon", integration_desc: "SGK Medula, Sağlık-Net, e-Nabız FHIR R4, MHRS, ÇKYS, TTB, e-İmza (5070), Özel Sigorta (7 şirket), MERNİS, TCMB, TİTCK." }, modules: { badge: "Kapsam", title: "<span>46+ Modül,</span> Tek Platform", subtitle: "Klinikten radyolojiye, eczaneden finansa, yapay zekadan yasal entegrasyonlara — tek sistemde tam hastane.", footer_note: "✅ 34 canlı demo, 46+ modül. Yeni eklenenler: Psikiyatri, Kardiyoloji, Konsültasyon, BI, IoT, AI CDS." }, integrations: { badge: "Entegrasyonlar", title: "Türkiye Sağlık Ekosistemiyle Tam Entegrasyon — <span>12+ Ulusal Entegrasyon</span>", subtitle: "Ek kurulum gerektirmeden tüm ulusal sistemlere bağlı.", card1_name: "SGK Medula", card1_desc: "Provizyon, SUT faturalama", card1_badge: "✓ Dahili", card2_name: "Sağlık-Net", card2_desc: "10 mesaj tipi", card2_badge: "✓ Dahili", card3_name: "e-Nabız FHIR R4", card3_desc: "Hasta geçmiş verileri", card3_badge: "✓ Dahili", card4_name: "MHRS", card4_desc: "Çift yönlü randevu (%97.2)", card4_badge: "✓ Dahili", card5_name: "ÇKYS + e-İmza (5070)", card5_desc: "Personel + XAdES imza", card5_badge: "✓ Dahili", card6_name: "TTB + Özel Sigorta", card6_desc: "Diploma doğrulama + 7 şirket", card6_badge: "✓ Dahili", card7_name: "MERNİS + TCMB", card7_desc: "Kimlik + anlık döviz kuru", card7_badge: "✓ Dahili", card8_name: "TİTCK + 112 KKM", card8_desc: "İlaç takip + acil entegrasyonu", card8_badge: "✓ Dahili", card9_name: "DICOM / DICOMweb", card9_desc: "Radyoloji görüntü standardı", card9_badge: "✓ Dahili", card10_name: "LOINC / ICD-10", card10_desc: "Lab kodları ve tanı standardları", card10_badge: "✓ Dahili", card11_name: "GİB e-Fatura", card11_desc: "UBL 2.1, XAdES dijital imza", card11_badge: "✓ Dahili", card12_name: "e-Devlet OIDC", card12_desc: "TC kimlik doğrulama, MERNIS", card12_badge: "✓ Dahili" }, ai: { badge: "Yapay Zeka", title: "Klinik Kararları <span>Destekleyen</span> AI (6+)", subtitle: "6+ AI modeli, 2.000 sentetik hastayla doğrulandı. Pilot hastane verisiyle Q3 2026'da kalibre edilecek.", disclaimer: "* Tüm değerler sentetik veri doğrulama testinden elde edilmiştir.", card1_title: "Sepsis Erken Uyarı", card1_algo: "qSOFA + NEWS2 Hibrid", card1_auc: "AUC-ROC", card1_spec: "Özgüllük", card1_ci: "GA %95<br>0.973–0.985", card1_desc: "Vital bulgular kaydedildiğinde otomatik çalışır.", card2_title: "30 Gün Yeniden Yatış", card2_algo: "LACE+ Algoritması + SHAP", card2_auc: "AUC-ROC", card2_sens: "Duyarlılık", card2_ci: "GA %95<br>0.961–0.978", card2_desc: "Taburculuk aşamasında otomatik hesaplanır.", card3_title: "İlaç Etkileşimi CDS", card3_algo: "Kural Motoru + Veritabanı", card3_catch: "Yakalama", card3_acc: "Doğruluk", card3_ci: "1.000<br>order test", card3_desc: "Her ilaç orderı girildiğinde <50ms yanıt.", card4_title: "Türkçe Klinik NLP + Diferansiyel Tanı", card4_algo: "Regex + HuggingFace + LangChain", card4_acc1: "Doğruluk", card4_acc2: "İlaç/Tanı", card4_ci: "250<br>SOAP notu", card4_desc: "SOAP notlarından otomatik çıkarım yapar.", card5_title: "SGK Reddi Yönetimi AI", card5_algo: "Kural Motoru + Makine Öğrenmesi", card5_acc: "Başarı", card5_desc: "Red analizi, AI itiraz taslağı (%91 başarı).", card6_title: "Ambient AI — Sesli Dikte → SOAP", card6_algo: "Whisper + NLP + LangChain", card6_acc: "Senaryo", card6_desc: "Hekim konuşur, sistem otomatik SOAP notu yazar." }, tech: { badge: "Altyapı", title: "Kurumsal Sınıf <span>Teknoloji Stack'i</span>", subtitle: "5 katmanlı, cloud-native, yatay ölçeklenebilir mimari.", arch_badge: "5 Katmanlı Mimari", frontend: "Frontend", mobile: "iOS + Android", backend: "Backend API", db: "Veritabanı", cache: "Cache", messaging: "Mesajlaşma", ai_engine: "AI Engine", auth: "Auth / MFA", orchestration: "Orchestration", zero_trust: "Zero-Trust", analytics: "Analitik", build: "Build", storage: "Depolama & PACS", search: "Arama & NLP", llm: "LLM / AI", testing: "Performans Testi", layer1_name: "Sunum Katmanı", layer1_tech: "React 18 · Next.js 14 · React Native 0.74 · TypeScript 5 · OHIF Viewer", layer2_name: "API Katmanı", layer2_tech: "NestJS 10 · REST · WebSocket · GraphQL · Keycloak 24 OIDC/RBAC · Swagger", layer3_name: "Veri Katmanı", layer3_tech: "PostgreSQL 16 (Streaming Rep.) · Redis 7 · MinIO S3 · Elasticsearch · pgvector", layer4_name: "AI/ML Katmanı", layer4_tech: "Python FastAPI · HuggingFace · LangChain · İlaç Optimizasyon · Sepsis Uyarı · JCI Skor", layer5_name: "Entegrasyon Katmanı", layer5_tech: "Kafka 3.7 · MHRS · Medula · 112 KKM · TTB · TCMB · MERNİS · TİTCK · e-Nabız" }, roadmap: { badge: "Yol Haritası", title: "Şeffaf <span>İlerleme</span>", subtitle: "Neredeyiz, nereye gidiyoruz.", q1_quarter: "2025 Q4 – 2026 Q1", q1_title: "Geliştirme Tamamlandı", q1_desc: "46+ modül, 16 sprint, 34 canlı demo.", q2_quarter: "2026 Q2", q2_title: "Marka & Altyapı", q2_desc: "Trevonti markası, GitHub, LinkedIn.", q3_quarter: "2026 Q3", q3_title: "Pilot & Yatırım", q3_desc: "Staging ortamı, ilk pilot hastane.", q4_quarter: "2026 Q4", q4_title: "Staging & Testler", q4_desc: "Pilot hastane entegrasyon testleri.", q5_quarter: "2027 Q1", q5_title: "Şirket Kuruluşu & SİSE", q5_desc: "Şirket kuruluşu, SİSE başvurusu.", q6_quarter: "2027 Q2", q6_title: "SİSE & Büyüme", q6_desc: "SİSE onayı, ilk 3 hastane sözleşmesi." }, cta: { title: "Birlikte İnşa Edelim", subtitle: "Pilot hastane ortağı, yatırımcı veya sektör uzmanıysanız — doğru yerdeysiniz.", btn_primary: "📧 Bize Yazın", btn_secondary: "🐙 Koda Bakın" }, footer: { desc: "Türkiye'nin yeni nesil, bulut tabanlı ve yapay zeka destekli Hastane Bilgi Yönetim Sistemi. 46+ modül, 34 demo, 6+ AI özelliği ve 12+ ulusal entegrasyon tek platformda.", platform_title: "Platform", developer_title: "Geliştirici", contact_title: "İletişim", contact_general: "Genel İletişim", contact_pilot: "Pilot Başvurusu", contact_investor: "Yatırımcı İlişkileri", copy: "© 2025 Trevonti HBYS. Tüm hakları saklıdır.", badge1: "KVKK Uyumlu", badge2: "FHIR R4", badge3: "SGK Medula", badge4: "SİSE Hazırlık" } },
-  en: { logo: { subtitle: "Fully Integrated Hospital Platform", tech: "Cloud-Native | AI-Powered | Sustainable Technology" }, nav: { features: "Features", modules: "Modules", ai: "AI", integrations: "Integrations", tech: "Technology", roadmap: "Roadmap", github: "GitHub", contact: "Contact" }, hero: { badge: "Early Stage Startup · Active Development · Pilot Q3 2026", title: "Turkey's<br><span>Next Generation</span><br>Hospital System", subtitle: "We're still a startup — but with 46+ clinical modules, 6+ AI features and 12+ national integrations, we challenge the best in the industry. We're building to become Turkey's best HIS.", btn_primary: "📧 Apply for Pilot", btn_secondary: "🐙 View on GitHub", card1_title: "Sepsis Early Warning", card1_sub: "qSOFA + NEWS2 Hybrid", card2_title: "SGK Medula", card2_sub: "Automated Billing", card2_badge: "Integrated", card3_title: "KVKK & FHIR R4", card3_sub: "Fully Compliant Infrastructure", card3_badge: "Compliant", card4_title: "iOS + Android + Web", card4_sub: "No Installation Required" }, stats: { modules: "Clinical Modules", demos: "Live Demos", sprints: "Sprints", sla: "SLA Target" }, problem: { badge: "Problem", title: "<span>78%</span> of Hospitals in Turkey Use Outdated Systems", subtitle: "10–20 year old, server-based HIS software; lacking mobile access, AI, and national healthcare integration.", card1_title: "No Mobile Access", card1_desc: "Nurses perform BCMA on paper. Physicians cannot access remotely.", card1_stat: "0% Mobile", card2_title: "SGK Revenue Loss", card2_desc: "Manual SUT code entry causes hospitals to miss significant SGK payments.", card2_stat: "12% Loss", card3_title: "Medication Errors", card3_desc: "Paper-based systems cannot check drug interactions. 3× European average.", card3_stat: "3× Errors" }, features: { badge: "Solution", title: "Everything <span>Built-in,</span> Nothing Extra", subtitle: "Trevonti HIS is a fully integrated platform designed from the ground up.", cloud_title: "Cloud-Native Architecture", cloud_desc: "Kubernetes 1.29, Docker, Patroni HA PostgreSQL. No server purchase. Just open and use.", mobile_title: "Mobile App (iOS + Android)", mobile_desc: "React Native 0.74, offline-first, biometric auth, push notifications.", ai_title: "AI Engine (6+)", ai_desc: "Sepsis early warning (AUC 0.979), 30-day readmission, Turkish NLP, drug interaction CDS, SGK denial AI, Ambient AI.", sgk_title: "Automated SGK Billing", sgk_desc: "SUT codes auto-assigned (99% compliance). e-Invoice UBL 2.1 format sent to GİB.", security_title: "KVKK & Security (OWASP Top 10)", security_desc: "AES-256-GCM encryption. SAST/DAST. Cilium zero-trust. Keycloak MFA. SHA-256 audit log.", integration_title: "12+ National Integrations", integration_desc: "SGK Medula, Sağlık-Net, e-Nabız FHIR R4, MHRS, ÇKYS, TTB, e-Signature, Private Insurance (7), MERNİS, TCMB, TİTCK." }, modules: { badge: "Scope", title: "<span>46+ Modules,</span> One Platform", subtitle: "From clinic to radiology, pharmacy to finance, AI to legal integrations — a complete hospital in one system.", footer_note: "✅ 34 live demos, 46+ modules. New: Psychiatry, Cardiology, Consultation, BI, IoT, AI CDS." }, integrations: { badge: "Integrations", title: "Full Integration with <span>Turkey's Healthcare Ecosystem — 12+ National Integrations</span>", subtitle: "Connected to all national systems without additional installation.", card1_name: "SGK Medula", card1_desc: "Provision, SUT billing", card1_badge: "✓ Built-in", card2_name: "Sağlık-Net", card2_desc: "10 message types", card2_badge: "✓ Built-in", card3_name: "e-Nabız FHIR R4", card3_desc: "Patient history", card3_badge: "✓ Built-in", card4_name: "MHRS", card4_desc: "Bidirectional appointments (97.2%)", card4_badge: "✓ Built-in", card5_name: "ÇKYS + e-Signature", card5_desc: "Personnel + XAdES signature", card5_badge: "✓ Built-in", card6_name: "TTB + Private Insurance", card6_desc: "Diploma verification + 7 companies", card6_badge: "✓ Built-in", card7_name: "MERNİS + TCMB", card7_desc: "ID + live exchange rates", card7_badge: "✓ Built-in", card8_name: "TİTCK + 112 KKM", card8_desc: "Drug tracking + EMS", card8_badge: "✓ Built-in", card9_name: "DICOM / DICOMweb", card9_desc: "Radiology image standard", card9_badge: "✓ Built-in", card10_name: "LOINC / ICD-10", card10_desc: "Lab codes and diagnosis standards", card10_badge: "✓ Built-in", card11_name: "GİB e-Invoice", card11_desc: "UBL 2.1, XAdES digital signature", card11_badge: "✓ Built-in", card12_name: "e-Devlet OIDC", card12_desc: "TC identity verification, MERNIS", card12_badge: "✓ Built-in" }, ai: { badge: "Artificial Intelligence", title: "AI <span>Supporting</span> Clinical Decisions (6+)", subtitle: "6+ AI models validated with 2,000 synthetic patients. Calibration with pilot hospital data in Q3 2026.", disclaimer: "* All values from synthetic data validation tests.", card1_title: "Sepsis Early Warning", card1_algo: "qSOFA + NEWS2 Hybrid", card1_auc: "AUC-ROC", card1_spec: "Specificity", card1_ci: "95% CI<br>0.973–0.985", card1_desc: "Runs automatically when vitals are recorded.", card2_title: "30-Day Readmission", card2_algo: "LACE+ Algorithm + SHAP", card2_auc: "AUC-ROC", card2_sens: "Sensitivity", card2_ci: "95% CI<br>0.961–0.978", card2_desc: "Calculated automatically at discharge.", card3_title: "Drug Interaction CDS", card3_algo: "Rule Engine + Database", card3_catch: "Detection", card3_acc: "Accuracy", card3_ci: "1,000<br>order tests", card3_desc: "Responds in <50ms for every medication order.", card4_title: "Turkish Clinical NLP + Diff. Diagnosis", card4_algo: "Regex + HuggingFace + LangChain", card4_acc1: "Accuracy", card4_acc2: "Drug/Diagnosis", card4_ci: "250<br>SOAP notes", card4_desc: "Automatically extracts diagnosis, medication, vitals.", card5_title: "SGK Denial Management AI", card5_algo: "Rule Engine + Machine Learning", card5_acc: "Success", card5_desc: "Denial analysis, AI appeal draft (91% success).", card6_title: "Ambient AI — Voice Dictation → SOAP", card6_algo: "Whisper + NLP + LangChain", card6_acc: "Scenarios", card6_desc: "Physician speaks, system auto-writes SOAP note." }, tech: { badge: "Infrastructure", title: "Enterprise-Grade <span>Technology Stack</span>", subtitle: "5-layer, cloud-native, horizontally scalable architecture.", arch_badge: "5-Layer Architecture", frontend: "Frontend", mobile: "iOS + Android", backend: "Backend API", db: "Database", cache: "Cache", messaging: "Messaging", ai_engine: "AI Engine", auth: "Auth / MFA", orchestration: "Orchestration", zero_trust: "Zero-Trust", analytics: "Analytics", build: "Build", storage: "Storage & PACS", search: "Search & NLP", llm: "LLM / AI", testing: "Performance Testing", layer1_name: "Presentation Layer", layer1_tech: "React 18 · Next.js 14 · React Native 0.74 · TypeScript 5 · OHIF Viewer", layer2_name: "API Layer", layer2_tech: "NestJS 10 · REST · WebSocket · GraphQL · Keycloak 24 OIDC/RBAC · Swagger", layer3_name: "Data Layer", layer3_tech: "PostgreSQL 16 (Streaming Rep.) · Redis 7 · MinIO S3 · Elasticsearch · pgvector", layer4_name: "AI/ML Layer", layer4_tech: "Python FastAPI · HuggingFace · LangChain · Drug Optimization · Sepsis Warning · JCI Score", layer5_name: "Integration Layer", layer5_tech: "Kafka 3.7 · MHRS · Medula · 112 KKM · TTB · TCMB · MERNİS · TİTCK · e-Nabız" }, roadmap: { badge: "Roadmap", title: "Transparent <span>Progress</span>", subtitle: "Where we are, where we're going.", q1_quarter: "2025 Q4 – 2026 Q1", q1_title: "Development Complete", q1_desc: "46+ modules, 16 sprints, 34 live demos.", q2_quarter: "2026 Q2", q2_title: "Brand & Infrastructure", q2_desc: "Trevonti brand, GitHub, LinkedIn.", q3_quarter: "2026 Q3", q3_title: "Pilot & Investment", q3_desc: "Staging environment, first pilot hospital.", q4_quarter: "2026 Q4", q4_title: "Staging & Testing", q4_desc: "Pilot hospital integration tests.", q5_quarter: "2027 Q1", q5_title: "Company Formation & SİSE", q5_desc: "Company formation, SİSE application.", q6_quarter: "2027 Q2", q6_title: "SİSE & Growth", q6_desc: "SİSE approval, first 3 hospital contracts." }, cta: { title: "Let's Build Together", subtitle: "If you're a pilot hospital partner, investor, or industry expert — you're in the right place.", btn_primary: "📧 Contact Us", btn_secondary: "🐙 View Code" }, footer: { desc: "Turkey's next-generation, cloud-based, AI-powered Hospital Information System. 46+ modules, 34 demos, 6+ AI features, and 12+ national integrations on a single platform.", platform_title: "Platform", developer_title: "Developer", contact_title: "Contact", contact_general: "General Inquiries", contact_pilot: "Pilot Application", contact_investor: "Investor Relations", copy: "© 2025 Trevonti HBYS. All rights reserved.", badge1: "KVKK Compliant", badge2: "FHIR R4", badge3: "SGK Medula", badge4: "SİSE Ready" } }
-};
-// Diğer dillere TR/EN kopyası
-['de','fr','es','pt','it','ar','zh','ja','ko'].forEach(l=>{ if(!translations[l]) translations[l]=JSON.parse(JSON.stringify(translations.en)); });
+  <footer class="footer">
+    <div class="footer-grid">
+      <div><div class="footer-logo"><div class="fl-box">T</div><span class="fl-name">Trevonti HBYS</span></div><p class="footer-desc" data-i18n="footer.desc"></p><div style="font-size:13px;color:rgba(255,255,255,.5)">📧 trevonti.hbys@gmail.com</div></div>
+      <div><div class="footer-links-title" data-i18n="footer.platform_title"></div><div class="footer-links"><a href="#features" data-i18n="nav.features"></a><a href="#modules" data-i18n="nav.modules"></a><a href="#ai" data-i18n="nav.ai"></a><a href="#integrations" data-i18n="nav.integrations"></a><a href="#tech" data-i18n="nav.tech"></a><a href="#roadmap" data-i18n="nav.roadmap"></a></div></div>
+      <div><div class="footer-links-title" data-i18n="footer.developer_title"></div><div class="footer-links"><a href="https://github.com/trevontihbys" target="_blank">GitHub</a><a href="https://github.com/trevontihbys/trevonti-fhir-r4" target="_blank">FHIR R4</a><a href="https://github.com/trevontihbys/trevonti-ai-engine" target="_blank">AI Engine</a><a href="https://www.linkedin.com/company/trevontihbys" target="_blank">LinkedIn</a></div></div>
+      <div><div class="footer-links-title" data-i18n="footer.contact_title"></div><div class="footer-links"><a href="mailto:trevonti.hbys@gmail.com" data-i18n="footer.contact_general"></a><a href="mailto:trevonti.hbys@gmail.com" data-i18n="footer.contact_pilot"></a><a href="mailto:trevonti.hbys@gmail.com" data-i18n="footer.contact_investor"></a></div></div>
+    </div>
+    <div class="footer-bottom"><span class="fb-copy" data-i18n="footer.copy"></span><div class="fb-badges"><span class="fb-badge" data-i18n="footer.badge1"></span><span class="fb-badge" data-i18n="footer.badge2"></span><span class="fb-badge" data-i18n="footer.badge3"></span><span class="fb-badge" data-i18n="footer.badge4"></span></div></div>
+  </footer>
 
-// Modül listesi ve dinamik oluşturma
-const mods = [
-  {i:"🏥",n:"modules.mod1",k:"%97.2 SGK Uyumu"}, {i:"💊",n:"modules.mod2",k:"CPOE"}, {i:"🧠",n:"modules.mod3",k:"Klinik Karar"}, {i:"🧪",n:"modules.mod4",k:"HL7 · LOINC"}, {i:"🩻",n:"modules.mod5",k:"DICOM · OHIF"},
-  {i:"💊",n:"modules.mod6",k:"BCMA · FEFO"}, {i:"🔪",n:"modules.mod7",k:"OR Verimliliği"}, {i:"❤️",n:"modules.mod8",k:"APACHE II · SOFA"}, {i:"🩸",n:"modules.mod9",k:"ISBT 128"}, {i:"🧬",n:"modules.mod10",k:"OIS · ASCO"},
-  {i:"💓",n:"modules.mod11",k:"ACC/AHA Kılavuzu"}, {i:"🌡️",n:"modules.mod12",k:"Diyaliz"}, {i:"🔬",n:"modules.mod13",k:"Dijital Patoloji"}, {i:"🧬",n:"modules.mod14",k:"IVF"}, {i:"🏠",n:"modules.mod15",k:"RPM · WebRTC"},
-  {i:"🎥",n:"modules.mod16",k:"USBS"}, {i:"💰",n:"modules.mod17",k:"SGK Medula"}, {i:"🧾",n:"modules.mod18",k:"UBL 2.1"}, {i:"📦",n:"modules.mod19",k:"SCM"}, {i:"📞",n:"modules.mod20",k:"CTI"},
-  {i:"🔬",n:"modules.mod21",k:"CSSD"}, {i:"📊",n:"modules.mod22",k:"Kohort · Risk"}, {i:"🎙️",n:"modules.mod23",k:"NLP · SOAP"}, {i:"🚫",n:"modules.mod24",k:"%91 İtiraz"}, {i:"🏥",n:"modules.mod25",k:"FHIR R4 · KVKK"},
-  {i:"🧊",n:"modules.mod26",k:"MPR · 3D VR"}, {i:"🗄️",n:"modules.mod27",k:"18 Cihaz Formatı"}, {i:"🤖",n:"modules.mod28",k:"%94 Güven"}, {i:"🎗️",n:"modules.mod29",k:"BI-RADS · AUC 0.94"}, {i:"📚",n:"modules.mod30",k:"Liderboard"},
-  {i:"💾",n:"modules.mod31",k:"₺4.280/ay"}, {i:"📅",n:"modules.mod32",k:"%97.2 Başarı",b:"YENİ"}, {i:"✍️",n:"modules.mod33",k:"XAdES LTV",b:"YENİ"}, {i:"👥",n:"modules.mod34",k:"Anlık Senkron",b:"YENİ"},
-  {i:"🎓",n:"modules.mod35",k:"API Doğrulama",b:"YENİ"}, {i:"🏦",n:"modules.mod36",k:"7 Şirket API",b:"YENİ"}, {i:"🤰",n:"modules.mod37",k:"WHO Partogram",b:"YENİ"}, {i:"🦾",n:"modules.mod38",k:"Barthel · FIM",b:"YENİ"},
-  {i:"🦠",n:"modules.mod39",k:"CUSUM · AMS",b:"YENİ"}, {i:"⚡",n:"modules.mod40",k:"P95 <400ms",b:"YENİ"}, {i:"🛡️",n:"modules.mod41",k:"SAST · DAST",b:"YENİ"}, {i:"🌐",n:"modules.mod42",k:"TR/AR/EN/RU · PWA",b:"YENİ"},
-  {i:"✈️",n:"modules.mod43",k:"$2.1B Pazar",b:"YENİ"}, {i:"💊",n:"modules.mod44",k:"₺284K+/ay",b:"YENİ"}, {i:"🚑",n:"modules.mod45",k:"%0 Rakipte",b:"YENİ"}, {i:"⭐",n:"modules.mod46",k:"%84 JCI",b:"YENİ"},
-  {i:"🧩",n:"modules.mod47",k:"DSM-5 Uyumlu",b:"YAKINDA"}, {i:"🫀",n:"modules.mod48",k:"ACC/AHA · EKG",b:"YAKINDA"}, {i:"💬",n:"modules.mod49",k:"SLA 2 Saat",b:"YAKINDA"}, {i:"📊",n:"modules.mod50",k:"DRG · OLAP",b:"YAKINDA"},
-  {i:"📡",n:"modules.mod51",k:"FHIR R4 · IoT",b:"YAKINDA"}, {i:"🧠",n:"modules.mod52",k:"Diferansiyel Tanı",b:"YAKINDA"}, {i:"🔎",n:"modules.mod53",k:"SHA-256 · ISO 27001",b:"YAKINDA"}, {i:"📱",n:"modules.mod54",k:"Offline First",b:"YAKINDA"},
-  {i:"💻",n:"modules.mod55",k:"WebRTC · Google Health",b:"YAKINDA"}
-];
+  <script>
+    // ══════════════════ ÇEVİRİLER ══════════════════
+    const translations = {
+      tr: { logo: { subtitle: "TAM ENTEGRE HASTANE PLATFORMU", tech: "bulut-yerel | yapay zeka destekli | sürdürülebilir teknoloji" }, nav: { features: "Özellikler", modules: "Modüller", ai: "Yapay Zeka", integrations: "Entegrasyonlar", tech: "Teknoloji", roadmap: "Yol Haritası", github: "GitHub", contact: "İletişim" }, hero: { badge: "Erken Aşama Startup · Aktif Geliştirme · Pilot Q3 2026", title: "Türkiye'nin<br><span>Yeni Nesil</span><br>Hastane Sistemi", subtitle: "Henüz bir startup'ız — ama 46+ klinik modül, 6+ AI özelliği ve 12+ ulusal entegrasyonla sektörün en iyilerine meydan okuyoruz. Türkiye'nin en iyi HBYS'si olmak için inşa ediyoruz.", btn_primary: "📧 Pilot Başvurusu Yap", btn_secondary: "🐙 GitHub'da İncele", card1_title: "Sepsis Erken Uyarı", card1_sub: "qSOFA + NEWS2 Hibrid", card2_title: "SGK Medula", card2_sub: "Otomatik faturalandırma", card2_badge: "Entegre", card3_title: "KVKK & FHIR R4", card3_sub: "Tam uyumlu altyapı", card3_badge: "Uyumlu", card4_title: "iOS + Android + Web", card4_sub: "Kurulum gerektirmez" }, stats: { modules: "Klinik Modül", demos: "Canlı Demo", sprints: "Sprint", sla: "SLA Hedefi" }, problem: { badge: "Sorun", title: "Türkiye'deki Hastanelerin <span>%78'i</span> Eski Sistemlerde", subtitle: "10–20 yıllık, sunucu tabanlı HBYS yazılımları; mobil erişim, yapay zeka ve ulusal sağlık sistemi entegrasyonundan yoksun.", card1_title: "Mobil Erişim Yok", card1_desc: "Hemşireler BCMA doğrulamasını kağıda yapıyor. Hekimler uzaktan sisteme giremiyor. Telemedicine imkânsız.", card1_stat: "%0 Mobil", card2_title: "SGK Gelir Kaybı", card2_desc: "Manuel SUT kodu girişleri yüzünden hastaneler hak ettikleri SGK ödemelerinin önemli bir kısmını alamıyor.", card2_stat: "%12 Kayıp", card3_title: "İlaç Hataları", card3_desc: "Kâğıt order sistemi ilaç etkileşimi kontrolü yapamıyor. Türkiye'deki ilaç hata oranı Avrupa ortalamasının 3 katı.", card3_stat: "3× Hata" }, features: { badge: "Çözüm", title: "Her Şey <span>Dahili,</span> Hiçbir Şey Eklenti", subtitle: "Trevonti HBYS, ayrı ayrı satın alınan modüllerden değil — baştan bütünleşik tasarlanmış bir platformdan oluşur.", cloud_title: "Bulut-Yerel Mimari", cloud_desc: "Kubernetes 1.29, Docker, Patroni HA PostgreSQL. Sunucu satın alma yok. Güncelleme için IT ekibi yok. Siz açın, kullanın.", mobile_title: "Mobil Uygulama (iOS + Android)", mobile_desc: "React Native 0.74 tabanlı, offline-first mimari. Biyometrik kimlik doğrulama, anlık push bildirimi. iOS 16+ ve Android 10+ destekler.", ai_title: "Yapay Zeka Motoru (6+)", ai_desc: "Sepsis erken uyarı (AUC 0.979), 30 gün yeniden yatış, Türkçe NLP, ilaç etkileşimi CDS, SGK reddi AI, Ambient AI.", sgk_title: "Otomatik SGK Faturalama", sgk_desc: "SUT kodları otomatik atanır (%99 uyum). Medula provizyon anlık alınır. e-Fatura UBL 2.1 formatında GİB'e gider.", security_title: "KVKK & Güvenlik (OWASP Top 10)", security_desc: "AES-256-GCM şifreleme. SAST/DAST otomatik tarama. Cilium zero-trust. Keycloak MFA. SHA-256 denetim logu.", integration_title: "12+ Ulusal Entegrasyon", integration_desc: "SGK Medula, Sağlık-Net, e-Nabız FHIR R4, MHRS, ÇKYS, TTB, e-İmza (5070), Özel Sigorta (7 şirket), MERNİS, TCMB, TİTCK." }, modules: { badge: "Kapsam", title: "<span>46+ Modül,</span> Tek Platform", subtitle: "Klinikten radyolojiye, eczaneden finansa, yapay zekadan yasal entegrasyonlara — tek sistemde tam hastane.", footer_note: "✅ 34 canlı demo, 46+ modül. Yeni eklenenler: Psikiyatri, Kardiyoloji, Konsültasyon, BI, IoT, AI CDS.", mod1: "HIS Core (Hasta Yönetimi)", mod2: "CPOE — Elektronik Order", mod3: "Klinik Karar Destek", mod4: "LIS — Laboratuvar (HL7)", mod5: "RIS/PACS — Radyoloji", mod6: "Eczane (BCMA + FEFO)", mod7: "Ameliyathane (OR)", mod8: "YBÜ — Yoğun Bakım", mod9: "Kan Bankası (ISBT 128)", mod10: "Onkoloji (OIS)", mod11: "Kardiyoloji (Kateter)", mod12: "Diyaliz Yönetimi", mod13: "Patoloji (Dijital)", mod14: "IVF — Tüp Bebek", mod15: "Hasta Portali + RPM", mod16: "Telemedicine (USBS)", mod17: "Finans + SGK Medula", mod18: "e-Fatura (UBL 2.1)", mod19: "Tedarik Zinciri (SCM)", mod20: "Çağrı Merkezi (CTI)", mod21: "CSSD Sterilizasyon", mod22: "Popülasyon Sağlığı & Analitik", mod23: "Ambient AI / Sesli Dikte", mod24: "SGK Reddi Yönetimi", mod25: "Çoklu Hastane Kayıt Paylaşımı", mod26: "3D/4D Görüntü Rekonstrüksiyon", mod27: "VNA (Vendor Neutral Archive)", mod28: "AI Lezyon Tespiti & Triage", mod29: "Mamografi Modülü", mod30: "Öğretim & Eğitim Dosyaları", mod31: "Katmanlı Depolama", mod32: "MHRS Randevu Entegrasyonu", mod33: "e-İmza (5070 Kanunu)", mod34: "ÇKYS Personel Entegrasyonu", mod35: "TTB Diploma Doğrulama", mod36: "Özel Sigorta Provizyon", mod37: "Obstetri & Doğum", mod38: "FTR — Fizik Tedavi", mod39: "Enfeksiyon Kontrol", mod40: "k6 Yük Testi & Performans", mod41: "OWASP Güvenlik Tarama", mod42: "i18n & Offline Mod", mod43: "Medikal Turizm", mod44: "İlaç Maliyet Optimizasyon AI", mod45: "Ambulans & 112 Entegrasyonu", mod46: "JCI/ISO Kalite Denetimi", mod47: "Psikiyatri & Ruh Sağlığı", mod48: "Kardiyoloji & EKG Yönetimi", mod49: "Konsültasyon Yönetimi", mod50: "İleri Analitik & BI", mod51: "IoT Medikal Cihaz Ent.", mod52: "AI Klinik Karar Destek", mod53: "Denetim İzi & KVKK", mod54: "Mobil Uygulama (iOS/Android)", mod55: "Hasta Portalı & Telemedicine" }, integrations: { badge: "Entegrasyonlar", title: "Türkiye Sağlık Ekosistemiyle Tam Entegrasyon — <span>12+ Ulusal Entegrasyon</span>", subtitle: "Ek kurulum gerektirmeden tüm ulusal sistemlere bağlı.", card1_name: "SGK Medula", card1_desc: "Provizyon, SUT faturalama", card1_badge: "✓ Dahili", card2_name: "Sağlık-Net", card2_desc: "10 mesaj tipi", card2_badge: "✓ Dahili", card3_name: "e-Nabız FHIR R4", card3_desc: "Hasta geçmiş verileri", card3_badge: "✓ Dahili", card4_name: "MHRS", card4_desc: "Çift yönlü randevu (%97.2)", card4_badge: "✓ Dahili", card5_name: "ÇKYS + e-İmza (5070)", card5_desc: "Personel + XAdES imza", card5_badge: "✓ Dahili", card6_name: "TTB + Özel Sigorta", card6_desc: "Diploma doğrulama + 7 şirket", card6_badge: "✓ Dahili", card7_name: "MERNİS + TCMB", card7_desc: "Kimlik + anlık döviz kuru", card7_badge: "✓ Dahili", card8_name: "TİTCK + 112 KKM", card8_desc: "İlaç takip + acil entegrasyonu", card8_badge: "✓ Dahili", card9_name: "DICOM / DICOMweb", card9_desc: "Radyoloji görüntü standardı", card9_badge: "✓ Dahili", card10_name: "LOINC / ICD-10", card10_desc: "Lab kodları ve tanı standardları", card10_badge: "✓ Dahili", card11_name: "GİB e-Fatura", card11_desc: "UBL 2.1, XAdES dijital imza", card11_badge: "✓ Dahili", card12_name: "e-Devlet OIDC", card12_desc: "TC kimlik doğrulama, MERNIS", card12_badge: "✓ Dahili" }, ai: { badge: "Yapay Zeka", title: "Klinik Kararları <span>Destekleyen</span> AI (6+)", subtitle: "6+ AI modeli, 2.000 sentetik hastayla doğrulandı. Pilot hastane verisiyle Q3 2026'da kalibre edilecek.", disclaimer: "* Tüm değerler sentetik veri doğrulama testinden elde edilmiştir.", card1_title: "Sepsis Erken Uyarı", card1_algo: "qSOFA + NEWS2 Hibrid", card1_auc: "AUC-ROC", card1_spec: "Özgüllük", card1_ci: "GA %95<br>0.973–0.985", card1_desc: "Vital bulgular kaydedildiğinde otomatik çalışır.", card2_title: "30 Gün Yeniden Yatış", card2_algo: "LACE+ Algoritması + SHAP", card2_auc: "AUC-ROC", card2_sens: "Duyarlılık", card2_ci: "GA %95<br>0.961–0.978", card2_desc: "Taburculuk aşamasında otomatik hesaplanır.", card3_title: "İlaç Etkileşimi CDS", card3_algo: "Kural Motoru + Veritabanı", card3_catch: "Yakalama", card3_acc: "Doğruluk", card3_ci: "1.000<br>order test", card3_desc: "Her ilaç orderı girildiğinde <50ms yanıt.", card4_title: "Türkçe Klinik NLP + Diferansiyel Tanı", card4_algo: "Regex + HuggingFace + LangChain", card4_acc1: "Doğruluk", card4_acc2: "İlaç/Tanı", card4_ci: "250<br>SOAP notu", card4_desc: "SOAP notlarından otomatik çıkarım yapar.", card5_title: "SGK Reddi Yönetimi AI", card5_algo: "Kural Motoru + Makine Öğrenmesi", card5_acc: "Başarı", card5_desc: "Red analizi, AI itiraz taslağı (%91 başarı).", card6_title: "Ambient AI — Sesli Dikte → SOAP", card6_algo: "Whisper + NLP + LangChain", card6_acc: "Senaryo", card6_desc: "Hekim konuşur, sistem otomatik SOAP notu yazar." }, tech: { badge: "Altyapı", title: "Kurumsal Sınıf <span>Teknoloji Stack'i</span>", subtitle: "5 katmanlı, cloud-native, yatay ölçeklenebilir mimari.", arch_badge: "5 Katmanlı Mimari", frontend: "Frontend", mobile: "iOS + Android", backend: "Backend API", db: "Veritabanı", cache: "Cache", messaging: "Mesajlaşma", ai_engine: "AI Engine", auth: "Auth / MFA", orchestration: "Orchestration", zero_trust: "Zero-Trust", analytics: "Analitik", build: "Build", storage: "Depolama & PACS", search: "Arama & NLP", llm: "LLM / AI", testing: "Performans Testi", layer1_name: "Sunum Katmanı", layer1_tech: "React 18 · Next.js 14 · React Native 0.74 · TypeScript 5 · OHIF Viewer", layer2_name: "API Katmanı", layer2_tech: "NestJS 10 · REST · WebSocket · GraphQL · Keycloak 24 OIDC/RBAC · Swagger", layer3_name: "Veri Katmanı", layer3_tech: "PostgreSQL 16 (Streaming Rep.) · Redis 7 · MinIO S3 · Elasticsearch · pgvector", layer4_name: "AI/ML Katmanı", layer4_tech: "Python FastAPI · HuggingFace · LangChain · İlaç Optimizasyon · Sepsis Uyarı · JCI Skor", layer5_name: "Entegrasyon Katmanı", layer5_tech: "Kafka 3.7 · MHRS · Medula · 112 KKM · TTB · TCMB · MERNİS · TİTCK · e-Nabız" }, roadmap: { badge: "Yol Haritası", title: "Şeffaf <span>İlerleme</span>", subtitle: "Neredeyiz, nereye gidiyoruz.", q1_quarter: "2025 Q4 – 2026 Q1", q1_title: "Geliştirme Tamamlandı", q1_desc: "46+ modül, 16 sprint, 34 canlı demo.", q2_quarter: "2026 Q2", q2_title: "Marka & Altyapı", q2_desc: "Trevonti markası, GitHub, LinkedIn.", q3_quarter: "2026 Q3", q3_title: "Pilot & Yatırım", q3_desc: "Staging ortamı, ilk pilot hastane.", q4_quarter: "2026 Q4", q4_title: "Staging & Testler", q4_desc: "Pilot hastane entegrasyon testleri.", q5_quarter: "2027 Q1", q5_title: "Şirket Kuruluşu & SİSE", q5_desc: "Şirket kuruluşu, SİSE başvurusu.", q6_quarter: "2027 Q2", q6_title: "SİSE & Büyüme", q6_desc: "SİSE onayı, ilk 3 hastane sözleşmesi." }, cta: { title: "Birlikte İnşa Edelim", subtitle: "Pilot hastane ortağı, yatırımcı veya sektör uzmanıysanız — doğru yerdeysiniz.", btn_primary: "📧 Bize Yazın", btn_secondary: "🐙 Koda Bakın" }, footer: { desc: "Türkiye'nin yeni nesil, bulut tabanlı ve yapay zeka destekli Hastane Bilgi Yönetim Sistemi. 46+ modül, 34 demo, 6+ AI özelliği ve 12+ ulusal entegrasyon tek platformda.", platform_title: "Platform", developer_title: "Geliştirici", contact_title: "İletişim", contact_general: "Genel İletişim", contact_pilot: "Pilot Başvurusu", contact_investor: "Yatırımcı İlişkileri", copy: "© 2025 Trevonti HBYS. Tüm hakları saklıdır.", badge1: "KVKK Uyumlu", badge2: "FHIR R4", badge3: "SGK Medula", badge4: "SİSE Hazırlık" } },
+      en: { logo: { subtitle: "Fully Integrated Hospital Platform", tech: "Cloud-Native | AI-Powered | Sustainable Technology" }, nav: { features: "Features", modules: "Modules", ai: "AI", integrations: "Integrations", tech: "Technology", roadmap: "Roadmap", github: "GitHub", contact: "Contact" }, hero: { badge: "Early Stage Startup · Active Development · Pilot Q3 2026", title: "Turkey's<br><span>Next Generation</span><br>Hospital System", subtitle: "We're still a startup — but with 46+ clinical modules, 6+ AI features and 12+ national integrations, we challenge the best in the industry. We're building to become Turkey's best HIS.", btn_primary: "📧 Apply for Pilot", btn_secondary: "🐙 View on GitHub", card1_title: "Sepsis Early Warning", card1_sub: "qSOFA + NEWS2 Hybrid", card2_title: "SGK Medula", card2_sub: "Automated Billing", card2_badge: "Integrated", card3_title: "KVKK & FHIR R4", card3_sub: "Fully Compliant Infrastructure", card3_badge: "Compliant", card4_title: "iOS + Android + Web", card4_sub: "No Installation Required" }, stats: { modules: "Clinical Modules", demos: "Live Demos", sprints: "Sprints", sla: "SLA Target" }, problem: { badge: "Problem", title: "<span>78%</span> of Hospitals in Turkey Use Outdated Systems", subtitle: "10–20 year old, server-based HIS software; lacking mobile access, AI, and national healthcare integration.", card1_title: "No Mobile Access", card1_desc: "Nurses perform BCMA on paper. Physicians cannot access remotely.", card1_stat: "0% Mobile", card2_title: "SGK Revenue Loss", card2_desc: "Manual SUT code entry causes hospitals to miss significant SGK payments.", card2_stat: "12% Loss", card3_title: "Medication Errors", card3_desc: "Paper-based systems cannot check drug interactions. 3× European average.", card3_stat: "3× Errors" }, features: { badge: "Solution", title: "Everything <span>Built-in,</span> Nothing Extra", subtitle: "Trevonti HIS is a fully integrated platform designed from the ground up.", cloud_title: "Cloud-Native Architecture", cloud_desc: "Kubernetes 1.29, Docker, Patroni HA PostgreSQL. No server purchase. Just open and use.", mobile_title: "Mobile App (iOS + Android)", mobile_desc: "React Native 0.74, offline-first, biometric auth, push notifications.", ai_title: "AI Engine (6+)", ai_desc: "Sepsis early warning (AUC 0.979), 30-day readmission, Turkish NLP, drug interaction CDS, SGK denial AI, Ambient AI.", sgk_title: "Automated SGK Billing", sgk_desc: "SUT codes auto-assigned (99% compliance). e-Invoice UBL 2.1 format sent to GİB.", security_title: "KVKK & Security (OWASP Top 10)", security_desc: "AES-256-GCM encryption. SAST/DAST. Cilium zero-trust. Keycloak MFA. SHA-256 audit log.", integration_title: "12+ National Integrations", integration_desc: "SGK Medula, Sağlık-Net, e-Nabız FHIR R4, MHRS, ÇKYS, TTB, e-Signature, Private Insurance (7), MERNİS, TCMB, TİTCK." }, modules: { badge: "Scope", title: "<span>46+ Modules,</span> One Platform", subtitle: "From clinic to radiology, pharmacy to finance, AI to legal integrations — a complete hospital in one system.", footer_note: "✅ 34 live demos, 46+ modules. New: Psychiatry, Cardiology, Consultation, BI, IoT, AI CDS.", mod1: "HIS Core (Patient Management)", mod2: "CPOE — Computerized Provider Order Entry", mod3: "Clinical Decision Support", mod4: "LIS — Laboratory (HL7)", mod5: "RIS/PACS — Radiology", mod6: "Pharmacy (BCMA + FEFO)", mod7: "Operating Room (OR)", mod8: "ICU — Intensive Care", mod9: "Blood Bank (ISBT 128)", mod10: "Oncology (OIS)", mod11: "Cardiology (Cath Lab)", mod12: "Dialysis Management", mod13: "Pathology (Digital)", mod14: "IVF — In Vitro Fertilization", mod15: "Patient Portal + RPM", mod16: "Telemedicine (USBS)", mod17: "Finance + SGK Medula", mod18: "e-Invoice (UBL 2.1)", mod19: "Supply Chain Management (SCM)", mod20: "Call Center (CTI)", mod21: "CSSD Sterilization", mod22: "Population Health & Analytics", mod23: "Ambient AI / Voice Dictation", mod24: "SGK Rejection Management", mod25: "Multi-Hospital Record Sharing", mod26: "3D/4D Image Reconstruction", mod27: "VNA (Vendor Neutral Archive)", mod28: "AI Lesion Detection & Triage", mod29: "Mammography Module", mod30: "Teaching & Training Files", mod31: "Tiered Storage", mod32: "MHRS Appointment Integration", mod33: "e-Signature (Law 5070)", mod34: "ÇKYS Personnel Integration", mod35: "TTB Diploma Verification", mod36: "Private Insurance Provision", mod37: "Obstetrics & Delivery", mod38: "Physiotherapy & Rehabilitation", mod39: "Infection Control", mod40: "k6 Load Testing & Performance", mod41: "OWASP Security Scanning", mod42: "i18n & Offline Mode", mod43: "Medical Tourism", mod44: "Drug Cost Optimization AI", mod45: "Ambulance & 112 Integration", mod46: "JCI/ISO Quality Audit", mod47: "Psychiatry & Mental Health", mod48: "Cardiology & ECG Management", mod49: "Consultation Management", mod50: "Advanced Analytics & BI", mod51: "IoT Medical Device Integration", mod52: "AI Clinical Decision Support", mod53: "Audit Trail & KVKK", mod54: "Mobile App (iOS/Android)", mod55: "Patient Portal & Telemedicine" }, integrations: { badge: "Integrations", title: "Full Integration with <span>Turkey's Healthcare Ecosystem — 12+ National Integrations</span>", subtitle: "Connected to all national systems without additional installation.", card1_name: "SGK Medula", card1_desc: "Provision, SUT billing", card1_badge: "✓ Built-in", card2_name: "Sağlık-Net", card2_desc: "10 message types", card2_badge: "✓ Built-in", card3_name: "e-Nabız FHIR R4", card3_desc: "Patient history", card3_badge: "✓ Built-in", card4_name: "MHRS", card4_desc: "Bidirectional appointments (97.2%)", card4_badge: "✓ Built-in", card5_name: "ÇKYS + e-Signature", card5_desc: "Personnel + XAdES signature", card5_badge: "✓ Built-in", card6_name: "TTB + Private Insurance", card6_desc: "Diploma verification + 7 companies", card6_badge: "✓ Built-in", card7_name: "MERNİS + TCMB", card7_desc: "ID + live exchange rates", card7_badge: "✓ Built-in", card8_name: "TİTCK + 112 KKM", card8_desc: "Drug tracking + EMS", card8_badge: "✓ Built-in", card9_name: "DICOM / DICOMweb", card9_desc: "Radiology image standard", card9_badge: "✓ Built-in", card10_name: "LOINC / ICD-10", card10_desc: "Lab codes and diagnosis standards", card10_badge: "✓ Built-in", card11_name: "GİB e-Invoice", card11_desc: "UBL 2.1, XAdES digital signature", card11_badge: "✓ Built-in", card12_name: "e-Devlet OIDC", card12_desc: "TC identity verification, MERNIS", card12_badge: "✓ Built-in" }, ai: { badge: "Artificial Intelligence", title: "AI <span>Supporting</span> Clinical Decisions (6+)", subtitle: "6+ AI models validated with 2,000 synthetic patients. Calibration with pilot hospital data in Q3 2026.", disclaimer: "* All values from synthetic data validation tests.", card1_title: "Sepsis Early Warning", card1_algo: "qSOFA + NEWS2 Hybrid", card1_auc: "AUC-ROC", card1_spec: "Specificity", card1_ci: "95% CI<br>0.973–0.985", card1_desc: "Runs automatically when vitals are recorded.", card2_title: "30-Day Readmission", card2_algo: "LACE+ Algorithm + SHAP", card2_auc: "AUC-ROC", card2_sens: "Sensitivity", card2_ci: "95% CI<br>0.961–0.978", card2_desc: "Calculated automatically at discharge.", card3_title: "Drug Interaction CDS", card3_algo: "Rule Engine + Database", card3_catch: "Detection", card3_acc: "Accuracy", card3_ci: "1,000<br>order tests", card3_desc: "Responds in <50ms for every medication order.", card4_title: "Turkish Clinical NLP + Diff. Diagnosis", card4_algo: "Regex + HuggingFace + LangChain", card4_acc1: "Accuracy", card4_acc2: "Drug/Diagnosis", card4_ci: "250<br>SOAP notes", card4_desc: "Automatically extracts diagnosis, medication, vitals.", card5_title: "SGK Denial Management AI", card5_algo: "Rule Engine + Machine Learning", card5_acc: "Success", card5_desc: "Denial analysis, AI appeal draft (91% success).", card6_title: "Ambient AI — Voice Dictation → SOAP", card6_algo: "Whisper + NLP + LangChain", card6_acc: "Scenarios", card6_desc: "Physician speaks, system auto-writes SOAP note." }, tech: { badge: "Infrastructure", title: "Enterprise-Grade <span>Technology Stack</span>", subtitle: "5-layer, cloud-native, horizontally scalable architecture.", arch_badge: "5-Layer Architecture", frontend: "Frontend", mobile: "iOS + Android", backend: "Backend API", db: "Database", cache: "Cache", messaging: "Messaging", ai_engine: "AI Engine", auth: "Auth / MFA", orchestration: "Orchestration", zero_trust: "Zero-Trust", analytics: "Analytics", build: "Build", storage: "Storage & PACS", search: "Search & NLP", llm: "LLM / AI", testing: "Performance Testing", layer1_name: "Presentation Layer", layer1_tech: "React 18 · Next.js 14 · React Native 0.74 · TypeScript 5 · OHIF Viewer", layer2_name: "API Layer", layer2_tech: "NestJS 10 · REST · WebSocket · GraphQL · Keycloak 24 OIDC/RBAC · Swagger", layer3_name: "Data Layer", layer3_tech: "PostgreSQL 16 (Streaming Rep.) · Redis 7 · MinIO S3 · Elasticsearch · pgvector", layer4_name: "AI/ML Layer", layer4_tech: "Python FastAPI · HuggingFace · LangChain · Drug Optimization · Sepsis Warning · JCI Score", layer5_name: "Integration Layer", layer5_tech: "Kafka 3.7 · MHRS · Medula · 112 KKM · TTB · TCMB · MERNİS · TİTCK · e-Nabız" }, roadmap: { badge: "Roadmap", title: "Transparent <span>Progress</span>", subtitle: "Where we are, where we're going.", q1_quarter: "2025 Q4 – 2026 Q1", q1_title: "Development Complete", q1_desc: "46+ modules, 16 sprints, 34 live demos.", q2_quarter: "2026 Q2", q2_title: "Brand & Infrastructure", q2_desc: "Trevonti brand, GitHub, LinkedIn.", q3_quarter: "2026 Q3", q3_title: "Pilot & Investment", q3_desc: "Staging environment, first pilot hospital.", q4_quarter: "2026 Q4", q4_title: "Staging & Testing", q4_desc: "Pilot hospital integration tests.", q5_quarter: "2027 Q1", q5_title: "Company Formation & SİSE", q5_desc: "Company formation, SİSE application.", q6_quarter: "2027 Q2", q6_title: "SİSE & Growth", q6_desc: "SİSE approval, first 3 hospital contracts." }, cta: { title: "Let's Build Together", subtitle: "If you're a pilot hospital partner, investor, or industry expert — you're in the right place.", btn_primary: "📧 Contact Us", btn_secondary: "🐙 View Code" }, footer: { desc: "Turkey's next-generation, cloud-based, AI-powered Hospital Information System. 46+ modules, 34 demos, 6+ AI features, and 12+ national integrations on a single platform.", platform_title: "Platform", developer_title: "Developer", contact_title: "Contact", contact_general: "General Inquiries", contact_pilot: "Pilot Application", contact_investor: "Investor Relations", copy: "© 2025 Trevonti HBYS. All rights reserved.", badge1: "KVKK Compliant", badge2: "FHIR R4", badge3: "SGK Medula", badge4: "SİSE Ready" } }
+    };
 
-function buildMods(){
-  const c=document.getElementById('mod-container'); if(!c)return; c.innerHTML='';
-  mods.forEach(m=>{
-    const d=document.createElement('div'); d.className='mod-item';
-    if(m.b==='YENİ') d.classList.add('new-highlight');
-    if(m.b==='YAKINDA') d.classList.add('planned-highlight');
-    const badge=m.b?`<span class="${m.b==='YENİ'?'new-badge':'planned-badge'}">${m.b}</span>`:'';
-    d.innerHTML=`<span class="mod-icon">${m.i}</span><span class="mod-name" data-i18n="${m.n}"></span>${badge}<span class="mod-kpi">${m.k}</span>`;
-    c.appendChild(d);
-  });
-}
+    // ─── Diğer dillere İngilizce'den tam kopya + eski çevirilerle birleştirme ───
+    ['de','fr','es','pt','it','ar','zh','ja','ko'].forEach(lang => {
+      if (!translations[lang]) {
+        translations[lang] = JSON.parse(JSON.stringify(translations.en));
+      } else {
+        // Mevcutsa, İngilizce'den eksik anahtarları tamamla
+        const base = JSON.parse(JSON.stringify(translations.en));
+        function mergeDeep(target, source) {
+          for (let key in source) {
+            if (source[key] instanceof Object && key in target) {
+              mergeDeep(target[key], source[key]);
+            } else {
+              if (!(key in target)) target[key] = source[key];
+            }
+          }
+          return target;
+        }
+        mergeDeep(translations[lang], base);
+      }
+    });
 
-function buildIntegrations(){
-  const c=document.getElementById('integ-container'); if(!c)return; c.innerHTML='';
-  for(let i=1;i<=12;i++){
-    const d=document.createElement('div'); d.className='integ-card';
-    d.innerHTML=`<div class="ic-icon"></div><div class="ic-name" data-i18n="integrations.card${i}_name"></div><div class="ic-desc" data-i18n="integrations.card${i}_desc"></div><span class="ic-badge" data-i18n="integrations.card${i}_badge"></span>`;
-    c.appendChild(d);
-  }
-}
+    // ─── Modül listesi ve dinamik içerik oluşturma ───
+    const mods = [
+      {i:"🏥",n:"modules.mod1",k:"%97.2 SGK Uyumu"}, {i:"💊",n:"modules.mod2",k:"CPOE"}, {i:"🧠",n:"modules.mod3",k:"Klinik Karar"}, {i:"🧪",n:"modules.mod4",k:"HL7 · LOINC"}, {i:"🩻",n:"modules.mod5",k:"DICOM · OHIF"},
+      {i:"💊",n:"modules.mod6",k:"BCMA · FEFO"}, {i:"🔪",n:"modules.mod7",k:"OR Verimliliği"}, {i:"❤️",n:"modules.mod8",k:"APACHE II · SOFA"}, {i:"🩸",n:"modules.mod9",k:"ISBT 128"}, {i:"🧬",n:"modules.mod10",k:"OIS · ASCO"},
+      {i:"💓",n:"modules.mod11",k:"ACC/AHA Kılavuzu"}, {i:"🌡️",n:"modules.mod12",k:"Diyaliz"}, {i:"🔬",n:"modules.mod13",k:"Dijital Patoloji"}, {i:"🧬",n:"modules.mod14",k:"IVF"}, {i:"🏠",n:"modules.mod15",k:"RPM · WebRTC"},
+      {i:"🎥",n:"modules.mod16",k:"USBS"}, {i:"💰",n:"modules.mod17",k:"SGK Medula"}, {i:"🧾",n:"modules.mod18",k:"UBL 2.1"}, {i:"📦",n:"modules.mod19",k:"SCM"}, {i:"📞",n:"modules.mod20",k:"CTI"},
+      {i:"🔬",n:"modules.mod21",k:"CSSD"}, {i:"📊",n:"modules.mod22",k:"Kohort · Risk"}, {i:"🎙️",n:"modules.mod23",k:"NLP · SOAP"}, {i:"🚫",n:"modules.mod24",k:"%91 İtiraz"}, {i:"🏥",n:"modules.mod25",k:"FHIR R4 · KVKK"},
+      {i:"🧊",n:"modules.mod26",k:"MPR · 3D VR"}, {i:"🗄️",n:"modules.mod27",k:"18 Cihaz Formatı"}, {i:"🤖",n:"modules.mod28",k:"%94 Güven"}, {i:"🎗️",n:"modules.mod29",k:"BI-RADS · AUC 0.94"}, {i:"📚",n:"modules.mod30",k:"Liderboard"},
+      {i:"💾",n:"modules.mod31",k:"₺4.280/ay"}, {i:"📅",n:"modules.mod32",k:"%97.2 Başarı",b:"YENİ"}, {i:"✍️",n:"modules.mod33",k:"XAdES LTV",b:"YENİ"}, {i:"👥",n:"modules.mod34",k:"Anlık Senkron",b:"YENİ"},
+      {i:"🎓",n:"modules.mod35",k:"API Doğrulama",b:"YENİ"}, {i:"🏦",n:"modules.mod36",k:"7 Şirket API",b:"YENİ"}, {i:"🤰",n:"modules.mod37",k:"WHO Partogram",b:"YENİ"}, {i:"🦾",n:"modules.mod38",k:"Barthel · FIM",b:"YENİ"},
+      {i:"🦠",n:"modules.mod39",k:"CUSUM · AMS",b:"YENİ"}, {i:"⚡",n:"modules.mod40",k:"P95 <400ms",b:"YENİ"}, {i:"🛡️",n:"modules.mod41",k:"SAST · DAST",b:"YENİ"}, {i:"🌐",n:"modules.mod42",k:"TR/AR/EN/RU · PWA",b:"YENİ"},
+      {i:"✈️",n:"modules.mod43",k:"$2.1B Pazar",b:"YENİ"}, {i:"💊",n:"modules.mod44",k:"₺284K+/ay",b:"YENİ"}, {i:"🚑",n:"modules.mod45",k:"%0 Rakipte",b:"YENİ"}, {i:"⭐",n:"modules.mod46",k:"%84 JCI",b:"YENİ"},
+      {i:"🧩",n:"modules.mod47",k:"DSM-5 Uyumlu",b:"YAKINDA"}, {i:"🫀",n:"modules.mod48",k:"ACC/AHA · EKG",b:"YAKINDA"}, {i:"💬",n:"modules.mod49",k:"SLA 2 Saat",b:"YAKINDA"}, {i:"📊",n:"modules.mod50",k:"DRG · OLAP",b:"YAKINDA"},
+      {i:"📡",n:"modules.mod51",k:"FHIR R4 · IoT",b:"YAKINDA"}, {i:"🧠",n:"modules.mod52",k:"Diferansiyel Tanı",b:"YAKINDA"}, {i:"🔎",n:"modules.mod53",k:"SHA-256 · ISO 27001",b:"YAKINDA"}, {i:"📱",n:"modules.mod54",k:"Offline First",b:"YAKINDA"},
+      {i:"💻",n:"modules.mod55",k:"WebRTC · Google Health",b:"YAKINDA"}
+    ];
 
-function buildAI(){
-  const c=document.getElementById('ai-container'); if(!c)return; c.innerHTML='';
-  const cards=[
-    {cls:'ai-teal',bg:'#f0fdf4',ico:'🚨',tk:'ai.card1_title',ak:'ai.card1_algo',m:[{v:'0.979',l:'ai.card1_auc'},{v:'%98.9',l:'ai.card1_spec'},{c:'ai.card1_ci'}],dk:'ai.card1_desc'},
-    {cls:'ai-blue',bg:'#eff6ff',ico:'🏠',tk:'ai.card2_title',ak:'ai.card2_algo',m:[{v:'0.970',l:'ai.card2_auc',co:'#3b82f6'},{v:'%93.6',l:'ai.card2_sens',co:'#3b82f6'},{c:'ai.card2_ci'}],dk:'ai.card2_desc'},
-    {cls:'ai-purple',bg:'#f5f3ff',ico:'💊',tk:'ai.card3_title',ak:'ai.card3_algo',m:[{v:'%100',l:'ai.card3_catch',co:'#8b5cf6'},{v:'%100',l:'ai.card3_acc',co:'#8b5cf6'},{c:'ai.card3_ci'}],dk:'ai.card3_desc'},
-    {cls:'ai-amber',bg:'#fffbeb',ico:'🇹🇷',tk:'ai.card4_title',ak:'ai.card4_algo',m:[{v:'%100',l:'ai.card4_acc1',co:'#f59e0b'},{v:'%100',l:'ai.card4_acc2',co:'#f59e0b'},{c:'ai.card4_ci'}],dk:'ai.card4_desc'},
-    {cls:'ai-teal',bg:'#fef3c7',ico:'🏦',tk:'ai.card5_title',ak:'ai.card5_algo',m:[{v:'%91',l:'ai.card5_acc'}],dk:'ai.card5_desc'},
-    {cls:'ai-amber',bg:'#f3e8ff',ico:'🎙️',tk:'ai.card6_title',ak:'ai.card6_algo',m:[{v:'4',l:'ai.card6_acc'}],dk:'ai.card6_desc'}
-  ];
-  cards.forEach(ca=>{
-    let mh=''; ca.m.forEach(mm=>{ if(mm.c) mh+=`<div><div class="am-ci" data-i18n="${mm.c}"></div></div>`; else mh+=`<div><div class="am-val" style="color:${mm.co||'var(--teal)'}">${mm.v}</div><div class="am-label" data-i18n="${mm.l}"></div></div>`; });
-    const div=document.createElement('div'); div.className=`ai-card ${ca.cls}`;
-    div.innerHTML=`<div class="ai-header"><div class="ai-icon" style="background:${ca.bg}">${ca.ico}</div><div><div class="ai-title" data-i18n="${ca.tk}"></div><div class="ai-algo" data-i18n="${ca.ak}"></div></div></div><div class="ai-metric">${mh}</div><div class="ai-desc" data-i18n="${ca.dk}"></div>`;
-    c.appendChild(div);
-  });
-}
+    function buildMods() {
+      const c = document.getElementById('mod-container'); if (!c) return; c.innerHTML = '';
+      mods.forEach(m => {
+        const d = document.createElement('div'); d.className = 'mod-item';
+        if (m.b === 'YENİ') d.classList.add('new-highlight');
+        if (m.b === 'YAKINDA') d.classList.add('planned-highlight');
+        const badge = m.b ? `<span class="${m.b === 'YENİ' ? 'new-badge' : 'planned-badge'}">${m.b}</span>` : '';
+        d.innerHTML = `<span class="mod-icon">${m.i}</span><span class="mod-name" data-i18n="${m.n}"></span>${badge}<span class="mod-kpi">${m.k}</span>`;
+        c.appendChild(d);
+      });
+    }
 
-function buildRoadmap(){
-  const c=document.getElementById('roadmap-container'); if(!c)return; c.innerHTML='';
-  for(let i=1;i<=6;i++){
-    const d=document.createElement('div'); d.className='rm-item';
-    d.innerHTML=`<div class="rm-dot ${i<=2?'rm-done':'rm-active'}">${i<=2?'✓':'→'}</div><div class="rm-quarter" data-i18n="roadmap.q${i}_quarter"></div><div class="rm-title" data-i18n="roadmap.q${i}_title"></div><div class="rm-desc" data-i18n="roadmap.q${i}_desc"></div>`;
-    c.appendChild(d);
-  }
-}
+    function buildIntegrations() {
+      const c = document.getElementById('integ-container'); if (!c) return; c.innerHTML = '';
+      for (let i = 1; i <= 12; i++) {
+        const d = document.createElement('div'); d.className = 'integ-card';
+        d.innerHTML = `<div class="ic-icon"></div><div class="ic-name" data-i18n="integrations.card${i}_name"></div><div class="ic-desc" data-i18n="integrations.card${i}_desc"></div><span class="ic-badge" data-i18n="integrations.card${i}_badge"></span>`;
+        c.appendChild(d);
+      }
+    }
 
-function buildStack(){
-  const c=document.getElementById('stack-container'); if(!c)return;
-  const items=[{i:'⚛️',n:'React 18+Next.js 14',t:'tech.frontend'},{i:'📱',n:'React Native 0.74',t:'tech.mobile'},{i:'🟢',n:'NestJS 10',t:'tech.backend'},{i:'🐘',n:'PostgreSQL 16',t:'tech.db'},{i:'⚡',n:'Redis 7',t:'tech.cache'},{i:'📨',n:'Kafka 3.7',t:'tech.messaging'},{i:'🐍',n:'Python FastAPI',t:'tech.ai_engine'},{i:'🔑',n:'Keycloak 24',t:'tech.auth'},{i:'🐳',n:'Kubernetes 1.29',t:'tech.orchestration'},{i:'🔒',n:'Cilium+OWASP',t:'tech.zero_trust'},{i:'📊',n:'ClickHouse+Elasticsearch',t:'tech.analytics'},{i:'🏗️',n:'Nx 18 Monorepo',t:'tech.build'},{i:'🗄️',n:'MinIO S3+Orthanc',t:'tech.storage'},{i:'🔍',n:'Elasticsearch v8',t:'tech.search'},{i:'🧠',n:'LangChain+HuggingFace',t:'tech.llm'},{i:'📋',n:'k6+Grafana',t:'tech.testing'}];
-  items.forEach(x=>{ const d=document.createElement('div'); d.className='stack-item'; d.innerHTML=`<div class="si-icon">${x.i}</div><div class="si-name">${x.n}</div><div class="si-type" data-i18n="${x.t}"></div>`; c.appendChild(d); });
-}
+    function buildAI() {
+      const c = document.getElementById('ai-container'); if (!c) return; c.innerHTML = '';
+      const cards = [
+        { cls: 'ai-teal', bg: '#f0fdf4', ico: '🚨', tk: 'ai.card1_title', ak: 'ai.card1_algo', m: [{ v: '0.979', l: 'ai.card1_auc' }, { v: '%98.9', l: 'ai.card1_spec' }, { c: 'ai.card1_ci' }], dk: 'ai.card1_desc' },
+        { cls: 'ai-blue', bg: '#eff6ff', ico: '🏠', tk: 'ai.card2_title', ak: 'ai.card2_algo', m: [{ v: '0.970', l: 'ai.card2_auc', co: '#3b82f6' }, { v: '%93.6', l: 'ai.card2_sens', co: '#3b82f6' }, { c: 'ai.card2_ci' }], dk: 'ai.card2_desc' },
+        { cls: 'ai-purple', bg: '#f5f3ff', ico: '💊', tk: 'ai.card3_title', ak: 'ai.card3_algo', m: [{ v: '%100', l: 'ai.card3_catch', co: '#8b5cf6' }, { v: '%100', l: 'ai.card3_acc', co: '#8b5cf6' }, { c: 'ai.card3_ci' }], dk: 'ai.card3_desc' },
+        { cls: 'ai-amber', bg: '#fffbeb', ico: '🇹🇷', tk: 'ai.card4_title', ak: 'ai.card4_algo', m: [{ v: '%100', l: 'ai.card4_acc1', co: '#f59e0b' }, { v: '%100', l: 'ai.card4_acc2', co: '#f59e0b' }, { c: 'ai.card4_ci' }], dk: 'ai.card4_desc' },
+        { cls: 'ai-teal', bg: '#fef3c7', ico: '🏦', tk: 'ai.card5_title', ak: 'ai.card5_algo', m: [{ v: '%91', l: 'ai.card5_acc' }], dk: 'ai.card5_desc' },
+        { cls: 'ai-amber', bg: '#f3e8ff', ico: '🎙️', tk: 'ai.card6_title', ak: 'ai.card6_algo', m: [{ v: '4', l: 'ai.card6_acc' }], dk: 'ai.card6_desc' }
+      ];
+      cards.forEach(ca => {
+        let mh = ''; ca.m.forEach(mm => { if (mm.c) mh += `<div><div class="am-ci" data-i18n="${mm.c}"></div></div>`; else mh += `<div><div class="am-val" style="color:${mm.co || 'var(--teal)'}">${mm.v}</div><div class="am-label" data-i18n="${mm.l}"></div></div>`; });
+        const div = document.createElement('div'); div.className = `ai-card ${ca.cls}`;
+        div.innerHTML = `<div class="ai-header"><div class="ai-icon" style="background:${ca.bg}">${ca.ico}</div><div><div class="ai-title" data-i18n="${ca.tk}"></div><div class="ai-algo" data-i18n="${ca.ak}"></div></div></div><div class="ai-metric">${mh}</div><div class="ai-desc" data-i18n="${ca.dk}"></div>`;
+        c.appendChild(div);
+      });
+    }
 
-function buildArch(){
-  const c=document.getElementById('arch-container'); if(!c)return;
-  for(let i=1;i<=5;i++){
-    const d=document.createElement('div'); d.className='arch-layer';
-    d.innerHTML=`<div class="arch-layer-icon"></div><div class="arch-layer-name" data-i18n="tech.layer${i}_name"></div><div class="arch-layer-tech" data-i18n="tech.layer${i}_tech"></div>`;
-    c.appendChild(d);
-  }
-}
+    function buildRoadmap() {
+      const c = document.getElementById('roadmap-container'); if (!c) return; c.innerHTML = '';
+      for (let i = 1; i <= 6; i++) {
+        const d = document.createElement('div'); d.className = 'rm-item';
+        d.innerHTML = `<div class="rm-dot ${i <= 2 ? 'rm-done' : 'rm-active'}">${i <= 2 ? '✓' : '→'}</div><div class="rm-quarter" data-i18n="roadmap.q${i}_quarter"></div><div class="rm-title" data-i18n="roadmap.q${i}_title"></div><div class="rm-desc" data-i18n="roadmap.q${i}_desc"></div>`;
+        c.appendChild(d);
+      }
+    }
 
-function switchLanguage(lang){
-  const t=translations[lang]||translations.tr;
-  document.querySelectorAll('[data-i18n]').forEach(el=>{ const k=el.dataset.i18n; const v=k.split('.').reduce((o,kk)=>o?.[kk],t); if(v) el.innerHTML=v; });
-  document.querySelectorAll('.lang-option').forEach(o=>o.classList.toggle('active',o.dataset.lang===lang));
-  const names={tr:'TR',en:'EN',de:'DE',fr:'FR',es:'ES',pt:'PT',it:'IT',ar:'AR',zh:'中文',ja:'日本語',ko:'한국어'};
-  document.getElementById('currentLangDisplay').textContent=names[lang]||lang.toUpperCase();
-  document.documentElement.dir=lang==='ar'?'rtl':'ltr';
-  document.documentElement.lang=lang;
-  localStorage.setItem('pref-lang',lang);
-  document.getElementById('langDropdownMenu').classList.remove('show');
-}
+    function buildStack() {
+      const c = document.getElementById('stack-container'); if (!c) return;
+      const items = [
+        { i: '⚛️', n: 'React 18+Next.js 14', t: 'tech.frontend' }, { i: '📱', n: 'React Native 0.74', t: 'tech.mobile' },
+        { i: '🟢', n: 'NestJS 10', t: 'tech.backend' }, { i: '🐘', n: 'PostgreSQL 16', t: 'tech.db' },
+        { i: '⚡', n: 'Redis 7', t: 'tech.cache' }, { i: '📨', n: 'Kafka 3.7', t: 'tech.messaging' },
+        { i: '🐍', n: 'Python FastAPI', t: 'tech.ai_engine' }, { i: '🔑', n: 'Keycloak 24', t: 'tech.auth' },
+        { i: '🐳', n: 'Kubernetes 1.29', t: 'tech.orchestration' }, { i: '🔒', n: 'Cilium+OWASP', t: 'tech.zero_trust' },
+        { i: '📊', n: 'ClickHouse+Elasticsearch', t: 'tech.analytics' }, { i: '🏗️', n: 'Nx 18 Monorepo', t: 'tech.build' },
+        { i: '🗄️', n: 'MinIO S3+Orthanc', t: 'tech.storage' }, { i: '🔍', n: 'Elasticsearch v8', t: 'tech.search' },
+        { i: '🧠', n: 'LangChain+HuggingFace', t: 'tech.llm' }, { i: '📋', n: 'k6+Grafana', t: 'tech.testing' }
+      ];
+      items.forEach(x => { const d = document.createElement('div'); d.className = 'stack-item'; d.innerHTML = `<div class="si-icon">${x.i}</div><div class="si-name">${x.n}</div><div class="si-type" data-i18n="${x.t}"></div>`; c.appendChild(d); });
+    }
 
-function animateCounters(){
-  [{id:'count-modules',t:46,s:'+',d:1600},{id:'count-demos',t:34,s:'',d:1400},{id:'count-sprints',t:16,s:'',d:1200}].forEach(c=>{
-    const el=document.getElementById(c.id); if(!el)return;
-    let st=null; const step=ts=>{ if(!st)st=ts; const p=Math.min((ts-st)/c.d,1); el.textContent=Math.round((1-Math.pow(1-p,3))*c.t)+c.s; if(p<1)requestAnimationFrame(step); };
-    requestAnimationFrame(step);
-  });
-}
+    function buildArch() {
+      const c = document.getElementById('arch-container'); if (!c) return;
+      for (let i = 1; i <= 5; i++) {
+        const d = document.createElement('div'); d.className = 'arch-layer';
+        d.innerHTML = `<div class="arch-layer-icon"></div><div class="arch-layer-name" data-i18n="tech.layer${i}_name"></div><div class="arch-layer-tech" data-i18n="tech.layer${i}_tech"></div>`;
+        c.appendChild(d);
+      }
+    }
 
-document.addEventListener('DOMContentLoaded',()=>{
-  buildMods(); buildIntegrations(); buildAI(); buildRoadmap(); buildStack(); buildArch();
-  document.getElementById('langDropdownBtn').addEventListener('click',e=>{e.stopPropagation();document.getElementById('langDropdownMenu').classList.toggle('show');});
-  document.querySelectorAll('.lang-option').forEach(o=>o.addEventListener('click',e=>switchLanguage(o.dataset.lang)));
-  document.addEventListener('click',()=>document.getElementById('langDropdownMenu').classList.remove('show'));
-  const sl=localStorage.getItem('pref-lang')||'tr'; switchLanguage(sl);
-  const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible');}),{threshold:0.1});
-  document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
-  setTimeout(animateCounters,300);
-});
+    function switchLanguage(lang) {
+      const t = translations[lang] || translations.en;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        const val = key.split('.').reduce((o, k) => o?.[k], t);
+        if (val) el.innerHTML = val;
+      });
+      document.querySelectorAll('.lang-option').forEach(o => o.classList.toggle('active', o.dataset.lang === lang));
+      const disp = { tr: 'TR', en: 'EN', de: 'DE', fr: 'FR', es: 'ES', pt: 'PT', it: 'IT', ar: 'AR', zh: 'ZH', ja: 'JA', ko: 'KO' };
+      document.getElementById('currentLangDisplay').textContent = disp[lang] || lang.toUpperCase();
+      document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+      document.documentElement.lang = lang;
+      localStorage.setItem('pref-lang', lang);
+      document.getElementById('langDropdownMenu').classList.remove('show');
+    }
 
-function toggleMenu(){ const l=document.querySelector('.nav-links'); if(l.style.display==='flex')l.style.display='none';else{l.style.display='flex';l.style.flexDirection='column';l.style.position='absolute';l.style.top='64px';l.style.left='0';l.style.right='0';l.style.background='#0f172a';l.style.padding='20px';l.style.gap='16px';}}
-</script>
+    function animateCounters() {
+      const counters = [
+        { id: 'count-modules', t: 46, s: '+', d: 1600 },
+        { id: 'count-demos', t: 34, s: '', d: 1400 },
+        { id: 'count-sprints', t: 16, s: '', d: 1200 }
+      ];
+      counters.forEach(c => {
+        const el = document.getElementById(c.id); if (!el) return;
+        let st = null;
+        const step = ts => {
+          if (!st) st = ts;
+          const p = Math.min((ts - st) / c.d, 1);
+          el.textContent = Math.round((1 - Math.pow(1 - p, 3)) * c.t) + c.s;
+          if (p < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      buildMods(); buildIntegrations(); buildAI(); buildRoadmap(); buildStack(); buildArch();
+      document.getElementById('langDropdownBtn').addEventListener('click', e => { e.stopPropagation(); document.getElementById('langDropdownMenu').classList.toggle('show'); });
+      document.querySelectorAll('.lang-option').forEach(o => o.addEventListener('click', e => switchLanguage(o.dataset.lang)));
+      document.addEventListener('click', () => document.getElementById('langDropdownMenu').classList.remove('show'));
+      const sl = localStorage.getItem('pref-lang') || 'tr';
+      switchLanguage(sl);
+      const obs = new IntersectionObserver(e => e.forEach(x => { if (x.isIntersecting) x.target.classList.add('visible'); }), { threshold: 0.1 });
+      document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+      setTimeout(animateCounters, 300);
+    });
+
+    function toggleMenu() {
+      const l = document.querySelector('.nav-links');
+      if (l.style.display === 'flex') l.style.display = 'none';
+      else {
+        l.style.display = 'flex'; l.style.flexDirection = 'column'; l.style.position = 'absolute';
+        l.style.top = '64px'; l.style.left = '0'; l.style.right = '0';
+        l.style.background = '#0f172a'; l.style.padding = '20px'; l.style.gap = '16px';
+      }
+    }
+  </script>
 </body>
 </html>
