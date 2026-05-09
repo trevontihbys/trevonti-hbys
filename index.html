@@ -556,7 +556,6 @@
       line-height: 1.6;
     }
 
-    /* Platform Kartları */
     .platform-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -607,7 +606,6 @@
       border-radius: 6px;
     }
 
-    /* FAZ Yapısı */
     .faz-grid {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
@@ -655,7 +653,6 @@
       color: var(--teal);
     }
 
-    /* X-Faktörler */
     .xfact-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -688,57 +685,6 @@
       font-size: 12px;
       color: rgba(255, 255, 255, .65);
       line-height: 1.5;
-    }
-
-    /* Karşılaştırma Tablosu */
-    .compare-wrap {
-      overflow-x: auto;
-      border-radius: 14px;
-      border: 1px solid #e2e8f0;
-    }
-    .compare-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 12px;
-      min-width: 800px;
-    }
-    .compare-table th,
-    .compare-table td {
-      padding: 12px 14px;
-      text-align: center;
-      border-bottom: 1px solid #e2e8f0;
-    }
-    .compare-table th {
-      background: var(--navy);
-      color: #fff;
-      font-weight: 700;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-    .compare-table th:first-child {
-      text-align: left;
-      background: var(--teal-dark);
-    }
-    .compare-table td:first-child {
-      text-align: left;
-      font-weight: 600;
-      color: var(--slate);
-    }
-    .compare-table tr:nth-child(even) td {
-      background: #f8fafc;
-    }
-    .compare-table .trev-only {
-      background: #f0fdf4 !important;
-      color: var(--teal);
-      font-weight: 700;
-    }
-    .compare-table .check {
-      color: #22c55e;
-      font-weight: 700;
-    }
-    .compare-table .cross {
-      color: #ef4444;
     }
 
     .modules-grid {
@@ -1429,7 +1375,7 @@
       <a href="#features" data-i18n="nav.features"></a><a href="#platform" data-i18n="nav.platform">Platform</a>
       <a href="#modules" data-i18n="nav.modules"></a><a href="#faz" data-i18n="nav.faz">FAZ</a>
       <a href="#xfactor" data-i18n="nav.xfactor">X-Faktör</a><a href="#ai" data-i18n="nav.ai"></a>
-      <a href="#integrations" data-i18n="nav.integrations"></a><a href="#compare" data-i18n="nav.compare">Karşılaştırma</a>
+      <a href="#integrations" data-i18n="nav.integrations"></a>
       <a href="#tech" data-i18n="nav.tech">Teknoloji</a><a href="#roadmap" data-i18n="nav.roadmap"></a>
       <a href="https://github.com/trevontihbys" target="_blank" data-i18n="nav.github"></a>
       <a href="mailto:trevonti.hbys@gmail.com" class="nav-cta" data-i18n="nav.contact"></a>
@@ -1490,14 +1436,13 @@
     </div>
   </section>
 
-  <!-- YENİ: Platform Kartları -->
   <section id="platform">
     <div class="center fade-in"><div class="section-badge" data-i18n="platform.badge">4 Ana Ürün</div><h2 class="section-title" data-i18n="platform.title">Tek <span>Platform</span>, Dört Ana Ürün</h2><p class="section-sub" data-i18n="platform.subtitle">HIS, LIS, RIS/PACS ve Patient Portal tek çatı altında, tam entegre olarak sunulur.</p></div>
     <div class="platform-grid fade-in">
-      <div class="plat-card"><div class="plat-icon">🏥</div><div class="plat-name">t-HIS</div><div class="plat-desc" data-i18n="platform.his_desc">Hastane Bilgi Sistemi</div><div class="plat-stats"><span class="plat-stat">41 Modül</span><span class="plat-stat">226 TS</span></div></div>
-      <div class="plat-card"><div class="plat-icon">🧪</div><div class="plat-name">t-LIS</div><div class="plat-desc" data-i18n="platform.lis_desc">Laboratuvar Bilgi Sistemi</div><div class="plat-stats"><span class="plat-stat">13 Modül</span><span class="plat-stat">65 TS</span><span class="plat-stat">20 Demo</span></div></div>
-      <div class="plat-card"><div class="plat-icon">🩻</div><div class="plat-name">t-RIS/PACS</div><div class="plat-desc" data-i18n="platform.ris_desc">Radyoloji & Görüntü</div><div class="plat-stats"><span class="plat-stat">15 Metot</span><span class="plat-stat">403 Satır</span><span class="plat-stat">AI Entegre</span></div></div>
-      <div class="plat-card"><div class="plat-icon">💻</div><div class="plat-name">Patient Portal</div><div class="plat-desc" data-i18n="platform.portal_desc">Hasta Portalı</div><div class="plat-stats"><span class="plat-stat">21 Endpoint</span><span class="plat-stat">495 Satır</span><span class="plat-stat">iOS/Android/Web</span></div></div>
+      <div class="plat-card"><div class="plat-icon">🏥</div><div class="plat-name">Trevonti HIS</div><div class="plat-desc" data-i18n="platform.his_desc">Hastane Bilgi Sistemi</div><div class="plat-stats"><span class="plat-stat">41 Modül</span><span class="plat-stat">226 TS</span></div></div>
+      <div class="plat-card"><div class="plat-icon">🧪</div><div class="plat-name">Trevonti LIS</div><div class="plat-desc" data-i18n="platform.lis_desc">Laboratuvar Bilgi Sistemi</div><div class="plat-stats"><span class="plat-stat">13 Modül</span><span class="plat-stat">65 TS</span><span class="plat-stat">20 Demo</span></div></div>
+      <div class="plat-card"><div class="plat-icon">🩻</div><div class="plat-name">Trevonti RIS/PACS</div><div class="plat-desc" data-i18n="platform.ris_desc">Radyoloji & Görüntü</div><div class="plat-stats"><span class="plat-stat">15 Metot</span><span class="plat-stat">403 Satır</span><span class="plat-stat">AI Entegre</span></div></div>
+      <div class="plat-card"><div class="plat-icon">💻</div><div class="plat-name">Trevonti Patient Portal</div><div class="plat-desc" data-i18n="platform.portal_desc">Hasta Portalı</div><div class="plat-stats"><span class="plat-stat">21 Endpoint</span><span class="plat-stat">495 Satır</span><span class="plat-stat">iOS/Android/Web</span></div></div>
     </div>
   </section>
 
@@ -1507,7 +1452,6 @@
     <p style="text-align:center;font-size:12px;color:var(--gray);margin-top:16px" data-i18n="modules.footer_note"></p>
   </section>
 
-  <!-- YENİ: FAZ Yapısı -->
   <section id="faz" style="background:var(--lgray)">
     <div class="center fade-in"><div class="section-badge" data-i18n="faz.badge">5 Aşamalı Mimari</div><h2 class="section-title" data-i18n="faz.title">Modüler <span>FAZ</span> Yapısı</h2><p class="section-sub" data-i18n="faz.subtitle">Her aşama bir öncekinin üzerine inşa edilir, bağımsız deploy edilebilir.</p></div>
     <div class="faz-grid fade-in">
@@ -1519,7 +1463,6 @@
     </div>
   </section>
 
-  <!-- YENİ: X-Faktörler -->
   <section id="xfactor">
     <div class="center fade-in"><div class="section-badge" data-i18n="xfactor.badge">Rekabet Avantajı</div><h2 class="section-title" data-i18n="xfactor.title"><span>X-Faktör</span> Teknolojileri</h2><p class="section-sub" data-i18n="xfactor.subtitle">Rakiplerde olmayan, sadece Trevonti'ye özgü ileri teknoloji bileşenleri.</p></div>
     <div class="xfact-grid fade-in">
@@ -1540,17 +1483,6 @@
     <div class="center fade-in"><div class="section-badge" data-i18n="ai.badge"></div><h2 class="section-title" data-i18n="ai.title"></h2><p class="section-sub" data-i18n="ai.subtitle"></p></div>
     <div class="ai-grid fade-in" id="ai-container"></div>
     <p style="text-align:center;font-size:12px;color:var(--gray);margin-top:20px" data-i18n="ai.disclaimer"></p>
-  </section>
-
-  <!-- YENİ: Karşılaştırma Tablosu -->
-  <section id="compare" style="background:var(--lgray)">
-    <div class="center fade-in"><div class="section-badge" data-i18n="compare.badge">Neden Trevonti?</div><h2 class="section-title" data-i18n="compare.title">Rakiplerle <span>Karşılaştırma</span></h2><p class="section-sub" data-i18n="compare.subtitle">18 kriterde, 5 global rakiple birebir karşılaştırma. "YALNIZCA TREVONTI" özellikleri işaretlenmiştir.</p></div>
-    <div class="compare-wrap fade-in">
-      <table class="compare-table" id="compareTable">
-        <thead><tr><th data-i18n="compare.col_feature">Özellik</th><th>Trevonti</th><th>Acıbadem C+</th><th>HCA / Meditech</th><th>Epic Systems</th><th>InterSystems</th></tr></thead>
-        <tbody id="compareTbody"></tbody>
-      </table>
-    </div>
   </section>
 
   <section id="tech" class="tech-bg">
@@ -1580,22 +1512,27 @@
   </footer>
 
   <script>
-    // ══════════════════ ÇEVİRİ OBJESİ (TR + EN + DE + FR + ES + PT + IT + AR + ZH + JA + KO) ══════════════════
     const translations = {
       tr: {
         logo: { subtitle: "TAM ENTEGRE HASTANE PLATFORMU", tech: "bulut-yerel | yapay zeka destekli | sürdürülebilir teknoloji" },
-        nav: { features: "Özellikler", modules: "Modüller", ai: "Yapay Zeka", integrations: "Entegrasyonlar", tech: "Teknoloji", roadmap: "Yol Haritası", github: "GitHub", contact: "İletişim", platform: "Platform", faz: "FAZ", xfactor: "X-Faktör", compare: "Karşılaştırma" },
+        nav: { features: "Özellikler", modules: "Modüller", ai: "Yapay Zeka", integrations: "Entegrasyonlar", tech: "Teknoloji", roadmap: "Yol Haritası", github: "GitHub", contact: "İletişim", platform: "Platform", faz: "FAZ", xfactor: "X-Faktör" },
         hero: { badge: "Trevonti HBYS v2.0 · HIS+LIS+RIS+Portal+Agent · 62+ Modül · FHIR R5", title: "Türkiye'nin<br><span>Yeni Nesil</span><br>Hastane Sistemi", subtitle: "HIS (41 modül), LIS (13 modül), RIS/PACS ve Patient Portal'ı tek çatı altında toplayan 62+ modüllü platform. Digital Twin, Command Center, Blockchain Audit ve 50 Agent AI ile Türkiye'nin en kapsamlı HBYS'si.", btn_primary: "📧 Pilot Başvurusu Yap", btn_secondary: "🐙 GitHub'da İncele", card1_title: "Sepsis Erken Uyarı", card1_sub: "qSOFA + NEWS2 Hibrid", card2_title: "SGK Medula", card2_sub: "Otomatik faturalandırma", card2_badge: "Entegre", card3_title: "KVKK & FHIR R5", card3_sub: "Tam uyumlu altyapı", card3_badge: "Uyumlu", card4_title: "iOS + Android + Web", card4_sub: "Kurulum gerektirmez" },
         stats: { modules: "Klinik Modül", demos: "Canlı Demo", sprints: "Sprint", sla: "SLA Hedefi" },
         problem: { badge: "Sorun", title: "Türkiye'deki Hastanelerin <span>%78'i</span> Eski Sistemlerde", subtitle: "10–20 yıllık, sunucu tabanlı HBYS yazılımları; mobil erişim, yapay zeka ve ulusal sağlık sistemi entegrasyonundan yoksun.", card1_title: "Mobil Erişim Yok", card1_desc: "Hemşireler BCMA doğrulamasını kağıda yapıyor. Hekimler uzaktan sisteme giremiyor.", card1_stat: "%0 Mobil", card2_title: "SGK Gelir Kaybı", card2_desc: "Manuel SUT kodu girişleri yüzünden hastaneler hak ettikleri SGK ödemelerinin önemli bir kısmını alamıyor.", card2_stat: "%12 Kayıp", card3_title: "İlaç Hataları", card3_desc: "Kâğıt order sistemi ilaç etkileşimi kontrolü yapamıyor. Türkiye'deki ilaç hata oranı Avrupa ortalamasının 3 katı.", card3_stat: "3× Hata" },
-        features: { badge: "Çözüm", title: "Her Şey <span>Dahili,</span> Hiçbir Şey Eklenti", subtitle: "Trevonti HBYS, ayrı ayrı satın alınan modüllerden değil — baştan bütünleşik tasarlanmış bir platformdan oluşur.", cloud_title: "Bulut-Yerel Mimari", cloud_desc: "Kubernetes 1.29, Docker Compose, Patroni HA PostgreSQL. Sunucu satın alma yok.", mobile_title: "Mobil Uygulama (iOS + Android)", mobile_desc: "React Native 0.74 tabanlı, offline-first mimari. Biyometrik kimlik doğrulama.", ai_title: "Yapay Zeka Motoru (10+)", ai_desc: "GPT-4o + Whisper v3. Sepsis (AUC 0.979), 30 gün yeniden yatış, Türkçe NLP, No-Click Hospital.", sgk_title: "Otomatik SGK Faturalama", sgk_desc: "SUT kodları otomatik atanır (%99 uyum). Medula provizyon anlık alınır.", security_title: "KVKK & Güvenlik", security_desc: "AES-256-GCM, Cilium zero-trust, Keycloak MFA, SHA-256 + Ethereum Blockchain denetim logu.", integration_title: "18+ Ulusal ve Global Entegrasyon", integration_desc: "SGK Medula, Sağlık-Net, e-Nabız, MHRS, HL7 v2, ASTM, OMOP CDM v5.4, Apple Health, SMART on FHIR, e-Reçete." },
+        features: { badge: "Çözüm", title: "Her Şey <span>Dahili,</span> Hiçbir Şey Eklenti", subtitle: "Trevonti HBYS, ayrı ayrı satın alınan modüllerden değil — baştan bütünleşik tasarlanmış bir platformdan oluşur.",
+          cloud_title: "Bulut-Yerel Mimari", cloud_desc: "Kubernetes 1.29, Docker Compose, Patroni HA PostgreSQL. Sunucu satın alma yok. Güncelleme için IT ekibi yok. Siz açın, kullanın.",
+          mobile_title: "Mobil Uygulama (iOS + Android)", mobile_desc: "React Native 0.74 tabanlı, offline-first mimari. Biyometrik kimlik doğrulama, anlık push bildirimi. iOS 16+ ve Android 10+ destekler.",
+          ai_title: "Yapay Zeka Motoru (10+)", ai_desc: "GPT-4o + Whisper v3. Sepsis erken uyarı (AUC 0.979), 30 gün yeniden yatış, Türkçe NLP, ilaç etkileşimi CDS, SGK reddi AI, Ambient AI, No-Click Hospital.",
+          sgk_title: "Otomatik SGK Faturalama", sgk_desc: "SUT kodları otomatik atanır (%99 uyum). Medula provizyon anlık alınır. e-Fatura UBL 2.1 formatında GİB'e gider.",
+          security_title: "KVKK & Güvenlik (OWASP Top 10)", security_desc: "AES-256-GCM şifreleme. SAST/DAST otomatik tarama. Cilium zero-trust. Keycloak MFA. SHA-256 + Ethereum Blockchain denetim logu.",
+          integration_title: "18+ Ulusal ve Global Entegrasyon", integration_desc: "SGK Medula, Sağlık-Net, e-Nabız, MHRS, ÇKYS, TTB, e-İmza (5070), Özel Sigorta (7), MERNİS, TCMB, TİTCK, HL7 v2, ASTM, OMOP CDM v5.4, Apple Health, Garmin, SMART on FHIR, e-Reçete."
+        },
         platform: { badge: "4 Ana Ürün", title: "Tek <span>Platform</span>, Dört Ana Ürün", subtitle: "HIS, LIS, RIS/PACS ve Patient Portal tek çatı altında, tam entegre olarak sunulur.", his_desc: "Hastane Bilgi Sistemi", lis_desc: "Laboratuvar Bilgi Sistemi", ris_desc: "Radyoloji & Görüntü", portal_desc: "Hasta Portalı" },
         modules: { badge: "Kapsam", title: "<span>62+ Modül,</span> Tek Platform", subtitle: "Klinikten radyolojiye, eczaneden finansa — tek sistemde tam hastane. (41 HIS + 13 LIS + 8 Platform)", footer_note: "✅ 49 canlı demo, 62+ modül. 411 dosya, 284 TypeScript, ZIP hatası: 0, FHIR R5." },
         faz: { badge: "5 Aşamalı Mimari", title: "Modüler <span>FAZ</span> Yapısı", subtitle: "Her aşama bir öncekinin üzerine inşa edilir, bağımsız deploy edilebilir.", f0_title: "Temel HIS", f0_desc: "Hasta yönetimi, kayıt, temel klinik işlemler", f1_title: "Klinik Dijital", f1_desc: "EMR, CPOE, eMAR, Terminoloji, FHIR R5, Patoloji, Genetik", f2_title: "Yapay Zeka", f2_desc: "AI Scribe, Tanı Asistanı, Sepsis Spot, LIS AI, Görüntü AI", f3_title: "Platform", f3_desc: "YBÜ, IoT/RTLS, Hasta App, Zero-Trust, Blockchain, OMOP, SaaS", f4_title: "X-Faktör", f4_desc: "Digital Twin, Command Center, Marketplace, Genomik, Giyilebilir, No-Click" },
         xfactor: { badge: "Rekabet Avantajı", title: "<span>X-Faktör</span> Teknolojileri", subtitle: "Rakiplerde olmayan, sadece Trevonti'ye özgü ileri teknoloji bileşenleri.", card1_title: "Digital Twin", card1_desc: "Hasta simülasyonu, farmakodinamik model, Bayesian güncelleme, hastane kapasite tahmini.", card2_title: "Command Center", card2_desc: "24 saat önceden yatak/acil/ameliyathane doluluk tahmini, otonom yönetim.", card3_title: "Blockchain Audit", card3_desc: "SHA-256 zinciri + Ethereum/Polygon notarizasyon, değiştirilemez denetim logu.", card4_title: "No-Click Hospital", card4_desc: "Sesli komut → NLP → CPOE. Whisper + GPT-4o pipeline ile dokunmadan order." },
         integrations: { badge: "Entegrasyonlar", title: "Tam Entegrasyon — <span>18+ Ulusal & Global</span>", subtitle: "Ek kurulum gerektirmeden tüm ulusal ve global sistemlere bağlı.", extra: "HL7 v2 / MLLP · ASTM E1394 · OMOP CDM v5.4 · Apple Health / Garmin · SMART on FHIR · e-Reçete / MEDİCUS" },
         ai: { badge: "Yapay Zeka", title: "Klinik Kararları <span>Destekleyen</span> AI (10+)", subtitle: "GPT-4o + Whisper v3 dahil 10+ AI modeli. Pilot hastane verisiyle Q3 2026'da kalibre edilecek.", disclaimer: "* Tüm değerler sentetik veri doğrulama testinden elde edilmiştir." },
-        compare: { badge: "Neden Trevonti?", title: "Rakiplerle <span>Karşılaştırma</span>", subtitle: "18 kriterde, 5 global rakiple birebir karşılaştırma.", col_feature: "Özellik" },
         tech: { badge: "Altyapı", title: "Kurumsal Sınıf <span>Teknoloji Stack'i</span>", subtitle: "5 katmanlı, cloud-native, yatay ölçeklenebilir mimari. GPT-4o, Whisper v3, HAPI FHIR R5, Socket.io, Ethereum, Docker Compose.", arch_badge: "5 Katmanlı Mimari", frontend: "Frontend", mobile: "iOS + Android", backend: "Backend API", db: "Veritabanı", cache: "Cache", messaging: "Mesajlaşma", ai_engine: "AI Engine", auth: "Auth / MFA", orchestration: "Orchestration", zero_trust: "Zero-Trust", analytics: "Analitik", build: "Build", storage: "Depolama & PACS", search: "Arama & NLP", llm: "LLM / AI", testing: "Performans Testi", layer1_name: "Sunum Katmanı", layer1_tech: "React 18 · Next.js 14 · React Native 0.74 · TypeScript 5 · OHIF Viewer", layer2_name: "API Katmanı", layer2_tech: "NestJS 10 · REST · WebSocket · Socket.io · GraphQL · Keycloak 24 OIDC/RBAC · Swagger", layer3_name: "Veri Katmanı", layer3_tech: "PostgreSQL 16 (Streaming Rep.) · Redis 7 · MinIO S3 · Elasticsearch · pgvector", layer4_name: "AI/ML Katmanı", layer4_tech: "Python FastAPI · GPT-4o · Whisper v3 · HuggingFace · LangChain · Sepsis Uyarı · JCI Skor", layer5_name: "Entegrasyon Katmanı", layer5_tech: "Kafka 3.7 · HAPI FHIR R5 · Ethereum · MHRS · Medula · Orthanc PACS · MinIO S3 · Elasticsearch" },
         roadmap: { badge: "Yol Haritası", title: "Şeffaf <span>İlerleme</span>", subtitle: "Neredeyiz, nereye gidiyoruz.", q1_quarter: "2025 Q4 – 2026 Q1", q1_title: "Geliştirme Tamamlandı", q1_desc: "62+ modül, 28 sprint, 49 canlı demo.", q2_quarter: "2026 Q2", q2_title: "Platform v2.0", q2_desc: "HIS+LIS+RIS/PACS+Portal+Agent tamamlandı.", q3_quarter: "2026 Q3", q3_title: "Pilot & Yatırım", q3_desc: "Staging ortamı, ilk pilot hastane.", q4_quarter: "2026 Q4", q4_title: "Staging & Testler", q4_desc: "Pilot hastane entegrasyon testleri.", q5_quarter: "2027 Q1", q5_title: "Şirket Kuruluşu & SİSE", q5_desc: "Şirket kuruluşu, SİSE başvurusu.", q6_quarter: "2027 Q2", q6_title: "SİSE & Büyüme", q6_desc: "SİSE onayı, ilk 3 hastane sözleşmesi." },
         cta: { title: "Birlikte İnşa Edelim", subtitle: "Pilot hastane ortağı, yatırımcı veya sektör uzmanıysanız — doğru yerdeysiniz.", btn_primary: "📧 Bize Yazın", btn_secondary: "🐙 Koda Bakın" },
@@ -1603,73 +1540,35 @@
       }
     };
 
-    // Diğer diller için İngilizce'yi baz alıp hızlıca genişletelim (tam çeviri için ayrıca destek alınabilir)
     const enBase = {
       logo: { subtitle: "Fully Integrated Hospital Platform", tech: "Cloud-Native | AI-Powered | Sustainable Technology" },
-      nav: { features: "Features", modules: "Modules", ai: "AI", integrations: "Integrations", tech: "Technology", roadmap: "Roadmap", github: "GitHub", contact: "Contact", platform: "Platform", faz: "Phases", xfactor: "X-Factor", compare: "Compare" },
+      nav: { features: "Features", modules: "Modules", ai: "AI", integrations: "Integrations", tech: "Technology", roadmap: "Roadmap", github: "GitHub", contact: "Contact", platform: "Platform", faz: "Phases", xfactor: "X-Factor" },
       hero: { badge: "Trevonti HBYS v2.0 · HIS+LIS+RIS+Portal+Agent · 62+ Modules · FHIR R5", title: "Turkey's<br><span>Next Generation</span><br>Hospital System", subtitle: "HIS (41 modules), LIS (13 modules), RIS/PACS and Patient Portal on a single platform with 62+ modules.", btn_primary: "📧 Apply for Pilot", btn_secondary: "🐙 View on GitHub", card1_title: "Sepsis Early Warning", card1_sub: "qSOFA + NEWS2 Hybrid", card2_title: "SGK Medula", card2_sub: "Automated Billing", card2_badge: "Integrated", card3_title: "KVKK & FHIR R5", card3_sub: "Fully Compliant", card3_badge: "Compliant", card4_title: "iOS + Android + Web", card4_sub: "No Installation Required" },
       stats: { modules: "Clinical Modules", demos: "Live Demos", sprints: "Sprints", sla: "SLA Target" },
       problem: { badge: "Problem", title: "<span>78%</span> of Hospitals in Turkey Use Outdated Systems", subtitle: "10–20 year old, server-based HIS software.", card1_title: "No Mobile Access", card1_desc: "Nurses perform BCMA on paper.", card1_stat: "0% Mobile", card2_title: "SGK Revenue Loss", card2_desc: "Manual SUT code entry causes revenue loss.", card2_stat: "12% Loss", card3_title: "Medication Errors", card3_desc: "Paper-based systems cannot check drug interactions.", card3_stat: "3× Errors" },
-      features: { badge: "Solution", title: "Everything <span>Built-in</span>", subtitle: "Fully integrated platform from the ground up.", cloud_title: "Cloud-Native", cloud_desc: "Kubernetes 1.29, Docker Compose, Patroni HA PostgreSQL.", mobile_title: "Mobile App", mobile_desc: "React Native 0.74, offline-first.", ai_title: "AI Engine (10+)", ai_desc: "GPT-4o + Whisper v3. Sepsis AUC 0.979.", sgk_title: "Automated SGK Billing", sgk_desc: "99% SUT compliance.", security_title: "KVKK & Security", security_desc: "AES-256-GCM, SHA-256 + Ethereum Blockchain.", integration_title: "18+ Integrations", integration_desc: "HL7 v2, ASTM, OMOP CDM v5.4, Apple Health, SMART on FHIR." },
+      features: { badge: "Solution", title: "Everything <span>Built-in</span>", subtitle: "Fully integrated platform from the ground up.", cloud_title: "Cloud-Native", cloud_desc: "Kubernetes 1.29, Docker Compose, Patroni HA PostgreSQL. No server purchase.", mobile_title: "Mobile App", mobile_desc: "React Native 0.74, offline-first, biometric auth.", ai_title: "AI Engine (10+)", ai_desc: "GPT-4o + Whisper v3. Sepsis AUC 0.979.", sgk_title: "Automated SGK Billing", sgk_desc: "99% SUT compliance. e-Invoice UBL 2.1.", security_title: "KVKK & Security", security_desc: "AES-256-GCM, SAST/DAST, Cilium zero-trust, Keycloak MFA, SHA-256 + Ethereum Blockchain.", integration_title: "18+ Integrations", integration_desc: "SGK Medula, Sağlık-Net, e-Nabız, HL7 v2, ASTM, OMOP CDM v5.4, Apple Health, SMART on FHIR." },
       platform: { badge: "4 Main Products", title: "One <span>Platform</span>, Four Products", subtitle: "HIS, LIS, RIS/PACS and Patient Portal fully integrated.", his_desc: "Hospital Information System", lis_desc: "Laboratory Information System", ris_desc: "Radiology & Imaging", portal_desc: "Patient Portal" },
       modules: { badge: "Scope", title: "<span>62+ Modules</span>, One Platform", subtitle: "Complete hospital in one system. (41 HIS + 13 LIS + 8 Platform)", footer_note: "✅ 49 live demos, 62+ modules. 411 files, 284 TypeScript, 0 ZIP errors, FHIR R5." },
       faz: { badge: "5-Phase Architecture", title: "Modular <span>Phase</span> Structure", subtitle: "Each phase builds on the previous, independently deployable.", f0_title: "Core HIS", f0_desc: "Patient management, registration, basic clinical operations", f1_title: "Clinical Digital", f1_desc: "EMR, CPOE, eMAR, Terminology, FHIR R5, Pathology, Genetics", f2_title: "Artificial Intelligence", f2_desc: "AI Scribe, Diagnosis Assistant, Sepsis Spot, LIS AI, Image AI", f3_title: "Platform", f3_desc: "ICU, IoT/RTLS, Patient App, Zero-Trust, Blockchain, OMOP, SaaS", f4_title: "X-Factor", f4_desc: "Digital Twin, Command Center, Marketplace, Genomics, Wearables, No-Click" },
       xfactor: { badge: "Competitive Edge", title: "<span>X-Factor</span> Technologies", subtitle: "Advanced technology components unique to Trevonti.", card1_title: "Digital Twin", card1_desc: "Patient simulation, pharmacodynamic model, Bayesian update, hospital capacity forecast.", card2_title: "Command Center", card2_desc: "24h advance bed/ER/OR occupancy prediction, autonomous management.", card3_title: "Blockchain Audit", card3_desc: "SHA-256 chain + Ethereum/Polygon notarization, immutable audit log.", card4_title: "No-Click Hospital", card4_desc: "Voice command → NLP → CPOE. Whisper + GPT-4o pipeline." },
       integrations: { badge: "Integrations", title: "Full Integration — <span>18+ National & Global</span>", subtitle: "Connected to all systems without additional installation.", extra: "HL7 v2 / MLLP · ASTM E1394 · OMOP CDM v5.4 · Apple Health / Garmin · SMART on FHIR · e-Reçete / MEDİCUS" },
       ai: { badge: "AI", title: "AI <span>Supporting</span> Clinical Decisions (10+)", subtitle: "10+ AI models including GPT-4o + Whisper v3.", disclaimer: "* All values from synthetic data validation tests." },
-      compare: { badge: "Why Trevonti?", title: "Competitive <span>Comparison</span>", subtitle: "18 criteria, head-to-head with 5 global competitors.", col_feature: "Feature" },
       tech: { badge: "Infrastructure", title: "Enterprise-Grade <span>Tech Stack</span>", subtitle: "5-layer, cloud-native. GPT-4o, Whisper v3, HAPI FHIR R5, Socket.io, Ethereum, Docker Compose.", arch_badge: "5-Layer Architecture", frontend: "Frontend", mobile: "iOS + Android", backend: "Backend API", db: "Database", cache: "Cache", messaging: "Messaging", ai_engine: "AI Engine", auth: "Auth / MFA", orchestration: "Orchestration", zero_trust: "Zero-Trust", analytics: "Analytics", build: "Build", storage: "Storage & PACS", search: "Search & NLP", llm: "LLM / AI", testing: "Performance Testing", layer1_name: "Presentation", layer1_tech: "React 18 · Next.js 14 · React Native 0.74 · TypeScript 5 · OHIF Viewer", layer2_name: "API Layer", layer2_tech: "NestJS 10 · REST · WebSocket · Socket.io · GraphQL · Keycloak 24 · Swagger", layer3_name: "Data Layer", layer3_tech: "PostgreSQL 16 · Redis 7 · MinIO S3 · Elasticsearch · pgvector", layer4_name: "AI/ML Layer", layer4_tech: "Python FastAPI · GPT-4o · Whisper v3 · HuggingFace · LangChain", layer5_name: "Integration Layer", layer5_tech: "Kafka 3.7 · HAPI FHIR R5 · Ethereum · MHRS · Medula · Orthanc PACS" },
       roadmap: { badge: "Roadmap", title: "Transparent <span>Progress</span>", subtitle: "Where we are, where we're going.", q1_quarter: "2025 Q4 – 2026 Q1", q1_title: "Dev Complete", q1_desc: "62+ modules, 28 sprints, 49 live demos.", q2_quarter: "2026 Q2", q2_title: "Platform v2.0", q2_desc: "HIS+LIS+RIS/PACS+Portal+Agent complete.", q3_quarter: "2026 Q3", q3_title: "Pilot & Investment", q3_desc: "Staging, first pilot hospital.", q4_quarter: "2026 Q4", q4_title: "Staging & Tests", q4_desc: "Pilot integration tests.", q5_quarter: "2027 Q1", q5_title: "Company & SİSE", q5_desc: "Company formation, SİSE application.", q6_quarter: "2027 Q2", q6_title: "SİSE & Growth", q6_desc: "SİSE approval, first 3 contracts." },
       cta: { title: "Let's Build Together", subtitle: "Pilot partner, investor or expert — you're in the right place.", btn_primary: "📧 Contact Us", btn_secondary: "🐙 View Code" },
       footer: { desc: "Turkey's next-gen cloud-based AI-powered Hospital Information System.", platform_title: "Platform", developer_title: "Developer", contact_title: "Contact", contact_general: "General", contact_pilot: "Pilot", contact_investor: "Investor", copy: "© 2025 Trevonti HBYS. All rights reserved.", badge1: "KVKK", badge2: "FHIR R5", badge3: "SGK Medula", badge4: "SİSE Ready" }
     };
     translations.en = enBase;
-    translations.de = { ...enBase, logo: { subtitle: "Vollintegrierte Krankenhausplattform", tech: "Cloud-nativ | KI-gestützt" }, nav: { ...enBase.nav, features: "Funktionen", modules: "Module", ai: "KI", integrations: "Integrationen", tech: "Technologie", roadmap: "Roadmap", github: "GitHub", contact: "Kontakt", platform: "Plattform", faz: "Phasen", xfactor: "X-Faktor", compare: "Vergleich" } };
-    translations.fr = { ...enBase, logo: { subtitle: "Plateforme Hospitalière Intégrée", tech: "Cloud-Native | IA" }, nav: { ...enBase.nav, features: "Fonctionnalités", modules: "Modules", ai: "IA", integrations: "Intégrations", tech: "Technologie", roadmap: "Feuille de route", github: "GitHub", contact: "Contact", platform: "Plateforme", faz: "Phases", xfactor: "X-Facteur", compare: "Comparer" } };
-    translations.es = { ...enBase, logo: { subtitle: "Plataforma Hospitalaria Integrada", tech: "Nativa de la nube | IA" }, nav: { ...enBase.nav, features: "Características", modules: "Módulos", ai: "IA", integrations: "Integraciones", tech: "Tecnología", roadmap: "Hoja de ruta", github: "GitHub", contact: "Contacto", platform: "Plataforma", faz: "Fases", xfactor: "X-Factor", compare: "Comparar" } };
-    translations.pt = { ...enBase, logo: { subtitle: "Plataforma Hospitalar Integrada", tech: "Nativa da nuvem | IA" }, nav: { ...enBase.nav, features: "Recursos", modules: "Módulos", ai: "IA", integrations: "Integrações", tech: "Tecnologia", roadmap: "Roteiro", github: "GitHub", contact: "Contato", platform: "Plataforma", faz: "Fases", xfactor: "X-Fator", compare: "Comparar" } };
-    translations.it = { ...enBase, logo: { subtitle: "Piattaforma Ospedaliera Integrata", tech: "Cloud-Native | IA" }, nav: { ...enBase.nav, features: "Funzionalità", modules: "Moduli", ai: "IA", integrations: "Integrazioni", tech: "Tecnologia", roadmap: "Roadmap", github: "GitHub", contact: "Contatto", platform: "Piattaforma", faz: "Fasi", xfactor: "X-Factor", compare: "Confronta" } };
-    translations.ar = { ...enBase, logo: { subtitle: "منصة مستشفى متكاملة", tech: "سحابية | ذكاء اصطناعي" }, nav: { ...enBase.nav, features: "الميزات", modules: "الوحدات", ai: "الذكاء", integrations: "التكاملات", tech: "التكنولوجيا", roadmap: "الخريطة", github: "جيثب", contact: "اتصال", platform: "المنصة", faz: "المراحل", xfactor: "X-Factor", compare: "مقارنة" } };
-    translations.zh = { ...enBase, logo: { subtitle: "完全集成医院平台", tech: "云原生 | AI驱动" }, nav: { ...enBase.nav, features: "特性", modules: "模块", ai: "AI", integrations: "集成", tech: "技术", roadmap: "路线图", github: "GitHub", contact: "联系", platform: "平台", faz: "阶段", xfactor: "X因素", compare: "比较" } };
-    translations.ja = { ...enBase, logo: { subtitle: "完全統合病院プラットフォーム", tech: "クラウドネイティブ | AI" }, nav: { ...enBase.nav, features: "特徴", modules: "モジュール", ai: "AI", integrations: "統合", tech: "技術", roadmap: "ロードマップ", github: "GitHub", contact: "連絡", platform: "プラットフォーム", faz: "フェーズ", xfactor: "Xファクター", compare: "比較" } };
-    translations.ko = { ...enBase, logo: { subtitle: "완전 통합 병원 플랫폼", tech: "클라우드 네이티브 | AI" }, nav: { ...enBase.nav, features: "기능", modules: "모듈", ai: "AI", integrations: "통합", tech: "기술", roadmap: "로드맵", github: "GitHub", contact: "연락처", platform: "플랫폼", faz: "단계", xfactor: "X-팩터", compare: "비교" } };
+    translations.de = { ...enBase, logo: { subtitle: "Vollintegrierte Krankenhausplattform", tech: "Cloud-nativ | KI-gestützt" }, nav: { ...enBase.nav, features: "Funktionen", modules: "Module", ai: "KI", integrations: "Integrationen", tech: "Technologie", roadmap: "Roadmap", github: "GitHub", contact: "Kontakt", platform: "Plattform", faz: "Phasen", xfactor: "X-Faktor" } };
+    translations.fr = { ...enBase, logo: { subtitle: "Plateforme Hospitalière Intégrée", tech: "Cloud-Native | IA" }, nav: { ...enBase.nav, features: "Fonctionnalités", modules: "Modules", ai: "IA", integrations: "Intégrations", tech: "Technologie", roadmap: "Feuille de route", github: "GitHub", contact: "Contact", platform: "Plateforme", faz: "Phases", xfactor: "X-Facteur" } };
+    translations.es = { ...enBase, logo: { subtitle: "Plataforma Hospitalaria Integrada", tech: "Nativa de la nube | IA" }, nav: { ...enBase.nav, features: "Características", modules: "Módulos", ai: "IA", integrations: "Integraciones", tech: "Tecnología", roadmap: "Hoja de ruta", github: "GitHub", contact: "Contacto", platform: "Plataforma", faz: "Fases", xfactor: "X-Factor" } };
+    translations.pt = { ...enBase, logo: { subtitle: "Plataforma Hospitalar Integrada", tech: "Nativa da nuvem | IA" }, nav: { ...enBase.nav, features: "Recursos", modules: "Módulos", ai: "IA", integrations: "Integrações", tech: "Tecnologia", roadmap: "Roteiro", github: "GitHub", contact: "Contato", plataform: "Plataforma", faz: "Fases", xfactor: "X-Fator" } };
+    translations.it = { ...enBase, logo: { subtitle: "Piattaforma Ospedaliera Integrata", tech: "Cloud-Native | IA" }, nav: { ...enBase.nav, features: "Funzionalità", modules: "Moduli", ai: "IA", integrations: "Integrazioni", tech: "Tecnologia", roadmap: "Roadmap", github: "GitHub", contact: "Contatto", platform: "Piattaforma", faz: "Fasi", xfactor: "X-Factor" } };
+    translations.ar = { ...enBase, logo: { subtitle: "منصة مستشفى متكاملة", tech: "سحابية | ذكاء اصطناعي" }, nav: { ...enBase.nav, features: "الميزات", modules: "الوحدات", ai: "الذكاء", integrations: "التكاملات", tech: "التكنولوجيا", roadmap: "الخريطة", github: "جيثب", contact: "اتصال", platform: "المنصة", faz: "المراحل", xfactor: "X-Factor" } };
+    translations.zh = { ...enBase, logo: { subtitle: "完全集成医院平台", tech: "云原生 | AI驱动" }, nav: { ...enBase.nav, features: "特性", modules: "模块", ai: "AI", integrations: "集成", tech: "技术", roadmap: "路线图", github: "GitHub", contact: "联系", platform: "平台", faz: "阶段", xfactor: "X因素" } };
+    translations.ja = { ...enBase, logo: { subtitle: "完全統合病院プラットフォーム", tech: "クラウドネイティブ | AI" }, nav: { ...enBase.nav, features: "特徴", modules: "モジュール", ai: "AI", integrations: "統合", tech: "技術", roadmap: "ロードマップ", github: "GitHub", contact: "連絡", platform: "プラットフォーム", faz: "フェーズ", xfactor: "Xファクター" } };
+    translations.ko = { ...enBase, logo: { subtitle: "완전 통합 병원 플랫폼", tech: "클라우드 네이티브 | AI" }, nav: { ...enBase.nav, features: "기능", modules: "모듈", ai: "AI", integrations: "통합", tech: "기술", roadmap: "로드맵", github: "GitHub", contact: "연락처", platform: "플랫폼", faz: "단계", xfactor: "X-팩터" } };
 
-    // ─── Karşılaştırma Tablosu Verisi ───
-    const compareRows = [
-      { f: "Bulut-Yerel (SaaS)", t: "✅", a: "❌", h: "❌", e: "⚠️ Kısmi", i: "⚠️ Kısmi", trev: true },
-      { f: "Mobil App (iOS/Android)", t: "✅", a: "⚠️ Kısmi", h: "⚠️ Kısmi", e: "✅", i: "⚠️ Kısmi", trev: true },
-      { f: "FHIR R5 Desteği", t: "✅", a: "❌", h: "❌", e: "FHIR R4", i: "FHIR R4", trev: true },
-      { f: "AI Sepsis Erken Uyarı", t: "✅ AUC 0.979", a: "❌", h: "❌", e: "⚠️", i: "❌", trev: true },
-      { f: "GPT-4o + Whisper Entegrasyonu", t: "✅", a: "❌", h: "❌", e: "❌", i: "❌", trev: true },
-      { f: "SGK Medula Otomatik", t: "✅ %99", a: "✅", h: "❌", e: "❌", i: "❌" },
-      { f: "e-Nabız / Sağlık-Net", t: "✅", a: "✅", h: "❌", e: "❌", i: "❌" },
-      { f: "Blockchain Denetim Logu", t: "✅", a: "❌", h: "❌", e: "❌", i: "❌", trev: true },
-      { f: "Digital Twin Simülasyon", t: "✅", a: "❌", h: "❌", e: "❌", i: "❌", trev: true },
-      { f: "No-Click Sesli Order", t: "✅", a: "❌", h: "❌", e: "❌", i: "❌", trev: true },
-      { f: "Command Center (24s AI)", t: "✅", a: "❌", h: "❌", e: "⚠️", i: "❌", trev: true },
-      { f: "IoT / RTLS Entegrasyonu", t: "✅", a: "❌", h: "⚠️", e: "⚠️", i: "❌", trev: true },
-      { f: "Zero-Trust / FIDO2", t: "✅", a: "❌", h: "⚠️", e: "✅", i: "✅" },
-      { f: "Giyilebilir / CGM (Apple Health)", t: "✅", a: "❌", h: "❌", e: "⚠️", i: "❌", trev: true },
-      { f: "SaaS Çok Kiracılı Mimari", t: "✅", a: "❌", h: "✅", e: "✅", i: "✅" },
-      { f: "OMOP CDM v5.4", t: "✅", a: "❌", h: "❌", e: "⚠️", i: "✅" },
-      { f: "SMART on FHIR", t: "✅", a: "❌", h: "❌", e: "✅", i: "✅" },
-      { f: "Toplam Modül Sayısı", t: "62+", a: "~30", h: "~45", e: "~50", i: "~35" }
-    ];
-
-    function buildCompare() {
-      const tb = document.getElementById('compareTbody');
-      if (!tb) return;
-      tb.innerHTML = '';
-      compareRows.forEach(r => {
-        const tr = document.createElement('tr');
-        tr.innerHTML = `<td>${r.f}</td>
-          <td class="${r.trev ? 'trev-only' : ''}">${r.t}</td>
-          <td>${r.a}</td><td>${r.h}</td><td>${r.e}</td><td>${r.i}</td>`;
-        tb.appendChild(tr);
-      });
-    }
-
-    // ─── Modül listesi ───
     const mods = [
       { i: "🏥", n: "HIS Core (Hasta Yönetimi)", k: "%97.2 SGK Uyumu" }, { i: "💊", n: "CPOE — Elektronik Order", k: "CPOE" }, { i: "🧠", n: "Klinik Karar Destek", k: "Klinik Karar" }, { i: "🧪", n: "LIS — Laboratuvar (HL7)", k: "HL7 · LOINC" }, { i: "🩻", n: "RIS/PACS — Radyoloji", k: "DICOM · OHIF" },
       { i: "💊", n: "Eczane (BCMA + FEFO)", k: "BCMA · FEFO" }, { i: "🔪", n: "Ameliyathane (OR)", k: "OR Verimliliği" }, { i: "❤️", n: "YBÜ — Yoğun Bakım", k: "APACHE II · SOFA" }, { i: "🩸", n: "Kan Bankası (ISBT 128)", k: "ISBT 128" }, { i: "🧬", n: "Onkoloji (OIS)", k: "OIS · ASCO" },
@@ -1713,7 +1612,7 @@
     function animateCounters() { const counters = [{ id: 'count-modules', t: 62, s: '+', d: 1600 }, { id: 'count-demos', t: 49, s: '', d: 1400 }, { id: 'count-sprints', t: 28, s: '', d: 1200 }]; counters.forEach(c => { const el = document.getElementById(c.id); if (!el) return; let st = null; const step = ts => { if (!st) st = ts; const p = Math.min((ts - st) / c.d, 1); el.textContent = Math.round((1 - Math.pow(1 - p, 3)) * c.t) + c.s; if (p < 1) requestAnimationFrame(step); }; requestAnimationFrame(step); }); }
 
     document.addEventListener('DOMContentLoaded', () => {
-      buildMods(); buildIntegrations(); buildAI(); buildRoadmap(); buildStack(); buildArch(); buildCompare();
+      buildMods(); buildIntegrations(); buildAI(); buildRoadmap(); buildStack(); buildArch();
       document.getElementById('langDropdownBtn').addEventListener('click', e => { e.stopPropagation(); document.getElementById('langDropdownMenu').classList.toggle('show'); });
       document.querySelectorAll('.lang-option').forEach(o => o.addEventListener('click', e => switchLanguage(o.dataset.lang)));
       document.addEventListener('click', () => document.getElementById('langDropdownMenu').classList.remove('show'));
