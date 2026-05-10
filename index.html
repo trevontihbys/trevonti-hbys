@@ -3,1368 +3,211 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  <meta name="description" content="Trevonti HBYS — Türkiye'nin yeni nesil, bulut tabanlı ve yapay zeka destekli Hastane Bilgi Yönetim Sistemi. 62+ klinik modül, SGK entegrasyonu, FHIR R5 uyumlu. Digital Twin, Blockchain Audit, Agent Platform.">
-  <meta name="keywords" content="HBYS, Hastane Bilgi Sistemi, SGK, FHIR, sağlık teknolojisi, cloud, yapay zeka">
-  <meta property="og:title" content="Trevonti HBYS — Yeni Nesil Hastane Sistemi">
-  <meta property="og:description" content="54 modül (41 HIS + 13 LIS), SGK Medula, Sağlık-Net, FHIR R5 ve 10+ AI destekli. Digital Twin, Command Center, Blockchain Audit, No-Click Hospital, 50 Agent AI Platform.">
-  <title>Trevonti HBYS — Yeni Nesil Hastane Bilgi Yönetim Sistemi</title>
+  <meta name="description" content="Trevonti HBYS — Türkiye'nin yeni nesil, bulut tabanlı ve yapay zeka destekli Hastane Bilgi Yönetim Sistemi. 62+ klinik modül, FHIR R5, IEC 62304, WCAG 2.1 AA, SOC/NOC, Digital Twin.">
+  <meta name="keywords" content="HBYS, Hastane Bilgi Sistemi, SGK, FHIR R5, IEC 62304, WCAG, sağlık teknolojisi, cloud, yapay zeka">
+  <meta property="og:title" content="Trevonti HBYS — Healthcare OS Platform">
+  <meta property="og:description" content="API-first, white-label, WCAG 2.1 AA, IEC 62304 uyumlu. 5 ana ürün, 62+ modül, 10+ AI, 18+ entegrasyon.">
+  <title>Trevonti HBYS — Yeni Nesil Sağlık İşletim Sistemi</title>
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      -webkit-font-smoothing: antialiased;
-    }
-    html {
-      scroll-behavior: smooth;
-    }
-    body {
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      background: #fff;
-      color: #1e293b;
-      overflow-x: hidden;
-    }
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-    :root {
-      --teal: #0d9488;
-      --teal-dark: #0b7a71;
-      --teal-light: #f0fdf4;
-      --navy: #0f172a;
-      --slate: #1e293b;
-      --gray: #64748b;
-      --lgray: #f1f5f9;
-      --white: #fff;
-      --grad: linear-gradient(135deg, #0f172a 0%, #0d3a3a 50%, #0d9488 100%);
-    }
-    .nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      background: rgba(15, 23, 42, .95);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255, 255, 255, .06);
-      padding: 0 5%;
-      height: 64px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      transition: .3s;
-    }
-    .nav-logo {
-      display: flex;
-      align-items: center;
-    }
-    .nav-logo-text-group {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.2;
-    }
-    .nav-logo-main {
-      display: flex;
-      align-items: baseline;
-      gap: 6px;
-    }
-    .nav-logo-trevonti {
-      font-weight: 800;
-      font-size: 17px;
-      color: #fff;
-      letter-spacing: 0.5px;
-    }
-    .nav-logo-hbys {
-      font-weight: 700;
-      font-size: 17px;
-      color: var(--teal);
-      letter-spacing: 1px;
-    }
-    .nav-logo-subtitle {
-      font-size: 9px;
-      font-weight: 600;
-      color: #fff;
-      opacity: 0.9;
-      letter-spacing: 0.3px;
-      white-space: nowrap;
-    }
-    .nav-logo-tech {
-      font-size: 7.5px;
-      font-weight: 400;
-      color: rgba(255, 255, 255, .6);
-      white-space: nowrap;
-      letter-spacing: 0.2px;
-      margin-top: 2px;
-    }
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-    .nav-links a {
-      color: rgba(255, 255, 255, .7);
-      font-size: 13px;
-      font-weight: 500;
-      transition: .2s;
-      white-space: nowrap;
-    }
-    .nav-links a:hover {
-      color: #fff;
-    }
-    .nav-cta {
-      background: var(--teal);
-      color: #fff !important;
-      padding: 8px 18px;
-      border-radius: 8px;
-      font-weight: 600 !important;
-      font-size: 12px !important;
-      transition: .2s !important;
-    }
-    .nav-cta:hover {
-      background: var(--teal-dark) !important;
-    }
-    .nav-menu-btn {
-      display: none;
-      background: none;
-      border: none;
-      cursor: pointer;
-      color: #fff;
-      font-size: 22px;
-    }
-    .lang-dropdown {
-      position: relative;
-      margin-left: 8px;
-    }
-    .lang-dropdown-btn {
-      background: transparent;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      color: #fff;
-      padding: 6px 10px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 12px;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      transition: all 0.2s;
-    }
-    .lang-dropdown-btn:hover {
-      background: rgba(255, 255, 255, 0.1);
-      border-color: var(--teal);
-    }
-    .lang-dropdown-btn i {
-      font-size: 9px;
-      opacity: 0.7;
-    }
-    .lang-dropdown-menu {
-      position: absolute;
-      top: 100%;
-      right: 0;
-      margin-top: 8px;
-      background: #1e293b;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 8px;
-      padding: 6px 0;
-      min-width: 150px;
-      max-height: 300px;
-      overflow-y: auto;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-      display: none;
-      z-index: 200;
-    }
-    .lang-dropdown-menu.show {
-      display: block;
-    }
-    .lang-option {
-      padding: 8px 14px;
-      color: rgba(255, 255, 255, 0.8);
-      font-size: 12px;
-      cursor: pointer;
-      transition: background 0.2s;
-      white-space: nowrap;
-    }
-    .lang-option:hover {
-      background: rgba(13, 148, 136, 0.2);
-      color: #fff;
-    }
-    .lang-option.active {
-      background: var(--teal);
-      color: #fff;
-    }
-    .hero {
-      min-height: 100vh;
-      background: var(--grad);
-      display: flex;
-      align-items: center;
-      padding: 100px 5% 60px;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero-bg-dots {
-      position: absolute;
-      inset: 0;
-      background-image: radial-gradient(rgba(13, 148, 136, .15) 1px, transparent 1px);
-      background-size: 32px 32px;
-      pointer-events: none;
-    }
-    .hero-glow {
-      position: absolute;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(13, 148, 136, .2) 0%, transparent 70%);
-      top: -100px;
-      right: -100px;
-      pointer-events: none;
-    }
-    .hero-content {
-      position: relative;
-      max-width: 640px;
-    }
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(13, 148, 136, .2);
-      border: 1px solid rgba(13, 148, 136, .4);
-      border-radius: 20px;
-      padding: 6px 14px;
-      font-size: 12px;
-      font-weight: 600;
-      color: #5eead4;
-      margin-bottom: 24px;
-    }
-    .hero-badge-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #5eead4;
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0%, 100% {
-        opacity: 1;
-      }
-      50% {
-        opacity: .4;
-      }
-    }
-    .hero-title {
-      font-size: clamp(32px, 5vw, 56px);
-      font-weight: 800;
-      color: #fff;
-      line-height: 1.15;
-      margin-bottom: 20px;
-    }
-    .hero-title span {
-      color: #5eead4;
-    }
-    .hero-sub {
-      font-size: 18px;
-      color: rgba(255, 255, 255, .7);
-      line-height: 1.7;
-      margin-bottom: 32px;
-      max-width: 520px;
-    }
-    .hero-btns {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-    .btn-pri {
-      padding: 14px 28px;
-      background: var(--teal);
-      color: #fff;
-      border-radius: 10px;
-      font-size: 15px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: .2s;
-      border: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .btn-pri:hover {
-      background: var(--teal-dark);
-      transform: translateY(-1px);
-    }
-    .btn-sec {
-      padding: 14px 28px;
-      background: rgba(255, 255, 255, .08);
-      color: #fff;
-      border-radius: 10px;
-      font-size: 15px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: .2s;
-      border: 1px solid rgba(255, 255, 255, .15);
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .btn-sec:hover {
-      background: rgba(255, 255, 255, .14);
-    }
-    .hero-stats {
-      display: flex;
-      gap: 32px;
-      margin-top: 48px;
-      flex-wrap: wrap;
-    }
-    .hs-item {
-      text-align: left;
-    }
-    .hs-val {
-      font-size: 32px;
-      font-weight: 800;
-      color: #fff;
-    }
-    .hs-label {
-      font-size: 13px;
-      color: rgba(255, 255, 255, .55);
-      margin-top: 2px;
-    }
-    .hero-right {
-      position: absolute;
-      right: 5%;
-      top: 50%;
-      transform: translateY(-50%);
-      width: min(42%, 480px);
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      pointer-events: none;
-    }
-    .hr-card {
-      background: rgba(255, 255, 255, .06);
-      border: 1px solid rgba(255, 255, 255, .1);
-      border-radius: 12px;
-      padding: 14px 16px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      animation: floatIn .6s ease both;
-    }
-    @keyframes floatIn {
-      from {
-        opacity: 0;
-        transform: translateX(20px);
-      }
-      to {
-        opacity: 1;
-        transform: none;
-      }
-    }
-    .hr-card:nth-child(1) {
-      animation-delay: .1s;
-    }
-    .hr-card:nth-child(2) {
-      animation-delay: .2s;
-    }
-    .hr-card:nth-child(3) {
-      animation-delay: .3s;
-    }
-    .hr-card:nth-child(4) {
-      animation-delay: .4s;
-    }
-    .hr-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      flex-shrink: 0;
-    }
-    .hr-info {
-      flex: 1;
-    }
-    .hr-title {
-      font-size: 13px;
-      font-weight: 600;
-      color: #fff;
-    }
-    .hr-sub {
-      font-size: 11px;
-      color: rgba(255, 255, 255, .5);
-      margin-top: 1px;
-    }
-    .hr-badge {
-      font-size: 10px;
-      font-weight: 700;
-      padding: 3px 8px;
-      border-radius: 8px;
-      white-space: nowrap;
-    }
-    .hb-green {
-      background: rgba(34, 197, 94, .2);
-      color: #4ade80;
-    }
-    .hb-teal {
-      background: rgba(13, 148, 136, .25);
-      color: #5eead4;
-    }
-    .hb-blue {
-      background: rgba(59, 130, 246, .2);
-      color: #60a5fa;
-    }
-    .hb-amber {
-      background: rgba(245, 158, 11, .2);
-      color: #fcd34d;
-    }
-    section {
-      padding: 80px 5%;
-    }
-    .section-badge {
-      display: inline-block;
-      background: var(--teal-light);
-      color: var(--teal);
-      font-size: 12px;
-      font-weight: 700;
-      padding: 5px 14px;
-      border-radius: 20px;
-      margin-bottom: 14px;
-    }
-    .section-title {
-      font-size: clamp(26px, 3.5vw, 40px);
-      font-weight: 800;
-      color: var(--navy);
-      line-height: 1.25;
-      margin-bottom: 14px;
-    }
-    .section-title span {
-      color: var(--teal);
-    }
-    .section-sub {
-      font-size: 17px;
-      color: var(--gray);
-      line-height: 1.7;
-      max-width: 580px;
-      margin-bottom: 40px;
-    }
-    .center {
-      text-align: center;
-    }
-    .center .section-sub {
-      margin: 0 auto 40px;
-    }
-    .problem-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      margin-bottom: 60px;
-    }
-    .prob-card {
-      background: #fff;
-      border: 1px solid #fee2e2;
-      border-radius: 14px;
-      padding: 24px;
-      position: relative;
-      overflow: hidden;
-    }
-    .prob-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: #ef4444;
-    }
-    .prob-icon {
-      font-size: 28px;
-      margin-bottom: 12px;
-    }
-    .prob-title {
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 8px;
-    }
-    .prob-desc {
-      font-size: 13px;
-      color: var(--gray);
-      line-height: 1.6;
-    }
-    .prob-stat {
-      font-size: 22px;
-      font-weight: 800;
-      color: #dc2626;
-      margin-top: 10px;
-    }
-    .features-bg {
-      background: var(--lgray);
-    }
-    .feat-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-    .feat-card {
-      background: #fff;
-      border: 1px solid #e2e8f0;
-      border-radius: 14px;
-      padding: 24px;
-      transition: .2s;
-    }
-    .feat-card:hover {
-      border-color: var(--teal);
-      transform: translateY(-3px);
-      box-shadow: 0 8px 24px rgba(13, 148, 136, .1);
-    }
-    .feat-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-      margin-bottom: 14px;
-    }
-    .fi-teal {
-      background: #f0fdf4;
-    }
-    .fi-blue {
-      background: #eff6ff;
-    }
-    .fi-purple {
-      background: #f5f3ff;
-    }
-    .fi-amber {
-      background: #fffbeb;
-    }
-    .fi-red {
-      background: #fef2f2;
-    }
-    .fi-green {
-      background: #f0fdf4;
-    }
-    .feat-title {
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 8px;
-    }
-    .feat-desc {
-      font-size: 13px;
-      color: var(--gray);
-      line-height: 1.6;
-    }
+    *{box-sizing:border-box;margin:0;padding:0;-webkit-font-smoothing:antialiased}
+    html{scroll-behavior:smooth}
+    body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:#fff;color:#1e293b;overflow-x:hidden}
+    a{text-decoration:none;color:inherit}
+    :root{
+      --teal:#0d9488;--teal-dark:#0b7a71;--teal-light:#f0fdf4;
+      --navy:#0f172a;--slate:#1e293b;--gray:#64748b;--lgray:#f1f5f9;
+      --white:#fff;--grad:linear-gradient(135deg,#0f172a 0%,#0d3a3a 50%,#0d9488 100%);
+    }
+    .nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(15,23,42,.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.06);padding:0 5%;height:64px;display:flex;align-items:center;justify-content:space-between;transition:.3s}
+    .nav-logo{display:flex;align-items:center}
+    .nav-logo-text-group{display:flex;flex-direction:column;line-height:1.2}
+    .nav-logo-main{display:flex;align-items:baseline;gap:6px}
+    .nav-logo-trevonti{font-weight:800;font-size:17px;color:#fff;letter-spacing:.5px}
+    .nav-logo-hbys{font-weight:700;font-size:17px;color:var(--teal);letter-spacing:1px}
+    .nav-logo-subtitle{font-size:9px;font-weight:600;color:#fff;opacity:.9;letter-spacing:.3px;white-space:nowrap}
+    .nav-logo-tech{font-size:7.5px;font-weight:400;color:rgba(255,255,255,.6);white-space:nowrap;letter-spacing:.2px;margin-top:2px}
+    .nav-links{display:flex;align-items:center;gap:15px;flex-wrap:wrap}
+    .nav-links a{color:rgba(255,255,255,.7);font-size:12px;font-weight:500;transition:.2s;white-space:nowrap}
+    .nav-links a:hover{color:#fff}
+    .nav-cta{background:var(--teal);color:#fff!important;padding:7px 15px;border-radius:8px;font-weight:600!important;font-size:11px!important;transition:.2s!important}
+    .nav-cta:hover{background:var(--teal-dark)!important}
+    .nav-menu-btn{display:none;background:none;border:none;cursor:pointer;color:#fff;font-size:22px}
+    .lang-dropdown{position:relative;margin-left:6px}
+    .lang-dropdown-btn{background:transparent;border:1px solid rgba(255,255,255,.3);color:#fff;padding:5px 9px;border-radius:6px;cursor:pointer;font-size:11px;font-weight:500;display:flex;align-items:center;gap:4px;transition:all .2s}
+    .lang-dropdown-btn:hover{background:rgba(255,255,255,.1);border-color:var(--teal)}
+    .lang-dropdown-btn i{font-size:8px;opacity:.7}
+    .lang-dropdown-menu{position:absolute;top:100%;right:0;margin-top:8px;background:#1e293b;border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:6px 0;min-width:140px;max-height:280px;overflow-y:auto;box-shadow:0 8px 20px rgba(0,0,0,.3);display:none;z-index:200}
+    .lang-dropdown-menu.show{display:block}
+    .lang-option{padding:7px 12px;color:rgba(255,255,255,.8);font-size:11px;cursor:pointer;transition:background .2s;white-space:nowrap}
+    .lang-option:hover{background:rgba(13,148,136,.2);color:#fff}
+    .lang-option.active{background:var(--teal);color:#fff}
 
-    .platform-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
-    .plat-card {
-      background: #fff;
-      border: 1px solid #e2e8f0;
-      border-radius: 16px;
-      padding: 28px 20px;
-      text-align: center;
-      transition: .25s;
-      position: relative;
-    }
-    .plat-card:hover {
-      border-color: var(--teal);
-      transform: translateY(-4px);
-      box-shadow: 0 12px 30px rgba(13, 148, 136, .12);
-    }
-    .plat-icon {
-      font-size: 42px;
-      margin-bottom: 16px;
-    }
-    .plat-name {
-      font-size: 17px;
-      font-weight: 800;
-      color: var(--navy);
-      margin-bottom: 8px;
-    }
-    .plat-desc {
-      font-size: 13px;
-      color: var(--gray);
-      line-height: 1.5;
-      margin-bottom: 12px;
-    }
-    .plat-stats {
-      display: flex;
-      justify-content: center;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-    .plat-stat {
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--teal);
-      background: var(--teal-light);
-      padding: 4px 10px;
-      border-radius: 6px;
-    }
+    .hero{min-height:100vh;background:var(--grad);display:flex;align-items:center;padding:100px 5% 60px;position:relative;overflow:hidden}
+    .hero-bg-dots{position:absolute;inset:0;background-image:radial-gradient(rgba(13,148,136,.15) 1px,transparent 1px);background-size:32px 32px;pointer-events:none}
+    .hero-glow{position:absolute;width:600px;height:600px;background:radial-gradient(circle,rgba(13,148,136,.2) 0%,transparent 70%);top:-100px;right:-100px;pointer-events:none}
+    .hero-content{position:relative;max-width:640px}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(13,148,136,.2);border:1px solid rgba(13,148,136,.4);border-radius:20px;padding:6px 14px;font-size:12px;font-weight:600;color:#5eead4;margin-bottom:24px}
+    .hero-badge-dot{width:6px;height:6px;border-radius:50%;background:#5eead4;animation:pulse 2s infinite}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+    .hero-title{font-size:clamp(32px,5vw,56px);font-weight:800;color:#fff;line-height:1.15;margin-bottom:20px}
+    .hero-title span{color:#5eead4}
+    .hero-sub{font-size:18px;color:rgba(255,255,255,.7);line-height:1.7;margin-bottom:32px;max-width:520px}
+    .hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+    .btn-pri{padding:14px 28px;background:var(--teal);color:#fff;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;transition:.2s;border:none;display:inline-flex;align-items:center;gap:8px}
+    .btn-pri:hover{background:var(--teal-dark);transform:translateY(-1px)}
+    .btn-sec{padding:14px 28px;background:rgba(255,255,255,.08);color:#fff;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;transition:.2s;border:1px solid rgba(255,255,255,.15);display:inline-flex;align-items:center;gap:8px}
+    .btn-sec:hover{background:rgba(255,255,255,.14)}
+    .hero-stats{display:flex;gap:32px;margin-top:48px;flex-wrap:wrap}
+    .hs-item{text-align:left}
+    .hs-val{font-size:32px;font-weight:800;color:#fff}
+    .hs-label{font-size:13px;color:rgba(255,255,255,.55);margin-top:2px}
+    .hero-right{position:absolute;right:5%;top:50%;transform:translateY(-50%);width:min(42%,480px);display:flex;flex-direction:column;gap:10px;pointer-events:none}
+    .hr-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:14px 16px;display:flex;align-items:center;gap:12px;animation:floatIn .6s ease both}
+    @keyframes floatIn{from{opacity:0;transform:translateX(20px)}to{opacity:1;transform:none}}
+    .hr-card:nth-child(1){animation-delay:.1s}.hr-card:nth-child(2){animation-delay:.2s}.hr-card:nth-child(3){animation-delay:.3s}.hr-card:nth-child(4){animation-delay:.4s}
+    .hr-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+    .hr-info{flex:1}.hr-title{font-size:13px;font-weight:600;color:#fff}.hr-sub{font-size:11px;color:rgba(255,255,255,.5);margin-top:1px}
+    .hr-badge{font-size:10px;font-weight:700;padding:3px 8px;border-radius:8px;white-space:nowrap}
+    .hb-green{background:rgba(34,197,94,.2);color:#4ade80}.hb-teal{background:rgba(13,148,136,.25);color:#5eead4}.hb-blue{background:rgba(59,130,246,.2);color:#60a5fa}.hb-amber{background:rgba(245,158,11,.2);color:#fcd34d}
 
-    .faz-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 14px;
-    }
-    .faz-card {
-      background: #fff;
-      border: 1px solid #e2e8f0;
-      border-radius: 14px;
-      padding: 22px 16px;
-      text-align: center;
-      transition: .2s;
-      position: relative;
-    }
-    .faz-card:hover {
-      border-color: var(--teal);
-      transform: translateY(-3px);
-    }
-    .faz-num {
-      font-size: 36px;
-      font-weight: 900;
-      color: var(--teal);
-      opacity: 0.25;
-      margin-bottom: 6px;
-    }
-    .faz-title {
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 8px;
-    }
-    .faz-desc {
-      font-size: 11px;
-      color: var(--gray);
-      line-height: 1.5;
-    }
-    .faz-badge {
-      display: inline-block;
-      font-size: 10px;
-      font-weight: 700;
-      padding: 3px 8px;
-      border-radius: 8px;
-      margin-top: 8px;
-      background: var(--teal-light);
-      color: var(--teal);
-    }
+    section{padding:80px 5%}
+    .section-badge{display:inline-block;background:var(--teal-light);color:var(--teal);font-size:12px;font-weight:700;padding:5px 14px;border-radius:20px;margin-bottom:14px}
+    .section-title{font-size:clamp(26px,3.5vw,40px);font-weight:800;color:var(--navy);line-height:1.25;margin-bottom:14px}
+    .section-title span{color:var(--teal)}
+    .section-sub{font-size:17px;color:var(--gray);line-height:1.7;max-width:680px;margin-bottom:40px}
+    .center{text-align:center}.center .section-sub{margin:0 auto 40px}
 
-    .xfact-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
-    .xfact-card {
-      background: linear-gradient(135deg, #0f172a, #0d3a3a);
-      border: 1px solid rgba(13, 148, 136, .3);
-      border-radius: 16px;
-      padding: 28px 20px;
-      text-align: center;
-      color: #fff;
-      transition: .25s;
-    }
-    .xfact-card:hover {
-      border-color: #5eead4;
-      transform: translateY(-4px);
-      box-shadow: 0 12px 30px rgba(13, 148, 136, .25);
-    }
-    .xfact-icon {
-      font-size: 44px;
-      margin-bottom: 14px;
-    }
-    .xfact-title {
-      font-size: 16px;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-    .xfact-desc {
-      font-size: 12px;
-      color: rgba(255, 255, 255, .65);
-      line-height: 1.5;
-    }
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+    .grid5{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+    .grid6{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
 
-    .modules-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
-    }
-    .mod-item {
-      background: #fff;
-      border: 1px solid #e2e8f0;
-      border-radius: 10px;
-      padding: 14px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      transition: .15s;
-      flex-wrap: wrap;
-    }
-    .mod-item:hover {
-      border-color: var(--teal);
-      background: var(--teal-light);
-    }
-    .mod-icon {
-      font-size: 18px;
-      flex-shrink: 0;
-    }
-    .mod-name {
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--slate);
-      flex: 1;
-    }
-    .mod-kpi {
-      font-size: 10px;
-      color: var(--gray);
-      width: 100%;
-      font-style: italic;
-    }
-    .new-badge,
-    .planned-badge {
-      font-size: 8px;
-      font-weight: 700;
-      padding: 2px 6px;
-      border-radius: 4px;
-      white-space: nowrap;
-    }
-    .new-badge {
-      background: var(--teal);
-      color: #fff;
-    }
-    .planned-badge {
-      background: #f59e0b;
-      color: #fff;
-    }
-    .mod-item.new-highlight {
-      background: #f0fdf4;
-      border-color: rgba(13, 148, 136, .4);
-    }
-    .mod-item.planned-highlight {
-      background: #fefce8;
-      border-color: rgba(245, 158, 11, .4);
-    }
-    .integ-bg {
-      background: var(--navy);
-    }
-    .integ-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-    }
-    .integ-card {
-      background: rgba(255, 255, 255, .06);
-      border: 1px solid rgba(255, 255, 255, .1);
-      border-radius: 12px;
-      padding: 20px;
-      text-align: center;
-      transition: .2s;
-    }
-    .integ-card:hover {
-      background: rgba(255, 255, 255, .1);
-      border-color: rgba(13, 148, 136, .4);
-    }
-    .ic-icon {
-      font-size: 32px;
-      margin-bottom: 10px;
-    }
-    .ic-name {
-      font-size: 14px;
-      font-weight: 600;
-      color: #fff;
-      margin-bottom: 4px;
-    }
-    .ic-desc {
-      font-size: 12px;
-      color: rgba(255, 255, 255, .5);
-    }
-    .ic-badge {
-      display: inline-block;
-      font-size: 10px;
-      font-weight: 700;
-      padding: 2px 8px;
-      border-radius: 8px;
-      margin-top: 8px;
-      background: rgba(34, 197, 94, .2);
-      color: #4ade80;
-    }
-    .ai-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
-    .ai-card {
-      background: #fff;
-      border: 1px solid #e2e8f0;
-      border-radius: 16px;
-      padding: 28px;
-      position: relative;
-      overflow: hidden;
-    }
-    .ai-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-    }
-    .ai-teal::before {
-      background: var(--teal);
-    }
-    .ai-blue::before {
-      background: #3b82f6;
-    }
-    .ai-purple::before {
-      background: #8b5cf6;
-    }
-    .ai-amber::before {
-      background: #f59e0b;
-    }
-    .ai-header {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 16px;
-    }
-    .ai-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 22px;
-    }
-    .ai-title {
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--navy);
-    }
-    .ai-algo {
-      font-size: 12px;
-      color: var(--gray);
-      margin-top: 2px;
-    }
-    .ai-metric {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 12px;
-    }
-    .am-val {
-      font-size: 40px;
-      font-weight: 800;
-      color: var(--teal);
-      line-height: 1;
-    }
-    .am-label {
-      font-size: 12px;
-      color: var(--gray);
-    }
-    .am-ci {
-      font-size: 11px;
-      color: var(--gray);
-      font-family: 'Consolas', monospace;
-    }
-    .ai-desc {
-      font-size: 13px;
-      color: var(--gray);
-      line-height: 1.6;
-    }
-    .tech-bg {
-      background: var(--lgray);
-    }
-    .stack-grid {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 12px;
-    }
-    .stack-item {
-      background: #fff;
-      border: 1px solid #e2e8f0;
-      border-radius: 10px;
-      padding: 16px;
-      text-align: center;
-      transition: .15s;
-    }
-    .stack-item:hover {
-      border-color: var(--teal);
-      transform: translateY(-2px);
-    }
-    .si-icon {
-      font-size: 24px;
-      margin-bottom: 6px;
-    }
-    .si-name {
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--slate);
-    }
-    .si-type {
-      font-size: 10px;
-      color: var(--gray);
-      margin-top: 2px;
-    }
-    .arch-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 12px;
-      margin-top: 20px;
-    }
-    .arch-layer {
-      background: #fff;
-      border: 1px solid #e2e8f0;
-      border-radius: 12px;
-      padding: 16px;
-      text-align: center;
-    }
-    .arch-layer-icon {
-      font-size: 24px;
-      margin-bottom: 6px;
-    }
-    .arch-layer-name {
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 4px;
-    }
-    .arch-layer-tech {
-      font-size: 10px;
-      color: var(--gray);
-      line-height: 1.5;
-    }
-    .roadmap-bg {
-      background: var(--navy);
-    }
-    .roadmap-line {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 0;
-      position: relative;
-    }
-    .roadmap-line::before {
-      content: '';
-      position: absolute;
-      top: 22px;
-      left: 8%;
-      right: 8%;
-      height: 2px;
-      background: rgba(255, 255, 255, .1);
-      z-index: 0;
-    }
-    .rm-item {
-      text-align: center;
-      position: relative;
-      z-index: 1;
-      padding: 0 4px;
-    }
-    .rm-dot {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      margin: 0 auto 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 14px;
-      font-weight: 700;
-      border: 3px solid;
-    }
-    .rm-done {
-      background: var(--teal);
-      border-color: var(--teal);
-      color: #fff;
-    }
-    .rm-active {
-      background: #0f172a;
-      border-color: var(--teal);
-      color: var(--teal);
-      animation: glowPulse 2s infinite;
-    }
-    @keyframes glowPulse {
-      0%, 100% {
-        box-shadow: 0 0 0 0 rgba(13, 148, 136, .4);
-      }
-      50% {
-        box-shadow: 0 0 0 8px rgba(13, 148, 136, 0);
-      }
-    }
-    .rm-quarter {
-      font-size: 9px;
-      font-weight: 700;
-      color: var(--teal);
-      margin-bottom: 2px;
-    }
-    .rm-title {
-      font-size: 11px;
-      font-weight: 600;
-      color: #fff;
-      margin-bottom: 3px;
-    }
-    .rm-desc {
-      font-size: 9px;
-      color: rgba(255, 255, 255, .5);
-      line-height: 1.3;
-    }
-    .cta-bg {
-      background: linear-gradient(135deg, var(--teal-dark), #0891b2);
-    }
-    .cta-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 32px;
-      flex-wrap: wrap;
-    }
-    .cta-title {
-      font-size: clamp(22px, 3vw, 36px);
-      font-weight: 800;
-      color: #fff;
-      margin-bottom: 10px;
-    }
-    .cta-sub {
-      font-size: 16px;
-      color: rgba(255, 255, 255, .8);
-      max-width: 480px;
-    }
-    .cta-btns {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      flex-shrink: 0;
-    }
-    .cta-btn-white {
-      padding: 13px 26px;
-      background: #fff;
-      color: var(--teal);
-      border-radius: 10px;
-      font-size: 14px;
-      font-weight: 700;
-      cursor: pointer;
-      border: none;
-      transition: .2s;
-    }
-    .cta-btn-white:hover {
-      background: #f0fdf4;
-    }
-    .cta-btn-outline {
-      padding: 13px 26px;
-      background: transparent;
-      color: #fff;
-      border-radius: 10px;
-      font-size: 14px;
-      font-weight: 600;
-      cursor: pointer;
-      border: 2px solid rgba(255, 255, 255, .4);
-      transition: .2s;
-    }
-    .cta-btn-outline:hover {
-      border-color: #fff;
-      background: rgba(255, 255, 255, .08);
-    }
-    .footer {
-      background: var(--navy);
-      padding: 60px 5% 30px;
-    }
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 40px;
-      margin-bottom: 40px;
-    }
-    .footer-logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 16px;
-    }
-    .fl-box {
-      width: 34px;
-      height: 34px;
-      background: var(--teal);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-weight: 800;
-      font-size: 13px;
-    }
-    .fl-name {
-      color: #fff;
-      font-size: 16px;
-      font-weight: 700;
-    }
-    .footer-desc {
-      font-size: 13px;
-      color: rgba(255, 255, 255, .5);
-      line-height: 1.7;
-      margin-bottom: 20px;
-    }
-    .footer-links-title {
-      font-size: 12px;
-      font-weight: 700;
-      color: rgba(255, 255, 255, .4);
-      text-transform: uppercase;
-      letter-spacing: .06em;
-      margin-bottom: 14px;
-    }
-    .footer-links a {
-      display: block;
-      font-size: 13px;
-      color: rgba(255, 255, 255, .6);
-      margin-bottom: 8px;
-      transition: .2s;
-    }
-    .footer-links a:hover {
-      color: #fff;
-    }
-    .footer-bottom {
-      border-top: 1px solid rgba(255, 255, 255, .08);
-      padding-top: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-    .fb-copy {
-      font-size: 12px;
-      color: rgba(255, 255, 255, .4);
-    }
-    .fb-badges {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-    .fb-badge {
-      font-size: 11px;
-      font-weight: 600;
-      padding: 4px 10px;
-      border-radius: 8px;
-      background: rgba(13, 148, 136, .2);
-      color: var(--teal);
-    }
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity .6s, transform .6s;
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: none;
-    }
-    @media(max-width:1024px) {
-      .hero-right {
-        display: none;
-      }
-      .modules-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-      .stack-grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
-      .arch-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-      .footer-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-      .roadmap-line {
-        grid-template-columns: repeat(3, 1fr);
-      }
-      .roadmap-line::before {
-        display: none;
-      }
-      .platform-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .faz-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-      .xfact-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-    @media(max-width:768px) {
-      .nav-links {
-        display: none;
-      }
-      .nav-menu-btn {
-        display: block;
-      }
-      .problem-grid,
-      .feat-grid,
-      .ai-grid {
-        grid-template-columns: 1fr;
-      }
-      .integ-grid,
-      .modules-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .stack-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-      .arch-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .roadmap-line {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-      }
-      .roadmap-line::before {
-        display: none;
-      }
-      .footer-grid {
-        grid-template-columns: 1fr;
-      }
-      .cta-inner {
-        flex-direction: column;
-      }
-      .hero-stats {
-        gap: 20px;
-      }
-      .platform-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-      .faz-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .xfact-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-      .nav-logo-trevonti {
-        font-size: 15px !important;
-      }
-      .nav-logo-hbys {
-        font-size: 15px !important;
-      }
-      .nav-logo-subtitle {
-        white-space: normal !important;
-        font-size: 8px;
-      }
-      .nav-logo-tech {
-        white-space: normal !important;
-      }
-      .lang-dropdown {
-        margin-left: 0;
-      }
-      .hero {
-        padding-top: 120px;
-        padding-bottom: 80px;
-      }
-      .hero-content {
-        max-width: 100%;
-      }
-      .hero-stats {
-        justify-content: space-between;
-      }
-      .hs-item {
-        flex: 1;
-        text-align: center;
-      }
-      section {
-        padding: 60px 5%;
-      }
-      .footer-bottom {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      body {
-        overflow-x: hidden;
-      }
-      .lang-dropdown-menu {
-        right: auto;
-        left: 0;
-      }
-    }
-    @media(max-width:480px) {
-      .integ-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-      .stack-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .modules-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-      .roadmap-line {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .arch-grid {
-        grid-template-columns: 1fr;
-      }
-      .platform-grid {
-        grid-template-columns: 1fr;
-      }
-      .faz-grid {
-        grid-template-columns: 1fr;
-      }
-      .xfact-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-    html[dir="rtl"] .nav-links {
-      flex-direction: row-reverse;
-    }
-    html[dir="rtl"] .lang-dropdown {
-      margin-left: 0;
-      margin-right: 12px;
-    }
-    html[dir="rtl"] .lang-dropdown-menu {
-      right: auto;
-      left: 0;
-    }
-    html[dir="rtl"] .hero-content {
-      text-align: right;
-    }
-    html[dir="rtl"] .hero-stats {
-      justify-content: flex-end;
-    }
-    html[dir="rtl"] .hero-right {
-      right: auto;
-      left: 5%;
-    }
-    html[dir="rtl"] .hr-card {
-      flex-direction: row-reverse;
-    }
-    html[dir="rtl"] .hr-badge {
-      margin-left: 0;
-      margin-right: auto;
-    }
-    html[dir="rtl"] .hero-badge {
-      flex-direction: row-reverse;
-    }
-    html[dir="rtl"] .btn-pri,
-    html[dir="rtl"] .btn-sec {
-      flex-direction: row-reverse;
-    }
-    html[dir="rtl"] .section-title,
-    html[dir="rtl"] .section-sub {
-      text-align: right;
-    }
-    html[dir="rtl"] .center .section-sub {
-      margin-left: 0;
-      margin-right: auto;
-    }
-    html[dir="rtl"] .feat-card {
-      text-align: right;
-    }
-    html[dir="rtl"] .mod-item {
-      flex-direction: row-reverse;
-    }
-    html[dir="rtl"] .footer-links a {
-      text-align: right;
-    }
-    html[dir="rtl"] .footer-bottom {
-      flex-direction: row-reverse;
-    }
-    html[dir="rtl"] .cta-inner {
-      flex-direction: row-reverse;
+    .card{background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:24px;transition:.2s}
+    .card:hover{border-color:var(--teal);transform:translateY(-3px);box-shadow:0 8px 24px rgba(13,148,136,.1)}
+    .card-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:14px}
+    .card-title{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:8px}
+    .card-desc{font-size:13px;color:var(--gray);line-height:1.6}
+
+    .fi-teal{background:#f0fdf4}.fi-blue{background:#eff6ff}.fi-purple{background:#f5f3ff}.fi-amber{background:#fffbeb}.fi-red{background:#fef2f2}.fi-green{background:#f0fdf4}.fi-slate{background:#f1f5f9}.fi-cyan{background:#ecfeff}
+
+    .prob-card{background:#fff;border:1px solid #fee2e2;border-radius:14px;padding:24px;position:relative;overflow:hidden}
+    .prob-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:#ef4444}
+    .prob-icon{font-size:28px;margin-bottom:12px}.prob-title{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:8px}.prob-desc{font-size:13px;color:var(--gray);line-height:1.6}.prob-stat{font-size:22px;font-weight:800;color:#dc2626;margin-top:10px}
+
+    .plat-card{background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:28px 20px;text-align:center;transition:.25s}
+    .plat-card:hover{border-color:var(--teal);transform:translateY(-4px);box-shadow:0 12px 30px rgba(13,148,136,.12)}
+    .plat-icon{font-size:42px;margin-bottom:16px}.plat-name{font-size:17px;font-weight:800;color:var(--navy);margin-bottom:8px}
+    .plat-desc{font-size:13px;color:var(--gray);line-height:1.5;margin-bottom:12px}
+    .plat-stats{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+    .plat-stat{font-size:10px;font-weight:600;color:var(--teal);background:var(--teal-light);padding:4px 9px;border-radius:6px}
+
+    .faz-card{background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:22px 16px;text-align:center;transition:.2s}
+    .faz-card:hover{border-color:var(--teal);transform:translateY(-3px)}
+    .faz-num{font-size:36px;font-weight:900;color:var(--teal);opacity:.25;margin-bottom:6px}
+    .faz-title{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:8px}
+    .faz-desc{font-size:11px;color:var(--gray);line-height:1.5}
+    .faz-badge{display:inline-block;font-size:10px;font-weight:700;padding:3px 8px;border-radius:8px;margin-top:8px;background:var(--teal-light);color:var(--teal)}
+
+    .xfact-card{background:linear-gradient(135deg,#0f172a,#0d3a3a);border:1px solid rgba(13,148,136,.3);border-radius:16px;padding:28px 20px;text-align:center;color:#fff;transition:.25s}
+    .xfact-card:hover{border-color:#5eead4;transform:translateY(-4px);box-shadow:0 12px 30px rgba(13,148,136,.25)}
+    .xfact-icon{font-size:44px;margin-bottom:14px}.xfact-title{font-size:16px;font-weight:700;margin-bottom:8px}.xfact-desc{font-size:12px;color:rgba(255,255,255,.65);line-height:1.5}
+
+    .mod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+    .mod-item{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:12px;display:flex;align-items:center;gap:8px;transition:.15s;flex-wrap:wrap}
+    .mod-item:hover{border-color:var(--teal);background:var(--teal-light)}
+    .mod-icon{font-size:18px;flex-shrink:0}.mod-name{font-size:12px;font-weight:500;color:var(--slate);flex:1}.mod-kpi{font-size:9px;color:var(--gray);width:100%;font-style:italic}
+    .new-badge,.planned-badge{font-size:7px;font-weight:700;padding:2px 5px;border-radius:4px;white-space:nowrap}
+    .new-badge{background:var(--teal);color:#fff}.planned-badge{background:#f59e0b;color:#fff}
+    .mod-item.new-highlight{background:#f0fdf4;border-color:rgba(13,148,136,.4)}
+    .mod-item.planned-highlight{background:#fefce8;border-color:rgba(245,158,11,.4)}
+
+    .integ-bg{background:var(--navy)}
+    .integ-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .integ-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:20px;text-align:center;transition:.2s}
+    .integ-card:hover{background:rgba(255,255,255,.1);border-color:rgba(13,148,136,.4)}
+    .ic-icon{font-size:32px;margin-bottom:10px}.ic-name{font-size:14px;font-weight:600;color:#fff;margin-bottom:4px}.ic-desc{font-size:12px;color:rgba(255,255,255,.5)}
+    .ic-badge{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:8px;margin-top:8px;background:rgba(34,197,94,.2);color:#4ade80}
+
+    .ai-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+    .ai-card{background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:28px;position:relative;overflow:hidden}
+    .ai-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+    .ai-teal::before{background:var(--teal)}.ai-blue::before{background:#3b82f6}.ai-purple::before{background:#8b5cf6}.ai-amber::before{background:#f59e0b}
+    .ai-header{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+    .ai-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px}
+    .ai-title{font-size:16px;font-weight:700;color:var(--navy)}.ai-algo{font-size:12px;color:var(--gray);margin-top:2px}
+    .ai-metric{display:flex;align-items:center;gap:16px;margin-bottom:12px}
+    .am-val{font-size:40px;font-weight:800;color:var(--teal);line-height:1}
+    .am-label{font-size:12px;color:var(--gray)}.am-ci{font-size:11px;color:var(--gray);font-family:'Consolas',monospace}
+    .ai-desc{font-size:13px;color:var(--gray);line-height:1.6}
+
+    .stack-item{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:14px;text-align:center;transition:.15s}
+    .stack-item:hover{border-color:var(--teal);transform:translateY(-2px)}
+    .si-icon{font-size:22px;margin-bottom:5px}.si-name{font-size:11px;font-weight:600;color:var(--slate)}.si-type{font-size:9px;color:var(--gray);margin-top:2px}
+
+    .arch-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:20px}
+    .arch-layer{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:14px;text-align:center}
+    .arch-layer-icon{font-size:22px;margin-bottom:5px}.arch-layer-name{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:4px}.arch-layer-tech{font-size:9px;color:var(--gray);line-height:1.5}
+
+    .roadmap-bg{background:var(--navy)}
+    .roadmap-line{display:grid;grid-template-columns:repeat(6,1fr);gap:0;position:relative}
+    .roadmap-line::before{content:'';position:absolute;top:22px;left:8%;right:8%;height:2px;background:rgba(255,255,255,.1);z-index:0}
+    .rm-item{text-align:center;position:relative;z-index:1;padding:0 4px}
+    .rm-dot{width:36px;height:36px;border-radius:50%;margin:0 auto 8px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;border:3px solid}
+    .rm-done{background:var(--teal);border-color:var(--teal);color:#fff}
+    .rm-active{background:#0f172a;border-color:var(--teal);color:var(--teal);animation:glowPulse 2s infinite}
+    @keyframes glowPulse{0%,100%{box-shadow:0 0 0 0 rgba(13,148,136,.4)}50%{box-shadow:0 0 0 8px rgba(13,148,136,0)}}
+    .rm-quarter{font-size:8px;font-weight:700;color:var(--teal);margin-bottom:2px}
+    .rm-title{font-size:10px;font-weight:600;color:#fff;margin-bottom:3px}.rm-desc{font-size:8px;color:rgba(255,255,255,.5);line-height:1.3}
+
+    .cta-bg{background:linear-gradient(135deg,var(--teal-dark),#0891b2)}
+    .cta-inner{display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap}
+    .cta-title{font-size:clamp(22px,3vw,36px);font-weight:800;color:#fff;margin-bottom:10px}
+    .cta-sub{font-size:16px;color:rgba(255,255,255,.8);max-width:480px}
+    .cta-btns{display:flex;gap:10px;flex-wrap:wrap;flex-shrink:0}
+    .cta-btn-white{padding:13px 26px;background:#fff;color:var(--teal);border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;border:none;transition:.2s}
+    .cta-btn-white:hover{background:#f0fdf4}
+    .cta-btn-outline{padding:13px 26px;background:transparent;color:#fff;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;border:2px solid rgba(255,255,255,.4);transition:.2s}
+    .cta-btn-outline:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+
+    .footer{background:var(--navy);padding:60px 5% 30px}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+    .footer-logo{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+    .fl-box{width:34px;height:34px;background:var(--teal);border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:13px}
+    .fl-name{color:#fff;font-size:16px;font-weight:700}
+    .footer-desc{font-size:13px;color:rgba(255,255,255,.5);line-height:1.7;margin-bottom:20px}
+    .footer-links-title{font-size:11px;font-weight:700;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px}
+    .footer-links a{display:block;font-size:12px;color:rgba(255,255,255,.6);margin-bottom:6px;transition:.2s}
+    .footer-links a:hover{color:#fff}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+    .fb-copy{font-size:11px;color:rgba(255,255,255,.4)}
+    .fb-badges{display:flex;gap:8px;flex-wrap:wrap}
+    .fb-badge{font-size:10px;font-weight:600;padding:4px 9px;border-radius:8px;background:rgba(13,148,136,.2);color:var(--teal)}
+
+    .fade-in{opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s}
+    .fade-in.visible{opacity:1;transform:none}
+
+    @media(max-width:1024px){
+      .hero-right{display:none}.grid4,.mod-grid{grid-template-columns:repeat(3,1fr)}.grid6,.stack-grid{grid-template-columns:repeat(4,1fr)}
+      .arch-grid{grid-template-columns:repeat(3,1fr)}.footer-grid{grid-template-columns:1fr 1fr}
+      .roadmap-line{grid-template-columns:repeat(3,1fr)}.roadmap-line::before{display:none}
+      .grid5{grid-template-columns:repeat(3,1fr)}
+    }
+    @media(max-width:768px){
+      .nav-links{display:none}.nav-menu-btn{display:block}
+      .grid3,.grid4,.ai-grid{grid-template-columns:1fr}.mod-grid,.integ-grid{grid-template-columns:repeat(2,1fr)}
+      .grid6{grid-template-columns:repeat(3,1fr)}.arch-grid{grid-template-columns:repeat(2,1fr)}
+      .roadmap-line{grid-template-columns:repeat(2,1fr);gap:12px}.roadmap-line::before{display:none}
+      .footer-grid{grid-template-columns:1fr}.cta-inner{flex-direction:column}.hero-stats{gap:20px}
+      .grid5{grid-template-columns:repeat(2,1fr)}
+      .nav-logo-trevonti,.nav-logo-hbys{font-size:15px!important}
+      .hero{padding-top:120px;padding-bottom:80px}.hero-content{max-width:100%}
+      .hero-stats{justify-content:space-between}.hs-item{flex:1;text-align:center}
+      section{padding:60px 5%}.footer-bottom{flex-direction:column;align-items:flex-start}
+      .lang-dropdown-menu{right:auto;left:0}
+    }
+    @media(max-width:480px){
+      .mod-grid,.integ-grid,.grid6{grid-template-columns:repeat(2,1fr)}.arch-grid{grid-template-columns:1fr}
+      .grid4,.grid3,.ai-grid,.grid5{grid-template-columns:1fr}
     }
   </style>
 </head>
@@ -1375,8 +218,8 @@
       <a href="#features" data-i18n="nav.features"></a><a href="#platform" data-i18n="nav.platform">Platform</a>
       <a href="#modules" data-i18n="nav.modules"></a><a href="#faz" data-i18n="nav.faz">FAZ</a>
       <a href="#xfactor" data-i18n="nav.xfactor">X-Faktör</a><a href="#ai" data-i18n="nav.ai"></a>
-      <a href="#integrations" data-i18n="nav.integrations"></a>
-      <a href="#tech" data-i18n="nav.tech">Teknoloji</a><a href="#roadmap" data-i18n="nav.roadmap"></a>
+      <a href="#global" data-i18n="nav.global">Küresel</a><a href="#integrations" data-i18n="nav.integrations"></a>
+      <a href="#tech" data-i18n="nav.tech"></a><a href="#roadmap" data-i18n="nav.roadmap"></a>
       <a href="https://github.com/trevontihbys" target="_blank" data-i18n="nav.github"></a>
       <a href="mailto:trevonti.hbys@gmail.com" class="nav-cta" data-i18n="nav.contact"></a>
       <div class="lang-dropdown">
@@ -1417,66 +260,64 @@
 
   <section id="problem" style="background:var(--lgray)">
     <div class="center fade-in"><div class="section-badge" data-i18n="problem.badge"></div><h2 class="section-title" data-i18n="problem.title"></h2><p class="section-sub" data-i18n="problem.subtitle"></p></div>
-    <div class="problem-grid fade-in">
+    <div class="grid3 fade-in">
       <div class="prob-card"><div class="prob-icon">🚫</div><div class="prob-title" data-i18n="problem.card1_title"></div><div class="prob-desc" data-i18n="problem.card1_desc"></div><div class="prob-stat" data-i18n="problem.card1_stat"></div></div>
       <div class="prob-card"><div class="prob-icon">💰</div><div class="prob-title" data-i18n="problem.card2_title"></div><div class="prob-desc" data-i18n="problem.card2_desc"></div><div class="prob-stat" data-i18n="problem.card2_stat"></div></div>
       <div class="prob-card"><div class="prob-icon">⚠️</div><div class="prob-title" data-i18n="problem.card3_title"></div><div class="prob-desc" data-i18n="problem.card3_desc"></div><div class="prob-stat" data-i18n="problem.card3_stat"></div></div>
     </div>
   </section>
 
-  <section id="features" class="features-bg">
+  <section id="features" class="features-bg" style="background:var(--lgray)">
     <div class="center fade-in"><div class="section-badge" data-i18n="features.badge"></div><h2 class="section-title" data-i18n="features.title"></h2><p class="section-sub" data-i18n="features.subtitle"></p></div>
-    <div class="feat-grid fade-in">
-      <div class="feat-card"><div class="feat-icon fi-teal">☁️</div><div class="feat-title" data-i18n="features.cloud_title"></div><div class="feat-desc" data-i18n="features.cloud_desc"></div></div>
-      <div class="feat-card"><div class="feat-icon fi-blue">📱</div><div class="feat-title" data-i18n="features.mobile_title"></div><div class="feat-desc" data-i18n="features.mobile_desc"></div></div>
-      <div class="feat-card"><div class="feat-icon fi-purple">🤖</div><div class="feat-title" data-i18n="features.ai_title"></div><div class="feat-desc" data-i18n="features.ai_desc"></div></div>
-      <div class="feat-card"><div class="feat-icon fi-amber">🏦</div><div class="feat-title" data-i18n="features.sgk_title"></div><div class="feat-desc" data-i18n="features.sgk_desc"></div></div>
-      <div class="feat-card"><div class="feat-icon fi-red">🔒</div><div class="feat-title" data-i18n="features.security_title"></div><div class="feat-desc" data-i18n="features.security_desc"></div></div>
-      <div class="feat-card"><div class="feat-icon fi-green">🔗</div><div class="feat-title" data-i18n="features.integration_title"></div><div class="feat-desc" data-i18n="features.integration_desc"></div></div>
+    <div class="grid3 fade-in">
+      <div class="card"><div class="card-icon fi-teal">☁️</div><div class="card-title" data-i18n="features.cloud_title"></div><div class="card-desc" data-i18n="features.cloud_desc"></div></div>
+      <div class="card"><div class="card-icon fi-blue">📱</div><div class="card-title" data-i18n="features.mobile_title"></div><div class="card-desc" data-i18n="features.mobile_desc"></div></div>
+      <div class="card"><div class="card-icon fi-purple">🤖</div><div class="card-title" data-i18n="features.ai_title"></div><div class="card-desc" data-i18n="features.ai_desc"></div></div>
+      <div class="card"><div class="card-icon fi-amber">🏦</div><div class="card-title" data-i18n="features.sgk_title"></div><div class="card-desc" data-i18n="features.sgk_desc"></div></div>
+      <div class="card"><div class="card-icon fi-red">🔒</div><div class="card-title" data-i18n="features.security_title"></div><div class="card-desc" data-i18n="features.security_desc"></div></div>
+      <div class="card"><div class="card-icon fi-green">🔗</div><div class="card-title" data-i18n="features.integration_title"></div><div class="card-desc" data-i18n="features.integration_desc"></div></div>
+      <div class="card"><div class="card-icon fi-slate">♿</div><div class="card-title" data-i18n="features.accessibility_title"></div><div class="card-desc" data-i18n="features.accessibility_desc"></div></div>
+      <div class="card"><div class="card-icon fi-cyan">🌱</div><div class="card-title" data-i18n="features.green_title"></div><div class="card-desc" data-i18n="features.green_desc"></div></div>
+      <div class="card"><div class="card-icon fi-teal">🏷️</div><div class="card-title" data-i18n="features.whitelabel_title"></div><div class="card-desc" data-i18n="features.whitelabel_desc"></div></div>
     </div>
   </section>
 
   <section id="platform">
-    <div class="center fade-in"><div class="section-badge" data-i18n="platform.badge">4 Ana Ürün</div><h2 class="section-title" data-i18n="platform.title">Tek <span>Platform</span>, Dört Ana Ürün</h2><p class="section-sub" data-i18n="platform.subtitle">HIS, LIS, RIS/PACS ve Patient Portal tek çatı altında, tam entegre olarak sunulur.</p></div>
-    <div class="platform-grid fade-in">
-      <div class="plat-card"><div class="plat-icon">🏥</div><div class="plat-name">Trevonti HIS</div><div class="plat-desc" data-i18n="platform.his_desc">Hastane Bilgi Sistemi</div><div class="plat-stats"><span class="plat-stat">41 Modül</span><span class="plat-stat">226 TS</span></div></div>
-      <div class="plat-card"><div class="plat-icon">🧪</div><div class="plat-name">Trevonti LIS</div><div class="plat-desc" data-i18n="platform.lis_desc">Laboratuvar Bilgi Sistemi</div><div class="plat-stats"><span class="plat-stat">13 Modül</span><span class="plat-stat">65 TS</span><span class="plat-stat">20 Demo</span></div></div>
-      <div class="plat-card"><div class="plat-icon">🩻</div><div class="plat-name">Trevonti RIS/PACS</div><div class="plat-desc" data-i18n="platform.ris_desc">Radyoloji & Görüntü</div><div class="plat-stats"><span class="plat-stat">15 Metot</span><span class="plat-stat">403 Satır</span><span class="plat-stat">AI Entegre</span></div></div>
-      <div class="plat-card"><div class="plat-icon">💻</div><div class="plat-name">Trevonti Patient Portal</div><div class="plat-desc" data-i18n="platform.portal_desc">Hasta Portalı</div><div class="plat-stats"><span class="plat-stat">21 Endpoint</span><span class="plat-stat">495 Satır</span><span class="plat-stat">iOS/Android/Web</span></div></div>
+    <div class="center fade-in"><div class="section-badge" data-i18n="platform.badge">5 Ana Ürün</div><h2 class="section-title" data-i18n="platform.title">Tek <span>Platform</span>, Beş Ana Ürün</h2><p class="section-sub" data-i18n="platform.subtitle">HIS, LIS, RIS, PACS ve Patient Portal; API-first, white-label hazır, bağımsız ölçeklenebilir mikroservisler olarak konumlanır.</p></div>
+    <div class="grid5 fade-in">
+      <div class="plat-card"><div class="plat-icon">🏥</div><div class="plat-name">Trevonti HIS</div><div class="plat-desc">Hastane Bilgi Sistemi</div><div class="plat-stats"><span class="plat-stat">41 Modül</span><span class="plat-stat">226 TS</span></div></div>
+      <div class="plat-card"><div class="plat-icon">🧪</div><div class="plat-name">Trevonti LIS</div><div class="plat-desc">Laboratuvar Bilgi Sistemi</div><div class="plat-stats"><span class="plat-stat">13 Modül</span><span class="plat-stat">65 TS</span><span class="plat-stat">20 Demo</span></div></div>
+      <div class="plat-card"><div class="plat-icon">🩻</div><div class="plat-name">Trevonti RIS</div><div class="plat-desc">Radyoloji Bilgi Sistemi</div><div class="plat-stats"><span class="plat-stat">15 Metot</span><span class="plat-stat">DICOMweb</span></div></div>
+      <div class="plat-card"><div class="plat-icon">🗄️</div><div class="plat-name">Trevonti PACS</div><div class="plat-desc">Görüntü Arşivleme</div><div class="plat-stats"><span class="plat-stat">VNA</span><span class="plat-stat">403 Satır</span><span class="plat-stat">AI Entegre</span></div></div>
+      <div class="plat-card"><div class="plat-icon">💻</div><div class="plat-name">Trevonti Patient Portal</div><div class="plat-desc">Hasta Portalı</div><div class="plat-stats"><span class="plat-stat">21 Endpoint</span><span class="plat-stat">495 Satır</span><span class="plat-stat">iOS/Android/Web</span></div></div>
     </div>
   </section>
 
   <section id="modules">
     <div class="center fade-in"><div class="section-badge" data-i18n="modules.badge"></div><h2 class="section-title" data-i18n="modules.title"></h2><p class="section-sub" data-i18n="modules.subtitle"></p></div>
-    <div class="modules-grid fade-in" id="mod-container"></div>
+    <div class="mod-grid fade-in" id="mod-container"></div>
     <p style="text-align:center;font-size:12px;color:var(--gray);margin-top:16px" data-i18n="modules.footer_note"></p>
   </section>
 
   <section id="faz" style="background:var(--lgray)">
-    <div class="center fade-in"><div class="section-badge" data-i18n="faz.badge">5 Aşamalı Mimari</div><h2 class="section-title" data-i18n="faz.title">Modüler <span>FAZ</span> Yapısı</h2><p class="section-sub" data-i18n="faz.subtitle">Her aşama bir öncekinin üzerine inşa edilir, bağımsız deploy edilebilir.</p></div>
-    <div class="faz-grid fade-in">
-      <div class="faz-card"><div class="faz-num">0</div><div class="faz-title" data-i18n="faz.f0_title">Temel HIS</div><div class="faz-desc" data-i18n="faz.f0_desc"></div><span class="faz-badge">15 Modül</span></div>
-      <div class="faz-card"><div class="faz-num">1</div><div class="faz-title" data-i18n="faz.f1_title">Klinik Dijital</div><div class="faz-desc" data-i18n="faz.f1_desc"></div><span class="faz-badge">EMR, CPOE, eMAR, FHIR R5</span></div>
-      <div class="faz-card"><div class="faz-num">2</div><div class="faz-title" data-i18n="faz.f2_title">Yapay Zeka</div><div class="faz-desc" data-i18n="faz.f2_desc"></div><span class="faz-badge">AI Scribe, Sepsis, LIS AI</span></div>
-      <div class="faz-card"><div class="faz-num">3</div><div class="faz-title" data-i18n="faz.f3_title">Platform</div><div class="faz-desc" data-i18n="faz.f3_desc"></div><span class="faz-badge">IoT, Zero-Trust, Blockchain, SaaS</span></div>
-      <div class="faz-card"><div class="faz-num">4</div><div class="faz-title" data-i18n="faz.f4_title">X-Faktör</div><div class="faz-desc" data-i18n="faz.f4_desc"></div><span class="faz-badge">Digital Twin, No-Click, Genomik</span></div>
+    <div class="center fade-in"><div class="section-badge" data-i18n="faz.badge">5 Aşamalı Mimari</div><h2 class="section-title" data-i18n="faz.title">Modüler <span>FAZ</span> Yapısı</h2><p class="section-sub" data-i18n="faz.subtitle">Her aşama bir öncekinin üzerine inşa edilir, Helm + ArgoCD ile bağımsız deploy edilebilir.</p></div>
+    <div class="grid5 fade-in">
+      <div class="faz-card"><div class="faz-num">0</div><div class="faz-title">Temel HIS</div><div class="faz-desc">Hasta yönetimi, kayıt, temel klinik</div><span class="faz-badge">15 Modül</span></div>
+      <div class="faz-card"><div class="faz-num">1</div><div class="faz-title">Klinik Dijital</div><div class="faz-desc">EMR, CPOE, eMAR, FHIR R5, Patoloji</div><span class="faz-badge">FHIR R5</span></div>
+      <div class="faz-card"><div class="faz-num">2</div><div class="faz-title">Yapay Zeka</div><div class="faz-desc">AI Scribe, Tanı Asistanı, Sepsis, Görüntü AI</div><span class="faz-badge">AI Scribe</span></div>
+      <div class="faz-card"><div class="faz-num">3</div><div class="faz-title">Platform</div><div class="faz-desc">YBÜ, IoT/RTLS, Zero-Trust, Blockchain, SaaS</div><span class="faz-badge">Zero-Trust</span></div>
+      <div class="faz-card"><div class="faz-num">4</div><div class="faz-title">X-Faktör</div><div class="faz-desc">Digital Twin, No-Click, Genomik, Marketplace</div><span class="faz-badge">Digital Twin</span></div>
     </div>
   </section>
 
   <section id="xfactor">
     <div class="center fade-in"><div class="section-badge" data-i18n="xfactor.badge">Rekabet Avantajı</div><h2 class="section-title" data-i18n="xfactor.title"><span>X-Faktör</span> Teknolojileri</h2><p class="section-sub" data-i18n="xfactor.subtitle">Rakiplerde olmayan, sadece Trevonti'ye özgü ileri teknoloji bileşenleri.</p></div>
-    <div class="xfact-grid fade-in">
-      <div class="xfact-card"><div class="xfact-icon">🧬</div><div class="xfact-title" data-i18n="xfactor.card1_title">Digital Twin</div><div class="xfact-desc" data-i18n="xfactor.card1_desc"></div></div>
-      <div class="xfact-card"><div class="xfact-icon">🎯</div><div class="xfact-title" data-i18n="xfactor.card2_title">Command Center</div><div class="xfact-desc" data-i18n="xfactor.card2_desc"></div></div>
-      <div class="xfact-card"><div class="xfact-icon">⛓️</div><div class="xfact-title" data-i18n="xfactor.card3_title">Blockchain Audit</div><div class="xfact-desc" data-i18n="xfactor.card3_desc"></div></div>
-      <div class="xfact-card"><div class="xfact-icon">🎤</div><div class="xfact-title" data-i18n="xfactor.card4_title">No-Click Hospital</div><div class="xfact-desc" data-i18n="xfactor.card4_desc"></div></div>
+    <div class="grid4 fade-in">
+      <div class="xfact-card"><div class="xfact-icon">🧬</div><div class="xfact-title">Digital Twin</div><div class="xfact-desc">Hasta simülasyonu, farmakodinamik model, Bayesian güncelleme, hastane kapasite tahmini.</div></div>
+      <div class="xfact-card"><div class="xfact-icon">🎯</div><div class="xfact-title">Command Center</div><div class="xfact-desc">24 saat önceden yatak/acil/ameliyathane doluluk tahmini, otonom yönetim.</div></div>
+      <div class="xfact-card"><div class="xfact-icon">⛓️</div><div class="xfact-title">Blockchain Audit</div><div class="xfact-desc">SHA-256 zinciri + Ethereum/Polygon notarizasyon, değiştirilemez denetim logu.</div></div>
+      <div class="xfact-card"><div class="xfact-icon">🎤</div><div class="xfact-title">No-Click Hospital</div><div class="xfact-desc">Sesli komut → NLP → CPOE. Whisper + GPT-4o pipeline ile dokunmadan order.</div></div>
     </div>
-  </section>
-
-  <section id="integrations" class="integ-bg">
-    <div class="center fade-in"><div class="section-badge" style="background:rgba(13,148,136,.2);color:#5eead4" data-i18n="integrations.badge"></div><h2 class="section-title" style="color:#fff" data-i18n="integrations.title"></h2><p class="section-sub" style="color:rgba(255,255,255,.65)" data-i18n="integrations.subtitle"></p></div>
-    <div class="integ-grid fade-in" id="integ-container"></div>
-    <p style="text-align:center;font-size:11px;color:rgba(255,255,255,.45);margin-top:16px" data-i18n="integrations.extra">HL7 v2 / MLLP · ASTM E1394 · OMOP CDM v5.4 · Apple Health / Garmin · SMART on FHIR · e-Reçete / MEDİCUS</p>
   </section>
 
   <section id="ai">
@@ -1485,9 +326,41 @@
     <p style="text-align:center;font-size:12px;color:var(--gray);margin-top:20px" data-i18n="ai.disclaimer"></p>
   </section>
 
-  <section id="tech" class="tech-bg">
+  <section id="global" style="background:var(--lgray)">
+    <div class="center fade-in"><div class="section-badge" data-i18n="global.badge">Küresel Hazırlık</div><h2 class="section-title" data-i18n="global.title">Dünya Çapında <span>Konumlanabilir</span> Platform</h2><p class="section-sub" data-i18n="global.subtitle">Sadece Türkiye için değil; API-first, white-label, WCAG 2.1 AA ve bölgesel uyumluluk paketleriyle tüm dünyada kullanıma hazır.</p></div>
+    <div class="grid3 fade-in">
+      <div class="card"><div class="card-icon fi-teal">♿</div><div class="card-title" data-i18n="global.accessibility_title">WCAG 2.1 AA Erişilebilirlik</div><div class="card-desc" data-i18n="global.accessibility_desc">Tüm UI/UX standartları engelli sağlık çalışanları için optimize edilmiştir. Ekran okuyucu, klavye navigasyonu, yüksek kontrast modu.</div></div>
+      <div class="card"><div class="card-icon fi-blue">🌐</div><div class="card-title" data-i18n="global.i18n_title">11 Dil & RTL Desteği</div><div class="card-desc" data-i18n="global.i18n_desc">Türkçe, İngilizce, Arapça (RTL), Almanca, Fransızca, İspanyolca, Portekizce, İtalyanca, Çince, Japonca, Korece. Tam yerelleştirme.</div></div>
+      <div class="card"><div class="card-icon fi-purple">🏷️</div><div class="card-title" data-i18n="global.whitelabel_title">White-Label & API-First</div><div class="card-desc" data-i18n="global.whitelabel_desc">Kendi markanızla sunabilirsiniz. API-first ekosistem sayesinde her modül bağımsız entegre edilebilir. Bölgesel uyumluluk paketleri mevcut.</div></div>
+      <div class="card"><div class="card-icon fi-green">🌱</div><div class="card-title" data-i18n="global.green_title">Green IT & FinOps</div><div class="card-desc" data-i18n="global.green_desc">Kaynak yönetişimi (FinOps) ile hesaplama verimliliği ve enerji tasarrufu optimize edilir. Sürdürülebilir bulut altyapısı.</div></div>
+      <div class="card"><div class="card-icon fi-amber">🛡️</div><div class="card-title" data-i18n="global.med_title">IEC 62304 & ISO 14971</div><div class="card-desc" data-i18n="global.med_desc">Medikal yazılım yaşam döngüsü (IEC 62304) ve risk yönetimi (ISO 14971) standartlarına tam uyumlu geliştirme süreci.</div></div>
+      <div class="card"><div class="card-icon fi-red">🏥</div><div class="card-title" data-i18n="global.care_title">Care Pathway Engine</div><div class="card-desc" data-i18n="global.care_desc">Klinik iş akışları ve bakım yolu motoru. eMAR entegrasyonu, kanıta dayalı protokol yönetimi, otomatik klinik karar tetikleyicileri.</div></div>
+    </div>
+  </section>
+
+  <section id="security" style="background:var(--navy)">
+    <div class="center fade-in"><div class="section-badge" style="background:rgba(13,148,136,.2);color:#5eead4" data-i18n="security.badge">Gelişmiş Güvenlik</div><h2 class="section-title" style="color:#fff" data-i18n="security.title"><span>SOC/NOC</span> & Zero-Trust Mimarisi</h2><p class="section-sub" style="color:rgba(255,255,255,.65)" data-i18n="security.subtitle">Mythos AI entegrasyonu ile otonom güvenlik taraması, akıllı alerting ve otomatik playbook tetikleme.</p></div>
+    <div class="grid4 fade-in">
+      <div class="integ-card"><div class="ic-icon">🛡️</div><div class="ic-name" data-i18n="security.soc_title">SOC / NOC</div><div class="ic-desc" data-i18n="security.soc_desc">7/24 Güvenlik & Ağ Operasyon Merkezi</div><span class="ic-badge">✓ Dahili</span></div>
+      <div class="integ-card"><div class="ic-icon">🤖</div><div class="ic-name" data-i18n="security.mythos_title">Mythos AI Savunma</div><div class="ic-desc" data-i18n="security.mythos_desc">Otonom kod tabanı güvenlik taraması</div><span class="ic-badge">✓ Dahili</span></div>
+      <div class="integ-card"><div class="ic-icon">🔐</div><div class="ic-name" data-i18n="security.fido2_title">FIDO2 / mTLS / OPA / JIT</div><div class="ic-desc" data-i18n="security.fido2_desc">Zero-Trust, Just-In-Time erişim, OPA politikaları</div><span class="ic-badge">✓ Dahili</span></div>
+      <div class="integ-card"><div class="ic-icon">📋</div><div class="ic-name" data-i18n="security.iec_title">IEC 62304 / ISO 14971</div><div class="ic-desc" data-i18n="security.iec_desc">Medikal yazılım ve risk yönetimi uyumu</div><span class="ic-badge">✓ Dahili</span></div>
+      <div class="integ-card"><div class="ic-icon">🔒</div><div class="ic-name" data-i18n="security.cilium_title">Cilium Zero-Trust</div><div class="ic-desc" data-i18n="security.cilium_desc">mTLS, ağ politikaları, anomali tespiti</div><span class="ic-badge">✓ Dahili</span></div>
+      <div class="integ-card"><div class="ic-icon">🔑</div><div class="ic-name" data-i18n="security.keycloak_title">Keycloak MFA</div><div class="ic-desc" data-i18n="security.keycloak_desc">Çok faktörlü kimlik doğrulama, RBAC</div><span class="ic-badge">✓ Dahili</span></div>
+      <div class="integ-card"><div class="ic-icon">⛓️</div><div class="ic-name" data-i18n="security.blockchain_title">Blockchain Denetim</div><div class="ic-desc" data-i18n="security.blockchain_desc">SHA-256 + Ethereum/Polygon notarizasyon</div><span class="ic-badge">✓ Dahili</span></div>
+      <div class="integ-card"><div class="ic-icon">🛡️</div><div class="ic-name" data-i18n="security.owasp_title">OWASP + SAST/DAST</div><div class="ic-desc" data-i18n="security.owasp_desc">Otomatik güvenlik tarama, AES-256-GCM</div><span class="ic-badge">✓ Dahili</span></div>
+    </div>
+  </section>
+
+  <section id="integrations" class="integ-bg">
+    <div class="center fade-in"><div class="section-badge" style="background:rgba(13,148,136,.2);color:#5eead4" data-i18n="integrations.badge"></div><h2 class="section-title" style="color:#fff" data-i18n="integrations.title"></h2><p class="section-sub" style="color:rgba(255,255,255,.65)" data-i18n="integrations.subtitle"></p></div>
+    <div class="integ-grid fade-in" id="integ-container"></div>
+    <p style="text-align:center;font-size:11px;color:rgba(255,255,255,.45);margin-top:16px" data-i18n="integrations.extra"></p>
+  </section>
+
+  <section id="tech" class="tech-bg" style="background:var(--lgray)">
     <div class="center fade-in"><div class="section-badge" data-i18n="tech.badge"></div><h2 class="section-title" data-i18n="tech.title"></h2><p class="section-sub" data-i18n="tech.subtitle"></p></div>
-    <div class="stack-grid fade-in" id="stack-container"></div>
+    <div class="grid6 fade-in" id="stack-container"></div>
     <div class="center fade-in" style="margin-top:40px"><div class="section-badge" data-i18n="tech.arch_badge">5 Katmanlı Mimari</div></div>
     <div class="arch-grid fade-in" id="arch-container"></div>
   </section>
@@ -1508,90 +381,127 @@
       <div><div class="footer-links-title" data-i18n="footer.developer_title"></div><div class="footer-links"><a href="https://github.com/trevontihbys" target="_blank">GitHub</a><a href="https://github.com/trevontihbys/trevonti-fhir-r4" target="_blank">FHIR R5</a><a href="https://github.com/trevontihbys/trevonti-ai-engine" target="_blank">AI Engine</a><a href="https://www.linkedin.com/company/trevontihbys" target="_blank">LinkedIn</a></div></div>
       <div><div class="footer-links-title" data-i18n="footer.contact_title"></div><div class="footer-links"><a href="mailto:trevonti.hbys@gmail.com" data-i18n="footer.contact_general"></a><a href="mailto:trevonti.hbys@gmail.com" data-i18n="footer.contact_pilot"></a><a href="mailto:trevonti.hbys@gmail.com" data-i18n="footer.contact_investor"></a></div></div>
     </div>
-    <div class="footer-bottom"><span class="fb-copy" data-i18n="footer.copy"></span><div class="fb-badges"><span class="fb-badge" data-i18n="footer.badge1"></span><span class="fb-badge" data-i18n="footer.badge2"></span><span class="fb-badge" data-i18n="footer.badge3"></span><span class="fb-badge" data-i18n="footer.badge4"></span></div></div>
+    <div class="footer-bottom"><span class="fb-copy" data-i18n="footer.copy"></span><div class="fb-badges"><span class="fb-badge" data-i18n="footer.badge1"></span><span class="fb-badge" data-i18n="footer.badge2"></span><span class="fb-badge" data-i18n="footer.badge3"></span><span class="fb-badge" data-i18n="footer.badge4"></span><span class="fb-badge">WCAG 2.1 AA</span><span class="fb-badge">IEC 62304</span></div></div>
   </footer>
 
   <script>
     const translations = {
       tr: {
         logo: { subtitle: "TAM ENTEGRE HASTANE PLATFORMU", tech: "bulut-yerel | yapay zeka destekli | sürdürülebilir teknoloji" },
-        nav: { features: "Özellikler", modules: "Modüller", ai: "Yapay Zeka", integrations: "Entegrasyonlar", tech: "Teknoloji", roadmap: "Yol Haritası", github: "GitHub", contact: "İletişim", platform: "Platform", faz: "FAZ", xfactor: "X-Faktör" },
-        hero: { badge: "Trevonti HBYS v2.0 · HIS+LIS+RIS+Portal+Agent · 62+ Modül · FHIR R5", title: "Türkiye'nin<br><span>Yeni Nesil</span><br>Hastane Sistemi", subtitle: "HIS (41 modül), LIS (13 modül), RIS/PACS ve Patient Portal'ı tek çatı altında toplayan 62+ modüllü platform. Digital Twin, Command Center, Blockchain Audit ve 50 Agent AI ile Türkiye'nin en kapsamlı HBYS'si.", btn_primary: "📧 Pilot Başvurusu Yap", btn_secondary: "🐙 GitHub'da İncele", card1_title: "Sepsis Erken Uyarı", card1_sub: "qSOFA + NEWS2 Hibrid", card2_title: "SGK Medula", card2_sub: "Otomatik faturalandırma", card2_badge: "Entegre", card3_title: "KVKK & FHIR R5", card3_sub: "Tam uyumlu altyapı", card3_badge: "Uyumlu", card4_title: "iOS + Android + Web", card4_sub: "Kurulum gerektirmez" },
+        nav: { features: "Özellikler", modules: "Modüller", ai: "Yapay Zeka", integrations: "Entegrasyonlar", tech: "Teknoloji", roadmap: "Yol Haritası", github: "GitHub", contact: "İletişim", platform: "Platform", faz: "FAZ", xfactor: "X-Faktör", global: "Küresel" },
+        hero: { badge: "Trevonti HBYS v2.0 · HIS+LIS+RIS+PACS+Portal · 62+ Modül · FHIR R5 · IEC 62304", title: "Türkiye'nin<br><span>Yeni Nesil</span><br>Sağlık İşletim Sistemi", subtitle: "5 ana ürün (HIS, LIS, RIS, PACS, Patient Portal), 62+ modül. API-first, white-label, WCAG 2.1 AA, IEC 62304 uyumlu. Digital Twin, SOC/NOC, Blockchain Audit, No-Click Hospital.", btn_primary: "📧 Pilot Başvurusu Yap", btn_secondary: "🐙 GitHub'da İncele", card1_title: "Sepsis Erken Uyarı", card1_sub: "qSOFA + NEWS2 Hibrid", card2_title: "SGK Medula", card2_sub: "Otomatik faturalandırma", card2_badge: "Entegre", card3_title: "KVKK & FHIR R5", card3_sub: "Tam uyumlu altyapı", card3_badge: "Uyumlu", card4_title: "iOS + Android + Web", card4_sub: "Kurulum gerektirmez" },
         stats: { modules: "Klinik Modül", demos: "Canlı Demo", sprints: "Sprint", sla: "SLA Hedefi" },
         problem: { badge: "Sorun", title: "Türkiye'deki Hastanelerin <span>%78'i</span> Eski Sistemlerde", subtitle: "10–20 yıllık, sunucu tabanlı HBYS yazılımları; mobil erişim, yapay zeka ve ulusal sağlık sistemi entegrasyonundan yoksun.", card1_title: "Mobil Erişim Yok", card1_desc: "Hemşireler BCMA doğrulamasını kağıda yapıyor. Hekimler uzaktan sisteme giremiyor.", card1_stat: "%0 Mobil", card2_title: "SGK Gelir Kaybı", card2_desc: "Manuel SUT kodu girişleri yüzünden hastaneler hak ettikleri SGK ödemelerinin önemli bir kısmını alamıyor.", card2_stat: "%12 Kayıp", card3_title: "İlaç Hataları", card3_desc: "Kâğıt order sistemi ilaç etkileşimi kontrolü yapamıyor. Türkiye'deki ilaç hata oranı Avrupa ortalamasının 3 katı.", card3_stat: "3× Hata" },
-        features: { badge: "Çözüm", title: "Her Şey <span>Dahili,</span> Hiçbir Şey Eklenti", subtitle: "Trevonti HBYS, ayrı ayrı satın alınan modüllerden değil — baştan bütünleşik tasarlanmış bir platformdan oluşur.",
-          cloud_title: "Bulut-Yerel Mimari", cloud_desc: "Kubernetes 1.29, Docker Compose, Patroni HA PostgreSQL. Sunucu satın alma yok. Güncelleme için IT ekibi yok. Siz açın, kullanın.",
-          mobile_title: "Mobil Uygulama (iOS + Android)", mobile_desc: "React Native 0.74 tabanlı, offline-first mimari. Biyometrik kimlik doğrulama, anlık push bildirimi. iOS 16+ ve Android 10+ destekler.",
+        features: { badge: "Çözüm", title: "Her Şey <span>Dahili,</span> Hiçbir Şey Eklenti", subtitle: "Trevonti HBYS, ayrı ayrı satın alınan modüllerden değil — baştan bütünleşik tasarlanmış bir Healthcare OS platformundan oluşur.",
+          cloud_title: "Bulut-Yerel Mimari", cloud_desc: "Kubernetes 1.29, Docker Compose, Patroni HA PostgreSQL. Helm + ArgoCD ile GitOps. Sunucu satın alma yok. Near-Zero Downtime dağıtım.",
+          mobile_title: "Mobil Uygulama (iOS + Android)", mobile_desc: "React Native 0.74 tabanlı, offline-first mimari. Biyometrik kimlik doğrulama (FIDO2), anlık push bildirimi. iOS 16+ ve Android 10+ destekler.",
           ai_title: "Yapay Zeka Motoru (10+)", ai_desc: "GPT-4o + Whisper v3. Sepsis erken uyarı (AUC 0.979), 30 gün yeniden yatış, Türkçe NLP, ilaç etkileşimi CDS, SGK reddi AI, Ambient AI, No-Click Hospital.",
           sgk_title: "Otomatik SGK Faturalama", sgk_desc: "SUT kodları otomatik atanır (%99 uyum). Medula provizyon anlık alınır. e-Fatura UBL 2.1 formatında GİB'e gider.",
-          security_title: "KVKK & Güvenlik (OWASP Top 10)", security_desc: "AES-256-GCM şifreleme. SAST/DAST otomatik tarama. Cilium zero-trust. Keycloak MFA. SHA-256 + Ethereum Blockchain denetim logu.",
-          integration_title: "18+ Ulusal ve Global Entegrasyon", integration_desc: "SGK Medula, Sağlık-Net, e-Nabız, MHRS, ÇKYS, TTB, e-İmza (5070), Özel Sigorta (7), MERNİS, TCMB, TİTCK, HL7 v2, ASTM, OMOP CDM v5.4, Apple Health, Garmin, SMART on FHIR, e-Reçete."
+          security_title: "SOC/NOC & Zero-Trust Güvenlik", security_desc: "Mythos AI otonom güvenlik taraması. FIDO2, mTLS, OPA, JIT erişim. AES-256-GCM, SAST/DAST, Cilium zero-trust, Keycloak MFA. SHA-256 + Ethereum Blockchain denetim logu. IEC 62304 & ISO 14971 uyumlu.",
+          integration_title: "18+ Ulusal ve Global Entegrasyon", integration_desc: "SGK Medula, Sağlık-Net, e-Nabız, MHRS, HL7 v2/MLLP, ASTM E1394, OMOP CDM v5.4, DICOMweb, Apple Health, Garmin, SMART on FHIR, e-Reçete.",
+          accessibility_title: "WCAG 2.1 AA Erişilebilirlik", accessibility_desc: "Tüm UI/UX standartları engelli sağlık çalışanları için optimize edilmiştir. Ekran okuyucu, klavye navigasyonu, yüksek kontrast modu.",
+          green_title: "Green IT & FinOps", green_desc: "Kaynak yönetişimi (FinOps) ile hesaplama verimliliği ve enerji tasarrufu optimize edilir. Sürdürülebilir bulut altyapısı.",
+          whitelabel_title: "White-Label & Bölgesel Uyumluluk", whitelabel_desc: "Kendi markanızla sunabilirsiniz. API-first ekosistem. Bölgesel uyumluluk paketleri ile tüm dünyada konumlanabilir."
         },
-        platform: { badge: "4 Ana Ürün", title: "Tek <span>Platform</span>, Dört Ana Ürün", subtitle: "HIS, LIS, RIS/PACS ve Patient Portal tek çatı altında, tam entegre olarak sunulur.", his_desc: "Hastane Bilgi Sistemi", lis_desc: "Laboratuvar Bilgi Sistemi", ris_desc: "Radyoloji & Görüntü", portal_desc: "Hasta Portalı" },
+        platform: { badge: "5 Ana Ürün", title: "Tek <span>Platform</span>, Beş Ana Ürün", subtitle: "HIS, LIS, RIS, PACS ve Patient Portal; API-first, white-label hazır, bağımsız ölçeklenebilir mikroservisler olarak konumlanır." },
         modules: { badge: "Kapsam", title: "<span>62+ Modül,</span> Tek Platform", subtitle: "Klinikten radyolojiye, eczaneden finansa — tek sistemde tam hastane. (41 HIS + 13 LIS + 8 Platform)", footer_note: "✅ 49 canlı demo, 62+ modül. 411 dosya, 284 TypeScript, ZIP hatası: 0, FHIR R5." },
-        faz: { badge: "5 Aşamalı Mimari", title: "Modüler <span>FAZ</span> Yapısı", subtitle: "Her aşama bir öncekinin üzerine inşa edilir, bağımsız deploy edilebilir.", f0_title: "Temel HIS", f0_desc: "Hasta yönetimi, kayıt, temel klinik işlemler", f1_title: "Klinik Dijital", f1_desc: "EMR, CPOE, eMAR, Terminoloji, FHIR R5, Patoloji, Genetik", f2_title: "Yapay Zeka", f2_desc: "AI Scribe, Tanı Asistanı, Sepsis Spot, LIS AI, Görüntü AI", f3_title: "Platform", f3_desc: "YBÜ, IoT/RTLS, Hasta App, Zero-Trust, Blockchain, OMOP, SaaS", f4_title: "X-Faktör", f4_desc: "Digital Twin, Command Center, Marketplace, Genomik, Giyilebilir, No-Click" },
-        xfactor: { badge: "Rekabet Avantajı", title: "<span>X-Faktör</span> Teknolojileri", subtitle: "Rakiplerde olmayan, sadece Trevonti'ye özgü ileri teknoloji bileşenleri.", card1_title: "Digital Twin", card1_desc: "Hasta simülasyonu, farmakodinamik model, Bayesian güncelleme, hastane kapasite tahmini.", card2_title: "Command Center", card2_desc: "24 saat önceden yatak/acil/ameliyathane doluluk tahmini, otonom yönetim.", card3_title: "Blockchain Audit", card3_desc: "SHA-256 zinciri + Ethereum/Polygon notarizasyon, değiştirilemez denetim logu.", card4_title: "No-Click Hospital", card4_desc: "Sesli komut → NLP → CPOE. Whisper + GPT-4o pipeline ile dokunmadan order." },
-        integrations: { badge: "Entegrasyonlar", title: "Tam Entegrasyon — <span>18+ Ulusal & Global</span>", subtitle: "Ek kurulum gerektirmeden tüm ulusal ve global sistemlere bağlı.", extra: "HL7 v2 / MLLP · ASTM E1394 · OMOP CDM v5.4 · Apple Health / Garmin · SMART on FHIR · e-Reçete / MEDİCUS" },
+        faz: { badge: "5 Aşamalı Mimari", title: "Modüler <span>FAZ</span> Yapısı", subtitle: "Her aşama bir öncekinin üzerine inşa edilir, Helm + ArgoCD ile bağımsız deploy edilebilir." },
+        xfactor: { badge: "Rekabet Avantajı", title: "<span>X-Faktör</span> Teknolojileri", subtitle: "Rakiplerde olmayan, sadece Trevonti'ye özgü ileri teknoloji bileşenleri." },
+        global: { badge: "Küresel Hazırlık", title: "Dünya Çapında <span>Konumlanabilir</span> Platform", subtitle: "Sadece Türkiye için değil; API-first, white-label, WCAG 2.1 AA ve bölgesel uyumluluk paketleriyle tüm dünyada kullanıma hazır.",
+          accessibility_title: "WCAG 2.1 AA Erişilebilirlik", accessibility_desc: "Tüm UI/UX standartları engelli sağlık çalışanları için optimize edilmiştir. Ekran okuyucu, klavye navigasyonu, yüksek kontrast modu.",
+          i18n_title: "11 Dil & RTL Desteği", i18n_desc: "Türkçe, İngilizce, Arapça (RTL), Almanca, Fransızca, İspanyolca, Portekizce, İtalyanca, Çince, Japonca, Korece. Tam yerelleştirme.",
+          whitelabel_title: "White-Label & API-First", whitelabel_desc: "Kendi markanızla sunabilirsiniz. API-first ekosistem sayesinde her modül bağımsız entegre edilebilir. Bölgesel uyumluluk paketleri mevcut.",
+          green_title: "Green IT & FinOps", green_desc: "Kaynak yönetişimi (FinOps) ile hesaplama verimliliği ve enerji tasarrufu optimize edilir. Sürdürülebilir bulut altyapısı.",
+          med_title: "IEC 62304 & ISO 14971", med_desc: "Medikal yazılım yaşam döngüsü (IEC 62304) ve risk yönetimi (ISO 14971) standartlarına tam uyumlu geliştirme süreci.",
+          care_title: "Care Pathway Engine & eMAR", care_desc: "Klinik iş akışları ve bakım yolu motoru. eMAR entegrasyonu, kanıta dayalı protokol yönetimi, otomatik klinik karar tetikleyicileri."
+        },
+        security: { badge: "Gelişmiş Güvenlik", title: "<span>SOC/NOC</span> & Zero-Trust Mimarisi", subtitle: "Mythos AI entegrasyonu ile otonom güvenlik taraması, akıllı alerting ve otomatik playbook tetikleme. Tüm kritik kararlar insan onayına bağlıdır.",
+          soc_title: "SOC / NOC", soc_desc: "7/24 Güvenlik & Ağ Operasyon Merkezi",
+          mythos_title: "Mythos AI Savunma", mythos_desc: "Otonom kod tabanı güvenlik taraması",
+          fido2_title: "FIDO2 / mTLS / OPA / JIT", fido2_desc: "Zero-Trust, Just-In-Time erişim, OPA politikaları",
+          iec_title: "IEC 62304 / ISO 14971", iec_desc: "Medikal yazılım ve risk yönetimi uyumu",
+          cilium_title: "Cilium Zero-Trust", cilium_desc: "mTLS, ağ politikaları, anomali tespiti",
+          keycloak_title: "Keycloak MFA", keycloak_desc: "Çok faktörlü kimlik doğrulama, RBAC",
+          blockchain_title: "Blockchain Denetim", blockchain_desc: "SHA-256 + Ethereum/Polygon notarizasyon",
+          owasp_title: "OWASP + SAST/DAST", owasp_desc: "Otomatik güvenlik tarama, AES-256-GCM"
+        },
+        integrations: { badge: "Entegrasyonlar", title: "Tam Entegrasyon — <span>18+ Ulusal & Global</span>", subtitle: "Ek kurulum gerektirmeden tüm ulusal ve global sistemlere bağlı. HL7 v2, ASTM, DICOMweb, OMOP CDM v5.4.", extra: "HL7 v2 / MLLP · ASTM E1394 · OMOP CDM v5.4 · DICOMweb · Apple Health / Garmin · SMART on FHIR · e-Reçete / MEDİCUS" },
         ai: { badge: "Yapay Zeka", title: "Klinik Kararları <span>Destekleyen</span> AI (10+)", subtitle: "GPT-4o + Whisper v3 dahil 10+ AI modeli. Pilot hastane verisiyle Q3 2026'da kalibre edilecek.", disclaimer: "* Tüm değerler sentetik veri doğrulama testinden elde edilmiştir." },
-        tech: { badge: "Altyapı", title: "Kurumsal Sınıf <span>Teknoloji Stack'i</span>", subtitle: "5 katmanlı, cloud-native, yatay ölçeklenebilir mimari. GPT-4o, Whisper v3, HAPI FHIR R5, Socket.io, Ethereum, Docker Compose.", arch_badge: "5 Katmanlı Mimari", frontend: "Frontend", mobile: "iOS + Android", backend: "Backend API", db: "Veritabanı", cache: "Cache", messaging: "Mesajlaşma", ai_engine: "AI Engine", auth: "Auth / MFA", orchestration: "Orchestration", zero_trust: "Zero-Trust", analytics: "Analitik", build: "Build", storage: "Depolama & PACS", search: "Arama & NLP", llm: "LLM / AI", testing: "Performans Testi", layer1_name: "Sunum Katmanı", layer1_tech: "React 18 · Next.js 14 · React Native 0.74 · TypeScript 5 · OHIF Viewer", layer2_name: "API Katmanı", layer2_tech: "NestJS 10 · REST · WebSocket · Socket.io · GraphQL · Keycloak 24 OIDC/RBAC · Swagger", layer3_name: "Veri Katmanı", layer3_tech: "PostgreSQL 16 (Streaming Rep.) · Redis 7 · MinIO S3 · Elasticsearch · pgvector", layer4_name: "AI/ML Katmanı", layer4_tech: "Python FastAPI · GPT-4o · Whisper v3 · HuggingFace · LangChain · Sepsis Uyarı · JCI Skor", layer5_name: "Entegrasyon Katmanı", layer5_tech: "Kafka 3.7 · HAPI FHIR R5 · Ethereum · MHRS · Medula · Orthanc PACS · MinIO S3 · Elasticsearch" },
-        roadmap: { badge: "Yol Haritası", title: "Şeffaf <span>İlerleme</span>", subtitle: "Neredeyiz, nereye gidiyoruz.", q1_quarter: "2025 Q4 – 2026 Q1", q1_title: "Geliştirme Tamamlandı", q1_desc: "62+ modül, 28 sprint, 49 canlı demo.", q2_quarter: "2026 Q2", q2_title: "Platform v2.0", q2_desc: "HIS+LIS+RIS/PACS+Portal+Agent tamamlandı.", q3_quarter: "2026 Q3", q3_title: "Pilot & Yatırım", q3_desc: "Staging ortamı, ilk pilot hastane.", q4_quarter: "2026 Q4", q4_title: "Staging & Testler", q4_desc: "Pilot hastane entegrasyon testleri.", q5_quarter: "2027 Q1", q5_title: "Şirket Kuruluşu & SİSE", q5_desc: "Şirket kuruluşu, SİSE başvurusu.", q6_quarter: "2027 Q2", q6_title: "SİSE & Büyüme", q6_desc: "SİSE onayı, ilk 3 hastane sözleşmesi." },
+        tech: { badge: "Altyapı", title: "Kurumsal Sınıf <span>Teknoloji Stack'i</span>", subtitle: "5 katmanlı, cloud-native, GitOps (Helm + ArgoCD), Near-Zero Downtime. GPT-4o, Whisper v3, HAPI FHIR R5, Socket.io, Ethereum, Docker Compose.", arch_badge: "5 Katmanlı Mimari" },
+        roadmap: { badge: "Yol Haritası", title: "Şeffaf <span>İlerleme</span>", subtitle: "Neredeyiz, nereye gidiyoruz." },
         cta: { title: "Birlikte İnşa Edelim", subtitle: "Pilot hastane ortağı, yatırımcı veya sektör uzmanıysanız — doğru yerdeysiniz.", btn_primary: "📧 Bize Yazın", btn_secondary: "🐙 Koda Bakın" },
-        footer: { desc: "Türkiye'nin yeni nesil, bulut tabanlı ve yapay zeka destekli Hastane Bilgi Yönetim Sistemi.", platform_title: "Platform", developer_title: "Geliştirici", contact_title: "İletişim", contact_general: "Genel İletişim", contact_pilot: "Pilot Başvurusu", contact_investor: "Yatırımcı İlişkileri", copy: "© 2025 Trevonti HBYS. Tüm hakları saklıdır.", badge1: "KVKK Uyumlu", badge2: "FHIR R5", badge3: "SGK Medula", badge4: "SİSE Hazırlık" }
+        footer: { desc: "Türkiye'nin yeni nesil, bulut tabanlı ve yapay zeka destekli Hastane Bilgi Yönetim Sistemi. API-first, white-label, WCAG 2.1 AA, IEC 62304 uyumlu Healthcare OS.", platform_title: "Platform", developer_title: "Geliştirici", contact_title: "İletişim", contact_general: "Genel İletişim", contact_pilot: "Pilot Başvurusu", contact_investor: "Yatırımcı İlişkileri", copy: "© 2025 Trevonti HBYS. Tüm hakları saklıdır.", badge1: "KVKK Uyumlu", badge2: "FHIR R5", badge3: "SGK Medula", badge4: "SİSE Hazırlık" }
       }
     };
 
     const enBase = {
       logo: { subtitle: "Fully Integrated Hospital Platform", tech: "Cloud-Native | AI-Powered | Sustainable Technology" },
-      nav: { features: "Features", modules: "Modules", ai: "AI", integrations: "Integrations", tech: "Technology", roadmap: "Roadmap", github: "GitHub", contact: "Contact", platform: "Platform", faz: "Phases", xfactor: "X-Factor" },
-      hero: { badge: "Trevonti HBYS v2.0 · HIS+LIS+RIS+Portal+Agent · 62+ Modules · FHIR R5", title: "Turkey's<br><span>Next Generation</span><br>Hospital System", subtitle: "HIS (41 modules), LIS (13 modules), RIS/PACS and Patient Portal on a single platform with 62+ modules.", btn_primary: "📧 Apply for Pilot", btn_secondary: "🐙 View on GitHub", card1_title: "Sepsis Early Warning", card1_sub: "qSOFA + NEWS2 Hybrid", card2_title: "SGK Medula", card2_sub: "Automated Billing", card2_badge: "Integrated", card3_title: "KVKK & FHIR R5", card3_sub: "Fully Compliant", card3_badge: "Compliant", card4_title: "iOS + Android + Web", card4_sub: "No Installation Required" },
+      nav: { features: "Features", modules: "Modules", ai: "AI", integrations: "Integrations", tech: "Technology", roadmap: "Roadmap", github: "GitHub", contact: "Contact", platform: "Platform", faz: "Phases", xfactor: "X-Factor", global: "Global" },
+      hero: { badge: "Trevonti HBYS v2.0 · HIS+LIS+RIS+PACS+Portal · 62+ Modules · FHIR R5 · IEC 62304", title: "Turkey's<br><span>Next Generation</span><br>Healthcare OS", subtitle: "5 core products (HIS, LIS, RIS, PACS, Patient Portal), 62+ modules. API-first, white-label, WCAG 2.1 AA, IEC 62304 compliant.", btn_primary: "📧 Apply for Pilot", btn_secondary: "🐙 View on GitHub", card1_title: "Sepsis Early Warning", card1_sub: "qSOFA + NEWS2 Hybrid", card2_title: "SGK Medula", card2_sub: "Automated Billing", card2_badge: "Integrated", card3_title: "KVKK & FHIR R5", card3_sub: "Fully Compliant", card3_badge: "Compliant", card4_title: "iOS + Android + Web", card4_sub: "No Installation Required" },
       stats: { modules: "Clinical Modules", demos: "Live Demos", sprints: "Sprints", sla: "SLA Target" },
       problem: { badge: "Problem", title: "<span>78%</span> of Hospitals in Turkey Use Outdated Systems", subtitle: "10–20 year old, server-based HIS software.", card1_title: "No Mobile Access", card1_desc: "Nurses perform BCMA on paper.", card1_stat: "0% Mobile", card2_title: "SGK Revenue Loss", card2_desc: "Manual SUT code entry causes revenue loss.", card2_stat: "12% Loss", card3_title: "Medication Errors", card3_desc: "Paper-based systems cannot check drug interactions.", card3_stat: "3× Errors" },
-      features: { badge: "Solution", title: "Everything <span>Built-in</span>", subtitle: "Fully integrated platform from the ground up.", cloud_title: "Cloud-Native", cloud_desc: "Kubernetes 1.29, Docker Compose, Patroni HA PostgreSQL. No server purchase.", mobile_title: "Mobile App", mobile_desc: "React Native 0.74, offline-first, biometric auth.", ai_title: "AI Engine (10+)", ai_desc: "GPT-4o + Whisper v3. Sepsis AUC 0.979.", sgk_title: "Automated SGK Billing", sgk_desc: "99% SUT compliance. e-Invoice UBL 2.1.", security_title: "KVKK & Security", security_desc: "AES-256-GCM, SAST/DAST, Cilium zero-trust, Keycloak MFA, SHA-256 + Ethereum Blockchain.", integration_title: "18+ Integrations", integration_desc: "SGK Medula, Sağlık-Net, e-Nabız, HL7 v2, ASTM, OMOP CDM v5.4, Apple Health, SMART on FHIR." },
-      platform: { badge: "4 Main Products", title: "One <span>Platform</span>, Four Products", subtitle: "HIS, LIS, RIS/PACS and Patient Portal fully integrated.", his_desc: "Hospital Information System", lis_desc: "Laboratory Information System", ris_desc: "Radiology & Imaging", portal_desc: "Patient Portal" },
+      features: { badge: "Solution", title: "Everything <span>Built-in</span>", subtitle: "Fully integrated Healthcare OS platform from the ground up.", cloud_title: "Cloud-Native", cloud_desc: "Kubernetes 1.29, Docker Compose, Patroni HA PostgreSQL. Helm + ArgoCD GitOps. Near-Zero Downtime.", mobile_title: "Mobile App", mobile_desc: "React Native 0.74, offline-first, FIDO2 biometric auth.", ai_title: "AI Engine (10+)", ai_desc: "GPT-4o + Whisper v3. Sepsis AUC 0.979.", sgk_title: "Automated SGK Billing", sgk_desc: "99% SUT compliance. e-Invoice UBL 2.1.", security_title: "SOC/NOC & Zero-Trust Security", security_desc: "Mythos AI autonomous security. FIDO2, mTLS, OPA, JIT. IEC 62304 & ISO 14971.", integration_title: "18+ Integrations", integration_desc: "HL7 v2/MLLP, ASTM, OMOP CDM v5.4, DICOMweb, Apple Health, SMART on FHIR.", accessibility_title: "WCAG 2.1 AA", accessibility_desc: "All UI/UX optimized for healthcare workers with disabilities.", green_title: "Green IT & FinOps", green_desc: "Resource governance optimizes compute efficiency and energy savings.", whitelabel_title: "White-Label & Regional Compliance", whitelabel_desc: "Deploy under your own brand. API-first ecosystem with regional compliance packs." },
+      platform: { badge: "5 Core Products", title: "One <span>Platform</span>, Five Products", subtitle: "HIS, LIS, RIS, PACS and Patient Portal. API-first, white-label ready, independently scalable microservices." },
       modules: { badge: "Scope", title: "<span>62+ Modules</span>, One Platform", subtitle: "Complete hospital in one system. (41 HIS + 13 LIS + 8 Platform)", footer_note: "✅ 49 live demos, 62+ modules. 411 files, 284 TypeScript, 0 ZIP errors, FHIR R5." },
-      faz: { badge: "5-Phase Architecture", title: "Modular <span>Phase</span> Structure", subtitle: "Each phase builds on the previous, independently deployable.", f0_title: "Core HIS", f0_desc: "Patient management, registration, basic clinical operations", f1_title: "Clinical Digital", f1_desc: "EMR, CPOE, eMAR, Terminology, FHIR R5, Pathology, Genetics", f2_title: "Artificial Intelligence", f2_desc: "AI Scribe, Diagnosis Assistant, Sepsis Spot, LIS AI, Image AI", f3_title: "Platform", f3_desc: "ICU, IoT/RTLS, Patient App, Zero-Trust, Blockchain, OMOP, SaaS", f4_title: "X-Factor", f4_desc: "Digital Twin, Command Center, Marketplace, Genomics, Wearables, No-Click" },
-      xfactor: { badge: "Competitive Edge", title: "<span>X-Factor</span> Technologies", subtitle: "Advanced technology components unique to Trevonti.", card1_title: "Digital Twin", card1_desc: "Patient simulation, pharmacodynamic model, Bayesian update, hospital capacity forecast.", card2_title: "Command Center", card2_desc: "24h advance bed/ER/OR occupancy prediction, autonomous management.", card3_title: "Blockchain Audit", card3_desc: "SHA-256 chain + Ethereum/Polygon notarization, immutable audit log.", card4_title: "No-Click Hospital", card4_desc: "Voice command → NLP → CPOE. Whisper + GPT-4o pipeline." },
-      integrations: { badge: "Integrations", title: "Full Integration — <span>18+ National & Global</span>", subtitle: "Connected to all systems without additional installation.", extra: "HL7 v2 / MLLP · ASTM E1394 · OMOP CDM v5.4 · Apple Health / Garmin · SMART on FHIR · e-Reçete / MEDİCUS" },
+      faz: { badge: "5-Phase Architecture", title: "Modular <span>Phase</span> Structure", subtitle: "Each phase builds on the previous. Helm + ArgoCD independent deployment." },
+      xfactor: { badge: "Competitive Edge", title: "<span>X-Factor</span> Technologies", subtitle: "Advanced technology components unique to Trevonti." },
+      global: { badge: "Global Readiness", title: "Worldwide <span>Deployable</span> Platform", subtitle: "API-first, white-label, WCAG 2.1 AA, regional compliance packs.",
+        accessibility_title: "WCAG 2.1 AA", accessibility_desc: "Optimized for healthcare workers with disabilities.",
+        i18n_title: "11 Languages & RTL", i18n_desc: "TR, EN, AR (RTL), DE, FR, ES, PT, IT, ZH, JA, KO.",
+        whitelabel_title: "White-Label & API-First", whitelabel_desc: "Deploy under your own brand. Regional compliance packs available.",
+        green_title: "Green IT & FinOps", green_desc: "Resource governance for compute efficiency and energy savings.",
+        med_title: "IEC 62304 & ISO 14971", med_desc: "Medical software lifecycle and risk management compliance.",
+        care_title: "Care Pathway Engine & eMAR", care_desc: "Clinical workflows, evidence-based protocol management, eMAR." },
+      security: { badge: "Advanced Security", title: "<span>SOC/NOC</span> & Zero-Trust Architecture", subtitle: "Mythos AI autonomous security scanning, smart alerting, automated playbook triggers.",
+        soc_title: "SOC / NOC", soc_desc: "24/7 Security & Network Operations Center",
+        mythos_title: "Mythos AI Defense", mythos_desc: "Autonomous codebase security scanning",
+        fido2_title: "FIDO2 / mTLS / OPA / JIT", fido2_desc: "Zero-Trust, Just-In-Time access, OPA policies",
+        iec_title: "IEC 62304 / ISO 14971", iec_desc: "Medical software & risk management compliance",
+        cilium_title: "Cilium Zero-Trust", cilium_desc: "mTLS, network policies, anomaly detection",
+        keycloak_title: "Keycloak MFA", keycloak_desc: "Multi-factor authentication, RBAC",
+        blockchain_title: "Blockchain Audit", blockchain_desc: "SHA-256 + Ethereum/Polygon notarization",
+        owasp_title: "OWASP + SAST/DAST", owasp_desc: "Automated security scanning, AES-256-GCM" },
+      integrations: { badge: "Integrations", title: "Full Integration — <span>18+ National & Global</span>", subtitle: "Connected to all systems without additional installation.", extra: "HL7 v2 / MLLP · ASTM E1394 · OMOP CDM v5.4 · DICOMweb · Apple Health / Garmin · SMART on FHIR · e-Reçete / MEDİCUS" },
       ai: { badge: "AI", title: "AI <span>Supporting</span> Clinical Decisions (10+)", subtitle: "10+ AI models including GPT-4o + Whisper v3.", disclaimer: "* All values from synthetic data validation tests." },
-      tech: { badge: "Infrastructure", title: "Enterprise-Grade <span>Tech Stack</span>", subtitle: "5-layer, cloud-native. GPT-4o, Whisper v3, HAPI FHIR R5, Socket.io, Ethereum, Docker Compose.", arch_badge: "5-Layer Architecture", frontend: "Frontend", mobile: "iOS + Android", backend: "Backend API", db: "Database", cache: "Cache", messaging: "Messaging", ai_engine: "AI Engine", auth: "Auth / MFA", orchestration: "Orchestration", zero_trust: "Zero-Trust", analytics: "Analytics", build: "Build", storage: "Storage & PACS", search: "Search & NLP", llm: "LLM / AI", testing: "Performance Testing", layer1_name: "Presentation", layer1_tech: "React 18 · Next.js 14 · React Native 0.74 · TypeScript 5 · OHIF Viewer", layer2_name: "API Layer", layer2_tech: "NestJS 10 · REST · WebSocket · Socket.io · GraphQL · Keycloak 24 · Swagger", layer3_name: "Data Layer", layer3_tech: "PostgreSQL 16 · Redis 7 · MinIO S3 · Elasticsearch · pgvector", layer4_name: "AI/ML Layer", layer4_tech: "Python FastAPI · GPT-4o · Whisper v3 · HuggingFace · LangChain", layer5_name: "Integration Layer", layer5_tech: "Kafka 3.7 · HAPI FHIR R5 · Ethereum · MHRS · Medula · Orthanc PACS" },
-      roadmap: { badge: "Roadmap", title: "Transparent <span>Progress</span>", subtitle: "Where we are, where we're going.", q1_quarter: "2025 Q4 – 2026 Q1", q1_title: "Dev Complete", q1_desc: "62+ modules, 28 sprints, 49 live demos.", q2_quarter: "2026 Q2", q2_title: "Platform v2.0", q2_desc: "HIS+LIS+RIS/PACS+Portal+Agent complete.", q3_quarter: "2026 Q3", q3_title: "Pilot & Investment", q3_desc: "Staging, first pilot hospital.", q4_quarter: "2026 Q4", q4_title: "Staging & Tests", q4_desc: "Pilot integration tests.", q5_quarter: "2027 Q1", q5_title: "Company & SİSE", q5_desc: "Company formation, SİSE application.", q6_quarter: "2027 Q2", q6_title: "SİSE & Growth", q6_desc: "SİSE approval, first 3 contracts." },
+      tech: { badge: "Infrastructure", title: "Enterprise-Grade <span>Tech Stack</span>", subtitle: "5-layer, cloud-native, GitOps (Helm + ArgoCD), Near-Zero Downtime.", arch_badge: "5-Layer Architecture" },
+      roadmap: { badge: "Roadmap", title: "Transparent <span>Progress</span>", subtitle: "Where we are, where we're going." },
       cta: { title: "Let's Build Together", subtitle: "Pilot partner, investor or expert — you're in the right place.", btn_primary: "📧 Contact Us", btn_secondary: "🐙 View Code" },
-      footer: { desc: "Turkey's next-gen cloud-based AI-powered Hospital Information System.", platform_title: "Platform", developer_title: "Developer", contact_title: "Contact", contact_general: "General", contact_pilot: "Pilot", contact_investor: "Investor", copy: "© 2025 Trevonti HBYS. All rights reserved.", badge1: "KVKK", badge2: "FHIR R5", badge3: "SGK Medula", badge4: "SİSE Ready" }
+      footer: { desc: "Turkey's next-gen cloud-based AI-powered Healthcare OS. API-first, white-label, WCAG 2.1 AA, IEC 62304 compliant.", platform_title: "Platform", developer_title: "Developer", contact_title: "Contact", contact_general: "General", contact_pilot: "Pilot", contact_investor: "Investor", copy: "© 2025 Trevonti HBYS. All rights reserved.", badge1: "KVKK", badge2: "FHIR R5", badge3: "SGK Medula", badge4: "SİSE Ready" }
     };
     translations.en = enBase;
-    translations.de = { ...enBase, logo: { subtitle: "Vollintegrierte Krankenhausplattform", tech: "Cloud-nativ | KI-gestützt" }, nav: { ...enBase.nav, features: "Funktionen", modules: "Module", ai: "KI", integrations: "Integrationen", tech: "Technologie", roadmap: "Roadmap", github: "GitHub", contact: "Kontakt", platform: "Plattform", faz: "Phasen", xfactor: "X-Faktor" } };
-    translations.fr = { ...enBase, logo: { subtitle: "Plateforme Hospitalière Intégrée", tech: "Cloud-Native | IA" }, nav: { ...enBase.nav, features: "Fonctionnalités", modules: "Modules", ai: "IA", integrations: "Intégrations", tech: "Technologie", roadmap: "Feuille de route", github: "GitHub", contact: "Contact", platform: "Plateforme", faz: "Phases", xfactor: "X-Facteur" } };
-    translations.es = { ...enBase, logo: { subtitle: "Plataforma Hospitalaria Integrada", tech: "Nativa de la nube | IA" }, nav: { ...enBase.nav, features: "Características", modules: "Módulos", ai: "IA", integrations: "Integraciones", tech: "Tecnología", roadmap: "Hoja de ruta", github: "GitHub", contact: "Contacto", platform: "Plataforma", faz: "Fases", xfactor: "X-Factor" } };
-    translations.pt = { ...enBase, logo: { subtitle: "Plataforma Hospitalar Integrada", tech: "Nativa da nuvem | IA" }, nav: { ...enBase.nav, features: "Recursos", modules: "Módulos", ai: "IA", integrations: "Integrações", tech: "Tecnologia", roadmap: "Roteiro", github: "GitHub", contact: "Contato", plataform: "Plataforma", faz: "Fases", xfactor: "X-Fator" } };
-    translations.it = { ...enBase, logo: { subtitle: "Piattaforma Ospedaliera Integrata", tech: "Cloud-Native | IA" }, nav: { ...enBase.nav, features: "Funzionalità", modules: "Moduli", ai: "IA", integrations: "Integrazioni", tech: "Tecnologia", roadmap: "Roadmap", github: "GitHub", contact: "Contatto", platform: "Piattaforma", faz: "Fasi", xfactor: "X-Factor" } };
-    translations.ar = { ...enBase, logo: { subtitle: "منصة مستشفى متكاملة", tech: "سحابية | ذكاء اصطناعي" }, nav: { ...enBase.nav, features: "الميزات", modules: "الوحدات", ai: "الذكاء", integrations: "التكاملات", tech: "التكنولوجيا", roadmap: "الخريطة", github: "جيثب", contact: "اتصال", platform: "المنصة", faz: "المراحل", xfactor: "X-Factor" } };
-    translations.zh = { ...enBase, logo: { subtitle: "完全集成医院平台", tech: "云原生 | AI驱动" }, nav: { ...enBase.nav, features: "特性", modules: "模块", ai: "AI", integrations: "集成", tech: "技术", roadmap: "路线图", github: "GitHub", contact: "联系", platform: "平台", faz: "阶段", xfactor: "X因素" } };
-    translations.ja = { ...enBase, logo: { subtitle: "完全統合病院プラットフォーム", tech: "クラウドネイティブ | AI" }, nav: { ...enBase.nav, features: "特徴", modules: "モジュール", ai: "AI", integrations: "統合", tech: "技術", roadmap: "ロードマップ", github: "GitHub", contact: "連絡", platform: "プラットフォーム", faz: "フェーズ", xfactor: "Xファクター" } };
-    translations.ko = { ...enBase, logo: { subtitle: "완전 통합 병원 플랫폼", tech: "클라우드 네이티브 | AI" }, nav: { ...enBase.nav, features: "기능", modules: "모듈", ai: "AI", integrations: "통합", tech: "기술", roadmap: "로드맵", github: "GitHub", contact: "연락처", platform: "플랫폼", faz: "단계", xfactor: "X-팩터" } };
+    translations.de = { ...enBase, logo: { subtitle: "Vollintegrierte Krankenhausplattform", tech: "Cloud-nativ | KI-gestützt" }, nav: { ...enBase.nav, features: "Funktionen", modules: "Module", ai: "KI", integrations: "Integrationen", tech: "Technologie", roadmap: "Roadmap", github: "GitHub", contact: "Kontakt", platform: "Plattform", faz: "Phasen", xfactor: "X-Faktor", global: "Global" } };
+    translations.fr = { ...enBase, logo: { subtitle: "Plateforme Hospitalière Intégrée", tech: "Cloud-Native | IA" }, nav: { ...enBase.nav, features: "Fonctionnalités", modules: "Modules", ai: "IA", integrations: "Intégrations", tech: "Technologie", roadmap: "Feuille de route", github: "GitHub", contact: "Contact", platform: "Plateforme", faz: "Phases", xfactor: "X-Facteur", global: "Global" } };
+    translations.es = { ...enBase, logo: { subtitle: "Plataforma Hospitalaria Integrada", tech: "Nativa de la nube | IA" }, nav: { ...enBase.nav, features: "Características", modules: "Módulos", ai: "IA", integrations: "Integraciones", tech: "Tecnología", roadmap: "Hoja de ruta", github: "GitHub", contact: "Contacto", platform: "Plataforma", faz: "Fases", xfactor: "X-Factor", global: "Global" } };
+    translations.pt = { ...enBase, logo: { subtitle: "Plataforma Hospitalar Integrada", tech: "Nativa da nuvem | IA" }, nav: { ...enBase.nav, features: "Recursos", modules: "Módulos", ai: "IA", integrations: "Integrações", tech: "Tecnologia", roadmap: "Roteiro", github: "GitHub", contact: "Contato", platform: "Plataforma", faz: "Fases", xfactor: "X-Fator", global: "Global" } };
+    translations.it = { ...enBase, logo: { subtitle: "Piattaforma Ospedaliera Integrata", tech: "Cloud-Native | IA" }, nav: { ...enBase.nav, features: "Funzionalità", modules: "Moduli", ai: "IA", integrations: "Integrazioni", tech: "Tecnologia", roadmap: "Roadmap", github: "GitHub", contact: "Contatto", platform: "Piattaforma", faz: "Fasi", xfactor: "X-Factor", global: "Globale" } };
+    translations.ar = { ...enBase, logo: { subtitle: "منصة مستشفى متكاملة", tech: "سحابية | ذكاء اصطناعي" }, nav: { ...enBase.nav, features: "الميزات", modules: "الوحدات", ai: "الذكاء", integrations: "التكاملات", tech: "التكنولوجيا", roadmap: "الخريطة", github: "جيثب", contact: "اتصال", platform: "المنصة", faz: "المراحل", xfactor: "X-Factor", global: "عالمي" } };
+    translations.zh = { ...enBase, logo: { subtitle: "完全集成医院平台", tech: "云原生 | AI驱动" }, nav: { ...enBase.nav, features: "特性", modules: "模块", ai: "AI", integrations: "集成", tech: "技术", roadmap: "路线图", github: "GitHub", contact: "联系", platform: "平台", faz: "阶段", xfactor: "X因素", global: "全球" } };
+    translations.ja = { ...enBase, logo: { subtitle: "完全統合病院プラットフォーム", tech: "クラウドネイティブ | AI" }, nav: { ...enBase.nav, features: "特徴", modules: "モジュール", ai: "AI", integrations: "統合", tech: "技術", roadmap: "ロードマップ", github: "GitHub", contact: "連絡", platform: "プラットフォーム", faz: "フェーズ", xfactor: "Xファクター", global: "グローバル" } };
+    translations.ko = { ...enBase, logo: { subtitle: "완전 통합 병원 플랫폼", tech: "클라우드 네이티브 | AI" }, nav: { ...enBase.nav, features: "기능", modules: "모듈", ai: "AI", integrations: "통합", tech: "기술", roadmap: "로드맵", github: "GitHub", contact: "연락처", platform: "플랫폼", faz: "단계", xfactor: "X-팩터", global: "글로벌" } };
 
     const mods = [
-      { i: "🏥", n: "HIS Core (Hasta Yönetimi)", k: "%97.2 SGK Uyumu" }, { i: "💊", n: "CPOE — Elektronik Order", k: "CPOE" }, { i: "🧠", n: "Klinik Karar Destek", k: "Klinik Karar" }, { i: "🧪", n: "LIS — Laboratuvar (HL7)", k: "HL7 · LOINC" }, { i: "🩻", n: "RIS/PACS — Radyoloji", k: "DICOM · OHIF" },
+      { i: "🏥", n: "HIS Core (Hasta Yönetimi)", k: "%97.2 SGK Uyumu" }, { i: "💊", n: "CPOE — Elektronik Order", k: "CPOE" }, { i: "🧠", n: "Klinik Karar Destek", k: "Klinik Karar" }, { i: "🧪", n: "LIS — Laboratuvar (HL7)", k: "HL7 · LOINC" }, { i: "🩻", n: "RIS/PACS — Radyoloji", k: "DICOM · DICOMweb" },
       { i: "💊", n: "Eczane (BCMA + FEFO)", k: "BCMA · FEFO" }, { i: "🔪", n: "Ameliyathane (OR)", k: "OR Verimliliği" }, { i: "❤️", n: "YBÜ — Yoğun Bakım", k: "APACHE II · SOFA" }, { i: "🩸", n: "Kan Bankası (ISBT 128)", k: "ISBT 128" }, { i: "🧬", n: "Onkoloji (OIS)", k: "OIS · ASCO" },
       { i: "💓", n: "Kardiyoloji (Kateter)", k: "ACC/AHA" }, { i: "🌡️", n: "Diyaliz Yönetimi", k: "Diyaliz" }, { i: "🔬", n: "Patoloji (Dijital)", k: "Dijital Patoloji" }, { i: "🧬", n: "IVF — Tüp Bebek", k: "IVF" }, { i: "🏠", n: "Hasta Portali + RPM", k: "RPM · WebRTC" },
       { i: "🎥", n: "Telemedicine (USBS)", k: "USBS" }, { i: "💰", n: "Finans + SGK Medula", k: "SGK Medula" }, { i: "🧾", n: "e-Fatura (UBL 2.1)", k: "UBL 2.1" }, { i: "📦", n: "Tedarik Zinciri (SCM)", k: "SCM" }, { i: "📞", n: "Çağrı Merkezi (CTI)", k: "CTI" },
-      { i: "🔬", n: "CSSD Sterilizasyon", k: "CSSD" }, { i: "📊", n: "Popülasyon Sağlığı", k: "Kohort · Risk" }, { i: "🎙️", n: "Ambient AI / Sesli Dikte", k: "NLP · SOAP" }, { i: "🚫", n: "SGK Reddi Yönetimi", k: "%91 İtiraz" }, { i: "🏥", n: "Çoklu Hastane Kayıt", k: "FHIR R4 · KVKK" },
+      { i: "🔬", n: "CSSD Sterilizasyon", k: "CSSD" }, { i: "📊", n: "Popülasyon Sağlığı", k: "Kohort · Risk" }, { i: "🎙️", n: "Ambient AI / Sesli Dikte", k: "NLP · SOAP" }, { i: "🚫", n: "SGK Reddi Yönetimi", k: "%91 İtiraz" }, { i: "🏥", n: "Çoklu Hastane Kayıt", k: "FHIR R5 · KVKK" },
       { i: "🧊", n: "3D/4D Görüntü Rekonstrüksiyon", k: "MPR · 3D VR" }, { i: "🗄️", n: "VNA (Vendor Neutral Archive)", k: "18 Cihaz Formatı" }, { i: "🤖", n: "AI Lezyon Tespiti", k: "%94 Güven" }, { i: "🎗️", n: "Mamografi Modülü", k: "BI-RADS · AUC 0.94" }, { i: "📚", n: "Öğretim & Eğitim Dosyaları", k: "Liderboard" },
       { i: "💾", n: "Katmanlı Depolama", k: "₺4.280/ay" }, { i: "📅", n: "MHRS Randevu", k: "%97.2 Başarı", b: "YENİ" }, { i: "✍️", n: "e-İmza (5070 Kanunu)", k: "XAdES LTV", b: "YENİ" }, { i: "👥", n: "ÇKYS Personel", k: "Anlık Senkron", b: "YENİ" },
       { i: "🎓", n: "TTB Diploma Doğrulama", k: "API Doğrulama", b: "YENİ" }, { i: "🏦", n: "Özel Sigorta Provizyon", k: "7 Şirket API", b: "YENİ" }, { i: "🤰", n: "Obstetri & Doğum", k: "WHO Partogram", b: "YENİ" }, { i: "🦾", n: "FTR — Fizik Tedavi", k: "Barthel · FIM", b: "YENİ" },
-      { i: "🦠", n: "Enfeksiyon Kontrol", k: "CUSUM · AMS", b: "YENİ" }, { i: "⚡", n: "k6 Yük Testi", k: "P95 <400ms", b: "YENİ" }, { i: "🛡️", n: "OWASP Güvenlik", k: "SAST · DAST", b: "YENİ" }, { i: "🌐", n: "i18n & Offline Mod", k: "TR/AR/EN · PWA", b: "YENİ" },
+      { i: "🦠", n: "Enfeksiyon Kontrol", k: "CUSUM · AMS", b: "YENİ" }, { i: "⚡", n: "k6 Yük Testi", k: "P95 <400ms", b: "YENİ" }, { i: "🛡️", n: "OWASP Güvenlik", k: "SAST · DAST", b: "YENİ" }, { i: "🌐", n: "i18n & Offline Mod", k: "11 Dil · RTL · PWA", b: "YENİ" },
       { i: "✈️", n: "Medikal Turizm", k: "$2.1B Pazar", b: "YENİ" }, { i: "💊", n: "İlaç Maliyet Optimizasyon AI", k: "₺284K+/ay", b: "YENİ" }, { i: "🚑", n: "Ambulans & 112 Ent.", k: "%0 Rakipte", b: "YENİ" }, { i: "⭐", n: "JCI/ISO Kalite", k: "%84 JCI", b: "YENİ" },
       { i: "🧩", n: "Psikiyatri & Ruh Sağlığı", k: "DSM-5 Uyumlu", b: "YAKINDA" }, { i: "🫀", n: "Kardiyoloji & EKG", k: "ACC/AHA · EKG", b: "YAKINDA" }, { i: "💬", n: "Konsültasyon Yönetimi", k: "SLA 2 Saat", b: "YAKINDA" }, { i: "📊", n: "İleri Analitik & BI", k: "DRG · OLAP", b: "YAKINDA" },
-      { i: "📡", n: "IoT Medikal Cihaz", k: "FHIR R4 · IoT", b: "YAKINDA" }, { i: "🧠", n: "AI Klinik Karar Destek", k: "Diferansiyel Tanı", b: "YAKINDA" }, { i: "🔎", n: "Denetim İzi & KVKK", k: "SHA-256 · ISO 27001", b: "YAKINDA" }, { i: "📱", n: "Mobil App (iOS/Android)", k: "Offline First", b: "YAKINDA" },
+      { i: "📡", n: "IoT Medikal Cihaz", k: "FHIR R5 · IoT", b: "YAKINDA" }, { i: "🧠", n: "AI Klinik Karar Destek", k: "Diferansiyel Tanı", b: "YAKINDA" }, { i: "🔎", n: "Denetim İzi & KVKK", k: "SHA-256 · ISO 27001", b: "YAKINDA" }, { i: "📱", n: "Mobil App (iOS/Android)", k: "Offline First", b: "YAKINDA" },
       { i: "💻", n: "Hasta Portalı & Telemedicine", k: "WebRTC", b: "YAKINDA" }, { i: "🧬", n: "Digital Twin", k: "Hasta Simülasyonu", b: "YENİ" }, { i: "🎯", n: "Command Center", k: "24s Tahmin AI", b: "YENİ" }, { i: "⛓️", n: "Blockchain Audit", k: "SHA-256+Ethereum", b: "YENİ" },
-      { i: "🎤", n: "No-Click Hospital", k: "Sesli Komut · NLP", b: "YENİ" }, { i: "🏪", n: "Trevonti Marketplace", k: "App Store · %70", b: "YENİ" }, { i: "🤖", n: "Otonom Agent Platformu", k: "50 AI Agent", b: "YENİ" }, { i: "⚡", n: "WebSocket Gerçek Zamanlı", k: "8 Kanal", b: "YENİ" }
+      { i: "🎤", n: "No-Click Hospital", k: "Sesli Komut · NLP", b: "YENİ" }, { i: "🏪", n: "Trevonti Marketplace", k: "App Store · %70", b: "YENİ" }, { i: "🤖", n: "Otonom Agent Platformu", k: "50 AI Agent", b: "YENİ" }, { i: "⚡", n: "WebSocket Gerçek Zamanlı", k: "8 Kanal WebSocket", b: "YENİ" }
     ];
 
     function buildMods() { const c = document.getElementById('mod-container'); if (!c) return; c.innerHTML = ''; mods.forEach(m => { const d = document.createElement('div'); d.className = 'mod-item'; if (m.b === 'YENİ') d.classList.add('new-highlight'); if (m.b === 'YAKINDA') d.classList.add('planned-highlight'); const badge = m.b ? `<span class="${m.b === 'YENİ' ? 'new-badge' : 'planned-badge'}">${m.b}</span>` : ''; d.innerHTML = `<span class="mod-icon">${m.i}</span><span class="mod-name">${m.n}</span>${badge}<span class="mod-kpi">${m.k}</span>`; c.appendChild(d); }); }
-    function buildIntegrations() { const c = document.getElementById('integ-container'); if (!c) return; c.innerHTML = ''; const ints = [{ n: "SGK Medula", d: "Provizyon, SUT faturalama" }, { n: "Sağlık-Net", d: "10 mesaj tipi" }, { n: "e-Nabız FHIR R4", d: "Hasta geçmiş verileri" }, { n: "MHRS", d: "Çift yönlü randevu (%97.2)" }, { n: "ÇKYS + e-İmza (5070)", d: "Personel + XAdES imza" }, { n: "TTB + Özel Sigorta", d: "Diploma doğrulama + 7 şirket" }, { n: "MERNİS + TCMB", d: "Kimlik + anlık döviz kuru" }, { n: "TİTCK + 112 KKM", d: "İlaç takip + acil" }, { n: "HL7 v2 / MLLP", d: "OML^O21, ORU^R01" }, { n: "ASTM E1394", d: "Cihaz bağlantısı" }, { n: "OMOP CDM v5.4", d: "Araştırma, BI analitik" }, { n: "Apple Health / Garmin", d: "Giyilebilir cihaz, CGM" }, { n: "SMART on FHIR", d: "FHIR R5 ile birlikte" }, { n: "e-Reçete / MEDİCUS", d: "Kırmızı, yeşil, mor reçete" }, { n: "GİB e-Fatura", d: "UBL 2.1, XAdES" }, { n: "e-Devlet OIDC", d: "TC kimlik, MERNIS" }]; ints.forEach(x => { const d = document.createElement('div'); d.className = 'integ-card'; d.innerHTML = `<div class="ic-icon">🔗</div><div class="ic-name">${x.n}</div><div class="ic-desc">${x.d}</div><span class="ic-badge">✓ Dahili</span>`; c.appendChild(d); }); }
+    function buildIntegrations() { const c = document.getElementById('integ-container'); if (!c) return; c.innerHTML = ''; const ints = [{ n: "SGK Medula", d: "Provizyon, SUT faturalama" }, { n: "Sağlık-Net", d: "10 mesaj tipi" }, { n: "e-Nabız FHIR R4", d: "Hasta geçmiş verileri" }, { n: "MHRS", d: "Çift yönlü randevu (%97.2)" }, { n: "ÇKYS + e-İmza (5070)", d: "Personel + XAdES imza" }, { n: "TTB + Özel Sigorta", d: "Diploma doğrulama + 7 şirket" }, { n: "MERNİS + TCMB", d: "Kimlik + anlık döviz kuru" }, { n: "TİTCK + 112 KKM", d: "İlaç takip + acil" }, { n: "DICOMweb", d: "Radyoloji görüntü standardı" }, { n: "HL7 v2 / MLLP", d: "OML^O21, ORU^R01" }, { n: "ASTM E1394", d: "Cihaz bağlantısı" }, { n: "OMOP CDM v5.4", d: "Araştırma, BI analitik" }, { n: "Apple Health / Garmin", d: "Giyilebilir cihaz, CGM" }, { n: "SMART on FHIR", d: "FHIR R5 ile birlikte" }, { n: "e-Reçete / MEDİCUS", d: "Kırmızı, yeşil, mor reçete" }, { n: "GİB e-Fatura", d: "UBL 2.1, XAdES" }, { n: "e-Devlet OIDC", d: "TC kimlik, MERNIS" }]; ints.forEach(x => { const d = document.createElement('div'); d.className = 'integ-card'; d.innerHTML = `<div class="ic-icon">🔗</div><div class="ic-name">${x.n}</div><div class="ic-desc">${x.d}</div><span class="ic-badge">✓ Dahili</span>`; c.appendChild(d); }); }
     function buildAI() { const c = document.getElementById('ai-container'); if (!c) return; c.innerHTML = ''; const cards = [{ cls: 'ai-teal', bg: '#f0fdf4', ico: '🚨', tk: 'Sepsis Erken Uyarı', ak: 'qSOFA + NEWS2 Hibrid', m: [{ v: '0.979', l: 'AUC-ROC' }, { v: '%98.9', l: 'Özgüllük' }, { c: 'GA %95 0.973–0.985' }], dk: 'Vital bulgular kaydedildiğinde otomatik çalışır.' }, { cls: 'ai-blue', bg: '#eff6ff', ico: '🏠', tk: '30 Gün Yeniden Yatış', ak: 'LACE+ + SHAP', m: [{ v: '0.970', l: 'AUC-ROC', co: '#3b82f6' }, { v: '%93.6', l: 'Duyarlılık', co: '#3b82f6' }, { c: 'GA %95 0.961–0.978' }], dk: 'Taburculukta otomatik hesaplanır.' }, { cls: 'ai-purple', bg: '#f5f3ff', ico: '💊', tk: 'İlaç Etkileşimi CDS', ak: 'Kural Motoru + Veritabanı', m: [{ v: '%100', l: 'Yakalama', co: '#8b5cf6' }, { v: '%100', l: 'Doğruluk', co: '#8b5cf6' }, { c: '1.000 order test' }], dk: 'Her ilaç orderında <50ms yanıt.' }, { cls: 'ai-amber', bg: '#fffbeb', ico: '🇹🇷', tk: 'Türkçe Klinik NLP', ak: 'Regex + HuggingFace + LangChain', m: [{ v: '%100', l: 'Doğruluk', co: '#f59e0b' }, { v: '%100', l: 'İlaç/Tanı', co: '#f59e0b' }, { c: '250 SOAP notu' }], dk: 'SOAP notlarından otomatik çıkarım.' }, { cls: 'ai-teal', bg: '#fef3c7', ico: '🏦', tk: 'SGK Reddi Yönetimi AI', ak: 'Kural Motoru + ML', m: [{ v: '%91', l: 'Başarı' }], dk: 'Red analizi, AI itiraz taslağı (%91 başarı).' }, { cls: 'ai-amber', bg: '#f3e8ff', ico: '🎙️', tk: 'Ambient AI — Sesli Dikte', ak: 'Whisper v3 + GPT-4o', m: [{ v: '4', l: 'Senaryo' }], dk: 'Hekim konuşur, sistem SOAP notu yazar.' }]; cards.forEach(ca => { let mh = ''; ca.m.forEach(mm => { if (mm.c) mh += `<div><div class="am-ci">${mm.c}</div></div>`; else mh += `<div><div class="am-val" style="color:${mm.co || 'var(--teal)'}">${mm.v}</div><div class="am-label">${mm.l}</div></div>`; }); const div = document.createElement('div'); div.className = `ai-card ${ca.cls}`; div.innerHTML = `<div class="ai-header"><div class="ai-icon" style="background:${ca.bg}">${ca.ico}</div><div><div class="ai-title">${ca.tk}</div><div class="ai-algo">${ca.ak}</div></div></div><div class="ai-metric">${mh}</div><div class="ai-desc">${ca.dk}</div>`; c.appendChild(div); }); }
-    function buildRoadmap() { const c = document.getElementById('roadmap-container'); if (!c) return; c.innerHTML = ''; const rm = [{ q: '2025 Q4 – 2026 Q1', t: 'Geliştirme Tamamlandı', d: '62+ modül, 28 sprint, 49 canlı demo.', done: true }, { q: '2026 Q2', t: 'Platform v2.0', d: 'HIS+LIS+RIS/PACS+Portal+Agent tamamlandı.', done: true }, { q: '2026 Q3', t: 'Pilot & Yatırım', d: 'Staging, ilk pilot hastane.', done: false }, { q: '2026 Q4', t: 'Staging & Testler', d: 'Pilot entegrasyon testleri.', done: false }, { q: '2027 Q1', t: 'Şirket & SİSE', d: 'Şirket kuruluşu, SİSE başvurusu.', done: false }, { q: '2027 Q2', t: 'SİSE & Büyüme', d: 'SİSE onayı, ilk 3 sözleşme.', done: false }]; rm.forEach(r => { const d = document.createElement('div'); d.className = 'rm-item'; d.innerHTML = `<div class="rm-dot ${r.done ? 'rm-done' : 'rm-active'}">${r.done ? '✓' : '→'}</div><div class="rm-quarter">${r.q}</div><div class="rm-title">${r.t}</div><div class="rm-desc">${r.d}</div>`; c.appendChild(d); }); }
-    function buildStack() { const c = document.getElementById('stack-container'); if (!c) return; const items = [{ i: '⚛️', n: 'React 18+Next.js 14', t: 'Frontend' }, { i: '📱', n: 'React Native 0.74', t: 'iOS + Android' }, { i: '🟢', n: 'NestJS 10', t: 'Backend API' }, { i: '🐘', n: 'PostgreSQL 16', t: 'Veritabanı' }, { i: '⚡', n: 'Redis 7', t: 'Cache' }, { i: '📨', n: 'Kafka 3.7', t: 'Mesajlaşma' }, { i: '🐍', n: 'Python FastAPI', t: 'AI Engine' }, { i: '🔑', n: 'Keycloak 24', t: 'Auth / MFA' }, { i: '🐳', n: 'Kubernetes 1.29', t: 'Orchestration' }, { i: '🔒', n: 'Cilium+OWASP', t: 'Zero-Trust' }, { i: '📊', n: 'ClickHouse+Elasticsearch', t: 'Analitik' }, { i: '🏗️', n: 'Nx 18 Monorepo', t: 'Build' }, { i: '🗄️', n: 'MinIO S3+Orthanc', t: 'Depolama & PACS' }, { i: '🔍', n: 'Elasticsearch v8', t: 'Arama & NLP' }, { i: '🧠', n: 'GPT-4o + Whisper v3', t: 'LLM / AI' }, { i: '📋', n: 'k6+Grafana', t: 'Performans Testi' }, { i: '⛓️', n: 'Ethereum/Polygon', t: 'Blockchain' }, { i: '🔌', n: 'Socket.io', t: 'Gerçek Zamanlı' }, { i: '🐋', n: 'Docker Compose', t: 'DevOps' }, { i: '📡', n: 'HAPI FHIR R5', t: 'FHIR Server' }]; items.forEach(x => { const d = document.createElement('div'); d.className = 'stack-item'; d.innerHTML = `<div class="si-icon">${x.i}</div><div class="si-name">${x.n}</div><div class="si-type">${x.t}</div>`; c.appendChild(d); }); }
-    function buildArch() { const c = document.getElementById('arch-container'); if (!c) return; const layers = [{ n: 'Sunum Katmanı', t: 'React 18 · Next.js 14 · React Native 0.74 · TypeScript 5 · OHIF Viewer' }, { n: 'API Katmanı', t: 'NestJS 10 · REST · Socket.io · GraphQL · Keycloak 24 · Swagger' }, { n: 'Veri Katmanı', t: 'PostgreSQL 16 · Redis 7 · MinIO S3 · Elasticsearch · pgvector' }, { n: 'AI/ML Katmanı', t: 'Python FastAPI · GPT-4o · Whisper v3 · HuggingFace · LangChain' }, { n: 'Entegrasyon Katmanı', t: 'Kafka 3.7 · HAPI FHIR R5 · Ethereum · MHRS · Medula · Orthanc PACS' }]; layers.forEach(l => { const d = document.createElement('div'); d.className = 'arch-layer'; d.innerHTML = `<div class="arch-layer-icon">🔹</div><div class="arch-layer-name">${l.n}</div><div class="arch-layer-tech">${l.t}</div>`; c.appendChild(d); }); }
+    function buildRoadmap() { const c = document.getElementById('roadmap-container'); if (!c) return; c.innerHTML = ''; const rm = [{ q: '2025 Q4 – 2026 Q1', t: 'Geliştirme Tamamlandı', d: '62+ modül, 28 sprint, 49 canlı demo.', done: true }, { q: '2026 Q2', t: 'Platform v2.0', d: 'HIS+LIS+RIS+PACS+Portal tamamlandı.', done: true }, { q: '2026 Q3', t: 'Pilot & Yatırım', d: 'Staging, ilk pilot hastane.', done: false }, { q: '2026 Q4', t: 'Staging & Testler', d: 'Pilot entegrasyon testleri.', done: false }, { q: '2027 Q1', t: 'Şirket & SİSE', d: 'Şirket kuruluşu, SİSE başvurusu.', done: false }, { q: '2027 Q2', t: 'SİSE & Büyüme', d: 'SİSE onayı, ilk 3 sözleşme.', done: false }]; rm.forEach(r => { const d = document.createElement('div'); d.className = 'rm-item'; d.innerHTML = `<div class="rm-dot ${r.done ? 'rm-done' : 'rm-active'}">${r.done ? '✓' : '→'}</div><div class="rm-quarter">${r.q}</div><div class="rm-title">${r.t}</div><div class="rm-desc">${r.d}</div>`; c.appendChild(d); }); }
+    function buildStack() { const c = document.getElementById('stack-container'); if (!c) return; const items = [{ i: '⚛️', n: 'React 18+Next.js 14', t: 'Frontend' }, { i: '📱', n: 'React Native 0.74', t: 'iOS + Android' }, { i: '🟢', n: 'NestJS 10', t: 'Backend API' }, { i: '🐘', n: 'PostgreSQL 16', t: 'Veritabanı' }, { i: '⚡', n: 'Redis 7', t: 'Cache' }, { i: '📨', n: 'Kafka 3.7', t: 'Mesajlaşma' }, { i: '🐍', n: 'Python FastAPI', t: 'AI Engine' }, { i: '🔑', n: 'Keycloak 24', t: 'Auth / MFA' }, { i: '🐳', n: 'Kubernetes 1.29', t: 'Orchestration' }, { i: '⛵', n: 'Helm + ArgoCD', t: 'GitOps / CD' }, { i: '🔒', n: 'Cilium + OPA', t: 'Zero-Trust / mTLS' }, { i: '📊', n: 'ClickHouse+Elasticsearch', t: 'Analitik' }, { i: '🏗️', n: 'Nx 18 Monorepo', t: 'Build' }, { i: '🗄️', n: 'MinIO S3+Orthanc', t: 'Depolama & PACS' }, { i: '🔍', n: 'Elasticsearch v8', t: 'Arama & NLP' }, { i: '🧠', n: 'GPT-4o + Whisper v3', t: 'LLM / AI' }, { i: '📋', n: 'k6+Grafana', t: 'Performans Testi' }, { i: '⛓️', n: 'Ethereum/Polygon', t: 'Blockchain' }, { i: '🔌', n: 'Socket.io', t: 'Gerçek Zamanlı' }, { i: '🐋', n: 'Docker Compose', t: 'DevOps' }, { i: '📡', n: 'HAPI FHIR R5', t: 'FHIR Server' }, { i: '🔄', n: 'Near-Zero Downtime', t: 'Dağıtım Stratejisi' }, { i: '🛡️', n: 'Mythos AI', t: 'SOC/NOC Güvenlik' }]; items.forEach(x => { const d = document.createElement('div'); d.className = 'stack-item'; d.innerHTML = `<div class="si-icon">${x.i}</div><div class="si-name">${x.n}</div><div class="si-type">${x.t}</div>`; c.appendChild(d); }); }
+    function buildArch() { const c = document.getElementById('arch-container'); if (!c) return; const layers = [{ n: 'Sunum Katmanı', t: 'React 18 · Next.js 14 · React Native 0.74 · TypeScript 5 · OHIF Viewer · WCAG 2.1 AA' }, { n: 'API Katmanı', t: 'NestJS 10 · REST · Socket.io · GraphQL · Keycloak 24 · Swagger · API Gateway' }, { n: 'Veri Katmanı', t: 'PostgreSQL 16 · Redis 7 · MinIO S3 · Elasticsearch · pgvector' }, { n: 'AI/ML Katmanı', t: 'Python FastAPI · GPT-4o · Whisper v3 · HuggingFace · LangChain · Mythos AI SOC/NOC' }, { n: 'Entegrasyon Katmanı', t: 'Kafka 3.7 · HAPI FHIR R5 · Ethereum · MHRS · Medula · Orthanc PACS · DICOMweb' }]; layers.forEach(l => { const d = document.createElement('div'); d.className = 'arch-layer'; d.innerHTML = `<div class="arch-layer-icon">🔹</div><div class="arch-layer-name">${l.n}</div><div class="arch-layer-tech">${l.t}</div>`; c.appendChild(d); }); }
 
     function switchLanguage(lang) {
       const t = translations[lang] || translations.en;
